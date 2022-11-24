@@ -1,0 +1,16 @@
+{
+  "name": "@soroban-react/core",
+  "keywords": [
+    "soroban-react"
+  ],
+  "license": "Apache-2.0",
+  "repository": "github:esteblock/soroban-react",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "18.1.0",
+    "soroban-client": "^0.1.1"
+  }
+}

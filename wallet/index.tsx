@@ -1,5 +1,5 @@
 export * from "./WalletChainContext";
 export * from "./hooks";
 export * from "./soroban-react";
-export * from "./provideWalletChains";
-export * from "./getDefaultConnectors";
+export * from "../packages/core/src/provideWalletChains";
+export * from "../packages/core/src/getDefaultConnectors";

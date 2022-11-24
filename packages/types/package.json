@@ -1,0 +1,17 @@
+{
+  "name": "@soroban-react/types",
+  "keywords": [
+    "soroban-react",
+    "freighter"
+  ],
+  "author": "Esteban Iglesias <esteban@estebanweb.cl>",
+  "license": "Apache-2.0",
+  "repository": "github:esteblock/soroban-react",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "@stellar/freighter-api": "^1.3.1"
+  }
+}

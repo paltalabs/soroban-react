@@ -1,5 +1,5 @@
-import { WalletChain } from './WalletChainContext';
-import { ConnectorList } from './types';
+import { WalletChain } from '../../../wallet/WalletChainContext';
+import { ConnectorList } from '../../types/src';
 import { freighter } from './connectors';
 
 export const getDefaultConnectors = (
