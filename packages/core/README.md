@@ -1,1 +1,2 @@
-# @web3-react/core
+# @soroban-react/core
+Library created based on https://github.com/stellar/soroban-example-dapp/tree/main/wallet written by https://github.com/paulbellamy

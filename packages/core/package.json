@@ -1,16 +1,28 @@
 {
   "name": "@soroban-react/core",
   "keywords": [
-    "soroban-react"
+    "soroban-react",
+    "freighter"
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
     "react": "18.1.0",
-    "soroban-client": "^0.1.1"
+    "soroban-client": "^0.1.1",
+    "@soroban-react/freighter": "^1.0.0",
+    "@soroban-react/types": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25"
   }
 }

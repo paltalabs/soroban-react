@@ -1,17 +1,9 @@
 import * as SorobanClient from "soroban-client";
-import { isNotNullish } from '../../../wallet/utils/isNotNullish';
-import type { WalletChain } from '../../../wallet/WalletChainContext';
+import { isNotNullish } from './isNotNullish';
+import type { WalletChain, ChainMetadata, ChainName} from '@soroban-react/types';
 
 // Sourced from https://github.com/tmm/wagmi/blob/main/packages/core/src/constants/chains.ts
 // This is just so we can clearly see which of wagmi's first-class chains we provide metadata for
-export type ChainName =
-  | 'futurenet'
-  | 'public'
-  | 'testnet'
-  | 'sandbox'
-  | 'standalone';
-
-export type ChainMetadata = WalletChain;
 
 const chainMetadataByName: Record<ChainName, ChainMetadata> = {
   public: {

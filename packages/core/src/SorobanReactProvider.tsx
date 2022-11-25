@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import * as SorobanClient from 'soroban-client';
+import { ConnectorList, WalletChain } from "@soroban-react/types";
+
 import { SorobanContext, SorobanContextType, defaultSorobanContext } from '.';
-import { ConnectorList } from "../types";
-import { WalletChain, } from '../WalletChainContext';
  
 /**
  * @param children - A React subtree that needs access to the context.

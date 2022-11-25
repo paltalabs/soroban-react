@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "rootDir": "./src/",
+    "outDir": "./dist",
+    "strict": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/__tests__/*"]
+}
