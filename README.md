@@ -10,12 +10,11 @@ Library created based on https://github.com/stellar/soroban-example-dapp/tree/ma
 
 ## Packages
 
-| Package                                                   | Version                                                                                                                                       |
-|-----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-|
-[`@soroban-react/core`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/core/latest.svg)](https://www.npmjs.com/package/@soroban-react/core/v/latest)
-[`@soroban-react/types`](packages/types)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/types/latest.svg)](https://www.npmjs.com/package/@soroban-react/types/v/latest)
-[`@soroban-react/freighter`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/freighter/latest.svg)](https://www.npmjs.com/package/@soroban-react/freighter/v/latest)
+|Package|Version|
+|--|--|
+|[`@soroban-react/core`](packages/core)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/core/latest.svg)](https://www.npmjs.com/package/@soroban-react/core/v/latest)|
+|[`@soroban-react/types`](packages/types)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/types/latest.svg)](https://www.npmjs.com/package/@soroban-react/types/v/latest)|
+|[`@soroban-react/freighter`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/freighter/latest.svg)](https://www.npmjs.com/package/@soroban-react/freighter/v/latest)|
 
 
 
