@@ -11,7 +11,7 @@ export const useWalletChainsById = () => {
   return React.useMemo(() => {
     const walletChainsById: Record<string, WalletChain> = {};
 
-    walletChains.forEach(rkChain => {
+    walletChains.forEach((rkChain: any)=> {
       walletChainsById[rkChain.id] = rkChain;
     });
 

@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import * as SorobanClient from 'soroban-client';
 import { ConnectorList, WalletChain } from "@soroban-react/types";
 
-import { SorobanContext, SorobanContextType, defaultSorobanContext } from '.';
+import { SorobanContext, SorobanContextType, defaultSorobanContext } from './';
  
 /**
  * @param children - A React subtree that needs access to the context.
@@ -17,7 +17,7 @@ export interface SorobanReactProviderProps {
 }
 
 function networkToActiveChain(networkDetails: any, chains:any){
-  const supported = networkDetails && chains.find(c => c.networkPassphrase === networkDetails?.networkPassphrase)
+  const supported = networkDetails && chains.find((c: any) => c.networkPassphrase === networkDetails?.networkPassphrase)
   const activeChain = networkDetails && {
       id: supported?.id ?? networkDetails.networkPassphrase,
       name: supported?.name ?? networkDetails.network,
@@ -63,7 +63,7 @@ export function SorobanReactProvider({
       // Now we can track that the wallet is finally connected
       isConnectedRef.current = true;
       
-      setSorobanContext(c => ({
+      setSorobanContext((c:any ) => ({
         ...c,
         activeChain,
         address,
@@ -83,7 +83,7 @@ export function SorobanReactProvider({
 
     async function checkForWalletChanges () {
       // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
-      if (!mySorobanContext.activeWallet || !mySorobanContext.activeWallet.isConnected() || !isConnectedRef.current) return;
+      if (!mySorobanContext.activeWallet || !mySorobanContext.activeWallet.isConnected() || !isConnectedRef.current || !mySorobanContext.activeChain) return;
       let hasNoticedWalletUpdate = false;
 
       try {

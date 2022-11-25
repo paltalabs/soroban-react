@@ -17,10 +17,10 @@
     "/dist"
   ],
   "dependencies": {
-    "react": "18.1.0",
-    "soroban-client": "^0.1.1",
     "@soroban-react/freighter": "^1.0.0",
-    "@soroban-react/types": "1.0.0"
+    "@soroban-react/types": "1.0.0",
+    "react": "18.1.0",
+    "soroban-client": "^0.1.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.25"

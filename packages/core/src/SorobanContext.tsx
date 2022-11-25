@@ -8,6 +8,7 @@ export const defaultSorobanContext: SorobanContextType = {
   connectors: [],
   server: new SorobanClient.Server("https://soroban-rpc.stellar.org"),
   async connect() {},
+  async disconnect() {},
 };
 
 export interface SorobanContextType {
