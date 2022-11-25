@@ -1,14 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
+  "include": ["./src"],
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "rootDir": "./src/",
-    "outDir": "./dist",
-    "strict": true,
     "jsx": "react",
-    "noImplicitAny": true,
-    "esModuleInterop": true
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+    "outDir": "./dist"
+  }
 }
