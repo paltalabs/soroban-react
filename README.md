@@ -16,6 +16,13 @@ Library created based on https://github.com/stellar/soroban-example-dapp/tree/ma
 |[`@soroban-react/types`](packages/types)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/types/latest.svg)](https://www.npmjs.com/package/@soroban-react/types/v/latest)|
 |[`@soroban-react/freighter`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/freighter/latest.svg)](https://www.npmjs.com/package/@soroban-react/freighter/v/latest)|
 
+## Usage
+
+```
+yarn add @soroban-react/core
+yarn add @soroban-react/types
+yarn add @soroban-react/freighter
+```
 
 
 ## Introduction
