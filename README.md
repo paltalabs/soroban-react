@@ -32,6 +32,106 @@ Library created based on https://github.com/stellar/soroban-example-dapp/tree/ma
 
 To jump straight into code, check out the CodeSandbox demo! (ToDo)
 
+# Usage
+### 1. Install the packages
+```
+yarn add @soroban-react/core
+yarn add @soroban-react/types
+yarn add soroban-client
+```
+### 2. Set your allowed chains for your Dapp
+```
+import * as SorobanClient from "soroban-client";
+import type {ChainMetadata, ChainName} from '@soroban-react/types';
+
+export const allowedChains: Record<ChainName, ChainMetadata> = {
+  public: {
+    id: "public",
+    name: "Public",
+    networkPassphrase: SorobanClient.Networks.PUBLIC,
+  },
+  testnet: {
+    id: "testnet",
+    name: "Testnet",
+    networkPassphrase: SorobanClient.Networks.TESTNET,
+  },
+  futurenet: {
+    id: "futurenet",
+    name: "Futurenet",
+    networkPassphrase: SorobanClient.Networks.FUTURENET,
+  },
+  sandbox: {
+    id: "sandbox",
+    name: "Sandbox",
+    networkPassphrase: SorobanClient.Networks.SANDBOX,
+  },
+  standalone: {
+    id: "standalone",
+    name: "Standalone",
+    networkPassphrase: "Standalone Network ; February 2017",
+  },
+};
+```
+
+### 3. Set your allowed connectors (wallets) for your Dapp
+```
+import {ConnectorList } from '@soroban-react/types';
+import { freighter } from '@soroban-react/freighter';
+import { allowedChains as chains } from './allowedChains';
+
+const appName = "My dApp"
+export const allowedConnectors: ConnectorList = [
+    {
+      groupName: 'My Group Name',
+      connectors: [freighter({ appName, chains })],
+    },
+  ];
+```
+### 4. Create a @soroban-react provider component
+```
+import React from 'react'
+import {SorobanReactProvider} from '@soroban-react/core';
+import { allowedChains} from '../soroban/allowedChains';
+import { allowedConnectors } from '../soroban/allowedConnectors';
+ 
+  export default function MySorobanReactProvider({children}:{children: React.ReactNode}) {
+    return (
+      <SorobanReactProvider
+        chains={allowedChains}
+        connectors={allowedConnectors}>
+          {children}
+      </SorobanReactProvider>
+    )
+  } 
+```
+
+### 5. Place your @soroban-react provider at the root of your dApp
+
+```
+import MySorobanReactProvider from './components/MySorobanReactProvider';
+
+```
+Be sure to place the rest of your dapp as children
+
+```
+<MySorobanReactProvider>
+      <App/>
+    </MySorobanReactProvider>
+```
+
+### 6. Use useSorobanReact() at any point inside your dapp
+```
+import { useSorobanReact } from "@soroban-react/core";
+
+```
+
+```
+const { address
+        activeChain,
+        server,
+        } = useSorobanReact()
+```
+
 
 ## Implementations
 
