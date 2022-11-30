@@ -1,10 +1,10 @@
 import React from 'react'
-import { useSorobanReact } from '@soroban-react/core'
-//import styles from './style.module.css'
+import {SorobanContextType} from '@soroban-react/core'
 
 export interface ConnectButtonProps {
-  label: string
-  isHigher?: boolean
+  label: string;
+  isHigher?: boolean;
+  sorobanContext: SorobanContextType;
 }
 
 const buttonStyle: any = {
@@ -26,8 +26,8 @@ const buttonStyle: any = {
 }
 
 
-export function ConnectButton({ label, isHigher }: ConnectButtonProps) {
-  const { connect } = useSorobanReact()
+export function ConnectButton({ label, isHigher, sorobanContext }: ConnectButtonProps) {
+  const {connect} = sorobanContext
   const openConnectModal = async () => {
     await connect()
   }
