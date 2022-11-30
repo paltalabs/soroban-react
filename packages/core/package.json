@@ -37,6 +37,6 @@
     "@types/react": "^18.0.25"
   },
   "peerDependencies": {
-    "react": "18.1.0"
+    "react": ">=16.8"
   }
 }
