@@ -4,6 +4,6 @@
               "./src/global.d.ts"],
   "compilerOptions": {
     "jsx": "react",
-    "outDir": "./dist"
+    "outDir": "./dist",
     }
 }
