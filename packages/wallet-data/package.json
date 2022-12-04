@@ -1,12 +1,12 @@
 {
-  "name": "@soroban-react/connect-button",
+  "name": "@soroban-react/wallet-data",
   "keywords": [
     "soroban-react",
     "freighter"
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "1.0.7",
+  "version": "1.0.3",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
@@ -19,10 +19,13 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/core": "1.0.2"
+    "@soroban-react/connect-button": "^1.0.6",
+    "@soroban-react/core": "^1.0.3",
+    "@soroban-react/types": "^1.0.0",
+    "next": "^13.0.5"
   },
   "peerDependencies": {
-    "react": "^18.0.0"
+    "react": ">=16.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.25"

@@ -15,14 +15,10 @@ Library created based on https://github.com/stellar/soroban-example-dapp/tree/ma
 |[`@soroban-react/core`](packages/core)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/core/latest.svg)](https://www.npmjs.com/package/@soroban-react/core/v/latest)|
 |[`@soroban-react/types`](packages/types)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/types/latest.svg)](https://www.npmjs.com/package/@soroban-react/types/v/latest)|
 |[`@soroban-react/freighter`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/freighter/latest.svg)](https://www.npmjs.com/package/@soroban-react/freighter/v/latest)|
+|[`@soroban-react/connect-button`](packages/connect-button)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/connect-button/latest.svg)](https://www.npmjs.com/package/@soroban-react/connect-button/v/latest)|
+|[`@soroban-react/wallet-data`](packages/wallet-data)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/wallet-data/latest.svg)](https://www.npmjs.com/package/@soroban-react/wallet-data/v/latest)|
 
-## Usage
 
-```
-yarn add @soroban-react/core
-yarn add @soroban-react/types
-yarn add @soroban-react/freighter
-```
 
 
 ## Introduction
@@ -39,11 +35,15 @@ yarn add @soroban-react/freighter
 
 To jump straight into code, check out the CodeSandbox demo! (ToDo)
 
-# Usage
+# Usage of 
 ### 1. Install the packages
+Install those packages you'll use
 ```
 yarn add @soroban-react/core
 yarn add @soroban-react/types
+yarn add @soroban-react/freighter
+yarn add @soroban-react/connect-button
+yarn add @soroban-react/wallet-data
 yarn add soroban-client
 ```
 ### 2. Set your allowed chains for your Dapp
@@ -139,11 +139,36 @@ const { address
         } = useSorobanReact()
 ```
 
+## Use @soroban-react/connect-button
+Place at any part of your dApp the ConnectButton component, that will trigger the connect() method of your Connector. It does need the sorobanContext.
+```
+import { useSorobanReact } from "@soroban-react/core";
+import { ConnectButton } from "@soroban-react/connect-button";
+
+<ConnectButton
+  label={Connect your Wallet}
+  sorobanContext={useSorobanReact()}>
+
+```
+
+## Use @soroban-react/wallet-data
+Place at any part of your dApp the WalletData component. If the Connector is not connected, will show the ConnectButton. If the Connector is connected, will show address and network.
+
+```
+import { useSorobanReact } from "@soroban-react/core";
+import { WalletData } from "@soroban-react/wallet-data";
+
+<WalletData
+  sorobanContext={useSorobanReact()}>
+```
+
+
 
 ## Implementations
 
 Projects using `@soroban-react` include:
 
-- [Soroban Example Dapp fork](https://github.com/esteblock/soroban-example-dapp/tree/%40soroban-react)
+- [Official @soroban-react Example ReactJS App](- [Soroban Example Dapp fork](https://github.com/esteblock/soroban-example-dapp/tree/%40soroban-react))
+- [Stellar's Soroban Example Dapp](https://github.com/stellar/soroban-example-dapp)
 
 Open a PR to add your project to the list! If you're interested in contributing
