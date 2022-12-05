@@ -2,7 +2,6 @@ import React from 'react'
 import {useNetwork} from './useNetwork'
 import { ConnectButton } from '@soroban-react/connect-button'
 import {SorobanContextType} from '@soroban-react/core'
-import Image from 'next/image'
 
 
 export interface WalletDataProps {
@@ -44,17 +43,7 @@ export function WalletData({sorobanContext}: WalletDataProps) {
         <div className={styleDisplayData}>
           {chain && (chains.length > 1 || unsupportedChain) && (
             <div >
-              {chain.iconUrl && (
-                <Image
-                  alt={chain.name ?? 'Chain icon'}
-                  style={{
-                    background: chain.iconBackground,
-                  }}
-                  height="24"
-                  src={chain.iconUrl}
-                  width="24"
-                />
-              )}
+              {chain.iconUrl}
               {chain.name ?? chain.id}
             </div>
           )}
