@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@soroban-react/connect-button": "^1.0.8",
-    "@soroban-react/core": "^1.0.3",
+    "@soroban-react/core": "^1.0.4",
     "@soroban-react/types": "^1.0.0"
   },
   "peerDependencies": {
