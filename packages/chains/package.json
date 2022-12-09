@@ -1,0 +1,25 @@
+{
+  "name": "@soroban-react/chains",
+  "keywords": [
+    "soroban-react",
+    "chains"
+  ],
+  "license": "Apache-2.0",
+  "repository": "github:esteblock/soroban-react",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "start": "tsc --watch"
+  },
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@soroban-react/types": "1.0.0",
+    "soroban-client": "^0.2.0"
+  }
+}
