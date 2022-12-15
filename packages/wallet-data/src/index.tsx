@@ -39,7 +39,7 @@ export function WalletData({sorobanContext}: WalletDataProps) {
  
   return (
     <>
-      {sorobanContext.isConnected && account ? (
+      { account ? (
         <div className={styleDisplayData}>
           {chain && (chains.length > 1 || unsupportedChain) && (
             <div >

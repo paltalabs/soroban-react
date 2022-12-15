@@ -2,14 +2,14 @@
 # yarn lockfile v1
 
 
-"@soroban-react/core@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@soroban-react/core/-/core-1.0.3.tgz#5ec169b81c50689ed8e7b5a009f2ecc7fe63ecd0"
-  integrity sha512-nmaVt4YAknTKMyOl8nleNA1WD/eAx+8w32E6aTJfek97+q7gViN+DihMFt8R3mt2uJTcAspcuBfu4TKuVe6UKg==
+"@soroban-react/core@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@soroban-react/core/-/core-2.0.0.tgz#8bfc9d24102a8fb24d1d4e407c95c09f8860640c"
+  integrity sha512-+u6rv5YIZdYvQNfavO9BX58i2gOmF+28oIItatoxVfelcNk2vZdk2Ra65BzegFNKwQEwTky+aadzY1lGZtkojQ==
   dependencies:
     "@soroban-react/freighter" "^1.0.0"
     "@soroban-react/types" "1.0.0"
-    soroban-client "^0.1.3"
+    soroban-client "^0.1.1"
 
 "@soroban-react/freighter@^1.0.0":
   version "1.0.0"
@@ -35,9 +35,9 @@
   integrity sha512-rYzRmJSnm44Xb7FICRXEjwe/26ZiiS+VMGmuD17PevMP56cGgLEsaM955sYQW0S+K7h+mPOL70vGf1hi4WDjVA==
 
 "@types/node@*", "@types/node@>= 8":
-  version "18.11.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.11.tgz#1d455ac0211549a8409d3cdb371cd55cc971e8dc"
-  integrity sha512-KJ021B1nlQUBLopzZmPBVuGU9un7WJd/W4ya7Ih02B4Uwky5Nja0yGYav2EfYIk0RR2Q9oVhf60S2XR1BCWJ2g==
+  version "18.11.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.11.15.tgz#de0e1fbd2b22b962d45971431e2ae696643d3f5d"
+  integrity sha512-VkhBbVo2+2oozlkdHXLrb3zjsRkpdnaU2bXmX8Wgle3PUi569eLRaHGlgETQHR7lLL1w7GiG3h9SnePhxNDecw==
 
 "@types/prop-types@*":
   version "15.7.5"
@@ -175,7 +175,7 @@ sodium-native@^3.3.0:
   dependencies:
     node-gyp-build "^4.3.0"
 
-soroban-client@^0.1.3:
+soroban-client@^0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.1.3.tgz#2ef01862fe172719a537d192ee2b029a86135f88"
   integrity sha512-z++0bRIaKKQw0nvxDq1Kj9UhfyA6xhbZWkRnAe/ISVx8ddTa3tRyGsRDrSqN4ukMEIg1fST3OxHa301ulsnxCQ==
