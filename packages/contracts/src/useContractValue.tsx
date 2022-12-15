@@ -6,7 +6,7 @@ let xdr = SorobanClient.xdr;
  
 // Dummy source account for simulation.
 // TODO: Allow the user to specify this
-const source = new SorobanClient.Account('GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ', '0');
+//const source = new SorobanClient.Account('GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ', '0');
 
 
 export type ContractValueType = {
@@ -18,7 +18,7 @@ export type ContractValueType = {
 export interface useContractValueProps {
   contractId: string;
   method: string;
-  params: SorobanClient.xdr.ScVal[];
+  params?: SorobanClient.xdr.ScVal[] | undefined; 
   sorobanContext: SorobanContextType;
 }
 
@@ -31,6 +31,7 @@ export function useContractValue(
 
   const { activeChain, server } = sorobanContext
   const [value, setValue] = React.useState<ContractValueType>({ loading: true });
+  const [xdrParams, setXdrParams] = React.useState<any>(params ? params.map(p => p.toXDR().toString('base64')) : undefined)
 
   React.useEffect(() => {
     if (!activeChain) {
@@ -45,12 +46,12 @@ export function useContractValue(
     (async () => {
       setValue({ loading: true });
       try {
-        let result = await fetchContractValue(
-          server,
-          activeChain.networkPassphrase,
-          contractId,
-          method,
-          ...params
+        let result = await fetchContractValue({
+          server: server,
+          networkPassphrase: activeChain.networkPassphrase,
+          contractId: contractId,
+          method: method,
+          params: params}
         );
         setValue({ result });
       } catch (error) {
@@ -68,20 +69,33 @@ export function useContractValue(
   // Have this re-fetch if the contractId/method/params change. Total hack with
   // xdr-base64 to enforce real equality instead of object equality
   // shenanigans.
-  }, [contractId, method, ...params.map(p => p.toXDR().toString('base64')), activeChain, server]);
-  return value;
+}, [contractId, method, xdrParams, activeChain, server]);
+return value;
 };
 
-async function fetchContractValue(server: SorobanClient.Server, networkPassphrase: string, contractId: string, method: string, ...params: SorobanClient.xdr.ScVal[]): Promise<SorobanClient.xdr.ScVal> {
-  const contract = new SorobanClient.Contract(contractId);
-  // TODO: Optionally include the wallet of the submitter here, so the
+export interface fetchContractValueProps {
+  server: SorobanClient.Server;
+  networkPassphrase: string;
+  contractId: string;
+  method: string;
+  params?: SorobanClient.xdr.ScVal[] | undefined
+}
+
+async function fetchContractValue(
+  {server, networkPassphrase, contractId, method, params}: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
+    
+    const contract = new SorobanClient.Contract(contractId);
+
+    let myParams: SorobanClient.xdr.ScVal[] = params || [];
+
+    // TODO: Optionally include the wallet of the submitter here, so the
   // simulation is more accurate
-  const transaction = new SorobanClient.TransactionBuilder(source, {
+  const transaction = new SorobanClient.TransactionBuilder( {
       // fee doesn't matter, we're not submitting
       fee: "100",
       networkPassphrase,
     })
-    .addOperation(contract.call(method, ...params))
+    .addOperation(contract.call(method, ...myParams))
     .setTimeout(SorobanClient.TimeoutInfinite)
     .build();
 
