@@ -1,0 +1,31 @@
+{
+  "name": "@soroban-react/contracts",
+  "keywords": [
+    "soroban-react",
+    "contracts"
+  ],
+  "license": "Apache-2.0",
+  "repository": "github:esteblock/soroban-react",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "start": "tsc --watch"
+  },
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "dependencies": {
+    "@soroban-react/core": "^1.0.4",
+    "soroban-client": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  }
+}
