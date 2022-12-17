@@ -6,7 +6,7 @@ let xdr = SorobanClient.xdr;
  
 // Dummy source account for simulation.
 // TODO: Allow the user to specify this
-//const source = new SorobanClient.Account('GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ', '0');
+const source = new SorobanClient.Account('GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ', '0');
 
 
 export type ContractValueType = {
@@ -30,6 +30,7 @@ export function useContractValue(
   {contractId, method, params, sorobanContext}: useContractValueProps): ContractValueType {
 
   const { activeChain, server } = sorobanContext
+
   const [value, setValue] = React.useState<ContractValueType>({ loading: true });
   const [xdrParams, setXdrParams] = React.useState<any>(params ? params.map(p => p.toXDR().toString('base64')) : undefined)
 
@@ -88,9 +89,10 @@ async function fetchContractValue(
 
     let myParams: SorobanClient.xdr.ScVal[] = params || [];
 
+
     // TODO: Optionally include the wallet of the submitter here, so the
   // simulation is more accurate
-  const transaction = new SorobanClient.TransactionBuilder( {
+  const transaction = new SorobanClient.TransactionBuilder( source, {
       // fee doesn't matter, we're not submitting
       fee: "100",
       networkPassphrase,
