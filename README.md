@@ -17,7 +17,7 @@ Library created based on https://github.com/stellar/soroban-example-dapp/tree/ma
 |[`@soroban-react/freighter`](packages/core)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/freighter/latest.svg)](https://www.npmjs.com/package/@soroban-react/freighter/v/latest)|
 |[`@soroban-react/connect-button`](packages/connect-button)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/connect-button/latest.svg)](https://www.npmjs.com/package/@soroban-react/connect-button/v/latest)|
 |[`@soroban-react/wallet-data`](packages/wallet-data)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/wallet-data/latest.svg)](https://www.npmjs.com/package/@soroban-react/wallet-data/v/latest)|
-
+|[`@soroban-react/contracts`](packages/contracts)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/contracts/latest.svg)](https://www.npmjs.com/package/@soroban-react/contracts/v/latest)|
 
 
 

@@ -51,7 +51,7 @@ export interface SendTransactionOptions {
   timeout?: number;
   skipAddingFootprint?: boolean
   secretKey?: string;
-  sorobanContext: SorobanContextType
+  sorobanContext?: SorobanContextType
 }
 
 // useSendTransaction is a hook that returns a function that can be used to
@@ -59,23 +59,38 @@ export interface SendTransactionOptions {
 // until the transaction succeeds/fails, and return the result.
 export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultOptions?: SendTransactionOptions): SendTransactionResult<E> {
   
-    if (!defaultOptions) {
-      throw new Error("No sorobanContext passed to sendTransaction");
-    }
 
-    const sorobanContext =  defaultOptions.sorobanContext
-    const { activeChain, activeWallet, server } = sorobanContext
-    const [status, setState] = React.useState<TransactionStatus>('idle');
+  const [status, setState] = React.useState<TransactionStatus>('idle');
   
-  
+  // TODO: as the sorobanContext is passed each time sendTransaction is called
+  // we don't need anymore a useCallback hook. Convert useSendTransaction to a 
   const sendTransaction = React.useCallback(async function(passedTxn?: Transaction, passedOptions?: SendTransactionOptions): Promise<SorobanClient.xdr.ScVal> {
+    
+    // console.log("passedTxn: ", passedTxn)
+    // console.log("passedOptions: ", passedOptions)
 
+    let sorobanContext : SorobanContextType | undefined 
+    
+    if(passedOptions?.sorobanContext){
+      sorobanContext =  passedOptions?.sorobanContext
+    }
     let txn = passedTxn ?? defaultTxn;
-    if (!txn || !activeWallet || !activeChain) {
+    // console.log("sorobanContext.activeWallet: ", sorobanContext?.activeWallet)
+    // console.log("sorobanContext.activeChain: ", sorobanContext?.activeChain)
+    
+    if (!(passedOptions?.secretKey|| sorobanContext?.activeWallet)){
+      throw new Error("No secret key or active wallet. Provide at least one of those");
+    }
+    
+    if (!txn || !sorobanContext?.activeWallet || !sorobanContext?.activeChain) {
       throw new Error("No transaction or wallet or chain");
     }
-
-    if (!server) throw new Error("Not connected to server")
+    
+    if (!sorobanContext.server) throw new Error("Not connected to server")
+    
+    let activeChain = sorobanContext?.activeChain
+    let activeWallet = sorobanContext?.activeWallet
+    let server = sorobanContext?.server
 
     const {
       timeout,
@@ -97,10 +112,12 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
 
     let signed = "";
     if (passedOptions?.secretKey) {
+      // User as set a secretKey, txn will be signed using the secretKey
       const keypair = SorobanClient.Keypair.fromSecret(passedOptions.secretKey);
       txn.sign(keypair);
       signed = txn.toXDR();
     } else {
+      // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
       signed = await activeWallet.signTransaction(txn.toXDR(), { networkPassphrase });
     }
 
@@ -140,7 +157,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
       }
     }
     throw new Error("Timed out");
-  }, [activeWallet, activeChain, defaultTxn]);
+  }, [defaultTxn]);
 
   return {
     isIdle: status == 'idle',
