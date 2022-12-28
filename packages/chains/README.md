@@ -1,5 +1,8 @@
 # @soroban-react/chains
 
+See the official gitbook: https://soroban-react.gitbook.io/index/
+___
+
 This package will charge the follwing chains:
 
 ```
