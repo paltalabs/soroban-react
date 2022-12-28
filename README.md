@@ -30,13 +30,10 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 
 - The ability to write custom, fully featured _Connectors_ that manage every aspect of your dApp's connectivity with the Soroban blockchain and user accounts.
 
-## Quickstart
-
-To jump straight into code, check out the CodeSandbox demo! (ToDo)
-
 # Usage:
 
-See the official docs page: 
+See the official gitbook: https://soroban-react.gitbook.io/index/
+You can also contribute to the Gitbook by editing the docs folder in this repo
 
 
 ## Implementations
