@@ -1,3 +1,3 @@
 # Table of contents
 
-* [@soroban-react docs](docs/README.md)
+* [@soroban-react docs](./README.md)
