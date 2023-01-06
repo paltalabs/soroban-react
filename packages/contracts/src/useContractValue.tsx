@@ -1,6 +1,6 @@
 import React from "react";
 import * as SorobanClient from "soroban-client";
-import { SorobanContextType, useSorobanReact } from "@soroban-react/core";
+import { SorobanContextType } from "@soroban-react/core";
 
 let xdr = SorobanClient.xdr; 
  
@@ -26,12 +26,8 @@ export interface useContractValueProps {
 // might be better named `useSimulateTransaction`, but not sure which is more clear...
 // TODO: Allow user to specify the wallet of the submitter, fees, etc... Maybe
 // a separate (lower-level) hook for `useSimulateTransaction` would be cleaner?
-export function useContractValue({
-  contractId,
-  method,
-  params,
-  sorobanContext=useSorobanReact()
-}: useContractValueProps): ContractValueType {
+export function useContractValue(
+  {contractId, method, params, sorobanContext}: useContractValueProps): ContractValueType {
 
   const { activeChain, server } = sorobanContext
 
