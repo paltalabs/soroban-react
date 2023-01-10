@@ -1,6 +1,9 @@
 {
   "name": "soroban-react",
-  "version": "0.0.1",
+  "scripts": {
+    "build": "lerna run build",
+    "publish": "lerna publish --no-private"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1"
   },

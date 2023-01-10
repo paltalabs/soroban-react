@@ -35,6 +35,12 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
 
+## Build and publish using lerna
+```
+yarn build
+yarn publish
+```
+
 
 ## Implementations
 
