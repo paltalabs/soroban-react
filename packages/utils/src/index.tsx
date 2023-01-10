@@ -91,10 +91,6 @@ export function bigNumberToI128(value: BigNumber): SorobanClient.xdr.ScVal {
   return xdr.ScVal.scvObject(xdr.ScObject.scoI128(new xdr.Int128Parts({lo, hi})));
 }
 
-export function numberToU32(value: number): SorobanClient.xdr.ScVal{
-  return xdr.ScVal.scvU32(value)
-}
-
 function bigintToBuf(bn: bigint): Buffer { 
   var hex = BigInt(bn).toString(16).replace(/^-/, '');
   if (hex.length % 2) { hex = '0' + hex; }
@@ -130,6 +126,10 @@ export function scvalToString(value: SorobanClient.xdr.ScVal): string | undefine
   return value.obj()?.bin().toString();
 }
 
+
+export function numberToU32(value: number): SorobanClient.xdr.ScVal{
+  return xdr.ScVal.scvU32(value)
+}
 
 export function scvalToBool(scval: SorobanClient.xdr.ScVal | undefined): boolean {
     if(scval?.switch() === xdr.ScValType.scvStatic()){
