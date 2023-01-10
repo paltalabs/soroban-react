@@ -38,7 +38,7 @@ You can also contribute to the Gitbook by editing the docs folder in this repo
 ## Build and publish using lerna
 ```
 yarn build
-yarn publish
+yarn lerna-publish
 ```
 
 
