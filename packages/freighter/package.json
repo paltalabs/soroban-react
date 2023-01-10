@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.0",
+  "version": "3.2.1",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
@@ -22,7 +22,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@stellar/freighter-api": "^1.3.1",
-    "@soroban-react/types": "1.0.0"
+    "@soroban-react/types": "^3.2.1",
+    "@stellar/freighter-api": "^1.3.1"
   }
 }

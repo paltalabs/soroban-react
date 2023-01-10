@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "3.1.0",
+  "version": "3.2.1",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
@@ -29,8 +29,8 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/freighter": "^1.0.0",
-    "@soroban-react/types": "1.0.0",
+    "@soroban-react/freighter": "^3.2.1",
+    "@soroban-react/types": "^3.2.1",
     "soroban-client": "^0.3.0"
   },
   "devDependencies": {
