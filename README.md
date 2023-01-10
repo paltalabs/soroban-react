@@ -42,5 +42,6 @@ Projects using `@soroban-react` include:
 
 - [Stellar's Soroban Example Dapp](https://github.com/stellar/soroban-example-dapp)
 - [@soroban-react example CRA](https://github.com/esteblock/soroban-react-example-cra)
+- [Pet Adopt Soroban](https://github.com/esteblock/pet-adopt-soroban)
 
 Open a PR to add your project to the list! If you're interested in contributing
