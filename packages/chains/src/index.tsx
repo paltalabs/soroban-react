@@ -1,6 +1,8 @@
 import * as SorobanClient from "soroban-client";
 import type {ChainMetadata, ChainName} from '@soroban-react/types';
 
+// TODO
+
 export const chains: Record<ChainName, ChainMetadata> = {
   public: {
     id: "public",
