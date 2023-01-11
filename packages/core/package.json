@@ -29,6 +29,7 @@
     "/dist"
   ],
   "dependencies": {
+    "@soroban-react/chains": "^3.2.1",
     "@soroban-react/freighter": "^3.2.1",
     "@soroban-react/types": "^3.2.1",
     "soroban-client": "^0.3.0"

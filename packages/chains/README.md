@@ -7,7 +7,8 @@ This package will charge the follwing chains:
 
 ```
 import * as SorobanClient from "soroban-client";
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+import type {ChainMetadata} from '@soroban-react/types';
+import type {ChainName} from '@soroban-react/chains';
 
 export const allowedChains: Record<ChainName, ChainMetadata> = {
   public: {

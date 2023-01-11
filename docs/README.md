@@ -14,7 +14,8 @@ yarn add soroban-client
 ### 2. Set your allowed chains for your Dapp
 ```
 import * as SorobanClient from "soroban-client";
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+import type {ChainMetadata} from '@soroban-react/types';
+import type {ChainName} from '@soroban-react/chains';
 
 export const allowedChains: Record<ChainName, ChainMetadata> = {
   public: {

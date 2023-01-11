@@ -41,13 +41,4 @@ export interface WalletChain {
   unsupported?: boolean;
 };
 
-// Sourced from https://github.com/tmm/wagmi/blob/main/packages/core/src/constants/chains.ts
-// This is just so we can clearly see which of wagmi's first-class chains we provide metadata for
-export type ChainName =
-  | 'futurenet'
-  | 'public'
-  | 'testnet'
-  | 'sandbox'
-  | 'localnet';
-
 export type ChainMetadata = WalletChain;

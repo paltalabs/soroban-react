@@ -1,6 +1,7 @@
 import * as SorobanClient from "soroban-client";
 import { isNotNullish } from './isNotNullish';
-import type { WalletChain, ChainMetadata, ChainName} from '@soroban-react/types';
+import type { WalletChain, ChainMetadata} from '@soroban-react/types';
+import type {ChainName} from '@soroban-react/chains';
 
 // Sourced from https://github.com/tmm/wagmi/blob/main/packages/core/src/constants/chains.ts
 // This is just so we can clearly see which of wagmi's first-class chains we provide metadata for
