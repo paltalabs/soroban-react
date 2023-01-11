@@ -34,9 +34,9 @@ const chainMetadataByName: Record<ChainName, ChainMetadata> = {
     iconBackground: '#dac695',
     // iconUrl: async () => (await import('./chainIcons/futurenet.svg')).default,
   },
-  standalone: {
-    id: "standalone",
-    name: "Standalone",
+  localnet: {
+    id: "localnet",
+    name: "Localnet",
     networkPassphrase: "Standalone Network ; February 2017",
     iconBackground: '#dac695',
     // iconUrl: async () => (await import('./chainIcons/futurenet.svg')).default,

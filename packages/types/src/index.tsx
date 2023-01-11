@@ -48,6 +48,6 @@ export type ChainName =
   | 'public'
   | 'testnet'
   | 'sandbox'
-  | 'standalone';
+  | 'localnet';
 
 export type ChainMetadata = WalletChain;

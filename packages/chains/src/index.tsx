@@ -22,9 +22,9 @@ export const chains: Record<ChainName, ChainMetadata> = {
     name: "Sandbox",
     networkPassphrase: SorobanClient.Networks.SANDBOX,
   },
-  standalone: {
-    id: "standalone",
-    name: "Standalone",
+  localnet: {
+    id: "localnet",
+    name: "Localnet",
     networkPassphrase: "Standalone Network ; February 2017",
   },
 };
