@@ -8,9 +8,9 @@ let xdr = SorobanClient.xdr;
 const defaultAddress = 'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF';
 
 export type ContractValueType = {
-    loading?: true,
-    result?: SorobanClient.xdr.ScVal,
-    error?: string|unknown
+  loading?: true,
+  result?: SorobanClient.xdr.ScVal,
+  error?: string|unknown
   };
 
 export interface useContractValueProps {
@@ -26,15 +26,19 @@ export interface useContractValueProps {
 // TODO: Allow user to specify the wallet of the submitter, fees, etc... Maybe
 // a separate (lower-level) hook for `useSimulateTransaction` would be cleaner?
 export function useContractValue(
-  {contractId, method, params, source, sorobanContext}: useContractValueProps): ContractValueType {
+  {contractId,
+    method, 
+    params, 
+    source, 
+    sorobanContext}: useContractValueProps): ContractValueType {
 
   const { activeChain, address, server } = sorobanContext
-  source = source ?? new SorobanClient.Account(address ?? defaultAddress, '0')
-
+  
   const [value, setValue] = React.useState<ContractValueType>({ loading: true });
   const [xdrParams, setXdrParams] = React.useState<any>(params ? params.map(p => p.toXDR().toString('base64')) : undefined)
-
+  
   React.useEffect(() => {
+    source = source ?? new SorobanClient.Account(address ?? defaultAddress, '0')
     if (!activeChain) {
       setValue({ error: "No active chain" })
       return
@@ -43,6 +47,7 @@ export function useContractValue(
       setValue({ error: "Not connected to server" })
       return
     }
+    
 
     (async () => {
       setValue({ loading: true });
@@ -52,7 +57,8 @@ export function useContractValue(
           networkPassphrase: activeChain.networkPassphrase,
           contractId: contractId,
           method: method,
-          params: params}
+          params: params,
+          source: source}
         );
         setValue({ result });
       } catch (error) {
@@ -79,15 +85,21 @@ export interface fetchContractValueProps {
   networkPassphrase: string;
   contractId: string;
   method: string;
-  params?: SorobanClient.xdr.ScVal[] | undefined
+  params?: SorobanClient.xdr.ScVal[] | undefined;
+  source: SorobanClient.Account;
 }
 
-async function fetchContractValue(
-  {server, networkPassphrase, contractId, method, params}: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
-    
-    const contract = new SorobanClient.Contract(contractId);
+async function fetchContractValue({
+  server, 
+  networkPassphrase, 
+  contractId, 
+  method, 
+  params, 
+  source}: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
+  
+  const contract = new SorobanClient.Contract(contractId);
 
-    let myParams: SorobanClient.xdr.ScVal[] = params || [];
+  let myParams: SorobanClient.xdr.ScVal[] = params || [];
 
 
     // TODO: Optionally include the wallet of the submitter here, so the
