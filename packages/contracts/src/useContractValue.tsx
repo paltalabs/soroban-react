@@ -4,10 +4,8 @@ import { SorobanContextType } from "@soroban-react/core";
 
 let xdr = SorobanClient.xdr; 
  
-// Dummy source account for simulation.
-// TODO: Allow the user to specify this
-const source = new SorobanClient.Account('GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHCGSNFHEYVXM3XOJMDS674JZ', '0');
-
+// Dummy source account for simulation. The public key for this is all 0-bytes.
+const defaultAddress = 'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF';
 
 export type ContractValueType = {
     loading?: true,
@@ -19,6 +17,7 @@ export interface useContractValueProps {
   contractId: string;
   method: string;
   params?: SorobanClient.xdr.ScVal[] | undefined; 
+  source?: SorobanClient.Account;
   sorobanContext: SorobanContextType;
 }
 
@@ -27,9 +26,10 @@ export interface useContractValueProps {
 // TODO: Allow user to specify the wallet of the submitter, fees, etc... Maybe
 // a separate (lower-level) hook for `useSimulateTransaction` would be cleaner?
 export function useContractValue(
-  {contractId, method, params, sorobanContext}: useContractValueProps): ContractValueType {
+  {contractId, method, params, source, sorobanContext}: useContractValueProps): ContractValueType {
 
-  const { activeChain, server } = sorobanContext
+  const { activeChain, address, server } = sorobanContext
+  source = source ?? new SorobanClient.Account(address ?? defaultAddress, '0')
 
   const [value, setValue] = React.useState<ContractValueType>({ loading: true });
   const [xdrParams, setXdrParams] = React.useState<any>(params ? params.map(p => p.toXDR().toString('base64')) : undefined)
