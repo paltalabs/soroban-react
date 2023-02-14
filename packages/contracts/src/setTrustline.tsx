@@ -19,10 +19,7 @@ export async function setTrustline({
     const networkPassphrase = sorobanContext.activeChain?.networkPassphrase ?? ''
     if (!server) throw new Error("Not connected to server")
     if (!networkPassphrase) throw new Error("No networkPassphrase")
-    let { sequence} = await server.getAccount(tokenAdmin)
-    let adminSource = new SorobanClient.Account(tokenAdmin, sequence)
-    let wallet = await server.getAccount(account)
-    let walletSource = new SorobanClient.Account(wallet.id, wallet.sequence)
+    let walletSource = await server.getAccount(account)
     
     const trustlineResult = await sendTransaction(
         new SorobanClient.TransactionBuilder(walletSource, {

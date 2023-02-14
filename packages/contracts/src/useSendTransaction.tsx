@@ -106,8 +106,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
 
     // preflight and add the footprint
     if (!skipAddingFootprint) {
-      let {footprint} = await server.simulateTransaction(txn);
-      txn = addFootprint(txn, networkPassphrase, footprint);
+      txn = await server.prepareTransaction(txn, networkPassphrase);
     }
 
     let signed = "";
@@ -177,41 +176,6 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
     reset: () => {},
     status,
   };
-}
-
-// TODO: Transaction is immutable, so we need to re-build it here. :(
-function addFootprint(raw: Transaction, networkPassphrase: string, footprint: SorobanClient.SorobanRpc.SimulateTransactionResponse['footprint']): Transaction {
-  if ('innerTransaction' in raw) {
-    // TODO: Handle feebump transactions
-    return addFootprint(raw.innerTransaction, networkPassphrase, footprint);
-  }
-  // TODO: Figure out a cleaner way to clone this transaction.
-  const source = new SorobanClient.Account(raw.source, `${parseInt(raw.sequence)-1}`);
-  const txn = new SorobanClient.TransactionBuilder(source, {
-    fee: raw.fee,
-    memo: raw.memo,
-    networkPassphrase,
-    timebounds: raw.timeBounds,
-    ledgerbounds: raw.ledgerBounds,
-    minAccountSequence: raw.minAccountSequence,
-    minAccountSequenceAge: raw.minAccountSequenceAge,
-    minAccountSequenceLedgerGap: raw.minAccountSequenceLedgerGap,
-    extraSigners: raw.extraSigners,
-  });
-  for (let rawOp of raw.operations) {
-    if ('function' in rawOp) {
-      // TODO: Figure out a cleaner way to clone these operations
-      txn.addOperation(SorobanClient.Operation.invokeHostFunction({
-        function: rawOp.function,
-        parameters: rawOp.parameters,
-        footprint: SorobanClient.xdr.LedgerFootprint.fromXDR(footprint, 'base64'),
-      }));
-    } else {
-      // TODO: Handle this.
-      throw new Error("Unsupported operation type");
-    }
-  }
-  return txn.build();
 }
 
 async function sleep(ms: number) {
