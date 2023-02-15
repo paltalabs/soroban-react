@@ -36,7 +36,7 @@ See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
 
 ## Build and publish using lerna
-Commit your changes with [conventional commits] (https://www.conventionalcommits.org/en/v1.0.0/) with 
+Commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with 
 ```
 commit -m "feat(SUB_PACKAGE_NAME): change"
 ```
