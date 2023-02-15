@@ -36,11 +36,21 @@ See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
 
 ## Build and publish using lerna
+Commit your changes with [conventional commits] (https://www.conventionalcommits.org/en/v1.0.0/) with 
+```
+commit -m "feat(SUB_PACKAGE_NAME): change"
+```
+Then
 ```
 yarn build
 yarn lerna-publish
 ```
-
+This will
+- determine the current version of the packages
+- detect which packages have changed since the last publishing & then update its version in package.json accordingly
+- create a commit of the changed package.json files, tag the commit and push the tag & commit to the remote
+- publish the packages to NPM
+- add commit changes in CHANGELOG
 
 ## Implementations
 
