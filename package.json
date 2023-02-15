@@ -1,5 +1,6 @@
 {
   "name": "soroban-react",
+  "private": true,
   "scripts": {
     "build": "lerna run build",
     "lerna-publish": "lerna publish --no-private --conventional-commits"
