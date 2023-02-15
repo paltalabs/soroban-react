@@ -46,6 +46,7 @@ yarn build
 yarn lerna-publish
 ```
 This will
+- build the three projects in the right order
 - determine the current version of the packages
 - detect which packages have changed since the last publishing & then update its version in package.json accordingly
 - create a commit of the changed package.json files, tag the commit and push the tag & commit to the remote
