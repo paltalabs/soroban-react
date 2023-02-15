@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.1](https://github.com/esteblock/soroban-react/compare/v3.7.0...v3.7.1) (2023-02-15)
+
+
+### Features
+
+* **lerna:** make main package private in order to install all subpackages in one step ([e2cec40](https://github.com/esteblock/soroban-react/commit/e2cec40fda61f2bfab701ad5dec1bfa8a7b983b8))
+
+
+
+
+
 # [3.7.0](https://github.com/esteblock/soroban-react/compare/v3.6.0...v3.7.0) (2023-01-31)
 
 

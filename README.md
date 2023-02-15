@@ -34,7 +34,8 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 
 See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
-
+# Install:
+Install all sub-packages with just `yarn`
 ## Build and publish using lerna
 Commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with 
 ```
