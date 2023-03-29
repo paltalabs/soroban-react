@@ -7,9 +7,14 @@ export function accountIdentifier(account: string): SorobanClient.xdr.ScVal {
       xdr.ScObject.scoVec([
         xdr.ScVal.scvSymbol('Account'),
         xdr.ScVal.scvObject(
-          xdr.ScObject.scoAccountId(xdr.PublicKey.publicKeyTypeEd25519(
-            SorobanClient.StrKey.decodeEd25519PublicKey(account)
-          ))
+          xdr.ScObject.scoAddress(
+            xdr.ScAddress.scAddressTypeAccount(
+                xdr.PublicKey.publicKeyTypeEd25519(
+                    SorobanClient.StrKey.decodeEd25519PublicKey(account)
+                )
+            )
+          )
+
         ),
       ])
     )
