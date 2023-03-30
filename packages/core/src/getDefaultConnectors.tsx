@@ -10,7 +10,7 @@ export const getDefaultConnectors = (
     {
       groupName: 'Popular',
       connectors: [
-        freighter({ appName, chains }),
+        freighter(),
       ],
     },
   ];

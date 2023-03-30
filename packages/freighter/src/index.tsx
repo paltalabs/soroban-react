@@ -1,13 +1,8 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 import freighterApi from "@stellar/freighter-api";
-import { WalletChain, NetworkDetails, Connector } from '@soroban-react/types';
+import {NetworkDetails, Connector } from '@soroban-react/types';
 
-export interface FreighterOptions {
-  appName?: string;
-  chains: WalletChain[];
-}
-
-export function freighter(_: FreighterOptions): Connector {
+export function freighter(): Connector {
   return {
     id: 'freighter',
     name: 'Freighter',
