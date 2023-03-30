@@ -38,7 +38,7 @@ export function SorobanReactProvider({
 }: SorobanReactProviderProps) {
 
 
-  const activeWallet = connectors.length == 1 ? connectors[0] : undefined;
+  const activeConnector = connectors.length == 1 ? connectors[0] : undefined;
   const isConnectedRef = useRef(false);
 
   const [mySorobanContext, setSorobanContext] = React.useState<SorobanContextType>({
@@ -47,13 +47,13 @@ export function SorobanReactProvider({
     autoconnect,
     chains,
     connectors,
-    activeWallet,
+    activeConnector,
     activeChain: chains.length == 1 ? chains[0] : undefined,
     connect: async () => {
-      let networkDetails = await mySorobanContext.activeWallet?.getNetworkDetails()
+      let networkDetails = await mySorobanContext.activeConnector?.getNetworkDetails()
       let activeChain = networkToActiveChain(networkDetails, chains)
 
-      let address = await mySorobanContext.activeWallet?.getPublicKey()
+      let address = await mySorobanContext.activeConnector?.getPublicKey()
       let server = networkDetails && new SorobanClient.Server(
         networkDetails.networkUrl,
         { allowHttp: networkDetails.networkUrl.startsWith("http://") }
@@ -82,12 +82,12 @@ export function SorobanReactProvider({
 
     async function checkForWalletChanges () {
       // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
-      if (!mySorobanContext.activeWallet || !mySorobanContext.activeWallet.isConnected() || !isConnectedRef.current || !mySorobanContext.activeChain) return;
+      if (!mySorobanContext.activeConnector || !mySorobanContext.activeConnector.isConnected() || !isConnectedRef.current || !mySorobanContext.activeChain) return;
       let hasNoticedWalletUpdate = false;
 
       try {
-        let chain = networkToActiveChain(await mySorobanContext.activeWallet?.getNetworkDetails(), chains)
-        let address = await mySorobanContext.activeWallet?.getPublicKey();
+        let chain = networkToActiveChain(await mySorobanContext.activeConnector?.getNetworkDetails(), chains)
+        let address = await mySorobanContext.activeConnector?.getPublicKey();
 
         if (mySorobanContext.address !== address) {
           console.log("SorobanReactProvider: address changed from:", mySorobanContext.address," to: ", address);
@@ -123,11 +123,11 @@ export function SorobanReactProvider({
   React.useEffect(() => {
     console.log("Something changing... in SorobanReactProvider.tsx")
     if (mySorobanContext.address) return;
-    if (!mySorobanContext.activeWallet) return;
-    if (mySorobanContext.autoconnect || mySorobanContext.activeWallet.isConnected()) {
+    if (!mySorobanContext.activeConnector) return;
+    if (mySorobanContext.autoconnect || mySorobanContext.activeConnector.isConnected()) {
       mySorobanContext.connect();
     }
-  }, [mySorobanContext.address, mySorobanContext.activeWallet, mySorobanContext.autoconnect]);
+  }, [mySorobanContext.address, mySorobanContext.activeConnector, mySorobanContext.autoconnect]);
 
 
   return (

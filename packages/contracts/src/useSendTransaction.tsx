@@ -75,21 +75,21 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
       sorobanContext =  passedOptions?.sorobanContext
     }
     let txn = passedTxn ?? defaultTxn;
-    // console.log("sorobanContext.activeWallet: ", sorobanContext?.activeWallet)
+    // console.log("sorobanContext.activeConnector: ", sorobanContext?.activeConnector)
     // console.log("sorobanContext.activeChain: ", sorobanContext?.activeChain)
     
-    if (!(passedOptions?.secretKey|| sorobanContext?.activeWallet)){
+    if (!(passedOptions?.secretKey|| sorobanContext?.activeConnector)){
       throw new Error("No secret key or active wallet. Provide at least one of those");
     }
     
-    if (!txn || !sorobanContext?.activeWallet || !sorobanContext?.activeChain) {
+    if (!txn || !sorobanContext?.activeConnector || !sorobanContext?.activeChain) {
       throw new Error("No transaction or wallet or chain");
     }
     
     if (!sorobanContext.server) throw new Error("Not connected to server")
     
     let activeChain = sorobanContext?.activeChain
-    let activeWallet = sorobanContext?.activeWallet
+    let activeConnector = sorobanContext?.activeConnector
     let server = sorobanContext?.server
 
     const {
@@ -117,7 +117,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
       signed = txn.toXDR();
     } else {
       // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
-      signed = await activeWallet.signTransaction(txn.toXDR(), { networkPassphrase });
+      signed = await activeConnector.signTransaction(txn.toXDR(), { networkPassphrase });
     }
 
     const transactionToSubmit = SorobanClient.TransactionBuilder.fromXDR(signed, networkPassphrase);

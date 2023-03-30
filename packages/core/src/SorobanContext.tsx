@@ -18,7 +18,7 @@ export interface SorobanContextType {
   connectors: Connector[];
   activeChain?: WalletChain;
   address?: string;
-  activeWallet?: Connector;
+  activeConnector?: Connector;
   server?: SorobanClient.Server;
   connect: () => Promise<void>;
   disconnect: () => Promise<void>;
