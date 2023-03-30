@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/esteblock/soroban-react/compare/v3.8.0...v4.0.0) (2023-03-30)
+
+
+### Features
+
+* **chains:** chains are exported individually as WalletChain objects ([48e8897](https://github.com/esteblock/soroban-react/commit/48e88976931c1e991d447bf27934675a7f129ac3))
+* **core:** connectors is just a normal list of Connectors, no more ConnectorList ([f76093f](https://github.com/esteblock/soroban-react/commit/f76093f6c5d3d0603d2448b8395634624b19e87e))
+* **core:** network not supported ([1de0ab8](https://github.com/esteblock/soroban-react/commit/1de0ab80d5b7f1b9dcd53bde00165cd7f8a9ccfc))
+* **freighter:** connectors should not need any parameter to be initializated ([6cd04f9](https://github.com/esteblock/soroban-react/commit/6cd04f9143c960767ed8c02bfb49d3cd19ef5367))
+* **WalletChain:** Not use anymore Chainmetadata, just WalletChian ([20defcd](https://github.com/esteblock/soroban-react/commit/20defcd1424eedc05c9b14760d1bcd7b38eb85ac))
+
+
+
+
+
 # [3.8.0](https://github.com/esteblock/soroban-react/compare/v3.7.1...v3.8.0) (2023-03-29)
 
 
