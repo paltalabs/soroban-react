@@ -51,6 +51,12 @@ export function SorobanReactProvider({
     activeChain: chains.length == 1 ? chains[0] : undefined,
     connect: async () => {
       let networkDetails = await mySorobanContext.activeConnector?.getNetworkDetails()
+
+      if( ! chains.find((c: any) => c.networkPassphrase === networkDetails?.networkPassphrase)){
+        const error = new Error("Your Wallet network is not supported in this app")
+        throw error;
+      }
+      
       let activeChain = networkToActiveChain(networkDetails, chains)
 
       let address = await mySorobanContext.activeConnector?.getPublicKey()
