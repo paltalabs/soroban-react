@@ -1,30 +1,37 @@
 import * as SorobanClient from "soroban-client";
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+import type {WalletChain} from '@soroban-react/types';
 
-export const chains: Record<ChainName, ChainMetadata> = {
-  public: {
+export const public_chain : WalletChain = 
+  {
     id: "public",
     name: "Public",
     networkPassphrase: SorobanClient.Networks.PUBLIC,
-  },
-  testnet: {
-    id: "testnet",
-    name: "Testnet",
-    networkPassphrase: SorobanClient.Networks.TESTNET,
-  },
-  futurenet: {
-    id: "futurenet",
+  }
+
+export const futurenet : WalletChain = 
+  {
+    id: "public",
     name: "Futurenet",
     networkPassphrase: SorobanClient.Networks.FUTURENET,
-  },
-  sandbox: {
-    id: "sandbox",
-    name: "Sandbox",
-    networkPassphrase: SorobanClient.Networks.SANDBOX,
-  },
-  standalone: {
-    id: "standalone",
-    name: "Standalone",
-    networkPassphrase: "Standalone Network ; February 2017",
-  },
-};
+  }
+
+export const testnet : WalletChain = 
+{
+  id: "public",
+  name: "Testnet",
+  networkPassphrase: SorobanClient.Networks.TESTNET,
+}
+
+export const sandbox : WalletChain = 
+{
+  id: "public",
+  name: "Sandbox",
+  networkPassphrase: SorobanClient.Networks.SANDBOX,
+}
+
+export const standalone : WalletChain = 
+{
+  id: "public",
+  name: "Standalone",
+  networkPassphrase: "Standalone Network ; February 2017",
+}
