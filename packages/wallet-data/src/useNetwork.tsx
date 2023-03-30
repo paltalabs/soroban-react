@@ -1,5 +1,5 @@
 import React from 'react';
-import { chainMetadataByName } from "./provideWalletChains";
+import { WalletChainByName } from "./provideWalletChains";
 import {SorobanContextType } from "@soroban-react/core";
 
 export function useNetwork(sorobanContext: SorobanContextType) {
@@ -7,6 +7,6 @@ export function useNetwork(sorobanContext: SorobanContextType) {
   return {
     activeChain,
     server,
-    chains: Object.values(chainMetadataByName),
+    chains: Object.values(WalletChainByName),
   };
 };

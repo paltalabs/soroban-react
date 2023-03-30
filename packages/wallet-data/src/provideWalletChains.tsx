@@ -1,8 +1,8 @@
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+import type {WalletChain, ChainName} from '@soroban-react/types';
 
 // Sourced from https://github.com/tmm/wagmi/blob/main/packages/core/src/constants/chains.ts
 // This is just so we can clearly see which of wagmi's first-class chains we provide metadata for
-export const chainMetadataByName: Record<ChainName, ChainMetadata> = {
+export const WalletChainByName: Record<ChainName, WalletChain> = {
   public: {
     id: "public",
     name: "Public",
