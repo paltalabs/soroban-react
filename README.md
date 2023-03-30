@@ -54,6 +54,11 @@ This will
 - publish the packages to NPM
 - add commit changes in CHANGELOG
 
+## Upgrade in your project:
+```
+yarn upgrade --latest --patern @soroban-react
+```
+
 ## Implementations
 
 Projects using `@soroban-react` include:

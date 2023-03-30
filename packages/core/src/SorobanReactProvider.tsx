@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import * as SorobanClient from 'soroban-client';
-import { ConnectorList, WalletChain } from "@soroban-react/types";
+import { Connector, WalletChain } from "@soroban-react/types";
 
 import { SorobanContext, SorobanContextType, defaultSorobanContext } from './';
  
@@ -13,7 +13,7 @@ export interface SorobanReactProviderProps {
   autoconnect?: boolean;
   chains: WalletChain[];
   children: React.ReactNode;
-  connectors: ConnectorList;
+  connectors: Connector[];
 }
 
 function networkToActiveChain(networkDetails: any, chains:any){
@@ -38,8 +38,7 @@ export function SorobanReactProvider({
 }: SorobanReactProviderProps) {
 
 
-  const flatWallets = connectors.flatMap(w => w.connectors);
-  const activeWallet = flatWallets.length == 1 ? flatWallets[0] : undefined;
+  const activeWallet = connectors.length == 1 ? connectors[0] : undefined;
   const isConnectedRef = useRef(false);
 
   const [mySorobanContext, setSorobanContext] = React.useState<SorobanContextType>({

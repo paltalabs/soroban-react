@@ -25,11 +25,6 @@ export type Connector = {
   signTransaction: (xdr: string, opts?: { network?: string; networkPassphrase?: string; accountToSign?: string }) => Promise<string>;
 };
 
-export type ConnectorList = {
-  groupName: string;
-  connectors: Connector[]
-}[];
-
 
 export interface WalletChain {
   id: string;

@@ -1,21 +1,9 @@
-import { WalletChain, ConnectorList } from '@soroban-react/types';
+import { Connector } from '@soroban-react/types';
 import { freighter } from '@soroban-react/freighter';
 
-export const getDefaultConnectors = (
-  {appName,chains,}: {appName: string; chains: WalletChain[];})
-    : {
+export const getDefaultConnectors = () :  Connector[] => {
 
-  connectors: ConnectorList;} => {
-  const connectors: ConnectorList = [
-    {
-      groupName: 'Popular',
-      connectors: [
-        freighter(),
-      ],
-    },
-  ];
+  const list: Connector[] =[freighter()]
 
-  return {
-    connectors,
-  };
+  return list
 };

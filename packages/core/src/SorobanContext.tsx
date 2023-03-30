@@ -1,6 +1,6 @@
 import React, {createContext} from "react";
 import * as SorobanClient from "soroban-client";
-import { Connector, ConnectorList, ChainMetadata } from "@soroban-react/types";
+import { Connector, ChainMetadata } from "@soroban-react/types";
 
 export const defaultSorobanContext: SorobanContextType = {
   appName: undefined,
@@ -15,7 +15,7 @@ export interface SorobanContextType {
   autoconnect?: boolean;
   appName?: string;
   chains: ChainMetadata[];
-  connectors: ConnectorList;
+  connectors: Connector[];
   activeChain?: ChainMetadata;
   address?: string;
   activeWallet?: Connector;
