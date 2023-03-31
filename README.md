@@ -68,3 +68,4 @@ Projects using `@soroban-react` include:
 - [Pet Adopt Soroban](https://github.com/esteblock/pet-adopt-soroban)
 
 Open a PR to add your project to the list! If you're interested in contributing
+.
