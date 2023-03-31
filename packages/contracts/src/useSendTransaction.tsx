@@ -121,35 +121,70 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
     }
 
     const transactionToSubmit = SorobanClient.TransactionBuilder.fromXDR(signed, networkPassphrase);
-    const { id } = await server.sendTransaction(transactionToSubmit);
+    const { hash, errorResultXdr } = await server.sendTransaction(transactionToSubmit);
+    if (errorResultXdr) {
+      setState('error');
+      throw new Error(errorResultXdr);
+    }
     const sleepTime = Math.min(1000, timeout);
     for (let i = 0; i <= timeout; i+= sleepTime) {
       await sleep(sleepTime);
       try {
-        console.debug("tx id:", id)
-        const response = await server.getTransactionStatus(id);
+        console.debug("tx id:", hash)
+        const response = await server.getTransaction(hash);
         console.debug(response)
 
         switch (response.status) {
-        case "pending": {
+        case "NOT_FOUND": {
             continue;
           }
-        case "success": {
+        case "SUCCESS": {
             setState('success');
-            let results = response.results
-            if (!results) {
+            let resultXdr = response.resultXdr
+            if (!resultXdr) {
               // FIXME: Return a more sensible value for classic transactions.
               return SorobanClient.xdr.ScVal.scvI32(-1)
             }
+            let results = SorobanClient.xdr.TransactionResult.fromXDR(resultXdr, 'base64').result().results()
             if (results.length > 1) {
-              throw new Error(`Expected exactly one result, got ${response.results}.`);
+              throw new Error(`Expected exactly one result, got ${results}.`);
             }
 
-            return SorobanClient.xdr.ScVal.fromXDR(Buffer.from(results[0].xdr, 'base64'));
+            let result = results[0].value()?.invokeHostFunctionResult().success()
+            if (!result) {
+              // FIXME: Return a more sensible value for classic transactions.
+              return SorobanClient.xdr.ScVal.scvI32(-1)
+            }
+
+            return result;
           }
-        case "error": {
+        case "FAILED": {
             setState('error');
-            throw response.error;
+            let resultXdr = response.resultXdr
+            if (!resultXdr) {
+              // FIXME: Return a more sensible value for classic transactions.
+              return SorobanClient.xdr.ScVal.scvI32(-1)
+            }
+            let results = SorobanClient.xdr.TransactionResult.fromXDR(resultXdr, 'base64').result().results()
+            if (results.length > 1) {
+              throw new Error(`Expected exactly one result, got ${results}.`);
+            }
+
+            let result = results[0].value()?.invokeHostFunctionResult()
+            if (!result) {
+              throw new Error("Transaction failed, but no result found.");
+            }
+            switch (result.switch()) {
+            case SorobanClient.xdr.InvokeHostFunctionResultCode.invokeHostFunctionMalformed(): {
+              throw new Error("Transaction failed: malformed");
+            }
+            case SorobanClient.xdr.InvokeHostFunctionResultCode.invokeHostFunctionTrapped(): {
+              throw new Error("Transaction failed: trapped");
+            }
+            default: {
+              throw new Error(`Unexpected result code: ${result.switch().name}.`);
+            }
+            }
           }
         default: {
             throw new Error("Unexpected transaction status: " + response.status);
