@@ -150,13 +150,13 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
               throw new Error(`Expected exactly one result, got ${results}.`);
             }
 
-            let result = results[0].value()?.invokeHostFunctionResult().success()
-            if (!result) {
+            let value = results[0].value();
+            if (value?.switch() !== SorobanClient.xdr.OperationType.invokeHostFunction()) {
               // FIXME: Return a more sensible value for classic transactions.
               return SorobanClient.xdr.ScVal.scvI32(-1)
             }
 
-            return result;
+            return value.invokeHostFunctionResult().success();
           }
         case "FAILED": {
             setState('error');
@@ -170,10 +170,13 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
               throw new Error(`Expected exactly one result, got ${results}.`);
             }
 
-            let result = results[0].value()?.invokeHostFunctionResult()
-            if (!result) {
-              throw new Error("Transaction failed, but no result found.");
+            let value = results[0].value();
+            if (value?.switch() !== SorobanClient.xdr.OperationType.invokeHostFunction()) {
+              // FIXME: Return a more sensible value for classic transactions.
+              return SorobanClient.xdr.ScVal.scvI32(-1)
             }
+
+            let result = value.invokeHostFunctionResult()
             switch (result.switch()) {
             case SorobanClient.xdr.InvokeHostFunctionResultCode.invokeHostFunctionMalformed(): {
               throw new Error("Transaction failed: malformed");
