@@ -9,6 +9,7 @@ yarn add @soroban-react/types
 yarn add @soroban-react/freighter
 yarn add @soroban-react/connect-button
 yarn add @soroban-react/wallet-data
+yarn add @soroban-react/events
 yarn add soroban-client
 ```
 ### 2. Set your allowed chains for your Dapp
@@ -125,4 +126,24 @@ import { WalletData } from "@soroban-react/wallet-data";
 
 <WalletData
   sorobanContext={useSorobanReact()}>
+```
+
+## Use @soroban-react/events
+
+Place your @soroban-react/events provider inside your @soroban-react provider. Then you can use the useSorobanEvents hook anywhere you use the react provider.
+
+```
+import {SorobanReactProvider} from '@soroban-react/core';
+import {SorobanEventsProvider} from '@soroban-react/events';
+
+...
+
+<SorobanReactProvider
+        chains={chains}
+        appName={"Example App"}
+        connectors={connectors}>
+        <SorobanEventsProvider>
+          {children}
+        </SorobanEventsProvider>
+      </SorobanReactProvider>
 ```
