@@ -1,7 +1,7 @@
-import React, {useEffect, useRef} from 'react';
-import * as SorobanClient from 'soroban-client';
-import { useSorobanReact, SorobanContextType } from '@soroban-react/core';
-import { SorobanEventsContext, DefaultSorobanEventsContext} from "./SorobanEventsContext";;
+import React, {useEffect, useRef} from "react";
+import * as SorobanClient from "soroban-client";
+import { useSorobanReact, SorobanContextType } from "@soroban-react/core";
+import { SorobanEventsContext, DefaultSorobanEventsContext} from "./SorobanEventsContext";
 let xdr = SorobanClient.xdr
 
 export interface SorobanEventsProviderProps {
@@ -12,7 +12,7 @@ export function SorobanEventsProvider({
   children,
 }: SorobanEventsProviderProps) {
   const pollInterval = 5000
-  const sorobanContext = useSorobanReact()
+  const sorobanContext: SorobanContextType = useSorobanReact()
 
   useEffect(() => {
     let timeoutId: NodeJS.Timer | null = null
