@@ -21,7 +21,8 @@
   "dependencies": {
     "@soroban-react/connect-button": "^4.1.0",
     "@soroban-react/core": "^4.1.0",
-    "@soroban-react/types": "^4.0.0"
+    "@soroban-react/types": "^4.0.0",
+    "soroban-client": "https://github.com/stellar/js-soroban-client#main"
   },
   "peerDependencies": {
     "react": ">=16.8"

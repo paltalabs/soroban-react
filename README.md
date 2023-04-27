@@ -20,7 +20,7 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 
 
 
-## Introduction
+# Introduction
 
 `@soroban-react` is a simple, powerful framework for building modern Soroban dApps using React. Its marquee features are:
 
@@ -34,7 +34,7 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 
 See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
-# Install:
+## Install:
 Install all sub-packages with just `yarn`
 ## Build and publish using lerna
 Commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with 
@@ -69,3 +69,19 @@ Projects using `@soroban-react` include:
 
 Open a PR to add your project to the list! If you're interested in contributing
 .
+
+## Analize, test and approve a PR
+```
+git remote add REMOTE_USERNAME http://github.com/REMOTE_USERNAME/soroban-react.git
+git checkout -b REMOTE_USERNAME-name_of_pull_request main
+git pull REMOTE_USERNAME-name_of_pull_request pull_request_branch
+
+```
+
+Step 2: Merge the changes and update on GitHub.
+
+```
+git checkout main
+git merge --no-ff branch_name
+git push origin main
+```
