@@ -17,7 +17,7 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 |[`@soroban-react/types`](packages/types)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/types/latest.svg)](https://www.npmjs.com/package/@soroban-react/types/v/latest)|
 |[`@soroban-react/utils`](packages/utils)                     | [![npm version](https://img.shields.io/npm/v/@soroban-react/utils/latest.svg)](https://www.npmjs.com/package/@soroban-react/utils/v/latest)|
 |[`@soroban-react/wallet-data`](packages/wallet-data)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/wallet-data/latest.svg)](https://www.npmjs.com/package/@soroban-react/wallet-data/v/latest)|
-
+|[`@soroban-react/events`](packages/events)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/events/latest.svg)](https://www.npmjs.com/package/@soroban-react/events/v/latest)|
 
 
 # Introduction
