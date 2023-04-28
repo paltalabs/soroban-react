@@ -4070,7 +4070,22 @@ sodium-native@^3.3.0:
   dependencies:
     node-gyp-build "^4.3.0"
 
-soroban-client@^0.5.0, "soroban-client@https://github.com/stellar/js-soroban-client#main":
+soroban-client@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.5.1.tgz#331423caf9b859ffb8ded4722c86c5c2d934c1e3"
+  integrity sha512-/WkE634WoCH2catOmHyuOYds+ul3SlQ7ersMcUwRhVglvC/B0fv6r1qHc+QxT/96eckF+/P1tkvoxpSllJOXzQ==
+  dependencies:
+    "@types/eventsource" "^1.1.2"
+    "@types/node" "18.11.9"
+    "@types/randombytes" "^2.0.0"
+    "@types/urijs" "^1.19.6"
+    axios "0.25.0"
+    es6-promise "^4.2.4"
+    lodash "4.17.21"
+    stellar-base "8.2.2-soroban.12"
+    urijs "^1.19.1"
+
+soroban-client@^0.5.0:
   version "0.5.0"
   resolved "https://github.com/stellar/js-soroban-client#a52897f24a5b70e39a822c296a0dc2ab2959d713"
   dependencies:
