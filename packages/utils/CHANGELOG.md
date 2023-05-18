@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/esteblock/soroban-react/compare/v4.3.1...v4.4.0) (2023-05-18)
+
+
+### Features
+
+* **utils:** upgrade to soroban-client v0.5.1 ([7783a7f](https://github.com/esteblock/soroban-react/commit/7783a7f6954d36f468f9346f270877e11428487f))
+
+
+
+
+
 # [4.1.0](https://github.com/esteblock/soroban-react/compare/v4.0.1...v4.1.0) (2023-03-31)
 
 **Note:** Version bump only for package @soroban-react/utils
