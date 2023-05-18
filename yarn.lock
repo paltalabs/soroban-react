@@ -4103,7 +4103,7 @@ sodium-native@^3.3.0:
   dependencies:
     node-gyp-build "^4.3.0"
 
-soroban-client@0.5.1, soroban-client@^0.5.0:
+soroban-client@0.5.1, soroban-client@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.5.1.tgz#331423caf9b859ffb8ded4722c86c5c2d934c1e3"
   integrity sha512-/WkE634WoCH2catOmHyuOYds+ul3SlQ7ersMcUwRhVglvC/B0fv6r1qHc+QxT/96eckF+/P1tkvoxpSllJOXzQ==
