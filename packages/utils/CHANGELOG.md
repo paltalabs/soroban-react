@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# Pending
+* upgrade to soroban-client v0.6.0 
+
+
 # [4.4.0](https://github.com/esteblock/soroban-react/compare/v4.3.1...v4.4.0) (2023-05-18)
 
 
