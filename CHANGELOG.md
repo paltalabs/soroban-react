@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/esteblock/soroban-react/compare/v4.4.1...v4.5.0) (2023-05-19)
+
+
+### Features
+
+* **contracts:** handle case of tx undefined ([cfc8715](https://github.com/esteblock/soroban-react/commit/cfc8715ef402496f1c1c480ee0319bee9ee18b8a))
+
+
+
+
+
 ## [4.4.1](https://github.com/esteblock/soroban-react/compare/v4.4.0...v4.4.1) (2023-05-19)
 
 **Note:** Version bump only for package soroban-react
