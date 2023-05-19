@@ -107,6 +107,9 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
     // preflight and add the footprint
     if (!skipAddingFootprint) {
       txn = await server.prepareTransaction(txn, networkPassphrase);
+      if (!txn) {
+        throw new Error("No transaction after adding footprint");
+      }
     }
 
     let signed = "";
