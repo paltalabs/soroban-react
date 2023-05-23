@@ -31,7 +31,7 @@
   "dependencies": {
     "@soroban-react/freighter": "^4.0.0",
     "@soroban-react/types": "^4.0.0",
-    "soroban-client": "0.6.0"
+    "soroban-client": "0.7.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.25"

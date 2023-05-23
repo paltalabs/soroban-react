@@ -19,7 +19,7 @@ Library created based on [the code](https://github.com/stellar/soroban-example-d
 |[`@soroban-react/wallet-data`](packages/wallet-data)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/wallet-data/latest.svg)](https://www.npmjs.com/package/@soroban-react/wallet-data/v/latest)|
 |[`@soroban-react/events`](packages/events)                | [![npm version](https://img.shields.io/npm/v/@soroban-react/events/latest.svg)](https://www.npmjs.com/package/@soroban-react/events/v/latest)|
 
-Currently, @soroban-react it's supporting [soroban-client](https://www.npmjs.com/package/soroban-client) v0.6.0, hence it's supporting [PREVIEW 9](https://soroban.stellar.org/docs/reference/releases)
+Currently, @soroban-react it's supporting [soroban-client](https://www.npmjs.com/package/soroban-client) v0.7.0, hence it's supporting [PREVIEW 9](https://soroban.stellar.org/docs/reference/releases)
 
 # Introduction
 
