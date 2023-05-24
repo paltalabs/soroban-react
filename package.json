@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
-    "lerna-publish-beta": "lerna publish --no-private --conventional-commits --dist-tag beta"
+    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1"
