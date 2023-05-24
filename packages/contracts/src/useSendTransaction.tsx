@@ -40,7 +40,7 @@ export interface SendTransactionResult<E = Error> {
   isIdle: boolean;
   isLoading: boolean;
   isSuccess: boolean;
-  sendTransaction: (txn?: Transaction, opts?: SendTransactionOptions) => Promise<SorobanClient.xdr.ScVal>;
+  sendTransaction: (txn?: Transaction, opts?: SendTransactionOptions) => Promise<SorobanClient.xdr.ScVal[]>;
   reset: () => void;
   status: TransactionStatus;
 }
@@ -64,7 +64,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
   
   // TODO: as the sorobanContext is passed each time sendTransaction is called
   // we don't need anymore a useCallback hook. Convert useSendTransaction to a 
-  const sendTransaction = React.useCallback(async function(passedTxn?: Transaction, passedOptions?: SendTransactionOptions): Promise<SorobanClient.xdr.ScVal> {
+  const sendTransaction = React.useCallback(async function(passedTxn?: Transaction, passedOptions?: SendTransactionOptions): Promise<SorobanClient.xdr.ScVal[]> {
     
     // console.log("passedTxn: ", passedTxn)
     // console.log("passedOptions: ", passedOptions)
@@ -146,7 +146,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
             let resultXdr = response.resultXdr
             if (!resultXdr) {
               // FIXME: Return a more sensible value for classic transactions.
-              return SorobanClient.xdr.ScVal.scvI32(-1)
+              return [SorobanClient.xdr.ScVal.scvI32(-1)]
             }
             let results = SorobanClient.xdr.TransactionResult.fromXDR(resultXdr, 'base64').result().results()
             if (results.length > 1) {
@@ -156,7 +156,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
             let value = results[0].value();
             if (value?.switch() !== SorobanClient.xdr.OperationType.invokeHostFunction()) {
               // FIXME: Return a more sensible value for classic transactions.
-              return SorobanClient.xdr.ScVal.scvI32(-1)
+              return [SorobanClient.xdr.ScVal.scvI32(-1)]
             }
 
             return value.invokeHostFunctionResult().success();
@@ -166,7 +166,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
             let resultXdr = response.resultXdr
             if (!resultXdr) {
               // FIXME: Return a more sensible value for classic transactions.
-              return SorobanClient.xdr.ScVal.scvI32(-1)
+              return [SorobanClient.xdr.ScVal.scvI32(-1)]
             }
             let results = SorobanClient.xdr.TransactionResult.fromXDR(resultXdr, 'base64').result().results()
             if (results.length > 1) {
@@ -176,7 +176,7 @@ export function useSendTransaction<E = Error>(defaultTxn?: Transaction, defaultO
             let value = results[0].value();
             if (value?.switch() !== SorobanClient.xdr.OperationType.invokeHostFunction()) {
               // FIXME: Return a more sensible value for classic transactions.
-              return SorobanClient.xdr.ScVal.scvI32(-1)
+              return [SorobanClient.xdr.ScVal.scvI32(-1)]
             }
 
             let result = value.invokeHostFunctionResult()
