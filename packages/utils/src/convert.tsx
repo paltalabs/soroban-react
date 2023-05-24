@@ -4,48 +4,48 @@ import * as SorobanClient from 'soroban-client';
 
 let xdr = SorobanClient.xdr;
 
-export function scvalToBigNumber(scval: SorobanClient.xdr.ScVal | undefined): BigNumber {
-  switch (scval?.switch()) {
-  case undefined: {
-    return BigNumber(0);
-  }
-  case xdr.ScValType.scvU32(): {
-    return BigNumber(scval.u32());
-  }
-  case xdr.ScValType.scvI32(): {
-    return BigNumber(scval.i32());
-  }
-  case xdr.ScValType.scvU64(): {
-    const {high, low} = scval.u64();
-    return bigNumberFromBytes(false, high, low);
-  }
-  case xdr.ScValType.scvI64(): {
-    const {high, low} = scval.i64();
-    return bigNumberFromBytes(true, high, low);
-  }
-  case xdr.ScValType.scvU128(): {
-    const parts = scval.u128();
-    const a = parts.hi();
-    const b = parts.lo();
-    return bigNumberFromBytes(false, a.high, a.low, b.high, b.low);
-  }
-  case xdr.ScValType.scvI128(): {
-    const parts = scval.i128();
-    const a = parts.hi();
-    const b = parts.lo();
-    return bigNumberFromBytes(true, a.high, a.low, b.high, b.low);
-  }
-  case xdr.ScValType.scvU256(): {
-    return bigNumberFromBytes(false, ...scval.u256());
-  }
-  case xdr.ScValType.scvI256(): {
-    return bigNumberFromBytes(true, ...scval.i256());
-  }
-  default: {
-    throw new Error(`Invalid type for scvalToBigNumber: ${scval?.switch().name}`);
-  }
-  };
-}
+// export function scvalToBigNumber(scval: SorobanClient.xdr.ScVal | undefined): BigNumber {
+//   switch (scval?.switch()) {
+//   case undefined: {
+//     return BigNumber(0);
+//   }
+//   case xdr.ScValType.scvU32(): {
+//     return BigNumber(scval.u32());
+//   }
+//   case xdr.ScValType.scvI32(): {
+//     return BigNumber(scval.i32());
+//   }
+//   case xdr.ScValType.scvU64(): {
+//     const {high, low} = scval.u64();
+//     return bigNumberFromBytes(false, high, low);
+//   }
+//   case xdr.ScValType.scvI64(): {
+//     const {high, low} = scval.i64();
+//     return bigNumberFromBytes(true, high, low);
+//   }
+//   case xdr.ScValType.scvU128(): {
+//     const parts = scval.u128();
+//     const a = parts.hi();
+//     const b = parts.lo();
+//     return bigNumberFromBytes(false, a.high, a.low, b.high, b.low);
+//   }
+//   case xdr.ScValType.scvI128(): {
+//     const parts = scval.i128();
+//     const a = parts.hi();
+//     const b = parts.lo();
+//     return bigNumberFromBytes(true, a.high, a.low, b.high, b.low);
+//   }
+//   // case xdr.ScValType.scvU256(): {
+//   //   return bigNumberFromBytes(false, ...scval.u256());
+//   // }
+//   // case xdr.ScValType.scvI256(): {
+//   //   return bigNumberFromBytes(true, ...scval.i256());
+//   // }
+//   default: {
+//     throw new Error(`Invalid type for scvalToBigNumber: ${scval?.switch().name}`);
+//   }
+//   };
+// }
 
 function bigNumberFromBytes(signed: boolean, ...bytes: (string | number | bigint)[]): BigNumber {
     let sign = 1;
