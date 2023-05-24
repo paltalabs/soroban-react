@@ -4465,10 +4465,10 @@ soroban-client@0.5.1, soroban-client@^0.5.1:
     stellar-base "8.2.2-soroban.12"
     urijs "^1.19.1"
 
-soroban-client@0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.6.0.tgz#3dac70ad7e964880859423dfa05be2f93e70ab35"
-  integrity sha512-qlhfRbvh2rb2E/BltHLHU3sxGNzoystS1zj5Nn/a2laOdNCuIrw1DN4giOX2AuqIiMb65OoiK0A5NFPryBVyjQ==
+soroban-client@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.7.0.tgz#24525e96c337b74f373e83506e7532ce7ee2da5a"
+  integrity sha512-5OUQdbkP7thffAdVFSlUm00yAEf15KoLrjWmHOqQCJtaCMsijyFpkh+xZdCqnqm20Q3ayWk1C5yfBuJXOnj7QA==
   dependencies:
     axios "^1.4.0"
     bignumber.js "^9.1.1"
