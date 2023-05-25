@@ -2,11 +2,11 @@ import React from 'react';
 import { WalletChainByName } from "./provideWalletChains";
 import { SorobanContextType } from "@soroban-react/core";
 import { WalletChain } from "@soroban-react/types";
-import { Server } from "soroban-client";
+import * as SorobanClient from "soroban-client";
 
 export type NetworkConfig = {
    activeChain?: WalletChain; 
-   server?: Server; 
+   server?: SorobanClient.Server; 
    chains: Array<WalletChain>;
 }
 
