@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@soroban-react/core": "^4.5.1-alpha.1",
-    "soroban-client": "git+https://github.com/stellar/js-soroban-client#de6a45e"
+    "soroban-client": "0.7.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.25"
