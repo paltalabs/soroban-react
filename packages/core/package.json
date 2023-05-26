@@ -33,7 +33,7 @@
   "dependencies": {
     "@soroban-react/freighter": "^4.0.0",
     "@soroban-react/types": "^4.0.0",
-    "soroban-client": "0.7.1"
+    "soroban-client": "0.7.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
