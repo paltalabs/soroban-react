@@ -19,10 +19,10 @@
   "version": "4.5.2",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "tsc",
+    "build": "yarn prebuild && tsc",
     "start": "tsc --watch",
     "prepare": "install-peers",
-    "test": "yarn build && yarn jest"
+    "test": "yarn prepare && yarn build && yarn jest"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
