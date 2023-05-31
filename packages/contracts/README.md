@@ -1,6 +1,6 @@
 # @soroban-react/contracts
 
-See the official gitbook: https://soroban-react.gitbook.io/index/
+See the official gitbook: https://soroban-react.gitbook.io/index/ .
 ___
 
 ```javascript
