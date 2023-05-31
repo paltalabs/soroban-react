@@ -86,3 +86,14 @@ git checkout main
 git merge --no-ff branch_name
 git push origin main
 ```
+
+## Publish one version for all
+
+Sometimes you want all the packages to carry the same version.
+
+```
+yarn exec lerna version --force-publish 
+
+yarn exec lerna publish from-package
+
+```
