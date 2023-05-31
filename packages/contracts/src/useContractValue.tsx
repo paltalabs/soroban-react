@@ -118,5 +118,5 @@ async function fetchContractValue({
     throw new Error("Invalid response from simulateTransaction");
   }
   const result = results[0];
-  return xdr.ScVal.fromXDR(Buffer.from(result.xdr, 'base64'));
+  return xdr.ScVal.fromXDR(result.xdr, "base64");
 }
