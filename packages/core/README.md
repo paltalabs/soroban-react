@@ -1,6 +1,6 @@
 # @soroban-react/core
 
-See the official gitbook: https://soroban-react.gitbook.io/index/ .
+See the official gitbook: https://soroban-react.gitbook.io/index/ ..
 ___
 
 @soroban-react is a simple, powerful framework for building modern Soroban dApps using React.
