@@ -20,7 +20,7 @@
   ],
   "dependencies": {
     "@soroban-react/core": "^5.0.3-alpha.1",
-    "soroban-client": "0.7.2"
+    "soroban-client": "0.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.25"
