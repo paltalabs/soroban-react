@@ -5699,19 +5699,20 @@ sodium-native@^4.0.1:
   dependencies:
     node-gyp-build "^4.3.0"
 
-soroban-client@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.7.2.tgz#b710cdf6d6a66480f8b21d4ae623fb33a2e8701d"
-  integrity sha512-RCYFIrPkhLHogMQZRUDWFXG5i897BL+YjM1XQgIAim/MwwQiyoaxZEipzQU0z78UXIjCxMIUWiE203otdrGIbw==
+soroban-client@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/soroban-client/-/soroban-client-0.8.0.tgz#f30bf5d00ac687832f9c4bb09dfd286979f3a7ac"
+  integrity sha512-INc9W6uOZfHaa/n747jN+r6V2FvpmmFNoh5Ki1HbQbcKqiSo6yY/d1a4//AbMyzDs8WXeNTJOA2EYJnqcexdiw==
   dependencies:
     axios "^1.4.0"
     bignumber.js "^9.1.1"
+    buffer "^6.0.3"
     detect-node "^2.0.4"
     es6-promise "^4.2.4"
     eventsource "^2.0.2"
     lodash "^4.17.21"
     randombytes "^2.1.0"
-    stellar-base "^9.0.0-soroban.1"
+    stellar-base "^9.0.0-soroban.3"
     toml "^3.0.0"
     urijs "^1.19.1"
 
@@ -5801,10 +5802,10 @@ stack-utils@^2.0.3:
   dependencies:
     escape-string-regexp "^2.0.0"
 
-stellar-base@^9.0.0-soroban.1:
-  version "9.0.0-soroban.1"
-  resolved "https://registry.yarnpkg.com/stellar-base/-/stellar-base-9.0.0-soroban.1.tgz#92a1879329f79190d3f242ac8163be712be90704"
-  integrity sha512-oLqE3kNFMo6Hhd9VgBN8jMfaw9RypVqYmdCDDn3NufxIZW92bP7Jq0oPf28N/YO7DYOT7oqptqf7+DVDcwvfZg==
+stellar-base@^9.0.0-soroban.3:
+  version "9.0.0-soroban.3"
+  resolved "https://registry.yarnpkg.com/stellar-base/-/stellar-base-9.0.0-soroban.3.tgz#ac3a497de5fd86ffeda2ab77f26a04054fb71670"
+  integrity sha512-PaeIrspURhbDA0FSkH/mu/lQxxSYPplOdhIcW4VqmKW2kMm/ADXjyQr1y4tFIfv8EpIe5DCJ6sfIyadIoPd8HQ==
   dependencies:
     base32.js "^0.1.0"
     bignumber.js "^9.1.1"
