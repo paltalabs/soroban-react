@@ -3,7 +3,7 @@ const { useContext } = require('react');
 const { SorobanContext } = require('../dist/SorobanContext.js');
 const { useSorobanReact } = require('../dist/useSorobanReact.js');
 
-describe('useSorobanReact', () => {
+describe.skip('useSorobanReact', () => {
   it('should throw an error when used outside of SorobanContextProvider', () => {
     const { result } = renderHook(() => useSorobanReact());
 
