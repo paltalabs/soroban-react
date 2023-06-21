@@ -18,10 +18,12 @@
   "repository": "github:esteblock/soroban-react",
   "version": "5.0.3",
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "del /s /q dist",
+    "prebuild-linux": "rm -rf dist",
     "build": "yarn prebuild && tsc",
     "start": "tsc --watch",
     "prepare": "install-peers",
+    "test-windows": "npm run prepare && npm run build && npm run jest",
     "test": "yarn prepare && yarn build && yarn jest"
   },
   "main": "./dist/index.js",
