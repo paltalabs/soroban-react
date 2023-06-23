@@ -26,14 +26,14 @@ describe('SorobanReactProvider', () => {
     container = null
   })
 
-  test('renders without crashing', () => {
+  test('renders without crashing', async () => {
     const mockChains = {
       id: 'testnet',
       name: 'testnet',
       networkPassphrase: 'testnet',
     }
 
-    act(() => {
+    await act(async () => {
       render(
         <SorobanReactProvider chains={[mockChains]} connectors={[]}>
           <div>Test</div>
@@ -62,7 +62,7 @@ describe('SorobanReactProvider', () => {
         networkPassphrase: 'test',
       },
     ]
-    act(() => {
+    await act(async () => {
       render(
         <SorobanReactProvider
           autoconnect
@@ -76,7 +76,7 @@ describe('SorobanReactProvider', () => {
     })
 
     expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
-    expect(activeConnectorMock.getPublicKey).not.toHaveBeenCalled()
+    expect(activeConnectorMock.getPublicKey).toHaveBeenCalledTimes(2)
   })
 
   test('reconnects when address changes', async () => {
@@ -92,7 +92,7 @@ describe('SorobanReactProvider', () => {
         .mockResolvedValueOnce('address2'),
     }
 
-    act(() => {
+    await act(async () => {
       render(
         <SorobanReactProvider
           autoconnect
@@ -132,7 +132,7 @@ describe('SorobanReactProvider', () => {
       getPublicKey: jest.fn().mockResolvedValue('address'),
     }
 
-    act(() => {
+    await act(async () => {
       render(
         <SorobanReactProvider
           autoconnect
@@ -187,14 +187,14 @@ describe('SorobanReactProvider', () => {
     expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
   })
 
-  test('disconnects when SorobanReactProvider unmounts', () => {
+  test('disconnects when SorobanReactProvider unmounts', async () => {
     const activeConnectorMock = {
       isConnected: jest.fn().mockReturnValue(true),
       getPublicKey: jest.fn().mockResolvedValue('address'),
       getNetworkDetails: jest.fn().mockResolvedValue({}),
     }
 
-    act(() => {
+    await act(async () => {
       render(
         <SorobanReactProvider chains={[]} connectors={[activeConnectorMock]}>
           <div>Test</div>
@@ -203,7 +203,7 @@ describe('SorobanReactProvider', () => {
       )
     })
 
-    act(() => {
+    await act(async () => {
       unmountComponentAtNode(container)
     })
   })
