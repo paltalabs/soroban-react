@@ -6,7 +6,7 @@ export const defaultSorobanContext: SorobanContextType = {
   appName: undefined,
   chains: [],
   connectors: [],
-  server: new SorobanClient.Server("https://soroban-rpc.stellar.org"),
+  server: undefined,
   async connect() {},
   async disconnect() {},
 };
@@ -17,8 +17,8 @@ export interface SorobanContextType {
   chains: WalletChain[];
   connectors: Connector[];
   activeChain?: WalletChain;
-  address?: string;
   activeConnector?: Connector;
+  address?: string;
   server?: SorobanClient.Server;
   connect: () => Promise<void>;
   disconnect: () => Promise<void>;
