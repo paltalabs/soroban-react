@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/esteblock/soroban-react/compare/v5.0.3...v5.1.0) (2023-06-27)
+
+
+### Features
+
+* **core:** Add comments for improvements ([fac11ea](https://github.com/esteblock/soroban-react/commit/fac11ea61a0f290cdf633f724fe66066ddd9222f))
+* **core:** open connector automatically only if autoconnect==true ([b8f4e54](https://github.com/esteblock/soroban-react/commit/b8f4e54720406609e8528d7ab274b19d5887cc37))
+
+
+
+
+
 ## [5.0.3-alpha.1](https://github.com/esteblock/soroban-react/compare/v5.0.3-alpha.0...v5.0.3-alpha.1) (2023-05-31)
 
 **Note:** Version bump only for package soroban-react
