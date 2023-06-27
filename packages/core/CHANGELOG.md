@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/esteblock/soroban-react/compare/v5.1.0...v5.2.0) (2023-06-27)
+
+
+### Features
+
+* **core:** comment about autoconnect ([f0bc7ab](https://github.com/esteblock/soroban-react/commit/f0bc7abd3a1650335794fbf2526d81534346bb43))
+
+
+
+
+
 # [5.1.0](https://github.com/esteblock/soroban-react/compare/v5.0.3...v5.1.0) (2023-06-27)
 
 
