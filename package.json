@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "build": "lerna run build",
-    "test": "lerna run test",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
-    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta"
+    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
+    "test-windows": "npm run test-windows --prefix=./packages/core",
+    "test-linux": "npm run test-linux --prefix=./packages/core"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
@@ -14,8 +15,10 @@
   "dependencies": {
     "-": "^0.0.1",
     "@types/node": "^20.3.1",
+    "@types/react": "^18.0.25",
     "lerna": "^6.4.0",
     "raf-polyfill": "^1.0.0",
+    "react-dom": "^18.2.0",
     "save-dev": "^0.0.1-security",
     "typescript": "^5.1.3"
   },

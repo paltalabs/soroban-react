@@ -20,11 +20,5 @@
   ],
   "dependencies": {
     "@soroban-react/core": "^5.0.3"
-  },
-  "peerDependencies": {
-    "react": ">=16.8"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.25"
   }
 }
