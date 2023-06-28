@@ -4,10 +4,15 @@
   "scripts": {
     "build": "lerna run build",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
-    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta"
+    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
+    "doc": "jsdoc -c jsdoc.json && jsdoc2md packages/**/*.ts > DOCS.md"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1"
+    "@tsconfig/recommended": "^1.0.1",
+    "jsdoc": "^4.0.2",
+    "jsdoc-babel": "^0.5.0",
+    "jsdoc-to-markdown": "^8.0.0",
+    "prettier": "^2.8.8"
   },
   "dependencies": {
     "lerna": "^6.4.0"

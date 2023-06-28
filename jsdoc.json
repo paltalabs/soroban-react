@@ -1,0 +1,22 @@
+{
+    "source": {
+        "includePattern": ".+\\.ts?$"
+    },
+    "plugins": [
+        "plugins/markdown",
+        "node_modules/jsdoc-babel"
+    ],
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "node": "current"
+                    }
+                }
+            ],
+            "@babel/preset-typescript"
+        ]
+    }
+}
