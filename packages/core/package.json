@@ -21,6 +21,7 @@
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rd -rf dist",
     "build": "yarn prebuild && tsc",
+    "build-windows": "yarn prebuild-windows && tsc",
     "start": "tsc --watch",
     "prepare": "install-peers",
     "test": "yarn prepare && yarn build && yarn jest"
