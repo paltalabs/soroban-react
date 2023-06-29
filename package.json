@@ -8,6 +8,7 @@
     "doc": "jsdoc -c jsdoc.json && jsdoc2md packages/**/*.ts > docs/DOCS.md"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@tsconfig/recommended": "^1.0.1",
     "jsdoc": "^4.0.2",
     "jsdoc-babel": "^0.5.0",
