@@ -5,7 +5,7 @@
     "build": "lerna run build",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
     "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
-    "doc": "jsdoc -c jsdoc.json && jsdoc2md packages/**/*.ts > DOCS.md"
+    "doc": "jsdoc -c jsdoc.json && jsdoc2md packages/**/*.ts > docs/DOCS.md"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
