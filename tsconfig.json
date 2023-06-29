@@ -3,7 +3,11 @@
   "compilerOptions": {
     "module": "CommonJS",
     "declaration": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "paths": {
+      "@soroban-react/*": ["packages/*/src"]
+    }
   },
   "exclude": ["**/*.spec.ts"]
 }

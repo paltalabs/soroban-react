@@ -1,6 +1,6 @@
 {
     "source": {
-        "includePattern": ".+\\.ts?$"
+        "includePattern": ".+\\.tsx?$"
     },
     "plugins": [
         "plugins/markdown",
@@ -8,6 +8,7 @@
     ],
     "babel": {
         "presets": [
+            "@babel/preset-typescript",
             [
                 "@babel/preset-env",
                 {
@@ -15,8 +16,7 @@
                         "node": "current"
                     }
                 }
-            ],
-            "@babel/preset-typescript"
+            ]
         ]
     }
 }
