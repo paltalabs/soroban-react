@@ -1,149 +1,31 @@
-# @soroban-react docs
+soroban-react
 
+# soroban-react
 
-### 1. Install the packages
-Install those packages you'll use
-```
-yarn add @soroban-react/core
-yarn add @soroban-react/types
-yarn add @soroban-react/freighter
-yarn add @soroban-react/connect-button
-yarn add @soroban-react/wallet-data
-yarn add @soroban-react/events
-yarn add soroban-client
-```
-### 2. Set your allowed chains for your Dapp
-```
-import * as SorobanClient from "soroban-client";
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+## Table of contents
 
-export const allowedChains: Record<ChainName, ChainMetadata> = {
-  public: {
-    id: "public",
-    name: "Public",
-    networkPassphrase: SorobanClient.Networks.PUBLIC,
-  },
-  testnet: {
-    id: "testnet",
-    name: "Testnet",
-    networkPassphrase: SorobanClient.Networks.TESTNET,
-  },
-  futurenet: {
-    id: "futurenet",
-    name: "Futurenet",
-    networkPassphrase: SorobanClient.Networks.FUTURENET,
-  },
-  sandbox: {
-    id: "sandbox",
-    name: "Sandbox",
-    networkPassphrase: SorobanClient.Networks.SANDBOX,
-  },
-  standalone: {
-    id: "standalone",
-    name: "Standalone",
-    networkPassphrase: "Standalone Network ; February 2017",
-  },
-};
-```
+### Modules
 
-### 3. Set your allowed connectors (wallets) for your Dapp
-```
-import {ConnectorList } from '@soroban-react/types';
-import { freighter } from '@soroban-react/freighter';
-import { allowedChains as chains } from './allowedChains';
-
-const appName = "My dApp"
-export const allowedConnectors: ConnectorList = [
-    {
-      groupName: 'My Group Name',
-      connectors: [freighter({ appName, chains })],
-    },
-  ];
-```
-### 4. Create a @soroban-react provider component
-```
-import React from 'react'
-import {SorobanReactProvider} from '@soroban-react/core';
-import { allowedChains} from '../soroban/allowedChains';
-import { allowedConnectors } from '../soroban/allowedConnectors';
- 
-  export default function MySorobanReactProvider({children}:{children: React.ReactNode}) {
-    return (
-      <SorobanReactProvider
-        chains={allowedChains}
-        connectors={allowedConnectors}>
-          {children}
-      </SorobanReactProvider>
-    )
-  } 
-```
-
-### 5. Place your @soroban-react provider at the root of your dApp
-
-```
-import MySorobanReactProvider from './components/MySorobanReactProvider';
-
-```
-Be sure to place the rest of your dapp as children
-
-```
-<MySorobanReactProvider>
-      <App/>
-    </MySorobanReactProvider>
-```
-
-### 6. Use useSorobanReact() at any point inside your dapp
-```
-import { useSorobanReact } from "@soroban-react/core";
-
-```
-
-```
-const { address
-        activeChain,
-        server,
-        } = useSorobanReact()
-```
-
-## Use @soroban-react/connect-button
-Place at any part of your dApp the ConnectButton component, that will trigger the connect() method of your Connector. It does need the sorobanContext.
-```
-import { useSorobanReact } from "@soroban-react/core";
-import { ConnectButton } from "@soroban-react/connect-button";
-
-<ConnectButton
-  label={Connect your Wallet}
-  sorobanContext={useSorobanReact()}>
-
-```
-
-## Use @soroban-react/wallet-data
-Place at any part of your dApp the WalletData component. If the Connector is not connected, will show the ConnectButton. If the Connector is connected, will show address and network.
-
-```
-import { useSorobanReact } from "@soroban-react/core";
-import { WalletData } from "@soroban-react/wallet-data";
-
-<WalletData
-  sorobanContext={useSorobanReact()}>
-```
-
-## Use @soroban-react/events
-
-Place your @soroban-react/events provider inside your @soroban-react provider. Then you can use the useSorobanEvents hook anywhere you use the react provider.
-
-```
-import {SorobanReactProvider} from '@soroban-react/core';
-import {SorobanEventsProvider} from '@soroban-react/events';
-
-...
-
-<SorobanReactProvider
-        chains={chains}
-        appName={"Example App"}
-        connectors={connectors}>
-        <SorobanEventsProvider>
-          {children}
-        </SorobanEventsProvider>
-      </SorobanReactProvider>
-```
+- [chains/src](modules/chains_src.md)
+- [connect-button/src](modules/connect_button_src.md)
+- [contracts/src](modules/contracts_src.md)
+- [contracts/src/setTrustline](modules/contracts_src_setTrustline.md)
+- [contracts/src/useContractValue](modules/contracts_src_useContractValue.md)
+- [contracts/src/useSendTransaction](modules/contracts_src_useSendTransaction.md)
+- [core/src](modules/core_src.md)
+- [core/src/SorobanContext](modules/core_src_SorobanContext.md)
+- [core/src/SorobanReactProvider](modules/core_src_SorobanReactProvider.md)
+- [core/src/getDefaultConnectors](modules/core_src_getDefaultConnectors.md)
+- [core/src/useSorobanReact](modules/core_src_useSorobanReact.md)
+- [events/src](modules/events_src.md)
+- [events/src/SorobanEventsContext](modules/events_src_SorobanEventsContext.md)
+- [events/src/SorobanEventsProvider](modules/events_src_SorobanEventsProvider.md)
+- [events/src/useSorobanEvents](modules/events_src_useSorobanEvents.md)
+- [freighter/src](modules/freighter_src.md)
+- [types/src](modules/types_src.md)
+- [utils/src](modules/utils_src.md)
+- [utils/src/convert](modules/utils_src_convert.md)
+- [wallet-data/src](modules/wallet_data_src.md)
+- [wallet-data/src/provideWalletChains](modules/wallet_data_src_provideWalletChains.md)
+- [wallet-data/src/useIsMounted](modules/wallet_data_src_useIsMounted.md)
+- [wallet-data/src/useNetwork](modules/wallet_data_src_useNetwork.md)
