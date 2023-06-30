@@ -9,11 +9,12 @@
   "version": "5.0.3",
   "scripts": {
     "prebuild": "del /s /q dist",
-    "prebuild-linux": "rd -rf dist",
+    "prebuild-linux": "rm -rf dist",
     "build": "yarn prebuild && tsc",
-    "prepare": "install-peers",
+    "build-linux": "yarn prebuild-linux && tsc",
     "start": "tsc --watch",
-    "test": "yarn prepare && yarn build && yarn jest"
+    "test-windows": "yarn build && yarn jest",
+    "test-linux": "yarn build-linux && yarn jest"
   },
   "main": "dist/index.js",
   "exports": "./dist/index.js",

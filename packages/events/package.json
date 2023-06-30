@@ -19,11 +19,12 @@
   "version": "5.0.3",
   "scripts": {
     "prebuild": "del /s /q dist",
+    "prebuild-linux": "rm -rf dist",
     "build": "yarn prebuild && tsc",
+    "build-linux": "yarn prebuild-linux && tsc",
     "start": "tsc --watch",
-    "prepare": "install-peers",
-    "test-windows": "npm run prepare && npm run build && npm run jest",
-    "test": "yarn prepare && yarn build && yarn jest"
+    "test-windows": "yarn build && yarn jest",
+    "test-linux": "yarn build-linux && yarn jest"
   },
   "main": "dist/index.js",
   "exports": "./dist/index.js",

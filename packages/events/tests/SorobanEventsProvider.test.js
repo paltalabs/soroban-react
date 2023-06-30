@@ -43,6 +43,25 @@ describe('SorobanEventsProvider', () => {
   })
 
   test('renders without crashing', async () => {
+    server.getLatestLedger.mockResolvedValue({ sequence: 12345 })
+    server.getEvents.mockResolvedValue({
+      events: [
+        {
+          pagingToken: 'abc',
+          data: {
+            type: 'contract',
+            attributes: [
+              {
+                key: 'key1',
+                value: 'value1',
+              },
+            ],
+          },
+        },
+      ],
+      latestLedger: { sequence: 12345 },
+    })
+
     const subscription = {
       contractId: '0x123',
       topics: ['topic1'],
