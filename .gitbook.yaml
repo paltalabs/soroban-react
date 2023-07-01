@@ -2,6 +2,3 @@ root: ./docs/
 
 structure:  
     readme: README.md
-    sections:
-    - title: Technical-docs
-      path: Technical-docs/README.md
