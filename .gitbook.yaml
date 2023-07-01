@@ -9,3 +9,6 @@ structure:
       path: Tutorial/README.md
     - title: Technical-docs
       path: Technical-docs/README.md
+      articles:
+        - path: Technical-docs/interfaces.md
+        - path: Technical-docs/modules.md
