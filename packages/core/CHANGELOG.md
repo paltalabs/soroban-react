@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.12](https://github.com/esteblock/soroban-react/compare/v5.3.11...v5.3.12) (2023-07-03)
+
+### Bug Fixes
+
+- **app:** getDefaultConnectos modified ([419bf0d](https://github.com/esteblock/soroban-react/commit/419bf0dedfdeac7b56015025db6a9f5635976a7a))
+- **app:** tests commented for now ([65b9fb9](https://github.com/esteblock/soroban-react/commit/65b9fb92c0356c22371d1889679d89487223876a))
+
 ## [5.3.11](https://github.com/esteblock/soroban-react/compare/v5.3.10...v5.3.11) (2023-07-03)
 
 **Note:** Version bump only for package @soroban-react/core
