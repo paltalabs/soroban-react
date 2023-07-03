@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "5.3.5",
+  "version": "5.3.6",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -39,7 +39,7 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/freighter": "^5.3.2",
+    "@soroban-react/freighter": "^5.3.6",
     "@soroban-react/types": "^5.3.2",
     "soroban-client": "0.8.1"
   },
