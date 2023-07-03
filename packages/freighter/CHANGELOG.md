@@ -1,7 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file..
+All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [5.3.9](https://github.com/esteblock/soroban-react/compare/v5.3.8...v5.3.9) (2023-07-03)
+
+**Note:** Version bump only for package @soroban-react/freighter
+
+
+
+
 
 # [4.0.0](https://github.com/esteblock/soroban-react/compare/v3.8.0...v4.0.0) (2023-03-30)
 

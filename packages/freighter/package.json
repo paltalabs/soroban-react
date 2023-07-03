@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.0.3",
+  "version": "5.3.9",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
