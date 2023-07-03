@@ -6,7 +6,8 @@
     "lerna-publish": "lerna publish --no-private --conventional-commits",
     "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
     "prettier-format": "prettier --write \"packages/**/*.{ts,tsx}\"",
-    "doc": "typedoc"
+    "doc": "typedoc",
+    "postdoc": "bash ./add_titles_to_md_files.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
