@@ -1,6 +1,6 @@
 # @soroban-react/core
 
-Use `autoconnect=true` to open user wallet automatically (by default is false)..
+Use `autoconnect=true` to open user wallet automatically (by default is false)....
 
 See the official gitbook: https://soroban-react.gitbook.io/index/ ..
 ___
