@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[wallet-data/src/provideWalletChains.tsx:5](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/provideWalletChains.tsx#L5)
+[wallet-data/src/provideWalletChains.tsx:5](https://github.com/esteblock/soroban-react/blob/612058a/packages/wallet-data/src/provideWalletChains.tsx#L5)

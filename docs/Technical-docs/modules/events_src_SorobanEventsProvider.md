@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[events/src/SorobanEventsProvider.tsx:17](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsProvider.tsx#L17)
+[events/src/SorobanEventsProvider.tsx:17](https://github.com/esteblock/soroban-react/blob/612058a/packages/events/src/SorobanEventsProvider.tsx#L17)

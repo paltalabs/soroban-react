@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[freighter/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/freighter/src/index.tsx#L6)
+[freighter/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/612058a/packages/freighter/src/index.tsx#L6)

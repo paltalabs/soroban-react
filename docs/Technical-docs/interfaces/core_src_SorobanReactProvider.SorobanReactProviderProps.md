@@ -26,7 +26,7 @@ A React subtree that needs access to the context.
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:13](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L13)
+[core/src/SorobanReactProvider.tsx:13](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L13)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:14](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L14)
+[core/src/SorobanReactProvider.tsx:14](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L14)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:15](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L15)
+[core/src/SorobanReactProvider.tsx:15](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L15)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:16](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L16)
+[core/src/SorobanReactProvider.tsx:16](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L16)
 
 ___
 
@@ -66,4 +66,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:17](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L17)
+[core/src/SorobanReactProvider.tsx:17](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L17)

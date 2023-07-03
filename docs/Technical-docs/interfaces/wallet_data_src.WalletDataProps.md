@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[wallet-data/src/index.tsx:8](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/index.tsx#L8)
+[wallet-data/src/index.tsx:8](https://github.com/esteblock/soroban-react/blob/612058a/packages/wallet-data/src/index.tsx#L8)

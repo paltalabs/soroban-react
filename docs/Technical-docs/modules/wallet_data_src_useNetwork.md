@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:9](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/useNetwork.tsx#L9)
+[wallet-data/src/useNetwork.tsx:9](https://github.com/esteblock/soroban-react/blob/612058a/packages/wallet-data/src/useNetwork.tsx#L9)
 
 ## Functions
 
@@ -48,4 +48,4 @@
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:15](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/useNetwork.tsx#L15)
+[wallet-data/src/useNetwork.tsx:15](https://github.com/esteblock/soroban-react/blob/612058a/packages/wallet-data/src/useNetwork.tsx#L15)

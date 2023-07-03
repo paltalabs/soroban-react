@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[core/src/getDefaultConnectors.tsx:4](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/getDefaultConnectors.tsx#L4)
+[core/src/getDefaultConnectors.tsx:4](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/getDefaultConnectors.tsx#L4)

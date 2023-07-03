@@ -24,7 +24,7 @@ Whether the connect button is higher.
 
 #### Defined in
 
-[connect-button/src/index.tsx:22](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/connect-button/src/index.tsx#L22)
+[connect-button/src/index.tsx:22](https://github.com/esteblock/soroban-react/blob/612058a/packages/connect-button/src/index.tsx#L22)
 
 ___
 
@@ -36,7 +36,7 @@ Label for the connect button.
 
 #### Defined in
 
-[connect-button/src/index.tsx:17](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/connect-button/src/index.tsx#L17)
+[connect-button/src/index.tsx:17](https://github.com/esteblock/soroban-react/blob/612058a/packages/connect-button/src/index.tsx#L17)
 
 ___
 
@@ -48,4 +48,4 @@ The Soroban context.
 
 #### Defined in
 
-[connect-button/src/index.tsx:27](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/connect-button/src/index.tsx#L27)
+[connect-button/src/index.tsx:27](https://github.com/esteblock/soroban-react/blob/612058a/packages/connect-button/src/index.tsx#L27)

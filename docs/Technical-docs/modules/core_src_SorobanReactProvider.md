@@ -30,4 +30,4 @@
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:37](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/core/src/SorobanReactProvider.tsx#L37)
+[core/src/SorobanReactProvider.tsx:37](https://github.com/esteblock/soroban-react/blob/612058a/packages/core/src/SorobanReactProvider.tsx#L37)

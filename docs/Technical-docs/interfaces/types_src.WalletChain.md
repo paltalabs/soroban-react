@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[types/src/index.tsx:39](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L39)
+[types/src/index.tsx:39](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L39)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:40](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L40)
+[types/src/index.tsx:40](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L40)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:36](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L36)
+[types/src/index.tsx:36](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L36)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:37](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L37)
+[types/src/index.tsx:37](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L37)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:38](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L38)
+[types/src/index.tsx:38](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L38)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:42](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L42)
+[types/src/index.tsx:42](https://github.com/esteblock/soroban-react/blob/612058a/packages/types/src/index.tsx#L42)
