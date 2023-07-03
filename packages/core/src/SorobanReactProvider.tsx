@@ -53,7 +53,6 @@ export function SorobanReactProvider({
       activeConnector,
       activeChain: chains.length == 1 ? chains[0] : undefined,
       connect: async () => {
-<<<<<<< HEAD
         try {
           let networkDetails =
             await mySorobanContext.activeConnector?.getNetworkDetails()
@@ -89,63 +88,21 @@ export function SorobanReactProvider({
             server,
           }))
         } catch (err) {}
-=======
-        let networkDetails =
-          await mySorobanContext.activeConnector?.getNetworkDetails()
-
-        if (
-          !chains.find(
-            (c: any) =>
-              c.networkPassphrase === networkDetails?.networkPassphrase
-          )
-        ) {
-          const error = new Error(
-            'Your Wallet network is not supported in this app'
-          )
-          throw error
-        }
-
-        let activeChain = networkToActiveChain(networkDetails, chains)
-
-        let address = await mySorobanContext.activeConnector?.getPublicKey()
-        let server =
-          networkDetails &&
-          new SorobanClient.Server(networkDetails.networkUrl, {
-            allowHttp: networkDetails.networkUrl.startsWith('http://'),
-          })
-
-        // Now we can track that the wallet is finally connected
-        isConnectedRef.current = true
-
-        setSorobanContext((c: any) => ({
-          ...c,
-          activeChain,
-          address,
-          server,
-        }))
->>>>>>> generated-docs
       },
       disconnect: async () => {
         isConnectedRef.current = false
         // TODO: Maybe reset address to undefined
-<<<<<<< HEAD
-=======
-        // TODO: Handle other things here, such as perhaps resetting address to undefined.
->>>>>>> generated-docs
       },
     })
 
   // Handle changes of address/network in "realtime"
   React.useEffect(() => {
     let timeoutId: NodeJS.Timer | null = null
-<<<<<<< HEAD
-=======
 
     // If it turns out that requesting an update from Freighter is too taxing,
     // then this could be increased. Humans perceive 100ms response times as instantaneous
     // (source: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/)
     // but you also have to consider the re-render time of components.
->>>>>>> generated-docs
     const freighterCheckIntervalMs = 200
 
     async function checkForWalletChanges() {
@@ -226,7 +183,6 @@ export function SorobanReactProvider({
     if (mySorobanContext.address) return; // If we already have access to the connector's address, we are OK
     if (!mySorobanContext.activeConnector) return; // If there is not even an activeConnector, we don't need to continue
 
-<<<<<<< HEAD
     // activeConnector.isConnected() means that the connector is installed (even if not allowed, even if locked)
     // Hence, here we want to connect automatically if autoconnect is true && if activeConnector is installed
     if (mySorobanContext.autoconnect && mySorobanContext.activeConnector.isConnected()) {   
@@ -241,22 +197,6 @@ export function SorobanReactProvider({
     }
   }, [mySorobanContext.activeConnector, mySorobanContext.autoconnect]);
 
-=======
-    console.log('Something changing... in SorobanReactProvider.tsx')
-    if (mySorobanContext.address) return
-    if (!mySorobanContext.activeConnector) return
-    if (
-      mySorobanContext.autoconnect ||
-      mySorobanContext.activeConnector.isConnected()
-    ) {
-      mySorobanContext.connect()
-    }
-  }, [
-    mySorobanContext.address,
-    mySorobanContext.activeConnector,
-    mySorobanContext.autoconnect,
-  ])
->>>>>>> generated-docs
 
   return (
     <SorobanContext.Provider value={mySorobanContext}>
