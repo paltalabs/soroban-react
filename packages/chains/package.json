@@ -20,6 +20,6 @@
   ],
   "dependencies": {
     "@soroban-react/types": "^5.0.3",
-    "soroban-client": "0.8.0"
+    "soroban-client": "0.8.1"
   }
 }

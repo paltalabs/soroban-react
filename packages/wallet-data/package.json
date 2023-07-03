@@ -22,7 +22,7 @@
     "@soroban-react/connect-button": "^5.3.1",
     "@soroban-react/core": "^5.3.1",
     "@soroban-react/types": "^5.0.3",
-    "soroban-client": "0.8.0"
+    "soroban-client": "0.8.1"
   },
   "peerDependencies": {
     "react": ">=16.8"
