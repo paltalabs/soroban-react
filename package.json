@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "lerna run build",
+    "build-linux": "lerna run build-linux",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
     "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
     "test-windows": "npm run test-windows --prefix=./packages/core",

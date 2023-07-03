@@ -18,13 +18,13 @@
   "repository": "github:esteblock/soroban-react",
   "version": "5.0.3",
   "scripts": {
-    "prebuild": "del /s /q dist",
-    "prebuild-linux": "rm -rf dist",
+    "prebuild-windows": "del /s /q dist",
+    "prebuild": "rm -rf dist",
+    "build-windows": "yarn prebuild && tsc",
     "build": "yarn prebuild && tsc",
-    "build-linux": "yarn prebuild-linux && tsc",
     "start": "tsc --watch",
-    "test-windows": "yarn build && yarn jest",
-    "test-linux": "yarn build-linux && yarn jest"
+    "test-windows": "yarn build-windows && yarn jest",
+    "test": "yarn build && yarn jest"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -33,7 +33,7 @@
     "dist/*"
   ],
   "jest": {
-    "setupFilesAfterEnv": [
+    "setupFilesAfterEnv": [ 
       "./jest.setup.js"
     ],
     "collectCoverage": true
