@@ -29,8 +29,8 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/core": "^5.0.3",
-    "soroban-client": "0.8.0"
+    "@soroban-react/core": "^5.3.1",
+    "soroban-client": "0.8.1"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
