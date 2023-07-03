@@ -16,58 +16,58 @@
 
 ### futurenet
 
-• `Const` **futurenet**: [`WalletChain`](../interfaces/types_src.WalletChain.md)
+• `Const` **futurenet**: `WalletChain`
 
 A `WalletChain` object representing the Futurenet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:24](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/chains/src/index.tsx#L24)
+[chains/src/index.tsx:23](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L23)
 
 ___
 
 ### public\_chain
 
-• `Const` **public\_chain**: [`WalletChain`](../interfaces/types_src.WalletChain.md)
+• `Const` **public\_chain**: `WalletChain`
 
 A `WalletChain` object representing the public blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:14](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/chains/src/index.tsx#L14)
+[chains/src/index.tsx:13](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L13)
 
 ___
 
 ### sandbox
 
-• `Const` **sandbox**: [`WalletChain`](../interfaces/types_src.WalletChain.md)
+• `Const` **sandbox**: `WalletChain`
 
 A `WalletChain` object representing the Sandbox blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:44](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/chains/src/index.tsx#L44)
+[chains/src/index.tsx:43](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L43)
 
 ___
 
 ### standalone
 
-• `Const` **standalone**: [`WalletChain`](../interfaces/types_src.WalletChain.md)
+• `Const` **standalone**: `WalletChain`
 
 A `WalletChain` object representing the Standalone blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:54](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/chains/src/index.tsx#L54)
+[chains/src/index.tsx:53](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L53)
 
 ___
 
 ### testnet
 
-• `Const` **testnet**: [`WalletChain`](../interfaces/types_src.WalletChain.md)
+• `Const` **testnet**: `WalletChain`
 
 A `WalletChain` object representing the Testnet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:34](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/chains/src/index.tsx#L34)
+[chains/src/index.tsx:33](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L33)

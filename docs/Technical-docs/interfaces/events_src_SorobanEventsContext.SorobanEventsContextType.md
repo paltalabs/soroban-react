@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:20](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L20)
+[events/src/SorobanEventsContext.tsx:20](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L20)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:22](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L22)
+[events/src/SorobanEventsContext.tsx:22](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L22)
 
 ___
 
@@ -68,4 +68,4 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:21](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L21)
+[events/src/SorobanEventsContext.tsx:21](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L21)

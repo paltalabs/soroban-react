@@ -22,13 +22,13 @@
 
 | Name | Type |
 | :------ | :------ |
-| `activeChain?` | [`WalletChain`](../interfaces/types_src.WalletChain.md) |
-| `chains` | [`WalletChain`](../interfaces/types_src.WalletChain.md)[] |
+| `activeChain?` | `WalletChain` |
+| `chains` | `WalletChain`[] |
 | `server?` | `SorobanClient.Server` |
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:9](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/useNetwork.tsx#L9)
+[wallet-data/src/useNetwork.tsx:9](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/useNetwork.tsx#L9)
 
 ## Functions
 
@@ -40,7 +40,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `sorobanContext` | [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md) |
+| `sorobanContext` | `SorobanContextType` |
 
 #### Returns
 
@@ -48,4 +48,4 @@
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:15](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/useNetwork.tsx#L15)
+[wallet-data/src/useNetwork.tsx:15](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/useNetwork.tsx#L15)

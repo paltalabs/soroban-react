@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:6](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L6)
+[events/src/SorobanEventsContext.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L6)
 
 ## Variables
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:29](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L29)
+[events/src/SorobanEventsContext.tsx:29](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L29)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:25](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsContext.tsx#L25)
+[events/src/SorobanEventsContext.tsx:25](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L25)

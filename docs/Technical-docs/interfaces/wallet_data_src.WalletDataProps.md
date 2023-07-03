@@ -14,8 +14,8 @@
 
 ### sorobanContext
 
-• **sorobanContext**: [`SorobanContextType`](core_src_SorobanContext.SorobanContextType.md)
+• **sorobanContext**: `SorobanContextType`
 
 #### Defined in
 
-[wallet-data/src/index.tsx:8](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/index.tsx#L8)
+[wallet-data/src/index.tsx:8](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/index.tsx#L8)

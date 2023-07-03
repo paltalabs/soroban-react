@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[events/src/SorobanEventsProvider.tsx:14](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/events/src/SorobanEventsProvider.tsx#L14)
+[events/src/SorobanEventsProvider.tsx:14](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsProvider.tsx#L14)

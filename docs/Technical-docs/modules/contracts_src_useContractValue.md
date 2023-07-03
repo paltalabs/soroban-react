@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:12](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/contracts/src/useContractValue.tsx#L12)
+[contracts/src/useContractValue.tsx:12](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L12)
 
 ## Functions
 
@@ -53,4 +53,4 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:30](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/contracts/src/useContractValue.tsx#L30)
+[contracts/src/useContractValue.tsx:30](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L30)

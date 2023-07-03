@@ -6,7 +6,7 @@
     "lerna-publish": "lerna publish --no-private --conventional-commits",
     "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
     "prettier-format": "prettier --write \"packages/**/*.{ts,tsx}\"",
-    "typedoc": "typedoc"
+    "doc": "typedoc"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

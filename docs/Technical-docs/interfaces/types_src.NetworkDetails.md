@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[types/src/index.tsx:4](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L4)
+[types/src/index.tsx:4](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L4)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L6)
+[types/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L6)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:5](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/types/src/index.tsx#L5)
+[types/src/index.tsx:5](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L5)
