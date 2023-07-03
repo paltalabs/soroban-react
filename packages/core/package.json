@@ -52,5 +52,8 @@
     "jsdom": "^22.1.0",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^29.1.0"
-  }
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
 }
