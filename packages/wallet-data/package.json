@@ -6,7 +6,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "5.3.10",
+  "version": "5.3.11",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc",
@@ -19,9 +19,9 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/connect-button": "^5.3.10",
-    "@soroban-react/core": "^5.3.10",
-    "@soroban-react/types": "^5.3.10",
+    "@soroban-react/connect-button": "^5.3.11",
+    "@soroban-react/core": "^5.3.11",
+    "@soroban-react/types": "^5.3.11",
     "soroban-client": "0.8.1"
   },
   "peerDependencies": {
