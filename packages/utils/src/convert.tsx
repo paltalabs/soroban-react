@@ -1,8 +1,7 @@
+import BigNumber from 'bignumber.js'
+import * as SorobanClient from 'soroban-client'
 
-import BigNumber from 'bignumber.js';
-import * as SorobanClient from 'soroban-client';
-
-let xdr = SorobanClient.xdr;
+let xdr = SorobanClient.xdr
 
 // export function scvalToBigNumber(scval: SorobanClient.xdr.ScVal | undefined): BigNumber {
 //   switch (scval?.switch()) {
