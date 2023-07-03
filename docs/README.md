@@ -1,149 +1,31 @@
-# @soroban-react docs
 
+# Welcome to @soroban-react
 
-### 1. Install the packages
-Install those packages you'll use
-```
-yarn add @soroban-react/core
-yarn add @soroban-react/types
-yarn add @soroban-react/freighter
-yarn add @soroban-react/connect-button
-yarn add @soroban-react/wallet-data
-yarn add @soroban-react/events
-yarn add soroban-client
-```
-### 2. Set your allowed chains for your Dapp
-```
-import * as SorobanClient from "soroban-client";
-import type {ChainMetadata, ChainName} from '@soroban-react/types';
+`@soroban-react` is a powerful library designed to facilitate the creation of modern, decentralized applications (dApps) using React and the Soroban blockchain network. This library provides a suite of features and tools that simplify and streamline the development of dApps on Soroban.
 
-export const allowedChains: Record<ChainName, ChainMetadata> = {
-  public: {
-    id: "public",
-    name: "Public",
-    networkPassphrase: SorobanClient.Networks.PUBLIC,
-  },
-  testnet: {
-    id: "testnet",
-    name: "Testnet",
-    networkPassphrase: SorobanClient.Networks.TESTNET,
-  },
-  futurenet: {
-    id: "futurenet",
-    name: "Futurenet",
-    networkPassphrase: SorobanClient.Networks.FUTURENET,
-  },
-  sandbox: {
-    id: "sandbox",
-    name: "Sandbox",
-    networkPassphrase: SorobanClient.Networks.SANDBOX,
-  },
-  standalone: {
-    id: "standalone",
-    name: "Standalone",
-    networkPassphrase: "Standalone Network ; February 2017",
-  },
-};
-```
+## Key Features:
 
-### 3. Set your allowed connectors (wallets) for your Dapp
-```
-import {ConnectorList } from '@soroban-react/types';
-import { freighter } from '@soroban-react/freighter';
-import { allowedChains as chains } from './allowedChains';
+- **Full support for Freighter**: [Freighter](https://github.com/stellar/freighter) is a browser extension for managing Stellar secret keys. With `@soroban-react`, you can interact securely and efficiently with Freighter to sign transactions and queries on the [Soroban blockchain network](https://soroban.stellar.org/).
 
-const appName = "My dApp"
-export const allowedConnectors: ConnectorList = [
-    {
-      groupName: 'My Group Name',
-      connectors: [freighter({ appName, chains })],
-    },
-  ];
-```
-### 4. Create a @soroban-react provider component
-```
-import React from 'react'
-import {SorobanReactProvider} from '@soroban-react/core';
-import { allowedChains} from '../soroban/allowedChains';
-import { allowedConnectors } from '../soroban/allowedConnectors';
- 
-  export default function MySorobanReactProvider({children}:{children: React.ReactNode}) {
-    return (
-      <SorobanReactProvider
-        chains={allowedChains}
-        connectors={allowedConnectors}>
-          {children}
-      </SorobanReactProvider>
-    )
-  } 
-```
+- **Easy-to-use global context**: @soroban-react provides a global context, accessible throughout your dApp, that contains essential information such as the current account and chain. This context simplifies the management and access to key data in your dApp. Via a [React Context](https://reactjs.org/docs/context.html).
 
-### 5. Place your @soroban-react provider at the root of your dApp
+- **Customizable Connectors**: Connectors are an integral part of `@soroban-react`. A Connector manages all aspects of your dApp's connectivity with the Soroban blockchain network and user accounts.
 
-```
-import MySorobanReactProvider from './components/MySorobanReactProvider';
+## Additional Utilities and Components:
 
-```
-Be sure to place the rest of your dapp as children
+- **[Set Trustline](./Technical-docs/modules/contracts_src_setTrustline.md)**: `@soroban-react` makes it easy to establish trustlines on the Soroban network, allowing accounts to hold assets issued by other accounts.
 
-```
-<MySorobanReactProvider>
-      <App/>
-    </MySorobanReactProvider>
-```
+- **[Custom React Hooks](./Technical-docs/modules/contracts_src.md)**: `@soroban-react` provides several custom React hooks that simplify interaction with smart contracts and conducting transactions on the Soroban network.
 
-### 6. Use useSorobanReact() at any point inside your dapp
-```
-import { useSorobanReact } from "@soroban-react/core";
+- **[Events Package](./Technical-docs/modules/events_src.md)**: This package provides tools for subscribing to specific contract events on the Soroban blockchain network. To utilize it, wrap your components in the [SorobanEventsProvider](./Technical-docs/modules/events_src_SorobanEventsProvider.md) component and use the useSorobanEvents hook to subscribe to events.
 
-```
+- **[Freighter Package](./Technical-docs/modules/freighter_src.md)**: This package provides a connector for the `Freighter` web wallet, enabling the library to interact directly with it.
 
-```
-const { address
-        activeChain,
-        server,
-        } = useSorobanReact()
-```
+- **[Wallet Data Package (wallet-data)](./Technical-docs/modules/wallet_data_src.md)**: This package provides tools for managing wallet and network data. It includes a [WalletChainByName object](https://github.com/mauroepce/soroban-react/blob/486e5d4/packages/wallet-data/src/provideWalletChains.tsx#L5) with details of different Stellar chains, and custom React hooks like [useIsMounted](./Technical-docs/modules/wallet_data_src_useIsMounted.md) and [useNetwork](./Technical-docs/modules/wallet_data_src_useNetwork.md).
 
-## Use @soroban-react/connect-button
-Place at any part of your dApp the ConnectButton component, that will trigger the connect() method of your Connector. It does need the sorobanContext.
-```
-import { useSorobanReact } from "@soroban-react/core";
-import { ConnectButton } from "@soroban-react/connect-button";
+---
 
-<ConnectButton
-  label={Connect your Wallet}
-  sorobanContext={useSorobanReact()}>
-
-```
-
-## Use @soroban-react/wallet-data
-Place at any part of your dApp the WalletData component. If the Connector is not connected, will show the ConnectButton. If the Connector is connected, will show address and network.
-
-```
-import { useSorobanReact } from "@soroban-react/core";
-import { WalletData } from "@soroban-react/wallet-data";
-
-<WalletData
-  sorobanContext={useSorobanReact()}>
-```
-
-## Use @soroban-react/events
-
-Place your @soroban-react/events provider inside your @soroban-react provider. Then you can use the useSorobanEvents hook anywhere you use the react provider.
-
-```
-import {SorobanReactProvider} from '@soroban-react/core';
-import {SorobanEventsProvider} from '@soroban-react/events';
-
-...
-
-<SorobanReactProvider
-        chains={chains}
-        appName={"Example App"}
-        connectors={connectors}>
-        <SorobanEventsProvider>
-          {children}
-        </SorobanEventsProvider>
-      </SorobanReactProvider>
-```
+> In summary, `@soroban-react` is a comprehensive library for developing dApps on the Soroban network, providing a
+> wealth of useful features and tools. Whether you're looking to interact with the Freighter web wallet, 
+> subscribe to contract events, or manage network and wallet data, @soroban-react has the tools to help you
+> achieve your goals.

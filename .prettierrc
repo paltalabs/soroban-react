@@ -3,7 +3,7 @@
   "singleQuote": true,
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "jsxBracketSameLine": false,
+  "bracketSameLine": false,
   "importOrder": ["react", "<THIRD_PARTY_MODULES>", "components/*", "app/*|config/*|interfaces/*|stories/*", "^[./]"],
   "importOrderSeparation": true
 }

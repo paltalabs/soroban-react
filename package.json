@@ -4,10 +4,19 @@
   "scripts": {
     "build": "lerna run build",
     "lerna-publish": "lerna publish --no-private --conventional-commits",
-    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta"
+    "lerna-publish-beta": "lerna publish --no-private --conventional-commits from-git --dist-tag beta",
+    "prettier-format": "prettier --write \"packages/**/*.{ts,tsx}\"",
+    "typedoc": "typedoc"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.1"
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@tsconfig/recommended": "^1.0.1",
+    "prettier": "^2.8.8",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.3"
   },
   "dependencies": {
     "lerna": "^6.4.0"

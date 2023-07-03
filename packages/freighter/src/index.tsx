@@ -1,6 +1,7 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
-import freighterApi from "@stellar/freighter-api";
-import {NetworkDetails, Connector } from '@soroban-react/types';
+import { NetworkDetails, Connector } from '@soroban-react/types'
+
+import freighterApi from '@stellar/freighter-api'
 
 export function freighter(): Connector {
   return {
@@ -24,8 +25,15 @@ export function freighter(): Connector {
     getPublicKey(): Promise<string> {
       return freighterApi.getPublicKey()
     },
-    signTransaction(xdr: string, opts?: { network?: string; networkPassphrase?: string; accountToSign?: string }): Promise<string> {
+    signTransaction(
+      xdr: string,
+      opts?: {
+        network?: string
+        networkPassphrase?: string
+        accountToSign?: string
+      }
+    ): Promise<string> {
       return freighterApi.signTransaction(xdr, opts)
     },
   }
-};
+}
