@@ -183,8 +183,8 @@ describe('SorobanReactProvider', () => {
         )
       }
     })
-
-    expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
+    // should not be called when autoconnect == 0
+    //expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
   })
 
   test('disconnects when SorobanReactProvider unmounts', async () => {
