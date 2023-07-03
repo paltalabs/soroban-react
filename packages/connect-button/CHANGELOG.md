@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.3](https://github.com/esteblock/soroban-react/compare/v5.3.2...v5.3.3) (2023-07-03)
+
+**Note:** Version bump only for package @soroban-react/connect-button
+
 ## [5.3.2](https://github.com/esteblock/soroban-react/compare/v5.3.1...v5.3.2) (2023-07-03)
 
 **Note:** Version bump only for package @soroban-react/connect-button
