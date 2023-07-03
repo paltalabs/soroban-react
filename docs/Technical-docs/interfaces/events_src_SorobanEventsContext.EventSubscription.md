@@ -1,3 +1,6 @@
+---
+title: EventSubscription
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsContext](../modules/events_src_SorobanEventsContext.md) / EventSubscription
 
 # Interface: EventSubscription
@@ -23,7 +26,7 @@
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:13](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L13)
+[events/src/SorobanEventsContext.tsx:13](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L13)
 
 ___
 
@@ -33,7 +36,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:11](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L11)
+[events/src/SorobanEventsContext.tsx:11](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L11)
 
 ___
 
@@ -43,7 +46,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:14](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L14)
+[events/src/SorobanEventsContext.tsx:14](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L14)
 
 ___
 
@@ -53,7 +56,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:15](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L15)
+[events/src/SorobanEventsContext.tsx:15](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L15)
 
 ___
 
@@ -63,7 +66,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:16](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L16)
+[events/src/SorobanEventsContext.tsx:16](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L16)
 
 ___
 
@@ -73,4 +76,4 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:12](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L12)
+[events/src/SorobanEventsContext.tsx:12](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L12)

@@ -1,3 +1,6 @@
+---
+title: SendTransactionResult<E>
+---
 [soroban-react](../README.md) / [contracts/src/useSendTransaction](../modules/contracts_src_useSendTransaction.md) / SendTransactionResult
 
 # Interface: SendTransactionResult<E\>
@@ -32,7 +35,7 @@
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:36](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L36)
+[contracts/src/useSendTransaction.tsx:36](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L36)
 
 ___
 
@@ -42,7 +45,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:37](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L37)
+[contracts/src/useSendTransaction.tsx:37](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L37)
 
 ___
 
@@ -52,7 +55,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:38](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L38)
+[contracts/src/useSendTransaction.tsx:38](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L38)
 
 ___
 
@@ -62,7 +65,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:39](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L39)
+[contracts/src/useSendTransaction.tsx:39](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L39)
 
 ___
 
@@ -72,7 +75,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:40](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L40)
+[contracts/src/useSendTransaction.tsx:40](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L40)
 
 ___
 
@@ -82,7 +85,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:41](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L41)
+[contracts/src/useSendTransaction.tsx:41](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L41)
 
 ___
 
@@ -100,7 +103,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:46](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L46)
+[contracts/src/useSendTransaction.tsx:46](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L46)
 
 ___
 
@@ -125,7 +128,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:42](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L42)
+[contracts/src/useSendTransaction.tsx:42](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L42)
 
 ___
 
@@ -135,4 +138,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:47](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useSendTransaction.tsx#L47)
+[contracts/src/useSendTransaction.tsx:47](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L47)

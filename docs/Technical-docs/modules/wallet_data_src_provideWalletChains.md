@@ -1,3 +1,6 @@
+---
+title: wallet-data/src/provideWalletChains
+---
 [soroban-react](../README.md) / wallet-data/src/provideWalletChains
 
 # Module: wallet-data/src/provideWalletChains
@@ -16,4 +19,4 @@
 
 #### Defined in
 
-[wallet-data/src/provideWalletChains.tsx:5](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/provideWalletChains.tsx#L5)
+[wallet-data/src/provideWalletChains.tsx:5](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/provideWalletChains.tsx#L5)

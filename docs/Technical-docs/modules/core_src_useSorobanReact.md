@@ -1,3 +1,6 @@
+---
+title: core/src/useSorobanReact
+---
 [soroban-react](../README.md) / core/src/useSorobanReact
 
 # Module: core/src/useSorobanReact
@@ -20,4 +23,4 @@
 
 #### Defined in
 
-[core/src/useSorobanReact.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/useSorobanReact.tsx#L6)
+[core/src/useSorobanReact.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/useSorobanReact.tsx#L6)

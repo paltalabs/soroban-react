@@ -1,3 +1,6 @@
+---
+title: SorobanEventsProviderProps
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsProvider](../modules/events_src_SorobanEventsProvider.md) / SorobanEventsProviderProps
 
 # Interface: SorobanEventsProviderProps
@@ -18,4 +21,4 @@
 
 #### Defined in
 
-[events/src/SorobanEventsProvider.tsx:14](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsProvider.tsx#L14)
+[events/src/SorobanEventsProvider.tsx:14](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsProvider.tsx#L14)

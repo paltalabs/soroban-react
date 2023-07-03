@@ -1,3 +1,6 @@
+---
+title: contracts/src/useContractValue
+---
 [soroban-react](../README.md) / contracts/src/useContractValue
 
 # Module: contracts/src/useContractValue
@@ -33,7 +36,7 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:12](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L12)
+[contracts/src/useContractValue.tsx:12](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L12)
 
 ## Functions
 
@@ -53,4 +56,4 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:30](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L30)
+[contracts/src/useContractValue.tsx:30](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L30)

@@ -1,3 +1,6 @@
+---
+title: fetchContractValueProps
+---
 [soroban-react](../README.md) / [contracts/src/useContractValue](../modules/contracts_src_useContractValue.md) / fetchContractValueProps
 
 # Interface: fetchContractValueProps
@@ -23,7 +26,7 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:89](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L89)
+[contracts/src/useContractValue.tsx:89](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L89)
 
 ___
 
@@ -33,7 +36,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:90](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L90)
+[contracts/src/useContractValue.tsx:90](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L90)
 
 ___
 
@@ -43,7 +46,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:88](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L88)
+[contracts/src/useContractValue.tsx:88](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L88)
 
 ___
 
@@ -53,7 +56,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:91](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L91)
+[contracts/src/useContractValue.tsx:91](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L91)
 
 ___
 
@@ -63,7 +66,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:87](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L87)
+[contracts/src/useContractValue.tsx:87](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L87)
 
 ___
 
@@ -73,4 +76,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:92](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L92)
+[contracts/src/useContractValue.tsx:92](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L92)

@@ -1,3 +1,6 @@
+---
+title: utils/src/convert
+---
 [soroban-react](../README.md) / utils/src/convert
 
 # Module: utils/src/convert
@@ -28,7 +31,7 @@
 
 #### Defined in
 
-[utils/src/convert.tsx:67](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/utils/src/convert.tsx#L67)
+[utils/src/convert.tsx:67](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/utils/src/convert.tsx#L67)
 
 ___
 
@@ -48,7 +51,7 @@ ___
 
 #### Defined in
 
-[utils/src/convert.tsx:134](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/utils/src/convert.tsx#L134)
+[utils/src/convert.tsx:134](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/utils/src/convert.tsx#L134)
 
 ___
 
@@ -68,4 +71,4 @@ ___
 
 #### Defined in
 
-[utils/src/convert.tsx:126](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/utils/src/convert.tsx#L126)
+[utils/src/convert.tsx:126](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/utils/src/convert.tsx#L126)

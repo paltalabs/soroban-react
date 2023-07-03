@@ -1,3 +1,6 @@
+---
+title: wallet-data/src/useIsMounted
+---
 [soroban-react](../README.md) / wallet-data/src/useIsMounted
 
 # Module: wallet-data/src/useIsMounted
@@ -20,4 +23,4 @@
 
 #### Defined in
 
-[wallet-data/src/useIsMounted.tsx:3](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/useIsMounted.tsx#L3)
+[wallet-data/src/useIsMounted.tsx:3](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/useIsMounted.tsx#L3)

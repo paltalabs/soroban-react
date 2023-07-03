@@ -1,3 +1,6 @@
+---
+title: wallet-data/src/useNetwork
+---
 [soroban-react](../README.md) / wallet-data/src/useNetwork
 
 # Module: wallet-data/src/useNetwork
@@ -28,7 +31,7 @@
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:9](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/useNetwork.tsx#L9)
+[wallet-data/src/useNetwork.tsx:9](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/useNetwork.tsx#L9)
 
 ## Functions
 
@@ -48,4 +51,4 @@
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:15](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/wallet-data/src/useNetwork.tsx#L15)
+[wallet-data/src/useNetwork.tsx:15](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/useNetwork.tsx#L15)

@@ -1,3 +1,6 @@
+---
+title: freighter/src
+---
 [soroban-react](../README.md) / freighter/src
 
 # Module: freighter/src
@@ -20,4 +23,4 @@
 
 #### Defined in
 
-[freighter/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/freighter/src/index.tsx#L6)
+[freighter/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/freighter/src/index.tsx#L6)

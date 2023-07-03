@@ -1,3 +1,6 @@
+---
+title: SorobanEventsContextType
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsContext](../modules/events_src_SorobanEventsContext.md) / SorobanEventsContextType
 
 # Interface: SorobanEventsContextType
@@ -34,7 +37,7 @@
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:20](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L20)
+[events/src/SorobanEventsContext.tsx:20](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L20)
 
 ___
 
@@ -44,7 +47,7 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:22](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L22)
+[events/src/SorobanEventsContext.tsx:22](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L22)
 
 ___
 
@@ -68,4 +71,4 @@ ___
 
 #### Defined in
 
-[events/src/SorobanEventsContext.tsx:21](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsContext.tsx#L21)
+[events/src/SorobanEventsContext.tsx:21](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsContext.tsx#L21)
