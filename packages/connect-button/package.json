@@ -8,8 +8,10 @@
   "repository": "github:esteblock/soroban-react",
   "version": "5.3.1",
   "scripts": {
+    "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
-    "build": "tsc",
+    "build-windows": "yarn prebuild && tsc",
+    "build": "yarn prebuild && tsc",
     "start": "tsc --watch"
   },
   "main": "dist/index.js",
@@ -19,13 +21,6 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/core": "^5.3.1"
-  },
-  "peerDependencies": {
-    "react": ">=16.8"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.25"
-  },
-  "gitHead": "6de3f5a7cbba754c5c6c82f713f271ceb78d3245"
+    "@soroban-react/core": "^5.0.3"
+  }
 }
