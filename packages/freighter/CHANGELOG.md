@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file..
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [4.0.0](https://github.com/esteblock/soroban-react/compare/v3.8.0...v4.0.0) (2023-03-30)
