@@ -8,8 +8,10 @@
   "repository": "github:esteblock/soroban-react",
   "version": "5.3.11",
   "scripts": {
+    "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
-    "build": "tsc",
+    "build-windows": "yarn prebuild && tsc",
+    "build": "yarn prebuild && tsc",
     "start": "tsc --watch"
   },
   "main": "dist/index.js",
