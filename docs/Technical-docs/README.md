@@ -6,7 +6,7 @@ soroban-react
 
 ### Modules
 
-- [chains/src](modules/chains_src.md)
+- [chains/src](./modules/chains_src.md)
 - [connect-button/src](modules/connect_button_src.md)
 - [contracts/src](modules/contracts_src.md)
 - [contracts/src/setTrustline](modules/contracts_src_setTrustline.md)
