@@ -25,5 +25,8 @@
     "@soroban-react/core": "^5.3.3",
     "@soroban-react/types": "^5.3.2",
     "soroban-client": "0.8.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
   }
 }
