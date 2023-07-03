@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -33,14 +33,14 @@
     "dist/*"
   ],
   "jest": {
-    "setupFilesAfterEnv": [ 
+    "setupFilesAfterEnv": [
       "./jest.setup.js"
     ],
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/freighter": "^5.0.3",
-    "@soroban-react/types": "^5.0.3",
+    "@soroban-react/freighter": "^5.3.2",
+    "@soroban-react/types": "^5.3.2",
     "soroban-client": "0.8.1"
   },
   "devDependencies": {
