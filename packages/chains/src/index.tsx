@@ -12,7 +12,7 @@ export const futurenet : WalletChain =
   {
     id: "public",
     name: "Futurenet",
-    networkPassphrase: SorobanClient.Networks.FUTURENET,
+    networkPassphrase: "Test SDF Future Network ; October 2022",
   }
 
 export const testnet : WalletChain = 
@@ -26,7 +26,7 @@ export const sandbox : WalletChain =
 {
   id: "public",
   name: "Sandbox",
-  networkPassphrase: SorobanClient.Networks.SANDBOX,
+  networkPassphrase: "Local Sandbox Stellar Network ; September 2022",
 }
 
 export const standalone : WalletChain = 
