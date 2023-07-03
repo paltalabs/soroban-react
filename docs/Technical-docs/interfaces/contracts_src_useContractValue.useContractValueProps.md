@@ -1,3 +1,6 @@
+---
+title: useContractValueProps
+---
 [soroban-react](../README.md) / [contracts/src/useContractValue](../modules/contracts_src_useContractValue.md) / useContractValueProps
 
 # Interface: useContractValueProps
@@ -22,7 +25,7 @@
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:19](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L19)
+[contracts/src/useContractValue.tsx:19](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L19)
 
 ___
 
@@ -32,7 +35,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:20](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L20)
+[contracts/src/useContractValue.tsx:20](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L20)
 
 ___
 
@@ -42,7 +45,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:21](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L21)
+[contracts/src/useContractValue.tsx:21](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L21)
 
 ___
 
@@ -52,7 +55,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:23](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L23)
+[contracts/src/useContractValue.tsx:23](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L23)
 
 ___
 
@@ -62,4 +65,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:22](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/useContractValue.tsx#L22)
+[contracts/src/useContractValue.tsx:22](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useContractValue.tsx#L22)

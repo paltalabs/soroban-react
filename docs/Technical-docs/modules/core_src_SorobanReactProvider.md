@@ -1,3 +1,6 @@
+---
+title: core/src/SorobanReactProvider
+---
 [soroban-react](../README.md) / core/src/SorobanReactProvider
 
 # Module: core/src/SorobanReactProvider
@@ -30,4 +33,4 @@
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:37](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/SorobanReactProvider.tsx#L37)
+[core/src/SorobanReactProvider.tsx:37](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/SorobanReactProvider.tsx#L37)

@@ -1,3 +1,6 @@
+---
+title: types/src
+---
 [soroban-react](../README.md) / types/src
 
 # Module: types/src
@@ -24,7 +27,7 @@
 
 #### Defined in
 
-[types/src/index.tsx:54](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L54)
+[types/src/index.tsx:54](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L54)
 
 ___
 
@@ -34,7 +37,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:47](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L47)
+[types/src/index.tsx:47](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L47)
 
 ___
 
@@ -64,7 +67,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:9](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L9)
+[types/src/index.tsx:9](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L9)
 
 ___
 
@@ -74,4 +77,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:1](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L1)
+[types/src/index.tsx:1](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L1)

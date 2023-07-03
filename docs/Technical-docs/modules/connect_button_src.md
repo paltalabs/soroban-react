@@ -1,3 +1,6 @@
+---
+title: connect-button/src
+---
 [soroban-react](../README.md) / connect-button/src
 
 # Module: connect-button/src
@@ -34,4 +37,4 @@ The ConnectButton component.
 
 #### Defined in
 
-[connect-button/src/index.tsx:37](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/connect-button/src/index.tsx#L37)
+[connect-button/src/index.tsx:37](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/connect-button/src/index.tsx#L37)

@@ -1,3 +1,6 @@
+---
+title: contracts/src/setTrustline
+---
 [soroban-react](../README.md) / contracts/src/setTrustline
 
 # Module: contracts/src/setTrustline
@@ -31,4 +34,4 @@
 
 #### Defined in
 
-[contracts/src/setTrustline.tsx:5](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/setTrustline.tsx#L5)
+[contracts/src/setTrustline.tsx:5](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/setTrustline.tsx#L5)

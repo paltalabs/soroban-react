@@ -1,3 +1,6 @@
+---
+title: NetworkDetails
+---
 [soroban-react](../README.md) / [types/src](../modules/types_src.md) / NetworkDetails
 
 # Interface: NetworkDetails
@@ -20,7 +23,7 @@
 
 #### Defined in
 
-[types/src/index.tsx:4](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L4)
+[types/src/index.tsx:4](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L4)
 
 ___
 
@@ -30,7 +33,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L6)
+[types/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L6)
 
 ___
 
@@ -40,4 +43,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:5](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/types/src/index.tsx#L5)
+[types/src/index.tsx:5](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/types/src/index.tsx#L5)

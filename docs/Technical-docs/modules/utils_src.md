@@ -1,3 +1,6 @@
+---
+title: utils/src
+---
 [soroban-react](../README.md) / utils/src
 
 # Module: utils/src

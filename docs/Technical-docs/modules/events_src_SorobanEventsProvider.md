@@ -1,3 +1,6 @@
+---
+title: events/src/SorobanEventsProvider
+---
 [soroban-react](../README.md) / events/src/SorobanEventsProvider
 
 # Module: events/src/SorobanEventsProvider
@@ -30,4 +33,4 @@
 
 #### Defined in
 
-[events/src/SorobanEventsProvider.tsx:17](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/SorobanEventsProvider.tsx#L17)
+[events/src/SorobanEventsProvider.tsx:17](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsProvider.tsx#L17)

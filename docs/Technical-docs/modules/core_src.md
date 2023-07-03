@@ -1,3 +1,6 @@
+---
+title: core/src
+---
 [soroban-react](../README.md) / core/src
 
 # Module: core/src

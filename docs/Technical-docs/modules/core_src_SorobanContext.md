@@ -1,3 +1,6 @@
+---
+title: core/src/SorobanContext
+---
 [soroban-react](../README.md) / core/src/SorobanContext
 
 # Module: core/src/SorobanContext
@@ -21,7 +24,7 @@
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:28](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/SorobanContext.tsx#L28)
+[core/src/SorobanContext.tsx:28](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/SorobanContext.tsx#L28)
 
 ___
 
@@ -31,4 +34,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/SorobanContext.tsx#L6)
+[core/src/SorobanContext.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/SorobanContext.tsx#L6)

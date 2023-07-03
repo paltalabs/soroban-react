@@ -1,3 +1,6 @@
+---
+title: core/src/getDefaultConnectors
+---
 [soroban-react](../README.md) / core/src/getDefaultConnectors
 
 # Module: core/src/getDefaultConnectors
@@ -20,4 +23,4 @@
 
 #### Defined in
 
-[core/src/getDefaultConnectors.tsx:4](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/getDefaultConnectors.tsx#L4)
+[core/src/getDefaultConnectors.tsx:4](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/getDefaultConnectors.tsx#L4)

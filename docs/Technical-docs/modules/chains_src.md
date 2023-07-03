@@ -1,3 +1,6 @@
+---
+title: chains/src
+---
 [soroban-react](../README.md) / chains/src
 
 # Module: chains/src
@@ -22,7 +25,7 @@ A `WalletChain` object representing the Futurenet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:23](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L23)
+[chains/src/index.tsx:23](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/chains/src/index.tsx#L23)
 
 ___
 
@@ -34,7 +37,7 @@ A `WalletChain` object representing the public blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:13](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L13)
+[chains/src/index.tsx:13](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/chains/src/index.tsx#L13)
 
 ___
 
@@ -46,7 +49,7 @@ A `WalletChain` object representing the Sandbox blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:43](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L43)
+[chains/src/index.tsx:43](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/chains/src/index.tsx#L43)
 
 ___
 
@@ -58,7 +61,7 @@ A `WalletChain` object representing the Standalone blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:53](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L53)
+[chains/src/index.tsx:53](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/chains/src/index.tsx#L53)
 
 ___
 
@@ -70,4 +73,4 @@ A `WalletChain` object representing the Testnet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:33](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/chains/src/index.tsx#L33)
+[chains/src/index.tsx:33](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/chains/src/index.tsx#L33)

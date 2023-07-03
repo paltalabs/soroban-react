@@ -1,3 +1,6 @@
+---
+title: events/src/useSorobanEvents
+---
 [soroban-react](../README.md) / events/src/useSorobanEvents
 
 # Module: events/src/useSorobanEvents
@@ -20,4 +23,4 @@
 
 #### Defined in
 
-[events/src/useSorobanEvents.tsx:8](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/useSorobanEvents.tsx#L8)
+[events/src/useSorobanEvents.tsx:8](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/useSorobanEvents.tsx#L8)
