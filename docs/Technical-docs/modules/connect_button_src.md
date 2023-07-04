@@ -37,4 +37,4 @@ The ConnectButton component.
 
 #### Defined in
 
-[connect-button/src/index.tsx:37](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/connect-button/src/index.tsx#L37)
+[connect-button/src/index.tsx:37](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/connect-button/src/index.tsx#L37)

@@ -24,7 +24,7 @@ title: core/src/SorobanContext
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:28](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/SorobanContext.tsx#L28)
+[core/src/SorobanContext.tsx:28](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L28)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:6](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/SorobanContext.tsx#L6)
+[core/src/SorobanContext.tsx:6](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L6)

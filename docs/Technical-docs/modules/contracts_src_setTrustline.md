@@ -24,7 +24,7 @@ title: contracts/src/setTrustline
 | `«destructured»` | `Object` |
 | › `account` | `string` |
 | › `sendTransaction` | `any` |
-| › `sorobanContext` | `SorobanContextType` |
+| › `sorobanContext` | [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md) |
 | › `tokenAdmin` | `string` |
 | › `tokenSymbol` | `string` |
 
@@ -34,4 +34,4 @@ title: contracts/src/setTrustline
 
 #### Defined in
 
-[contracts/src/setTrustline.tsx:5](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/contracts/src/setTrustline.tsx#L5)
+[contracts/src/setTrustline.tsx:5](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/setTrustline.tsx#L5)

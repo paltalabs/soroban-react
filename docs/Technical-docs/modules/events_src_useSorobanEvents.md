@@ -23,4 +23,4 @@ title: events/src/useSorobanEvents
 
 #### Defined in
 
-[events/src/useSorobanEvents.tsx:8](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/events/src/useSorobanEvents.tsx#L8)
+[events/src/useSorobanEvents.tsx:8](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/events/src/useSorobanEvents.tsx#L8)

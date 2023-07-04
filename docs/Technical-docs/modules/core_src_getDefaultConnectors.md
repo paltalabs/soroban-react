@@ -15,12 +15,12 @@ title: core/src/getDefaultConnectors
 
 ### getDefaultConnectors
 
-▸ **getDefaultConnectors**(): `Connector`[]
+▸ **getDefaultConnectors**(): [`Connector`](types_src.md#connector)[]
 
 #### Returns
 
-`Connector`[]
+[`Connector`](types_src.md#connector)[]
 
 #### Defined in
 
-[core/src/getDefaultConnectors.tsx:4](https://github.com/esteblock/soroban-react/blob/041a6c6/packages/core/src/getDefaultConnectors.tsx#L4)
+[core/src/getDefaultConnectors.tsx:4](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/getDefaultConnectors.tsx#L4)
