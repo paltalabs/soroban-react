@@ -1,3 +1,6 @@
+---
+title: contractTransactionProps
+---
 [soroban-react](../README.md) / [contracts/src/useSendTransaction](../modules/contracts_src_useSendTransaction.md) / contractTransactionProps
 
 # Interface: contractTransactionProps

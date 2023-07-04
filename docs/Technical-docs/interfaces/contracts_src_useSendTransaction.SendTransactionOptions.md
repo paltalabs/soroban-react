@@ -1,3 +1,6 @@
+---
+title: SendTransactionOptions
+---
 [soroban-react](../README.md) / [contracts/src/useSendTransaction](../modules/contracts_src_useSendTransaction.md) / SendTransactionOptions
 
 # Interface: SendTransactionOptions

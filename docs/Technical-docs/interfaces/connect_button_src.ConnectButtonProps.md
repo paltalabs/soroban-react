@@ -1,3 +1,6 @@
+---
+title: ConnectButtonProps
+---
 [soroban-react](../README.md) / [connect-button/src](../modules/connect_button_src.md) / ConnectButtonProps
 
 # Interface: ConnectButtonProps

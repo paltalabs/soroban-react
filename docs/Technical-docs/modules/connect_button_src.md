@@ -1,3 +1,6 @@
+---
+title: connect-button/src
+---
 [soroban-react](../README.md) / connect-button/src
 
 # Module: connect-button/src

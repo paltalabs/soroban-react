@@ -1,3 +1,6 @@
+---
+title: contracts/src
+---
 [soroban-react](../README.md) / contracts/src
 
 # Module: contracts/src

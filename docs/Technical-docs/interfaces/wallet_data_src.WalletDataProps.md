@@ -1,3 +1,6 @@
+---
+title: WalletDataProps
+---
 [soroban-react](../README.md) / [wallet-data/src](../modules/wallet_data_src.md) / WalletDataProps
 
 # Interface: WalletDataProps

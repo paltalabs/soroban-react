@@ -1,3 +1,6 @@
+---
+title: contracts/src/useContractValue
+---
 [soroban-react](../README.md) / contracts/src/useContractValue
 
 # Module: contracts/src/useContractValue

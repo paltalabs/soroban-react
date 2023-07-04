@@ -1,3 +1,6 @@
+---
+title: SorobanContextType
+---
 [soroban-react](../README.md) / [core/src/SorobanContext](../modules/core_src_SorobanContext.md) / SorobanContextType
 
 # Interface: SorobanContextType

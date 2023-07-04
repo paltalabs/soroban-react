@@ -1,3 +1,6 @@
+---
+title: contracts/src/useSendTransaction
+---
 [soroban-react](../README.md) / contracts/src/useSendTransaction
 
 # Module: contracts/src/useSendTransaction

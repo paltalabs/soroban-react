@@ -1,3 +1,6 @@
+---
+title: core/src/useSorobanReact
+---
 [soroban-react](../README.md) / core/src/useSorobanReact
 
 # Module: core/src/useSorobanReact

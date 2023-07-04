@@ -1,3 +1,6 @@
+---
+title: types/src
+---
 [soroban-react](../README.md) / types/src
 
 # Module: types/src

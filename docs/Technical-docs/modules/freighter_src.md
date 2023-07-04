@@ -1,3 +1,6 @@
+---
+title: freighter/src
+---
 [soroban-react](../README.md) / freighter/src
 
 # Module: freighter/src

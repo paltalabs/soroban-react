@@ -1,3 +1,6 @@
+---
+title: core/src/getDefaultConnectors
+---
 [soroban-react](../README.md) / core/src/getDefaultConnectors
 
 # Module: core/src/getDefaultConnectors

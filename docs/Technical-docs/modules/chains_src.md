@@ -1,3 +1,6 @@
+---
+title: chains/src
+---
 [soroban-react](../README.md) / chains/src
 
 # Module: chains/src

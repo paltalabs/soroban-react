@@ -1,3 +1,6 @@
+---
+title: utils/src/convert
+---
 [soroban-react](../README.md) / utils/src/convert
 
 # Module: utils/src/convert

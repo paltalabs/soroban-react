@@ -1,3 +1,6 @@
+---
+title: EventSubscription
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsContext](../modules/events_src_SorobanEventsContext.md) / EventSubscription
 
 # Interface: EventSubscription

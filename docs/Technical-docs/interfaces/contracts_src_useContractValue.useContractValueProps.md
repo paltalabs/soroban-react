@@ -1,3 +1,6 @@
+---
+title: useContractValueProps
+---
 [soroban-react](../README.md) / [contracts/src/useContractValue](../modules/contracts_src_useContractValue.md) / useContractValueProps
 
 # Interface: useContractValueProps

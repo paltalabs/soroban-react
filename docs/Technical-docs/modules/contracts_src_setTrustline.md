@@ -1,3 +1,6 @@
+---
+title: contracts/src/setTrustline
+---
 [soroban-react](../README.md) / contracts/src/setTrustline
 
 # Module: contracts/src/setTrustline

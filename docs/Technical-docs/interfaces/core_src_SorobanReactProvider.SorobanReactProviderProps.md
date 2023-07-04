@@ -1,3 +1,6 @@
+---
+title: SorobanReactProviderProps
+---
 [soroban-react](../README.md) / [core/src/SorobanReactProvider](../modules/core_src_SorobanReactProvider.md) / SorobanReactProviderProps
 
 # Interface: SorobanReactProviderProps

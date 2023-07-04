@@ -1,3 +1,6 @@
+---
+title: core/src/SorobanContext
+---
 [soroban-react](../README.md) / core/src/SorobanContext
 
 # Module: core/src/SorobanContext

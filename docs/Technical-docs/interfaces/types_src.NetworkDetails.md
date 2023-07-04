@@ -1,3 +1,6 @@
+---
+title: NetworkDetails
+---
 [soroban-react](../README.md) / [types/src](../modules/types_src.md) / NetworkDetails
 
 # Interface: NetworkDetails

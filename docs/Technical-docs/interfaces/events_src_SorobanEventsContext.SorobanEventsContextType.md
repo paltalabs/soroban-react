@@ -1,3 +1,6 @@
+---
+title: SorobanEventsContextType
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsContext](../modules/events_src_SorobanEventsContext.md) / SorobanEventsContextType
 
 # Interface: SorobanEventsContextType

@@ -1,3 +1,6 @@
+---
+title: SorobanEventsProviderProps
+---
 [soroban-react](../README.md) / [events/src/SorobanEventsProvider](../modules/events_src_SorobanEventsProvider.md) / SorobanEventsProviderProps
 
 # Interface: SorobanEventsProviderProps

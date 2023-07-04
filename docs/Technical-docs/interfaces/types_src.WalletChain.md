@@ -1,3 +1,6 @@
+---
+title: WalletChain
+---
 [soroban-react](../README.md) / [types/src](../modules/types_src.md) / WalletChain
 
 # Interface: WalletChain
