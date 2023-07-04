@@ -1,4 +1,4 @@
-# Usage:
+
 
 See the official gitbook: https://soroban-react.gitbook.io/index/
 You can also contribute to the Gitbook by editing the docs folder in this repo
