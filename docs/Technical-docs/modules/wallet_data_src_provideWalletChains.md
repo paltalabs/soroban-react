@@ -15,8 +15,8 @@ title: wallet-data/src/provideWalletChains
 
 ### WalletChainByName
 
-• `Const` **WalletChainByName**: `Record`<`ChainName`, `WalletChain`\>
+• `Const` **WalletChainByName**: `Record`<[`ChainName`](types_src.md#chainname), [`WalletChain`](../interfaces/types_src.WalletChain.md)\>
 
 #### Defined in
 
-[wallet-data/src/provideWalletChains.tsx:5](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/provideWalletChains.tsx#L5)
+[wallet-data/src/provideWalletChains.tsx:5](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/wallet-data/src/provideWalletChains.tsx#L5)

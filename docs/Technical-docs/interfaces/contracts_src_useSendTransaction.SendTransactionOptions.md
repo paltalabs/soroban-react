@@ -24,7 +24,7 @@ title: SendTransactionOptions
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:55](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L55)
+[contracts/src/useSendTransaction.tsx:55](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L55)
 
 ___
 
@@ -34,17 +34,17 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:54](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L54)
+[contracts/src/useSendTransaction.tsx:54](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L54)
 
 ___
 
 ### sorobanContext
 
-• `Optional` **sorobanContext**: `SorobanContextType`
+• `Optional` **sorobanContext**: [`SorobanContextType`](core_src_SorobanContext.SorobanContextType.md)
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:56](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L56)
+[contracts/src/useSendTransaction.tsx:56](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L56)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:53](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/contracts/src/useSendTransaction.tsx#L53)
+[contracts/src/useSendTransaction.tsx:53](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L53)

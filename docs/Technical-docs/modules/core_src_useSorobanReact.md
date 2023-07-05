@@ -23,4 +23,4 @@ title: core/src/useSorobanReact
 
 #### Defined in
 
-[core/src/useSorobanReact.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/useSorobanReact.tsx#L6)
+[core/src/useSorobanReact.tsx:6](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/useSorobanReact.tsx#L6)

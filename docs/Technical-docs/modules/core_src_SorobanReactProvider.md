@@ -33,4 +33,4 @@ title: core/src/SorobanReactProvider
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:37](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/core/src/SorobanReactProvider.tsx#L37)
+[core/src/SorobanReactProvider.tsx:37](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanReactProvider.tsx#L37)

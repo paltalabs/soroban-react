@@ -15,12 +15,12 @@ title: freighter/src
 
 ### freighter
 
-▸ **freighter**(): `Connector`
+▸ **freighter**(): [`Connector`](types_src.md#connector)
 
 #### Returns
 
-`Connector`
+[`Connector`](types_src.md#connector)
 
 #### Defined in
 
-[freighter/src/index.tsx:6](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/freighter/src/index.tsx#L6)
+[freighter/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/freighter/src/index.tsx#L6)

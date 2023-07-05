@@ -17,8 +17,8 @@ title: WalletDataProps
 
 ### sorobanContext
 
-• **sorobanContext**: `SorobanContextType`
+• **sorobanContext**: [`SorobanContextType`](core_src_SorobanContext.SorobanContextType.md)
 
 #### Defined in
 
-[wallet-data/src/index.tsx:8](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/wallet-data/src/index.tsx#L8)
+[wallet-data/src/index.tsx:8](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/wallet-data/src/index.tsx#L8)

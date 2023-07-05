@@ -9,7 +9,7 @@
     "prettier-format": "prettier --write \"packages/**/*.{ts,tsx}\"",
     "doc": "typedoc",
     "test": "npm run test --prefix=./packages/core",
-    "postdoc": "bash ./add_titles_to_md_files.sh"
+    "postdoc": "bash ./add_titles_to_md_files.sh && node ./add_relative_path.js"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",

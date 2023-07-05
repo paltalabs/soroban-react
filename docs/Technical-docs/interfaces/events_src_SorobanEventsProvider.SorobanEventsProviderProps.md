@@ -21,4 +21,4 @@ title: SorobanEventsProviderProps
 
 #### Defined in
 
-[events/src/SorobanEventsProvider.tsx:14](https://github.com/esteblock/soroban-react/blob/bb43fd8/packages/events/src/SorobanEventsProvider.tsx#L14)
+[events/src/SorobanEventsProvider.tsx:14](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/events/src/SorobanEventsProvider.tsx#L14)
