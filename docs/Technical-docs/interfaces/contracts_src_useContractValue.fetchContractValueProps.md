@@ -26,7 +26,7 @@ title: fetchContractValueProps
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:89](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L89)
+[contracts/src/useContractValue.tsx:89](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L89)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:90](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L90)
+[contracts/src/useContractValue.tsx:90](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L90)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:88](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L88)
+[contracts/src/useContractValue.tsx:88](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L88)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:91](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L91)
+[contracts/src/useContractValue.tsx:91](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L91)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:87](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L87)
+[contracts/src/useContractValue.tsx:87](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L87)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:92](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useContractValue.tsx#L92)
+[contracts/src/useContractValue.tsx:92](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L92)

@@ -30,7 +30,7 @@ title: SorobanContextType
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:20](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L20)
+[core/src/SorobanContext.tsx:20](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L20)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:22](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L22)
+[core/src/SorobanContext.tsx:22](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L22)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:21](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L21)
+[core/src/SorobanContext.tsx:21](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L21)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:17](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L17)
+[core/src/SorobanContext.tsx:17](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L17)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:16](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L16)
+[core/src/SorobanContext.tsx:16](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L16)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:18](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L18)
+[core/src/SorobanContext.tsx:18](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L18)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:24](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L24)
+[core/src/SorobanContext.tsx:24](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L24)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:19](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L19)
+[core/src/SorobanContext.tsx:19](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L19)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:25](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L25)
+[core/src/SorobanContext.tsx:25](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L25)
 
 ___
 
@@ -136,4 +136,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:23](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/SorobanContext.tsx#L23)
+[core/src/SorobanContext.tsx:23](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/SorobanContext.tsx#L23)

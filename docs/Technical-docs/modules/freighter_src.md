@@ -23,4 +23,4 @@ title: freighter/src
 
 #### Defined in
 
-[freighter/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/freighter/src/index.tsx#L6)
+[freighter/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/546de55/packages/freighter/src/index.tsx#L6)

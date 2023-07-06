@@ -34,4 +34,4 @@ title: contracts/src/setTrustline
 
 #### Defined in
 
-[contracts/src/setTrustline.tsx:5](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/setTrustline.tsx#L5)
+[contracts/src/setTrustline.tsx:5](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/setTrustline.tsx#L5)

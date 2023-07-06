@@ -4,6 +4,24 @@ soroban-react
 
 ## Table of contents
 
+### Interfaces
+
+- [connect_button_src.ConnectButtonProps](./interfaces/connect_button_src.ConnectButtonProps.md)
+- [contracts_src_useContractValue.fetchContractValueProps](./interfaces/contracts_src_useContractValue.fetchContractValueProps.md)
+- [contracts_src_useContractValue.useContractValueProps](./interfaces/contracts_src_useContractValue.useContractValueProps.md)
+- [contracts_src_useSendTransaction.SendTransactionOptions](./interfaces/contracts_src_useSendTransaction.SendTransactionOptions.md)
+- [contracts_src_useSendTransaction.SendTransactionResult](./interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)
+- [contracts_src_useSendTransaction.contractTransactionProps](./interfaces/contracts_src_useSendTransaction.contractTransactionProps.md)
+- [core_src_SorobanContext.SorobanContextType](./interfaces/core_src_SorobanContext.SorobanContextType.md)
+- [core_src_SorobanReactProvider.SorobanReactProviderProps](./interfaces/core_src_SorobanReactProvider.SorobanReactProviderProps.md)
+- [events_src_SorobanEventsContext.EventSubscription](./interfaces/events_src_SorobanEventsContext.EventSubscription.md)
+- [events_src_SorobanEventsContext.SorobanEventsContextType](./interfaces/events_src_SorobanEventsContext.SorobanEventsContextType.md)
+- [events_src_SorobanEventsProvider.SorobanEventsProviderProps](./interfaces/events_src_SorobanEventsProvider.SorobanEventsProviderProps.md)
+- [types_src.NetworkDetails](./interfaces/types_src.NetworkDetails.md)
+- [types_src.WalletChain](./interfaces/types_src.WalletChain.md)
+- [wallet_data_src.WalletDataProps](./interfaces/wallet_data_src.WalletDataProps.md)
+
+
 ### Modules
 
 - [chains/src](./modules/chains_src.md)
