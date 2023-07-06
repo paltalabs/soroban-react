@@ -25,7 +25,7 @@ title: contractTransactionProps
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:11](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L11)
+[contracts/src/useSendTransaction.tsx:11](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L11)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:12](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L12)
+[contracts/src/useSendTransaction.tsx:12](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L12)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:9](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L9)
+[contracts/src/useSendTransaction.tsx:9](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L9)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:13](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L13)
+[contracts/src/useSendTransaction.tsx:13](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L13)
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:10](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/contracts/src/useSendTransaction.tsx#L10)
+[contracts/src/useSendTransaction.tsx:10](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L10)

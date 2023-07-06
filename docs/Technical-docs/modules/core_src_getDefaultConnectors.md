@@ -23,4 +23,4 @@ title: core/src/getDefaultConnectors
 
 #### Defined in
 
-[core/src/getDefaultConnectors.tsx:4](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/core/src/getDefaultConnectors.tsx#L4)
+[core/src/getDefaultConnectors.tsx:4](https://github.com/mauroepce/soroban-react/blob/546de55/packages/core/src/getDefaultConnectors.tsx#L4)

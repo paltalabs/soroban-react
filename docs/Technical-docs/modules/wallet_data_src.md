@@ -33,4 +33,4 @@ title: wallet-data/src
 
 #### Defined in
 
-[wallet-data/src/index.tsx:12](https://github.com/mauroepce/soroban-react/blob/18cabd0/packages/wallet-data/src/index.tsx#L12)
+[wallet-data/src/index.tsx:12](https://github.com/mauroepce/soroban-react/blob/546de55/packages/wallet-data/src/index.tsx#L12)
