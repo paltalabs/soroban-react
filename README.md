@@ -38,6 +38,16 @@ You can also contribute to the Gitbook by editing the docs folder in this repo
 ## Install:
 Install all sub-packages with just `yarn`
 
+## Run tests
+Currently tests are only working when installing with `npm i`.
+Currently tests are supporting the `chains`, `core`, `events` & `contracts` packages
+```
+rm -R node_modules
+npm i
+npm run test
+```
+
+
 ## Format Code with Prettier
 
 To format the code using Prettier, you can run the following script:

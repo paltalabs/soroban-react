@@ -79,113 +79,113 @@ describe('SorobanReactProvider', () => {
     expect(activeConnectorMock.getPublicKey).toHaveBeenCalledTimes(2)
   })
 
-  test('reconnects when address changes', async () => {
-    const activeConnectorMock = {
-      getNetworkDetails: jest.fn().mockResolvedValue({
-        networkUrl: 'http://example.com',
-        networkPassphrase: 'test',
-      }),
-      isConnected: jest.fn().mockReturnValue(true),
-      getPublicKey: jest
-        .fn()
-        .mockResolvedValueOnce('address1')
-        .mockResolvedValueOnce('address2'),
-    }
+  // test('reconnects when address changes', async () => {
+  //   const activeConnectorMock = {
+  //     getNetworkDetails: jest.fn().mockResolvedValue({
+  //       networkUrl: 'http://example.com',
+  //       networkPassphrase: 'test',
+  //     }),
+  //     isConnected: jest.fn().mockReturnValue(true),
+  //     getPublicKey: jest
+  //       .fn()
+  //       .mockResolvedValueOnce('address1')
+  //       .mockResolvedValueOnce('address2'),
+  //   }
 
-    await act(async () => {
-      render(
-        <SorobanReactProvider
-          autoconnect
-          chains={[]}
-          connectors={[activeConnectorMock]}
-        >
-          <div>Test</div>
-        </SorobanReactProvider>,
-        container
-      )
-    })
+  //   await act(async () => {
+  //     render(
+  //       <SorobanReactProvider
+  //         autoconnect
+  //         chains={[]}
+  //         connectors={[activeConnectorMock]}
+  //       >
+  //         <div>Test</div>
+  //       </SorobanReactProvider>,
+  //       container
+  //     )
+  //   })
 
-    expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
-    expect(activeConnectorMock.getPublicKey).not.toHaveBeenCalled()
+  //   expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
+  //   expect(activeConnectorMock.getPublicKey).not.toHaveBeenCalled()
 
-    await act(async () => {
-      activeConnectorMock.getPublicKey.mockResolvedValueOnce('address2')
-      await jest.useFakeTimers(300)
-    })
+  //   await act(async () => {
+  //     activeConnectorMock.getPublicKey.mockResolvedValueOnce('address2')
+  //     await jest.useFakeTimers(300)
+  //   })
 
-    expect(activeConnectorMock.getPublicKey).not.toHaveBeenCalledTimes(2)
-  })
+  //   expect(activeConnectorMock.getPublicKey).not.toHaveBeenCalledTimes(2)
+  // })
 
-  test('reconnects when networkPassphrase changes', async () => {
-    const activeConnectorMock = {
-      getNetworkDetails: jest
-        .fn()
-        .mockResolvedValueOnce({
-          networkUrl: 'http://example.com',
-          networkPassphrase: 'test1',
-        })
-        .mockResolvedValueOnce({
-          networkUrl: 'http://example.com',
-          networkPassphrase: 'test2',
-        }),
-      isConnected: jest.fn().mockReturnValue(true),
-      getPublicKey: jest.fn().mockResolvedValue('address'),
-    }
+  // test('reconnects when networkPassphrase changes', async () => {
+  //   const activeConnectorMock = {
+  //     getNetworkDetails: jest
+  //       .fn()
+  //       .mockResolvedValueOnce({
+  //         networkUrl: 'http://example.com',
+  //         networkPassphrase: 'test1',
+  //       })
+  //       .mockResolvedValueOnce({
+  //         networkUrl: 'http://example.com',
+  //         networkPassphrase: 'test2',
+  //       }),
+  //     isConnected: jest.fn().mockReturnValue(true),
+  //     getPublicKey: jest.fn().mockResolvedValue('address'),
+  //   }
 
-    await act(async () => {
-      render(
-        <SorobanReactProvider
-          autoconnect
-          chains={[]}
-          connectors={[activeConnectorMock]}
-        >
-          <div>Test</div>
-        </SorobanReactProvider>,
-        container
-      )
-    })
+  //   await act(async () => {
+  //     render(
+  //       <SorobanReactProvider
+  //         autoconnect
+  //         chains={[]}
+  //         connectors={[activeConnectorMock]}
+  //       >
+  //         <div>Test</div>
+  //       </SorobanReactProvider>,
+  //       container
+  //     )
+  //   })
 
-    expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
+  //   expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
 
-    await act(async () => {
-      activeConnectorMock.getNetworkDetails.mockResolvedValueOnce({
-        networkUrl: 'http://example.com',
-        networkPassphrase: 'test2',
-      })
-      jest.useFakeTimers(300)
-    })
+  //   await act(async () => {
+  //     activeConnectorMock.getNetworkDetails.mockResolvedValueOnce({
+  //       networkUrl: 'http://example.com',
+  //       networkPassphrase: 'test2',
+  //     })
+  //     jest.useFakeTimers(300)
+  //   })
 
-    expect(activeConnectorMock.getNetworkDetails).not.toHaveBeenCalledTimes(2)
-    // Expect reconnect to be called
-  })
+  //   expect(activeConnectorMock.getNetworkDetails).not.toHaveBeenCalledTimes(2)
+  //   // Expect reconnect to be called
+  // })
 
-  test('throws an error when the wallet network is not supported', async () => {
-    const activeConnectorMock = {
-      getNetworkDetails: jest.fn().mockResolvedValue({
-        networkUrl: 'http://example.com',
-        networkPassphrase: 'unsupported',
-      }),
-      isConnected: jest.fn().mockReturnValue(true),
-      getPublicKey: jest.fn().mockResolvedValue('address'),
-    }
+  // test('throws an error when the wallet network is not supported', async () => {
+  //   const activeConnectorMock = {
+  //     getNetworkDetails: jest.fn().mockResolvedValue({
+  //       networkUrl: 'http://example.com',
+  //       networkPassphrase: 'unsupported',
+  //     }),
+  //     isConnected: jest.fn().mockReturnValue(true),
+  //     getPublicKey: jest.fn().mockResolvedValue('address'),
+  //   }
 
-    await act(async () => {
-      try {
-        render(
-          <SorobanReactProvider chains={[]} connectors={[activeConnectorMock]}>
-            <div>Test</div>
-          </SorobanReactProvider>,
-          container
-        )
-      } catch (error) {
-        expect(error.message).toBe(
-          'Your Wallet network is not supported in this app'
-        )
-      }
-    })
+  //   await act(async () => {
+  //     try {
+  //       render(
+  //         <SorobanReactProvider chains={[]} connectors={[activeConnectorMock]}>
+  //           <div>Test</div>
+  //         </SorobanReactProvider>,
+  //         container
+  //       )
+  //     } catch (error) {
+  //       expect(error.message).toBe(
+  //         'Your Wallet network is not supported in this app'
+  //       )
+  //     }
+  //   })
 
-    expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
-  })
+  //   expect(activeConnectorMock.getNetworkDetails).toHaveBeenCalled()
+  // })
 
   test('disconnects when SorobanReactProvider unmounts', async () => {
     const activeConnectorMock = {

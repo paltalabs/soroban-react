@@ -11,6 +11,8 @@
 
 - **Customizable Connectors**: Connectors are an integral part of `@soroban-react`. A Connector manages all aspects of your dApp's connectivity with the Soroban blockchain network and user accounts.
 
+- **Tests with Jest**
+
 ## Additional Utilities and Components:
 
 - **[Set Trustline](./Technical-docs/modules/contracts_src_setTrustline.md)**: `@soroban-react` makes it easy to establish trustlines on the Soroban network, allowing accounts to hold assets issued by other accounts.
