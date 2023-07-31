@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@soroban-react/core": "^5.3.12",
-    "soroban-client": "0.8.1"
+    "soroban-client": "0.9.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",

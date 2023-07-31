@@ -39,7 +39,7 @@ You can also contribute to the Gitbook by editing the docs folder in this repo
 Install all sub-packages with just `yarn`
 
 ## Run tests
-Currently tests are only working when installing with `npm i`.
+Currently tests are only working when installing with `npm i`. [Why?](https://github.com/esteblock/soroban-react/issues/39)
 Currently tests are supporting the `chains`, `core`, `events` & `contracts` packages
 ```
 rm -R node_modules
