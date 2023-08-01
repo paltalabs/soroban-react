@@ -25,6 +25,6 @@
   ],
   "dependencies": {
     "@soroban-react/types": "^5.3.12",
-    "@stellar/freighter-api": "^1.4.0"
+    "@stellar/freighter-api": "1.5.1"
   }
 }
