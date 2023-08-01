@@ -3,6 +3,11 @@ import React from 'react'
 
 import * as SorobanClient from 'soroban-client'
 
+export function strToScVal(base64Xdr: string): SorobanClient.xdr.ScVal {
+  return SorobanClient.xdr.ScVal.fromXDR(Buffer.from(base64Xdr, 'base64'));
+}
+
+
 export type TransactionStatus = 'idle' | 'error' | 'loading' | 'success'
 
 export interface contractTransactionProps {
@@ -42,7 +47,7 @@ export interface SendTransactionResult<E = Error> {
   sendTransaction: (
     txn?: Transaction,
     opts?: SendTransactionOptions
-  ) => Promise<SorobanClient.xdr.ScVal[]>
+  ) => Promise<SorobanClient.xdr.ScVal>
   reset: () => void
   status: TransactionStatus
 }
@@ -71,7 +76,7 @@ export function useSendTransaction<E = Error>(
     async function (
       passedTxn?: Transaction,
       passedOptions?: SendTransactionOptions
-    ): Promise<SorobanClient.xdr.ScVal[]> {
+    ): Promise<SorobanClient.xdr.ScVal> {
       // console.log("passedTxn: ", passedTxn)
       // console.log("passedOptions: ", passedOptions)
 
@@ -162,9 +167,10 @@ export function useSendTransaction<E = Error>(
             case 'SUCCESS': {
               setState('success')
               let resultXdr = response.resultXdr
+
               if (!resultXdr) {
                 // FIXME: Return a more sensible value for classic transactions.
-                return [SorobanClient.xdr.ScVal.scvI32(-1)]
+                return SorobanClient.xdr.ScVal.scvI32(-1)
               }
               let results = SorobanClient.xdr.TransactionResult.fromXDR(
                 resultXdr,
@@ -176,23 +182,26 @@ export function useSendTransaction<E = Error>(
                 throw new Error(`Expected exactly one result, got ${results}.`)
               }
 
+              
               let value = results[0].value()
+              let valueAll = results[0]
               if (
                 value?.switch() !==
                 SorobanClient.xdr.OperationType.invokeHostFunction()
               ) {
                 // FIXME: Return a more sensible value for classic transactions.
-                return [SorobanClient.xdr.ScVal.scvI32(-1)]
+                return SorobanClient.xdr.ScVal.scvI32(-1)
               }
 
-              return value.invokeHostFunctionResult().success()
+              return strToScVal(resultXdr)
+              //return value.invokeHostFunctionResult().success().buffer
             }
             case 'FAILED': {
               setState('error')
               let resultXdr = response.resultXdr
               if (!resultXdr) {
                 // FIXME: Return a more sensible value for classic transactions.
-                return [SorobanClient.xdr.ScVal.scvI32(-1)]
+                return SorobanClient.xdr.ScVal.scvI32(-1)
               }
               let results = SorobanClient.xdr.TransactionResult.fromXDR(
                 resultXdr,
@@ -210,7 +219,7 @@ export function useSendTransaction<E = Error>(
                 SorobanClient.xdr.OperationType.invokeHostFunction()
               ) {
                 // FIXME: Return a more sensible value for classic transactions.
-                return [SorobanClient.xdr.ScVal.scvI32(-1)]
+                return SorobanClient.xdr.ScVal.scvI32(-1)
               }
 
               let result = value.invokeHostFunctionResult()
