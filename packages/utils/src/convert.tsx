@@ -64,39 +64,39 @@ function bigNumberFromBytes(
   return BigNumber(b.toString()).multipliedBy(sign)
 }
 
-export function bigNumberToI128(value: BigNumber): SorobanClient.xdr.ScVal {
-  const b: bigint = BigInt(value.toFixed(0))
-  const buf = bigintToBuf(b)
-  if (buf.length > 16) {
-    throw new Error('BigNumber overflows i128')
-  }
+// export function bigNumberToI128(value: BigNumber): SorobanClient.xdr.ScVal {
+//   const b: bigint = BigInt(value.toFixed(0))
+//   const buf = bigintToBuf(b)
+//   if (buf.length > 16) {
+//     throw new Error('BigNumber overflows i128')
+//   }
 
-  if (value.isNegative()) {
-    // Clear the top bit
-    buf[0] &= 0x7f
-  }
+//   if (value.isNegative()) {
+//     // Clear the top bit
+//     buf[0] &= 0x7f
+//   }
 
-  // left-pad with zeros up to 16 bytes
-  let padded = Buffer.alloc(16)
-  buf.copy(padded, padded.length - buf.length)
-  console.debug({ value: value.toString(), padded })
+//   // left-pad with zeros up to 16 bytes
+//   let padded = Buffer.alloc(16)
+//   buf.copy(padded, padded.length - buf.length)
+//   console.debug({ value: value.toString(), padded })
 
-  if (value.isNegative()) {
-    // Set the top bit
-    padded[0] |= 0x80
-  }
+//   if (value.isNegative()) {
+//     // Set the top bit
+//     padded[0] |= 0x80
+//   }
 
-  const hi = new xdr.Uint64(
-    bigNumberFromBytes(false, ...padded.slice(4, 8)).toNumber(),
-    bigNumberFromBytes(false, ...padded.slice(0, 4)).toNumber()
-  )
-  const lo = new xdr.Uint64(
-    bigNumberFromBytes(false, ...padded.slice(12, 16)).toNumber(),
-    bigNumberFromBytes(false, ...padded.slice(8, 12)).toNumber()
-  )
+//   const hi = new xdr.Uint64(
+//     bigNumberFromBytes(false, ...padded.slice(4, 8)).toNumber(),
+//     bigNumberFromBytes(false, ...padded.slice(0, 4)).toNumber()
+//   )
+//   const lo = new xdr.Uint64(
+//     bigNumberFromBytes(false, ...padded.slice(12, 16)).toNumber(),
+//     bigNumberFromBytes(false, ...padded.slice(8, 12)).toNumber()
+//   )
 
-  return xdr.ScVal.scvI128(new xdr.Int128Parts({ lo, hi }))
-}
+//   return xdr.ScVal.scvI128(new xdr.Int128Parts({ lo, hi }))
+// }
 
 function bigintToBuf(bn: bigint): Buffer {
   var hex = BigInt(bn).toString(16).replace(/^-/, '')
