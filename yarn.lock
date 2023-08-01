@@ -1855,46 +1855,46 @@
 
 "@soroban-react/chains@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/chains":
   "resolved" "file:packages/chains"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
     "@soroban-react/types" "^5.3.12"
-    "soroban-client" "0.8.1"
+    "soroban-client" "0.9.2"
 
-"@soroban-react/connect-button@^5.3.12", "@soroban-react/connect-button@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/connect-button":
+"@soroban-react/connect-button@^6.0.0-alpha.0", "@soroban-react/connect-button@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/connect-button":
   "resolved" "file:packages/connect-button"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
-    "@soroban-react/core" "^5.3.12"
+    "@soroban-react/core" "^6.0.0-alpha.0"
 
 "@soroban-react/contracts@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/contracts":
   "resolved" "file:packages/contracts"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
-    "@soroban-react/core" "^5.3.12"
-    "soroban-client" "0.8.1"
+    "@soroban-react/core" "^6.0.0-alpha.0"
+    "soroban-client" "0.9.2"
 
-"@soroban-react/core@^5.3.12", "@soroban-react/core@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/core":
+"@soroban-react/core@^6.0.0-alpha.0", "@soroban-react/core@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/core":
   "resolved" "file:packages/core"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
-    "@soroban-react/freighter" "^5.3.12"
+    "@soroban-react/freighter" "^6.0.0-alpha.0"
     "@soroban-react/types" "^5.3.12"
-    "soroban-client" "0.8.1"
+    "soroban-client" "0.9.2"
 
 "@soroban-react/events@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/events":
   "resolved" "file:packages/events"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
-    "@soroban-react/core" "^5.3.12"
+    "@soroban-react/core" "^6.0.0-alpha.0"
     "@soroban-react/types" "^5.3.12"
-    "soroban-client" "0.8.1"
+    "soroban-client" "0.9.2"
 
-"@soroban-react/freighter@^5.3.12", "@soroban-react/freighter@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/freighter":
+"@soroban-react/freighter@^6.0.0-alpha.0", "@soroban-react/freighter@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/freighter":
   "resolved" "file:packages/freighter"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
     "@soroban-react/types" "^5.3.12"
-    "@stellar/freighter-api" "^1.4.0"
+    "@stellar/freighter-api" "1.5.1"
 
 "@soroban-react/types@^5.3.12", "@soroban-react/types@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/types":
   "resolved" "file:packages/types"
@@ -1902,21 +1902,21 @@
 
 "@soroban-react/utils@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/utils":
   "resolved" "file:packages/utils"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
     "bignumber.js" "^9.1.1"
-    "soroban-client" "0.8.1"
+    "soroban-client" "0.9.2"
 
 "@soroban-react/wallet-data@file:/home/wachuma/Blockchain/stellar/esteblock/soroban-react/packages/wallet-data":
   "resolved" "file:packages/wallet-data"
-  "version" "5.3.12"
+  "version" "6.0.0-alpha.0"
   dependencies:
-    "@soroban-react/connect-button" "^5.3.12"
-    "@soroban-react/core" "^5.3.12"
+    "@soroban-react/connect-button" "^6.0.0-alpha.0"
+    "@soroban-react/core" "^6.0.0-alpha.0"
     "@soroban-react/types" "^5.3.12"
-    "soroban-client" "0.8.1"
+    "soroban-client" "0.9.2"
 
-"@stellar/freighter-api@^1.4.0":
+"@stellar/freighter-api@1.5.1":
   "integrity" "sha512-WEnKEqd+xVLnOq6bJv+fLXod8JQyPjzpOKTpH4g7tG9MM1fmXzD3y2SXJlpCIw8kVqtiC4ynWOlSWX+TKO7KiQ=="
   "resolved" "https://registry.npmjs.org/@stellar/freighter-api/-/freighter-api-1.5.1.tgz"
   "version" "1.5.1"
@@ -2076,9 +2076,9 @@
     "csstype" "^3.0.2"
 
 "@types/react@^18.0.25":
-  "integrity" "sha512-u+e7OlgPPh+aryjOm5UJMX32OvB2E3QASOAqVMY6Ahs90djagxwv2ya0IctglNbNTexC12qCSMZG47KPfy1hAA=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.2.17.tgz"
-  "version" "18.2.17"
+  "integrity" "sha512-da4NTSeBv/P34xoZPhtcLkmZuJ+oYaCxHmyHzwaDQo9RQPBeXV+06gEk2FpqEcsX9XrnNLvRpVh6bdavDSjtiQ=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.2.18.tgz"
+  "version" "18.2.18"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

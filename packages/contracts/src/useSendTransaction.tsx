@@ -1,12 +1,8 @@
-import { SorobanContextType } from '@soroban-react/core'
 import React from 'react'
-
+import { SorobanContextType } from '@soroban-react/core'
 import * as SorobanClient from 'soroban-client'
-
-export function strToScVal(base64Xdr: string): SorobanClient.xdr.ScVal {
-  return SorobanClient.xdr.ScVal.fromXDR(Buffer.from(base64Xdr, 'base64'));
-}
-
+import type {Tx, TxResponse, Simulation} from './types'
+import { sendTx } from './sendTx'
 
 export type TransactionStatus = 'idle' | 'error' | 'loading' | 'success'
 
@@ -47,7 +43,7 @@ export interface SendTransactionResult<E = Error> {
   sendTransaction: (
     txn?: Transaction,
     opts?: SendTransactionOptions
-  ) => Promise<SorobanClient.xdr.ScVal>
+  ) => Promise<(TxResponse & { xdr: string }) | Simulation>
   reset: () => void
   status: TransactionStatus
 }
@@ -76,19 +72,15 @@ export function useSendTransaction<E = Error>(
     async function (
       passedTxn?: Transaction,
       passedOptions?: SendTransactionOptions
-    ): Promise<SorobanClient.xdr.ScVal> {
-      // console.log("passedTxn: ", passedTxn)
-      // console.log("passedOptions: ", passedOptions)
-
+    ): Promise<(TxResponse & { xdr: string }) | Simulation> {
+      
       let sorobanContext: SorobanContextType | undefined
 
       if (passedOptions?.sorobanContext) {
         sorobanContext = passedOptions?.sorobanContext
       }
       let txn = passedTxn ?? defaultTxn
-      // console.log("sorobanContext.activeConnector: ", sorobanContext?.activeConnector)
-      // console.log("sorobanContext.activeChain: ", sorobanContext?.activeChain)
-
+      
       if (!(passedOptions?.secretKey || sorobanContext?.activeConnector)) {
         throw new Error(
           'No secret key or active wallet. Provide at least one of those'
@@ -116,6 +108,7 @@ export function useSendTransaction<E = Error>(
         ...passedOptions,
       }
       const networkPassphrase = activeChain.networkPassphrase
+
       setState('loading')
 
       // preflight and add the footprint
@@ -125,7 +118,7 @@ export function useSendTransaction<E = Error>(
           throw new Error('No transaction after adding footprint')
         }
       }
-
+      
       let signed = ''
       if (passedOptions?.secretKey) {
         // User as set a secretKey, txn will be signed using the secretKey
@@ -145,114 +138,15 @@ export function useSendTransaction<E = Error>(
         signed,
         networkPassphrase
       )
-      const { hash, errorResultXdr } = await server.sendTransaction(
-        transactionToSubmit
-      )
-      if (errorResultXdr) {
-        setState('error')
-        throw new Error(errorResultXdr)
-      }
-      const sleepTime = Math.min(1000, timeout)
-      for (let i = 0; i <= timeout; i += sleepTime) {
-        await sleep(sleepTime)
-        try {
-          console.debug('tx id:', hash)
-          const response = await server.getTransaction(hash)
-          console.debug(response)
 
-          switch (response.status) {
-            case 'NOT_FOUND': {
-              continue
-            }
-            case 'SUCCESS': {
-              setState('success')
-              let resultXdr = response.resultXdr
+      let tx = transactionToSubmit as Tx
+      let secondsToWait = 10;
 
-              if (!resultXdr) {
-                // FIXME: Return a more sensible value for classic transactions.
-                return SorobanClient.xdr.ScVal.scvI32(-1)
-              }
-              let results = SorobanClient.xdr.TransactionResult.fromXDR(
-                resultXdr,
-                'base64'
-              )
-                .result()
-                .results()
-              if (results.length > 1) {
-                throw new Error(`Expected exactly one result, got ${results}.`)
-              }
-
-              
-              let value = results[0].value()
-              let valueAll = results[0]
-              if (
-                value?.switch() !==
-                SorobanClient.xdr.OperationType.invokeHostFunction()
-              ) {
-                // FIXME: Return a more sensible value for classic transactions.
-                return SorobanClient.xdr.ScVal.scvI32(-1)
-              }
-
-              return strToScVal(resultXdr)
-              //return value.invokeHostFunctionResult().success().buffer
-            }
-            case 'FAILED': {
-              setState('error')
-              let resultXdr = response.resultXdr
-              if (!resultXdr) {
-                // FIXME: Return a more sensible value for classic transactions.
-                return SorobanClient.xdr.ScVal.scvI32(-1)
-              }
-              let results = SorobanClient.xdr.TransactionResult.fromXDR(
-                resultXdr,
-                'base64'
-              )
-                .result()
-                .results()
-              if (results.length > 1) {
-                throw new Error(`Expected exactly one result, got ${results}.`)
-              }
-
-              let value = results[0].value()
-              if (
-                value?.switch() !==
-                SorobanClient.xdr.OperationType.invokeHostFunction()
-              ) {
-                // FIXME: Return a more sensible value for classic transactions.
-                return SorobanClient.xdr.ScVal.scvI32(-1)
-              }
-
-              let result = value.invokeHostFunctionResult()
-              switch (result.switch()) {
-                case SorobanClient.xdr.InvokeHostFunctionResultCode.invokeHostFunctionMalformed(): {
-                  throw new Error('Transaction failed: malformed')
-                }
-                case SorobanClient.xdr.InvokeHostFunctionResultCode.invokeHostFunctionTrapped(): {
-                  throw new Error('Transaction failed: trapped')
-                }
-                default: {
-                  throw new Error(
-                    `Unexpected result code: ${result.switch().name}.`
-                  )
-                }
-              }
-            }
-            default: {
-              throw new Error(
-                'Unexpected transaction status: ' + response.status
-              )
-            }
-          }
-        } catch (err: any) {
-          setState('error')
-          if ('code' in err && err.code === 404) {
-            // No-op
-          } else {
-            throw err
-          }
-        }
-      }
-      throw new Error('Timed out')
+      const raw = await sendTx({tx,secondsToWait, server});
+      return {
+        ...raw,
+        xdr: raw.resultXdr!,
+      };
     },
     [defaultTxn]
   )
@@ -266,8 +160,4 @@ export function useSendTransaction<E = Error>(
     reset: () => {},
     status,
   }
-}
-
-async function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
 }
