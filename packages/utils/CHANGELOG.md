@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-alpha.0](https://github.com/esteblock/soroban-react/compare/v5.3.12...v6.0.0-alpha.0) (2023-08-01)
+
+### Features
+
+- **utils:** comment utils ([ecb9ee9](https://github.com/esteblock/soroban-react/commit/ecb9ee9c82fada3b6bd444061e8d942f3a1b5556))
+
 ## [5.3.12](https://github.com/esteblock/soroban-react/compare/v5.3.11...v5.3.12) (2023-07-03)
 
 **Note:** Version bump only for package @soroban-react/utils

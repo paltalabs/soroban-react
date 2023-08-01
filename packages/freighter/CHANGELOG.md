@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0-alpha.0](https://github.com/esteblock/soroban-react/compare/v5.3.12...v6.0.0-alpha.0) (2023-08-01)
+
+### Features
+
+- **freighter:** upgrade freighter api version ([7ee418d](https://github.com/esteblock/soroban-react/commit/7ee418d0d13b1d92190de6252546bff5de7fefbc))
+
 ## [5.3.12](https://github.com/esteblock/soroban-react/compare/v5.3.11...v5.3.12) (2023-07-03)
 
 **Note:** Version bump only for package @soroban-react/freighter
