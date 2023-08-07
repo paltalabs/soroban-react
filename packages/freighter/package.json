@@ -26,5 +26,6 @@
   "dependencies": {
     "@soroban-react/types": "^6.1.0",
     "@stellar/freighter-api": "1.5.1"
-  }
+  },
+  "gitHead": "3068ac049954de1cbcf3f0fd9fc008231fbad789"
 }

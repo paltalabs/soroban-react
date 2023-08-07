@@ -23,5 +23,6 @@
   "dependencies": {
     "bignumber.js": "^9.1.1",
     "soroban-client": "0.9.2"
-  }
+  },
+  "gitHead": "3068ac049954de1cbcf3f0fd9fc008231fbad789"
 }

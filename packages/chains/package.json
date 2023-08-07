@@ -39,5 +39,6 @@
     "jest": "^29.5.0",
     "jsdom": "^22.1.0",
     "ts-jest": "^29.1.0"
-  }
+  },
+  "gitHead": "3068ac049954de1cbcf3f0fd9fc008231fbad789"
 }
