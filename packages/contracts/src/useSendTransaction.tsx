@@ -1,37 +1,11 @@
 import React from 'react'
 import { SorobanContextType } from '@soroban-react/core'
 import * as SorobanClient from 'soroban-client'
-import type {Tx, TxResponse, Simulation} from './types'
-import { sendTx } from './sendTx'
+import type {Transaction, Tx, TxResponse, Simulation} from './types'
+import { signAndSendTransaction } from './transaction'
 
 export type TransactionStatus = 'idle' | 'error' | 'loading' | 'success'
 
-export interface contractTransactionProps {
-  networkPassphrase: string
-  source: SorobanClient.Account
-  contractId: string
-  method: string
-  params?: SorobanClient.xdr.ScVal[]
-}
-
-export function contractTransaction({
-  networkPassphrase,
-  source,
-  contractId,
-  method,
-  params,
-}: contractTransactionProps): SorobanClient.Transaction {
-  let myParams: SorobanClient.xdr.ScVal[] = params || []
-  const contract = new SorobanClient.Contract(contractId)
-  return new SorobanClient.TransactionBuilder(source, {
-    // TODO: Figure out the fee
-    fee: '100',
-    networkPassphrase,
-  })
-    .addOperation(contract.call(method, ...myParams))
-    .setTimeout(SorobanClient.TimeoutInfinite)
-    .build()
-}
 
 export interface SendTransactionResult<E = Error> {
   data?: SorobanClient.xdr.ScVal
@@ -47,8 +21,6 @@ export interface SendTransactionResult<E = Error> {
   reset: () => void
   status: TransactionStatus
 }
-
-type Transaction = SorobanClient.Transaction | SorobanClient.FeeBumpTransaction
 
 export interface SendTransactionOptions {
   timeout?: number
@@ -110,43 +82,11 @@ export function useSendTransaction<E = Error>(
       const networkPassphrase = activeChain.networkPassphrase
 
       setState('loading')
-
-      // preflight and add the footprint
-      if (!skipAddingFootprint) {
-        txn = await server.prepareTransaction(txn, networkPassphrase)
-        if (!txn) {
-          throw new Error('No transaction after adding footprint')
-        }
-      }
       
-      let signed = ''
-      if (passedOptions?.secretKey) {
-        // User as set a secretKey, txn will be signed using the secretKey
-        const keypair = SorobanClient.Keypair.fromSecret(
-          passedOptions.secretKey
-        )
-        txn.sign(keypair)
-        signed = txn.toXDR()
-      } else {
-        // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
-        signed = await activeConnector.signTransaction(txn.toXDR(), {
-          networkPassphrase,
-        })
-      }
-
-      const transactionToSubmit = SorobanClient.TransactionBuilder.fromXDR(
-        signed,
-        networkPassphrase
-      )
-
-      let tx = transactionToSubmit as Tx
-      let secondsToWait = 10;
-
-      const raw = await sendTx({tx,secondsToWait, server});
-      return {
-        ...raw,
-        xdr: raw.resultXdr!,
-      };
+      return await signAndSendTransaction({txn,
+        secretKey: passedOptions?.secretKey,
+        skipAddingFootprint,
+        sorobanContext})
     },
     [defaultTxn]
   )
