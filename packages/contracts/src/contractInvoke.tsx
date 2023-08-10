@@ -59,33 +59,18 @@ export async function contractInvoke({
   
     const simulated = await server?.simulateTransaction(txn);
     if (!signAndSend && simulated) {
-    //   const { results } = simulated;
-    //   console.log("🚀 ~ file: contractInvoke.tsx:63 ~ results:", results)
-    //   if (!results || results[0] === undefined) {
-    //     if (simulated.error) {
-    //       console.log(simulated.error as unknown as string);
-    //       return undefined;
-    //     }
-    //     console.log(`Invalid response from simulateTransaction:\n{simulated}`);
-    //     return undefined;
-    //   } 
-      
-    //   return xdr.ScVal.fromXDR(results[0].xdr, 'base64');
-
-    const { results } = await server.simulateTransaction(txn)
-
-    // if (!results || results.length !== 1) {
-    //   throw new Error('Invalid response from simulateTransaction')
-    // }
-    if(results){
-      console.log("🚀 ~ file: contractInvoke.tsx:79 ~ results:", results)
-      const result = results[0]
-      console.log("🚀 ~ file: contractInvoke.tsx:82 ~ xdr.ScVal.fromXDR(result.xdr, 'base64'):", xdr.ScVal.fromXDR(result.xdr, 'base64'))
-      return xdr.ScVal.fromXDR(result.xdr, 'base64')
-
+      const { results } = simulated;
+      if (!results || results[0] === undefined) {
+        if (simulated.error) {
+          console.log(simulated.error as unknown as string);
+          return undefined;
+        }
+        console.log(`Invalid response from simulateTransaction:\n{simulated}`);
+        return undefined;
+      }
+  
+      return results[0];
     }
-
-  }
     else {
       // If signAndSend
       return await signAndSendTransaction({txn,skipAddingFootprint, secretKey,sorobanContext});
