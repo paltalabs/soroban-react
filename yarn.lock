@@ -1886,10 +1886,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stellar/freighter-api@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@stellar/freighter-api/-/freighter-api-1.5.1.tgz#c3b97239a0ca35b70057280f2d914958addf7cf2"
-  integrity sha512-WEnKEqd+xVLnOq6bJv+fLXod8JQyPjzpOKTpH4g7tG9MM1fmXzD3y2SXJlpCIw8kVqtiC4ynWOlSWX+TKO7KiQ==
+"@stellar/freighter-api@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@stellar/freighter-api/-/freighter-api-1.6.0.tgz#14deceba47be041ed13a325aad6d05add6646a08"
+  integrity sha512-Z6CRY+3+whzMspda6PiHEc4Rs9tdQkHLin9FopdnHhij/FEEAK+IiuF8Ki2ROcQweXdazb8N237aSim10s+Zgw==
 
 "@testing-library/react-hooks@^8.0.1":
   version "8.0.1"
