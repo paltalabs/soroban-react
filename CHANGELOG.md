@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.3.1](https://github.com/esteblock/soroban-react/compare/v6.3.0...v6.3.1) (2023-08-16)
+
+### Features
+
+- **uncomment:** uncomment contracts package ([ad899a7](https://github.com/esteblock/soroban-react/commit/ad899a727c765a8a183a578e7e725bf56c66497b))
+
 # [6.3.0](https://github.com/esteblock/soroban-react/compare/v6.2.0...v6.3.0) (2023-08-10)
 
 **Note:** Version bump only for package soroban-react
