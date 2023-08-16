@@ -97,7 +97,7 @@ export function SorobanReactProvider({
 
   // Handle changes of address/network in "realtime"
   React.useEffect(() => {
-    let timeoutId: NodeJS.Timer | null = null
+    let timeoutId: NodeJS.Timeout | null = null
 
     // If it turns out that requesting an update from Freighter is too taxing,
     // then this could be increased. Humans perceive 100ms response times as instantaneous

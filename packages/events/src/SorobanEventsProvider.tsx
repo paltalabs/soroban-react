@@ -21,7 +21,7 @@ export function SorobanEventsProvider({
   const sorobanContext: SorobanContextType = useSorobanReact()
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timer | null = null
+    let timeoutId: NodeJS.Timeout | null = null
     let stop = false
 
     async function pollEvents(): Promise<void> {
