@@ -18,9 +18,7 @@ export async function signAndSendTransaction({
 }:SignAndSendArgs){
 
   let networkPassphrase = sorobanContext.activeChain?.networkPassphrase
-  console.log("🚀 ~ file: transaction.tsx:18 ~ networkPassphrase:", networkPassphrase)
   let server = sorobanContext.server
-  console.log("🚀 ~ file: transaction.tsx:20 ~ server:", server)
 
   if (!secretKey && !sorobanContext.activeConnector) throw Error("signAndSend: no secretKey neither activeConnector")
   if (!server) throw Error("signAndSend: no server")
