@@ -98,7 +98,7 @@ async function fetchContractValue({
   source,
 }: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
 
-  //Builds the transaction
+  //Builds the transaction.
   let txn = contractTransaction({
     source,
     networkPassphrase,
