@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.5.0](https://github.com/esteblock/soroban-react/compare/v6.4.1...v6.5.0) (2023-08-28)
+
+### Bug Fixes
+
+- added args to useEffect's dependency array in order to rerender if the args are changed ([0c350c7](https://github.com/esteblock/soroban-react/commit/0c350c75cafbdfcd17a11e370697f8139166d152))
+
 ## [6.4.1](https://github.com/esteblock/soroban-react/compare/v6.4.0...v6.4.1) (2023-08-16)
 
 **Note:** Version bump only for package @soroban-react/contracts
