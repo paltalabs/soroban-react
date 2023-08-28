@@ -76,7 +76,7 @@ export function useContractValue({
     // Have this re-fetch if the contractId/method/args change. Total hack with
     // xdr-base64 to enforce real equality instead of object equality
     // shenanigans.
-  }, [contractAddress, method, xdrParams, activeChain, server])
+  }, [contractAddress, method, xdrParams, activeChain, server, args])
   return value
 }
 
