@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.6.0](https://github.com/esteblock/soroban-react/compare/v6.5.0...v6.6.0) (2023-08-28)
+
+**Note:** Version bump only for package @soroban-react/contracts
+
 # [6.5.0](https://github.com/esteblock/soroban-react/compare/v6.4.1...v6.5.0) (2023-08-28)
 
 ### Bug Fixes
