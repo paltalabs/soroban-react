@@ -1,5 +1,6 @@
 import { SorobanContextType } from '@soroban-react/core'
 import * as SorobanClient from 'soroban-client'
+import { SorobanRpc } from "soroban-client";
 import type {Tx, Transaction, TxResponse} from './types'
 import { Sign } from 'crypto';
 
@@ -73,10 +74,27 @@ export async function signAndSendTransaction({
   let secondsToWait = 10;
 
   const raw = await sendTx({tx,secondsToWait, server});
-  return {
-    ...raw,
-    xdr: raw.resultXdr!,
-  };
+  // if `sendTx` awaited the inclusion of the tx in the ledger, it used
+  // `getTransaction`, which has a `resultXdr` field
+  if ("resultXdr" in raw) {
+    const getResult = raw as SorobanRpc.GetTransactionResponse;
+    if (getResult.status !== SorobanRpc.GetTransactionStatus.SUCCESS) {
+      console.error('Transaction submission failed! Returning full RPC response.');
+      return raw;
+    }
+
+    return raw.resultXdr.result().toXDR("base64");
+  }
+
+  // // otherwise, it returned the result of `sendTransaction`
+  // if ("errorResultXdr" in raw) {
+  //   const sendResult = raw as SorobanRpc.SendTransactionResponse;
+  //   return sendResult.errorResultXdr;
+  // }
+
+  // if neither of these are present, something went wrong
+  console.error("Don't know how to parse result! Returning full RPC response.");
+  return raw;
 }
 
 
@@ -102,11 +120,19 @@ export async function sendTx(
     getTransactionResponse = await server.getTransaction(sendTransactionResponse.hash)
   }
 
-  if (getTransactionResponse.status === "NOT_FOUND") {
-    console.log(
-      `Waited ${secondsToWait} seconds for transaction to complete, but it did not. Returning anyway. Check the transaction status manually. Info: ${JSON.stringify(sendTransactionResponse, null, 2)}`
-    )
+  if (getTransactionResponse.status === SorobanRpc.GetTransactionStatus.NOT_FOUND) {
+    console.error(
+      `Waited ${
+        secondsToWait
+      } seconds for transaction to complete, but it did not. ` +
+      `Returning anyway. Check the transaction status manually. ` +
+      `Info: ${JSON.stringify(
+        sendTransactionResponse,
+        null,
+        2
+      )}`
+    );
   }
 
-  return getTransactionResponse
+  return getTransactionResponse;
 }

@@ -1,4 +1,5 @@
 import * as SorobanClient from 'soroban-client'
+import { SorobanRpc } from "soroban-client";
 import { SorobanContextType } from '@soroban-react/core'
 import type {Transaction, Tx} from './types'
 import { signAndSendTransaction } from './transaction'
@@ -57,19 +58,17 @@ export async function contractInvoke({
     
 
   
-    const simulated = await server?.simulateTransaction(txn);
+    const simulated: SorobanRpc.SimulateTransactionResponse = await server?.simulateTransaction(txn);
+
+    if (SorobanRpc.isSimulationError(simulated)) {
+      throw new Error(simulated.error);
+    } else if (!simulated.result) {
+      throw new Error(`invalid simulation: no result in ${simulated}`);
+    }
+
     if (!signAndSend && simulated) {
-      const { results } = simulated;
-      if (!results || results[0] === undefined) {
-        if (simulated.error) {
-          console.log(simulated.error as unknown as string);
-          return undefined;
-        }
-        console.log(`Invalid response from simulateTransaction:\n{simulated}`);
-        return undefined;
-      }
-  
-      return results[0];
+
+      return simulated.result;
     }
     else {
       // If signAndSend

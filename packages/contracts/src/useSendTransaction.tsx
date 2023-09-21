@@ -44,7 +44,7 @@ export function useSendTransaction<E = Error>(
     async function (
       passedTxn?: Transaction,
       passedOptions?: SendTransactionOptions
-    ): Promise<(TxResponse & { xdr: string }) | Simulation> {
+    ): Promise<any> {// Promise<(TxResponse & { xdr: string }) | Simulation> {
       
       let sorobanContext: SorobanContextType | undefined
 
