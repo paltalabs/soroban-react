@@ -6,7 +6,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "7.0.1",
+  "version": "7.1.0",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -21,7 +21,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/core": "^7.0.1"
+    "@soroban-react/core": "^7.1.0"
   },
   "peerDependencies": {
     "react": ">=16.8"
