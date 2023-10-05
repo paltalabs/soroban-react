@@ -1,5 +1,5 @@
 import { Connector, WalletChain } from '@soroban-react/types'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 import * as SorobanClient from 'soroban-client'
 
@@ -72,9 +72,10 @@ export function SorobanReactProvider({
         let activeChain = networkToActiveChain(networkDetails, chains)
 
         let address = await mySorobanContext.activeConnector?.getPublicKey()
+        //TODO: Fix how futurenet soroban rpc is handled, it should get it right from the freighter api, but for now this is the workaround
         let server =
           networkDetails &&
-          new SorobanClient.Server(networkDetails.networkUrl, {
+          new SorobanClient.Server(networkDetails.networkUrl == "https://horizon-futurenet.stellar.org" ? "https://rpc-futurenet.stellar.org" : networkDetails.networkUrl, {
             allowHttp: networkDetails.networkUrl.startsWith('http://'),
           })
 
