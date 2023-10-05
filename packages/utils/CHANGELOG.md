@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.1](https://github.com/esteblock/soroban-react/compare/v7.0.0...v7.0.1) (2023-10-05)
+
+**Note:** Version bump only for package @soroban-react/utils
+
 # [7.0.0](https://github.com/esteblock/soroban-react/compare/v6.6.0...v7.0.0) (2023-09-21)
 
 **Note:** Version bump only for package @soroban-react/utils
