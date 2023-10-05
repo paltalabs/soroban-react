@@ -1,6 +1,6 @@
 import * as SorobanClient from 'soroban-client'
-let xdr = SorobanClient.xdr
 
+let xdr = SorobanClient.xdr
 
 // export function accountIdentifier(account: string): SorobanClient.xdr.ScVal {
 //     return xdr.ScVal.scvObject(

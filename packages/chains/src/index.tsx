@@ -1,4 +1,3 @@
-
 import type { WalletChain } from '@soroban-react/types'
 
 import * as SorobanClient from 'soroban-client'
@@ -23,7 +22,7 @@ export const public_chain: WalletChain = {
 export const futurenet: WalletChain = {
   id: 'public',
   name: 'Futurenet',
-  networkPassphrase: "Test SDF Future Network ; October 2022",
+  networkPassphrase: 'Test SDF Future Network ; October 2022',
 }
 
 /**
@@ -43,7 +42,7 @@ export const testnet: WalletChain = {
 export const sandbox: WalletChain = {
   id: 'public',
   name: 'Sandbox',
-  networkPassphrase: "Local Sandbox Stellar Network ; September 2022",
+  networkPassphrase: 'Local Sandbox Stellar Network ; September 2022',
 }
 
 /**

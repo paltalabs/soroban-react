@@ -1,12 +1,13 @@
 import { SorobanContextType } from '@soroban-react/core'
-import { SorobanRpc } from "soroban-client";
-
 import React from 'react'
-import { contractTransaction } from './contractTransaction'
+
+import { SorobanRpc } from 'soroban-client'
 import * as SorobanClient from 'soroban-client'
+
+import { contractTransaction } from './contractTransaction'
 import { defaultAddress } from './defaultAddress'
 
-let xdr = SorobanClient.xdr 
+let xdr = SorobanClient.xdr
 
 export type ContractValueType = {
   loading?: true
@@ -37,7 +38,7 @@ export function useContractValue({
 
   const [value, setValue] = React.useState<ContractValueType>({ loading: true })
   const [xdrParams, setXdrParams] = React.useState<any>(
-    args ? args.map(p => p.toXDR().toString('base64')) : undefined 
+    args ? args.map(p => p.toXDR().toString('base64')) : undefined
   )
 
   React.useEffect(() => {
@@ -99,7 +100,6 @@ async function fetchContractValue({
   args,
   source,
 }: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
-
   //Builds the transaction.
   let txn = contractTransaction({
     source,
@@ -107,16 +107,17 @@ async function fetchContractValue({
     contractAddress,
     method,
     args,
-  });
-  
+  })
+
   let a = Math.random()
-  
-  const simulated: SorobanRpc.SimulateTransactionResponse = await server?.simulateTransaction(txn);
+
+  const simulated: SorobanRpc.SimulateTransactionResponse =
+    await server?.simulateTransaction(txn)
   if (SorobanRpc.isSimulationError(simulated)) {
-    throw new Error(simulated.error);
+    throw new Error(simulated.error)
   } else if (!simulated.result) {
-    throw new Error(`invalid simulation: no result in ${simulated}`);
+    throw new Error(`invalid simulation: no result in ${simulated}`)
   }
 
-  return simulated.result.retval;
+  return simulated.result.retval
 }

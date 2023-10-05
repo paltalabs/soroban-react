@@ -1,11 +1,12 @@
-import React from 'react'
 import { SorobanContextType } from '@soroban-react/core'
+import React from 'react'
+
 import * as SorobanClient from 'soroban-client'
-import type {Transaction, Tx, TxResponse, Simulation} from './types'
+
 import { signAndSendTransaction } from './transaction'
+import type { Transaction, Tx, TxResponse, Simulation } from './types'
 
 export type TransactionStatus = 'idle' | 'error' | 'loading' | 'success'
-
 
 export interface SendTransactionResult<E = Error> {
   data?: SorobanClient.xdr.ScVal
@@ -44,15 +45,16 @@ export function useSendTransaction<E = Error>(
     async function (
       passedTxn?: Transaction,
       passedOptions?: SendTransactionOptions
-    ): Promise<any> {// Promise<(TxResponse & { xdr: string }) | Simulation> {
-      
+    ): Promise<any> {
+      // Promise<(TxResponse & { xdr: string }) | Simulation> {
+
       let sorobanContext: SorobanContextType | undefined
 
       if (passedOptions?.sorobanContext) {
         sorobanContext = passedOptions?.sorobanContext
       }
       let txn = passedTxn ?? defaultTxn
-      
+
       if (!(passedOptions?.secretKey || sorobanContext?.activeConnector)) {
         throw new Error(
           'No secret key or active wallet. Provide at least one of those'
@@ -82,11 +84,13 @@ export function useSendTransaction<E = Error>(
       const networkPassphrase = activeChain.networkPassphrase
 
       setState('loading')
-      
-      return await signAndSendTransaction({txn,
+
+      return await signAndSendTransaction({
+        txn,
         secretKey: passedOptions?.secretKey,
         skipAddingFootprint,
-        sorobanContext})
+        sorobanContext,
+      })
     },
     [defaultTxn]
   )

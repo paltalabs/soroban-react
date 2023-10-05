@@ -75,9 +75,14 @@ export function SorobanReactProvider({
         //TODO: Fix how futurenet soroban rpc is handled, it should get it right from the freighter api, but for now this is the workaround
         let server =
           networkDetails &&
-          new SorobanClient.Server(networkDetails.networkUrl == "https://horizon-futurenet.stellar.org" ? "https://rpc-futurenet.stellar.org" : networkDetails.networkUrl, {
-            allowHttp: networkDetails.networkUrl.startsWith('http://'),
-          })
+          new SorobanClient.Server(
+            networkDetails.networkUrl == 'https://horizon-futurenet.stellar.org'
+              ? 'https://rpc-futurenet.stellar.org'
+              : networkDetails.networkUrl,
+            {
+              allowHttp: networkDetails.networkUrl.startsWith('http://'),
+            }
+          )
 
         // Now we can track that the wallet is finally connected
         isConnectedRef.current = true
@@ -181,12 +186,15 @@ export function SorobanReactProvider({
   }, [mySorobanContext])
 
   React.useEffect(() => {
-    if (mySorobanContext.address) return; // If we already have access to the connector's address, we are OK
-    if (!mySorobanContext.activeConnector) return; // If there is not even an activeConnector, we don't need to continue
+    if (mySorobanContext.address) return // If we already have access to the connector's address, we are OK
+    if (!mySorobanContext.activeConnector) return // If there is not even an activeConnector, we don't need to continue
 
     // activeConnector.isConnected() means that the connector is installed (even if not allowed, even if locked)
     // Hence, here we want to connect automatically if autoconnect is true && if activeConnector is installed
-    if (mySorobanContext.autoconnect && mySorobanContext.activeConnector.isConnected()) {   
+    if (
+      mySorobanContext.autoconnect &&
+      mySorobanContext.activeConnector.isConnected()
+    ) {
       // TODO: When the page loads, autoconnect==true and the user is not signed in, this gets called twice
       // (due to the sorobanContext.activeConnector being seen as different by React), which causes
       // the Wallet window to appear twice.
@@ -194,10 +202,9 @@ export function SorobanReactProvider({
       // trying to connect from somewhere else, then it doesn't try again
       // (since getPublicKey is what is causing the popup to appear)
       // This should be programmed in every connector for every get function
-      mySorobanContext.connect();
+      mySorobanContext.connect()
     }
-  }, [mySorobanContext.activeConnector, mySorobanContext.autoconnect]);
-
+  }, [mySorobanContext.activeConnector, mySorobanContext.autoconnect])
 
   return (
     <SorobanContext.Provider value={mySorobanContext}>
