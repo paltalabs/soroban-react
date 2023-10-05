@@ -1,9 +1,8 @@
-import * as SorobanClient from 'soroban-client'
+import { SorobanContextType } from '@soroban-react/core';
+import * as SorobanClient from 'soroban-client';
 import { SorobanRpc } from "soroban-client";
-import { SorobanContextType } from '@soroban-react/core'
-import type {Transaction, Tx} from './types'
-import { signAndSendTransaction } from './transaction'
-import { contractTransaction } from './contractTransaction'
+import { contractTransaction } from './contractTransaction';
+import { signAndSendTransaction } from './transaction';
 let xdr = SorobanClient.xdr 
 
 
@@ -68,7 +67,7 @@ export async function contractInvoke({
 
     if (!signAndSend && simulated) {
 
-      return simulated.result;
+      return simulated.result.retval;
     }
     else {
       // If signAndSend
