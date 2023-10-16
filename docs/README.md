@@ -1,5 +1,5 @@
 
-# Welcome to @soroban-react
+# Welcome to @soroban-react.
 
 `@soroban-react` is a powerful library designed to facilitate the creation of modern, decentralized applications (dApps) using React and the Soroban blockchain network. This library provides a suite of features and tools that simplify and streamline the development of dApps on Soroban.
 
