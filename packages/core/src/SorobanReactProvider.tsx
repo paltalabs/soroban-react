@@ -76,9 +76,7 @@ export function SorobanReactProvider({
         let server =
           networkDetails &&
           new SorobanClient.Server(
-            networkDetails.networkUrl == 'https://horizon-futurenet.stellar.org'
-              ? 'https://rpc-futurenet.stellar.org'
-              : networkDetails.networkUrl,
+            networkDetails.sorobanRpcUrl ?? networkDetails.networkUrl,
             {
               allowHttp: networkDetails.networkUrl.startsWith('http://'),
             }
