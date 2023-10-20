@@ -84,7 +84,7 @@ export function SorobanReactProvider({
           new SorobanClient.Server(
             networkDetails.sorobanRpcUrl,
             {
-              allowHttp: networkDetails.networkUrl.startsWith('http://'),
+              allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
             }
           )
 
