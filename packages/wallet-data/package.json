@@ -21,9 +21,9 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/connect-button": "^7.1.0",
-    "@soroban-react/core": "^7.1.0",
-    "@soroban-react/types": "^7.0.0",
+    "@soroban-react/connect-button": "/home/ben/stellar/paltalabsdev/soroban-react/packages/connect-button",
+    "@soroban-react/core": "/home/ben/stellar/paltalabsdev/soroban-react/packages/core",
+    "@soroban-react/types": "/home/ben/stellar/paltalabsdev/soroban-react/packages/types",
     "soroban-client": "1.0.0-beta.2"
   },
   "peerDependencies": {

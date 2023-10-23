@@ -1881,6 +1881,68 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@soroban-react/chains@file:packages/chains":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/chains" "file:packages/chains"
+    "@soroban-react/connect-button" "file:packages/connect-button"
+    "@soroban-react/contracts" "file:packages/contracts"
+    "@soroban-react/core" "file:packages/core"
+    "@soroban-react/events" "file:packages/events"
+    "@soroban-react/freighter" "file:packages/freighter"
+    "@soroban-react/types" "file:packages/types"
+    "@soroban-react/utils" "file:packages/utils"
+    "@soroban-react/wallet-data" "file:packages/wallet-data"
+    soroban-client "1.0.0-beta.2"
+
+"@soroban-react/connect-button@file:packages/connect-button":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/core" "file:packages/core"
+
+"@soroban-react/contracts@file:packages/contracts":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/core" "file:packages/core"
+    soroban-client "1.0.0-beta.2"
+
+"@soroban-react/core@file:packages/core":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/freighter" "file:packages/freighter"
+    "@soroban-react/types" "file:packages/types"
+    soroban-client "1.0.0-beta.2"
+
+"@soroban-react/events@file:packages/events":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/core" "file:packages/core"
+    "@soroban-react/types" "file:packages/types"
+    soroban-client "1.0.0-beta.2"
+
+"@soroban-react/freighter@file:packages/freighter":
+  version "7.0.0"
+  dependencies:
+    "@soroban-react/types" "file:packages/types"
+    "@stellar/freighter-api" "1.7.1"
+
+"@soroban-react/types@file:packages/types":
+  version "7.0.0"
+
+"@soroban-react/utils@file:packages/utils":
+  version "7.1.0"
+  dependencies:
+    bignumber.js "^9.1.1"
+    soroban-client "1.0.0-beta.2"
+
+"@soroban-react/wallet-data@file:packages/wallet-data":
+  version "7.1.0"
+  dependencies:
+    "@soroban-react/connect-button" "file:packages/connect-button"
+    "@soroban-react/core" "file:packages/core"
+    "@soroban-react/types" "file:packages/types"
+    soroban-client "1.0.0-beta.2"
+
 "@stellar/freighter-api@1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@stellar/freighter-api/-/freighter-api-1.7.1.tgz#d62b432abc7e0140a6025cd672455ecee7b3199a"

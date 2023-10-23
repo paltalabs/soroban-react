@@ -29,7 +29,15 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/types": "^7.0.0",
+    "@soroban-react/chains": "/home/ben/stellar/paltalabsdev/soroban-react/packages/chains",
+    "@soroban-react/connect-button": "/home/ben/stellar/paltalabsdev/soroban-react/packages/connect-button",
+    "@soroban-react/contracts": "/home/ben/stellar/paltalabsdev/soroban-react/packages/contracts",
+    "@soroban-react/core": "/home/ben/stellar/paltalabsdev/soroban-react/packages/core",
+    "@soroban-react/events": "/home/ben/stellar/paltalabsdev/soroban-react/packages/events",
+    "@soroban-react/freighter": "/home/ben/stellar/paltalabsdev/soroban-react/packages/freighter",
+    "@soroban-react/types": "/home/ben/stellar/paltalabsdev/soroban-react/packages/types",
+    "@soroban-react/utils": "/home/ben/stellar/paltalabsdev/soroban-react/packages/utils",
+    "@soroban-react/wallet-data": "/home/ben/stellar/paltalabsdev/soroban-react/packages/wallet-data",
     "soroban-client": "1.0.0-beta.2"
   },
   "devDependencies": {

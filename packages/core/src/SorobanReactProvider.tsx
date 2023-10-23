@@ -88,6 +88,8 @@ export function SorobanReactProvider({
             }
           )
 
+        console.log("soroban-react, server:",server)
+
         // Now we can track that the wallet is finally connected
         isConnectedRef.current = true
 

@@ -21,7 +21,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/core": "^7.1.0"
+    "@soroban-react/core": "/home/ben/stellar/paltalabsdev/soroban-react/packages/core"
   },
   "peerDependencies": {
     "react": ">=16.8"

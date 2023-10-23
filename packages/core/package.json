@@ -39,8 +39,8 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/freighter": "^7.0.0",
-    "@soroban-react/types": "^7.0.0",
+    "@soroban-react/freighter": "/home/ben/stellar/paltalabsdev/soroban-react/packages/freighter",
+    "@soroban-react/types": "/home/ben/stellar/paltalabsdev/soroban-react/packages/types",
     "soroban-client": "1.0.0-beta.2"
   },
   "devDependencies": {

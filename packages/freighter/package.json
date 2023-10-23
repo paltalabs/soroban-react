@@ -24,7 +24,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/types": "^7.0.0",
+    "@soroban-react/types": "/home/ben/stellar/paltalabsdev/soroban-react/packages/types",
     "@stellar/freighter-api": "1.7.1"
   },
   "gitHead": "3068ac049954de1cbcf3f0fd9fc008231fbad789"
