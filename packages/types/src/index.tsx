@@ -4,6 +4,7 @@ export interface NetworkDetails {
   network: string
   networkUrl: string
   networkPassphrase: string
+  sorobanRpcUrl?: string
 }
 
 export type Connector = {
