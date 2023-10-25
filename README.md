@@ -75,15 +75,24 @@ This will
 
 
 ## Build and publish using lerna
-Commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with 
+First, be sure to be logged in with an authorized npmjs account for publishing, you can verify this with 
+```
+npm whoami
+```
+If you are not logged in you have to login before continuing, using
+```
+npm login
+```
+Then, commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with 
 ```
 commit -m "feat(SUB_PACKAGE_NAME): change"
 ```
-Then
+And finally
 ```
 yarn build
 yarn lerna-publish
 ```
+
 This will
 - build the three projects in the right order
 - determine the current version of the packages
@@ -91,6 +100,12 @@ This will
 - create a commit of the changed package.json files, tag the commit and push the tag & commit to the remote
 - publish the packages to NPM
 - add commit changes in CHANGELOG
+
+If you forgot to login and `lerna-publish` stopped early, the risk is that it will consider that packages are published even if they are not really and not be able to finish to publish them. If this is the case, discard the possible uncommitted changes made by `lerna-publish` and run 
+```
+yarn run lerna publish --no-private --conventional-commits from-git
+```
+This should save it.
 
 ## Upgrade in your project:
 ```
