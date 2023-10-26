@@ -72,7 +72,6 @@ export function SorobanReactProvider({
         let activeChain = networkToActiveChain(networkDetails, chains)
 
         let address = await mySorobanContext.activeConnector?.getPublicKey()
-        //TODO: Fix how futurenet soroban rpc is handled, it should get it right from the freighter api, but for now this is the workaround
         if (! networkDetails?.sorobanRpcUrl) {
           const error = new Error(
             'Soroban RPC URL is not set, please check your freighter wallet network configuration'
