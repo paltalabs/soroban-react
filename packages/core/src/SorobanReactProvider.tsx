@@ -73,21 +73,18 @@ export function SorobanReactProvider({
 
         let address = await mySorobanContext.activeConnector?.getPublicKey()
 
-        if (! networkDetails?.sorobanRpcUrl) {
+        if (!networkDetails?.sorobanRpcUrl) {
           const error = new Error(
             'Soroban RPC URL is not set, please check your freighter wallet network configuration'
           )
           throw error
         }
-        
+
         let server =
           networkDetails &&
-          new SorobanClient.Server(
-            networkDetails.sorobanRpcUrl,
-            {
-              allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
-            }
-          )
+          new SorobanClient.Server(networkDetails.sorobanRpcUrl, {
+            allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
+          })
 
         // Now we can track that the wallet is finally connected
         isConnectedRef.current = true
