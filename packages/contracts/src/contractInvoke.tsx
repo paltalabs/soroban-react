@@ -85,8 +85,6 @@ export async function contractInvoke({
       sorobanContext,
     })
 
-    return {
-      res,
-    }
+    return res
   }
 }
