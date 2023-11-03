@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/paltalabs/soroban-react/compare/v7.2.2...v7.2.3) (2023-11-03)
+
+### Features
+
+- **contracts:** change ([ed710cf](https://github.com/paltalabs/soroban-react/commit/ed710cfe3de68f36e01801816729d509858549a0))
+
 ## [7.2.2](https://github.com/paltalabs/soroban-react/compare/v7.2.1...v7.2.2) (2023-11-03)
 
 ### Features
