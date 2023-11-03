@@ -78,28 +78,7 @@ export async function signAndSendTransaction({
   let secondsToWait = 10
 
   const raw = await sendTx({ tx, secondsToWait, server })
-  // if `sendTx` awaited the inclusion of the tx in the ledger, it used
-  // `getTransaction`, which has a `resultXdr` field
-  if ('resultXdr' in raw) {
-    const getResult = raw as SorobanRpc.GetTransactionResponse
-    if (getResult.status !== SorobanRpc.GetTransactionStatus.SUCCESS) {
-      console.error(
-        'Transaction submission failed! Returning full RPC response.'
-      )
-      return raw
-    }
 
-    return raw.resultXdr.result().toXDR('base64')
-  }
-
-  // // otherwise, it returned the result of `sendTransaction`
-  // if ("errorResultXdr" in raw) {
-  //   const sendResult = raw as SorobanRpc.SendTransactionResponse;
-  //   return sendResult.errorResultXdr;
-  // }
-
-  // if neither of these are present, something went wrong
-  console.error("Don't know how to parse result! Returning full RPC response.")
   return raw
 }
 

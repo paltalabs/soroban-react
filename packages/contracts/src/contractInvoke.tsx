@@ -78,11 +78,15 @@ export async function contractInvoke({
     return simulated.result.retval
   } else {
     // If signAndSend
-    return await signAndSendTransaction({
+    const res = await signAndSendTransaction({
       txn,
       skipAddingFootprint,
       secretKey,
       sorobanContext,
     })
+
+    return {
+      res,
+    }
   }
 }
