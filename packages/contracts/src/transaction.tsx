@@ -27,7 +27,7 @@ export async function signAndSendTransaction({
   if (!server) throw Error('signAndSend: no server')
   if (!networkPassphrase) throw Error('signAndSend: no networkPassphrase')
 
-  // preflight and add the footprint
+  // preflight and add the footprint !
   if (!skipAddingFootprint) {
     txn = await server.prepareTransaction(txn, networkPassphrase)
     if (!txn) {
