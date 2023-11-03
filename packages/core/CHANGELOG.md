@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/esteblock/soroban-react/compare/v7.1.1...v7.2.0) (2023-11-03)
+
+### Features
+
+- **contracts:** now signAndSendTransaction always return full response ([1c8f5f5](https://github.com/esteblock/soroban-react/commit/1c8f5f53c40a438de926e686ee993ddb2d520a88))
+
 ## [7.1.1](https://github.com/esteblock/soroban-react/compare/v7.1.0...v7.1.1) (2023-10-25)
 
 **Note:** Version bump only for package @soroban-react/core
