@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/paltalabs/soroban-react/compare/v7.2.3...v7.3.0) (2023-11-07)
+
+### Features
+
+- **chains:** upgrade soroban-client to 1.0.0-beta.4 ([bede51f](https://github.com/paltalabs/soroban-react/commit/bede51f428be17c8a6423ba32334f2c1007690a8))
+- **contracts:** upgrade soroban-client to 1.0.0-beta.4 ([4d8d5c4](https://github.com/paltalabs/soroban-react/commit/4d8d5c4c1234d0be517b6ca06ee1ebe52e62827e))
+- **core:** upgrade soroban-client to 1.0.0-beta.4 ([1e497a3](https://github.com/paltalabs/soroban-react/commit/1e497a331f3a112963f890171a4fe23a68075144))
+- **events:** everything commented ([1b7e6c6](https://github.com/paltalabs/soroban-react/commit/1b7e6c63947c8cb3f6747ce65b878d8fb9525562))
+- **events:** upgrade soroban-client to 1.0.0-beta.4 ([538966d](https://github.com/paltalabs/soroban-react/commit/538966ddd6dda41b4199fe7da78d1a29ab1b0ff5))
+- update soroban-client to 1.0.0-beta.4 ([56c4aef](https://github.com/paltalabs/soroban-react/commit/56c4aef560fb79438d419754e6607d83d89ab142))
+- **utils:** upgrade soroban-client to 1.0.0-beta.4 ([6a90ca2](https://github.com/paltalabs/soroban-react/commit/6a90ca28196d845a1886980b296d0274c3033cb1))
+- **wallet-data:** everything commented ([1920eef](https://github.com/paltalabs/soroban-react/commit/1920eef4c699c5a3eacb112c63e9df03d418b951))
+- **wallet-data:** upgrade soroban-client to 1.0.0-beta.4 ([c95f094](https://github.com/paltalabs/soroban-react/commit/c95f094ff4c563f11002c26b86cae25cdfc5d849))
+
 ## [7.2.3](https://github.com/paltalabs/soroban-react/compare/v7.2.2...v7.2.3) (2023-11-03)
 
 ### Features

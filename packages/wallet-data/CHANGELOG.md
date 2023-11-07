@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/esteblock/soroban-react/compare/v7.2.3...v7.3.0) (2023-11-07)
+
+### Features
+
+- **wallet-data:** everything commented ([1920eef](https://github.com/esteblock/soroban-react/commit/1920eef4c699c5a3eacb112c63e9df03d418b951))
+- **wallet-data:** upgrade soroban-client to 1.0.0-beta.4 ([c95f094](https://github.com/esteblock/soroban-react/commit/c95f094ff4c563f11002c26b86cae25cdfc5d849))
+
 ## [7.2.3](https://github.com/esteblock/soroban-react/compare/v7.2.2...v7.2.3) (2023-11-03)
 
 **Note:** Version bump only for package @soroban-react/wallet-data

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/esteblock/soroban-react/compare/v7.2.3...v7.3.0) (2023-11-07)
+
+### Features
+
+- **contracts:** upgrade soroban-client to 1.0.0-beta.4 ([4d8d5c4](https://github.com/esteblock/soroban-react/commit/4d8d5c4c1234d0be517b6ca06ee1ebe52e62827e))
+
 ## [7.2.3](https://github.com/esteblock/soroban-react/compare/v7.2.2...v7.2.3) (2023-11-03)
 
 ### Features
