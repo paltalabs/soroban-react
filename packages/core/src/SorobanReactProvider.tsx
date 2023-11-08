@@ -13,8 +13,10 @@ export interface SorobanReactProviderProps {
   appName?: string
   autoconnect?: boolean
   chains: WalletChain[]
+  activeChain?: WalletChain
   children: React.ReactNode
   connectors: Connector[]
+  server?: SorobanClient.Server
 }
 
 function networkToActiveChain(networkDetails: any, chains: any) {
@@ -38,12 +40,14 @@ export function SorobanReactProvider({
   appName,
   autoconnect = false,
   chains,
+  activeChain = defaultSorobanContext.activeChain,
   children,
   connectors,
+  server = defaultSorobanContext.server,
 }: SorobanReactProviderProps) {
   const activeConnector = connectors.length == 1 ? connectors[0] : undefined
   const isConnectedRef = useRef(false)
-
+  console.log("Enter constructor of context")
   const [mySorobanContext, setSorobanContext] =
     React.useState<SorobanContextType>({
       ...defaultSorobanContext,
@@ -52,7 +56,8 @@ export function SorobanReactProvider({
       chains,
       connectors,
       activeConnector,
-      activeChain: chains.length == 1 ? chains[0] : undefined,
+      activeChain,
+      server,
       connect: async () => {
         let networkDetails =
           await mySorobanContext.activeConnector?.getNetworkDetails()
