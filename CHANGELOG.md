@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.2](https://github.com/paltalabs/soroban-react/compare/v7.3.1...v7.3.2) (2023-11-08)
+
+### Features
+
+- **contracts:** return txHash on contractInvoke ([42be842](https://github.com/paltalabs/soroban-react/commit/42be842598b70198e95bd87eef7d9c2ed03c9064))
+
 ## [7.3.1](https://github.com/paltalabs/soroban-react/compare/v7.3.0...v7.3.1) (2023-11-07)
 
 **Note:** Version bump only for package soroban-react
