@@ -11,21 +11,31 @@ title: useContractValueProps
 
 ### Properties
 
-- [contractId](contracts_src_useContractValue.useContractValueProps.md#contractid)
+- [args](contracts_src_useContractValue.useContractValueProps.md#args)
+- [contractAddress](contracts_src_useContractValue.useContractValueProps.md#contractaddress)
 - [method](contracts_src_useContractValue.useContractValueProps.md#method)
-- [params](contracts_src_useContractValue.useContractValueProps.md#params)
 - [sorobanContext](contracts_src_useContractValue.useContractValueProps.md#sorobancontext)
 - [source](contracts_src_useContractValue.useContractValueProps.md#source)
 
 ## Properties
 
-### contractId
+### args
 
-• **contractId**: `string`
+• `Optional` **args**: `ScVal`[]
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:19](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L19)
+[contracts/src/useContractValue.tsx:21](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L21)
+
+___
+
+### contractAddress
+
+• **contractAddress**: `string`
+
+#### Defined in
+
+[contracts/src/useContractValue.tsx:19](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L19)
 
 ___
 
@@ -35,27 +45,17 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:20](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L20)
-
-___
-
-### params
-
-• `Optional` **params**: `ScVal`[]
-
-#### Defined in
-
-[contracts/src/useContractValue.tsx:21](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L21)
+[contracts/src/useContractValue.tsx:20](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L20)
 
 ___
 
 ### sorobanContext
 
-• **sorobanContext**: [`SorobanContextType`](core_src_SorobanContext.SorobanContextType.md)
+• **sorobanContext**: `SorobanContextType`
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:23](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L23)
+[contracts/src/useContractValue.tsx:23](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L23)
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:22](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useContractValue.tsx#L22)
+[contracts/src/useContractValue.tsx:22](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L22)

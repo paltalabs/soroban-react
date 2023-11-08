@@ -9,31 +9,10 @@ title: utils/src/convert
 
 ### Functions
 
-- [bigNumberToI128](utils_src_convert.md#bignumbertoi128)
 - [scvalToString](utils_src_convert.md#scvaltostring)
 - [xdrUint64ToNumber](utils_src_convert.md#xdruint64tonumber)
 
 ## Functions
-
-### bigNumberToI128
-
-▸ **bigNumberToI128**(`value`): `SorobanClient.xdr.ScVal`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `BigNumber` |
-
-#### Returns
-
-`SorobanClient.xdr.ScVal`
-
-#### Defined in
-
-[utils/src/convert.tsx:67](https://github.com/mauroepce/soroban-react/blob/546de55/packages/utils/src/convert.tsx#L67)
-
-___
 
 ### scvalToString
 
@@ -51,7 +30,7 @@ ___
 
 #### Defined in
 
-[utils/src/convert.tsx:134](https://github.com/mauroepce/soroban-react/blob/546de55/packages/utils/src/convert.tsx#L134)
+[utils/src/convert.tsx:134](https://github.com/paltalabs/soroban-react/blob/7608217/packages/utils/src/convert.tsx#L134)
 
 ___
 
@@ -71,4 +50,4 @@ ___
 
 #### Defined in
 
-[utils/src/convert.tsx:126](https://github.com/mauroepce/soroban-react/blob/546de55/packages/utils/src/convert.tsx#L126)
+[utils/src/convert.tsx:126](https://github.com/paltalabs/soroban-react/blob/7608217/packages/utils/src/convert.tsx#L126)

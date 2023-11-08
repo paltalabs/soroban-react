@@ -27,7 +27,7 @@ title: types/src
 
 #### Defined in
 
-[types/src/index.tsx:54](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L54)
+[types/src/index.tsx:55](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L55)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:47](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L47)
+[types/src/index.tsx:48](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L48)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:9](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L9)
+[types/src/index.tsx:10](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L10)
 
 ___
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:1](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L1)
+[types/src/index.tsx:1](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L1)

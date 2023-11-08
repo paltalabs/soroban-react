@@ -5,6 +5,7 @@ import { SorobanRpc } from 'soroban-client'
 
 import { contractTransaction } from './contractTransaction'
 import { signAndSendTransaction } from './transaction'
+import { TxResponse } from './types'
 
 let xdr = SorobanClient.xdr
 
@@ -32,7 +33,7 @@ export async function contractInvoke({
   skipAddingFootprint,
   secretKey,
   sorobanContext,
-}: InvokeArgs) {
+}: InvokeArgs): Promise<TxResponse | SorobanClient.xdr.ScVal> {
   const { server, address, activeChain } = sorobanContext
 
   if (!activeChain) {

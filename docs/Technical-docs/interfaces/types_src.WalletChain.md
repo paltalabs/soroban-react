@@ -26,7 +26,7 @@ title: WalletChain
 
 #### Defined in
 
-[types/src/index.tsx:39](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L39)
+[types/src/index.tsx:40](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L40)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:40](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L40)
+[types/src/index.tsx:41](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L41)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:36](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L36)
+[types/src/index.tsx:37](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L37)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:37](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L37)
+[types/src/index.tsx:38](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L38)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:38](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L38)
+[types/src/index.tsx:39](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L39)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:42](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L42)
+[types/src/index.tsx:43](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L43)

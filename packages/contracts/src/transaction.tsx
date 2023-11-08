@@ -18,7 +18,7 @@ export async function signAndSendTransaction({
   secretKey,
   skipAddingFootprint = false,
   sorobanContext,
-}: SignAndSendArgs) {
+}: SignAndSendArgs): Promise<TxResponse> {
   let networkPassphrase = sorobanContext.activeChain?.networkPassphrase
   let server = sorobanContext.server
 
@@ -75,7 +75,7 @@ export async function signAndSendTransaction({
   )
 
   let tx = transactionToSubmit as Tx
-  let secondsToWait = 10
+  let secondsToWait = 20
 
   const raw = await sendTx({ tx, secondsToWait, server })
 
@@ -125,5 +125,5 @@ export async function sendTx({
     )
   }
 
-  return getTransactionResponse
+  return { ...getTransactionResponse, txHash: sendTransactionResponse.hash }
 }

@@ -11,5 +11,7 @@ export type Transaction =
   | SorobanClient.Transaction
   | SorobanClient.FeeBumpTransaction
 export type Tx = SorobanClientTransaction<Memo<MemoType>, Operation[]>
-export type TxResponse = SorobanClient.SorobanRpc.GetTransactionResponse
+export type TxResponse = SorobanRpc.GetTransactionResponse & {
+  txHash: string
+}
 export type Simulation = SorobanRpc.SimulateTransactionResponse
