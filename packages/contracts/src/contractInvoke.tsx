@@ -1,28 +1,28 @@
-import { SorobanContextType } from '@soroban-react/core'
+import { SorobanContextType } from '@soroban-react/core';
 
-import * as SorobanClient from 'soroban-client'
-import { SorobanRpc } from 'soroban-client'
+import * as SorobanClient from 'soroban-client';
+import { SorobanRpc } from 'soroban-client';
 
-import { contractTransaction } from './contractTransaction'
-import { signAndSendTransaction } from './transaction'
-import { TxResponse } from './types'
+import { contractTransaction } from './contractTransaction';
+import { signAndSendTransaction } from './transaction';
+import { TxResponse } from './types';
 
-let xdr = SorobanClient.xdr
+let xdr = SorobanClient.xdr;
 
 export type InvokeArgs = {
-  contractAddress: string
-  method: string
-  args?: SorobanClient.xdr.ScVal[] | undefined
-  signAndSend?: boolean
-  fee?: number
-  skipAddingFootprint?: boolean
-  secretKey?: string
-  sorobanContext: SorobanContextType
-}
+  contractAddress: string;
+  method: string;
+  args?: SorobanClient.xdr.ScVal[] | undefined;
+  signAndSend?: boolean;
+  fee?: number;
+  skipAddingFootprint?: boolean;
+  secretKey?: string;
+  sorobanContext: SorobanContextType;
+  reconnectAfterTx?: boolean;
+};
 
 // Dummy source account for simulation. The public key for this is all 0-bytes.
-const defaultAddress =
-  'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF'
+const defaultAddress = 'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF';
 
 export async function contractInvoke({
   contractAddress,
@@ -33,29 +33,34 @@ export async function contractInvoke({
   skipAddingFootprint,
   secretKey,
   sorobanContext,
+  reconnectAfterTx = true,
 }: InvokeArgs): Promise<TxResponse | SorobanClient.xdr.ScVal> {
-  const { server, address, activeChain } = sorobanContext
+  const { server, address, activeChain } = sorobanContext;
 
   if (!activeChain) {
-    throw new Error('No active Chain')
+    throw new Error('No active Chain');
   }
   if (!server) {
-    throw new Error('No connected to a Server')
+    throw new Error('No connected to a Server');
   }
   if (signAndSend && !secretKey && !sorobanContext.activeConnector) {
     throw new Error(
-      'contractInvoke: You are trying to sign a txn without providing a source, secretKey or active connector'
-    )
+      'contractInvoke: You are trying to sign a txn without providing a source, secretKey or active connector',
+    );
   }
 
-  const networkPassphrase = activeChain?.networkPassphrase
-  const source = secretKey
-    ? await server.getAccount(
-        SorobanClient.Keypair.fromSecret(secretKey).publicKey()
-      )
-    : address
-    ? await server?.getAccount(address)
-    : new SorobanClient.Account(defaultAddress, '0')
+  const networkPassphrase = activeChain?.networkPassphrase;
+  let source = null;
+
+  if (secretKey) {
+    source = await server.getAccount(SorobanClient.Keypair.fromSecret(secretKey).publicKey());
+  } else {
+    try {
+      source = await server?.getAccount(address);
+    } catch (error) {
+      source = new SorobanClient.Account(defaultAddress, '0');
+    }
+  }
 
   //Builds the transaction
   let txn = contractTransaction({
@@ -64,19 +69,18 @@ export async function contractInvoke({
     contractAddress,
     method,
     args,
-  })
+  });
 
-  const simulated: SorobanRpc.SimulateTransactionResponse =
-    await server?.simulateTransaction(txn)
+  const simulated: SorobanRpc.SimulateTransactionResponse = await server?.simulateTransaction(txn);
 
   if (SorobanRpc.isSimulationError(simulated)) {
-    throw new Error(simulated.error)
+    throw new Error(simulated.error);
   } else if (!simulated.result) {
-    throw new Error(`invalid simulation: no result in ${simulated}`)
+    throw new Error(`invalid simulation: no result in ${simulated}`);
   }
 
   if (!signAndSend && simulated) {
-    return simulated.result.retval
+    return simulated.result.retval;
   } else {
     // If signAndSend
     const res = await signAndSendTransaction({
@@ -84,8 +88,12 @@ export async function contractInvoke({
       skipAddingFootprint,
       secretKey,
       sorobanContext,
-    })
+    });
 
-    return res
+    if (reconnectAfterTx) {
+      sorobanContext.connect();
+    }
+
+    return res;
   }
 }
