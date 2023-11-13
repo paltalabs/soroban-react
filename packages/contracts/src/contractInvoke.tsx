@@ -5,6 +5,7 @@ import { SorobanRpc } from 'soroban-client'
 
 import { contractTransaction } from './contractTransaction'
 import { signAndSendTransaction } from './transaction'
+import { TxResponse } from './types'
 
 let xdr = SorobanClient.xdr
 
@@ -17,6 +18,7 @@ export type InvokeArgs = {
   skipAddingFootprint?: boolean
   secretKey?: string
   sorobanContext: SorobanContextType
+  reconnectAfterTx?: boolean
 }
 
 // Dummy source account for simulation. The public key for this is all 0-bytes.
@@ -32,7 +34,8 @@ export async function contractInvoke({
   skipAddingFootprint,
   secretKey,
   sorobanContext,
-}: InvokeArgs) {
+  reconnectAfterTx = true,
+}: InvokeArgs): Promise<TxResponse | SorobanClient.xdr.ScVal> {
   const { server, address, activeChain } = sorobanContext
 
   if (!activeChain) {
@@ -48,13 +51,21 @@ export async function contractInvoke({
   }
 
   const networkPassphrase = activeChain?.networkPassphrase
-  const source = secretKey
-    ? await server.getAccount(
-        SorobanClient.Keypair.fromSecret(secretKey).publicKey()
-      )
-    : address
-    ? await server?.getAccount(address)
-    : new SorobanClient.Account(defaultAddress, '0')
+  let source = null
+
+  if (secretKey) {
+    source = await server.getAccount(
+      SorobanClient.Keypair.fromSecret(secretKey).publicKey()
+    )
+  } else {
+    try {
+      if (!address) throw new Error('No address')
+
+      source = await server.getAccount(address)
+    } catch (error) {
+      source = new SorobanClient.Account(defaultAddress, '0')
+    }
+  }
 
   //Builds the transaction
   let txn = contractTransaction({
@@ -84,6 +95,10 @@ export async function contractInvoke({
       secretKey,
       sorobanContext,
     })
+
+    if (reconnectAfterTx) {
+      sorobanContext.connect()
+    }
 
     return res
   }

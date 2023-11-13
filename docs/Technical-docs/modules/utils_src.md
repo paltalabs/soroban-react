@@ -9,17 +9,10 @@ title: utils/src
 
 ### References
 
-- [bigNumberToI128](utils_src.md#bignumbertoi128)
 - [scvalToString](utils_src.md#scvaltostring)
 - [xdrUint64ToNumber](utils_src.md#xdruint64tonumber)
 
 ## References
-
-### bigNumberToI128
-
-Re-exports [bigNumberToI128](utils_src_convert.md#bignumbertoi128)
-
-___
 
 ### scvalToString
 

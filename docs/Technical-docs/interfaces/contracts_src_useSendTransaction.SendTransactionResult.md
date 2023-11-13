@@ -35,7 +35,7 @@ title: SendTransactionResult<E>
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:36](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L36)
+[contracts/src/useSendTransaction.tsx:12](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L12)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:37](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L37)
+[contracts/src/useSendTransaction.tsx:13](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L13)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:38](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L38)
+[contracts/src/useSendTransaction.tsx:14](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L14)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:39](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L39)
+[contracts/src/useSendTransaction.tsx:15](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L15)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:40](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L40)
+[contracts/src/useSendTransaction.tsx:16](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L16)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:41](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L41)
+[contracts/src/useSendTransaction.tsx:17](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L17)
 
 ___
 
@@ -103,32 +103,32 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:46](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L46)
+[contracts/src/useSendTransaction.tsx:22](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L22)
 
 ___
 
 ### sendTransaction
 
-• **sendTransaction**: (`txn?`: `Transaction`, `opts?`: [`SendTransactionOptions`](contracts_src_useSendTransaction.SendTransactionOptions.md)) => `Promise`<`ScVal`[]\>
+• **sendTransaction**: (`txn?`: [`Transaction`](../modules/contracts_src_types.md#transaction), `opts?`: [`SendTransactionOptions`](contracts_src_useSendTransaction.SendTransactionOptions.md)) => `Promise`<`SimulateTransactionResponse` \| `Object`\>
 
 #### Type declaration
 
-▸ (`txn?`, `opts?`): `Promise`<`ScVal`[]\>
+▸ (`txn?`, `opts?`): `Promise`<`SimulateTransactionResponse` \| `Object`\>
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `txn?` | `Transaction` |
+| `txn?` | [`Transaction`](../modules/contracts_src_types.md#transaction) |
 | `opts?` | [`SendTransactionOptions`](contracts_src_useSendTransaction.SendTransactionOptions.md) |
 
 ##### Returns
 
-`Promise`<`ScVal`[]\>
+`Promise`<`SimulateTransactionResponse` \| `Object`\>
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:42](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L42)
+[contracts/src/useSendTransaction.tsx:18](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L18)
 
 ___
 
@@ -138,4 +138,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:47](https://github.com/mauroepce/soroban-react/blob/546de55/packages/contracts/src/useSendTransaction.tsx#L47)
+[contracts/src/useSendTransaction.tsx:23](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L23)

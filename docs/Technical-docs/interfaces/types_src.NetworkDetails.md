@@ -14,6 +14,7 @@ title: NetworkDetails
 - [network](types_src.NetworkDetails.md#network)
 - [networkPassphrase](types_src.NetworkDetails.md#networkpassphrase)
 - [networkUrl](types_src.NetworkDetails.md#networkurl)
+- [sorobanRpcUrl](types_src.NetworkDetails.md#sorobanrpcurl)
 
 ## Properties
 
@@ -23,7 +24,7 @@ title: NetworkDetails
 
 #### Defined in
 
-[types/src/index.tsx:4](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L4)
+[types/src/index.tsx:4](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L4)
 
 ___
 
@@ -33,7 +34,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:6](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L6)
+[types/src/index.tsx:6](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L6)
 
 ___
 
@@ -43,4 +44,14 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:5](https://github.com/mauroepce/soroban-react/blob/546de55/packages/types/src/index.tsx#L5)
+[types/src/index.tsx:5](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L5)
+
+___
+
+### sorobanRpcUrl
+
+• `Optional` **sorobanRpcUrl**: `string`
+
+#### Defined in
+
+[types/src/index.tsx:7](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L7)
