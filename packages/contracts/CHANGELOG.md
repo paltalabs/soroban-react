@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.4](https://github.com/esteblock/soroban-react/compare/v7.3.3...v7.3.4) (2023-11-13)
+
+**Note:** Version bump only for package @soroban-react/contracts
+
 ## [7.3.3](https://github.com/esteblock/soroban-react/compare/v7.3.2...v7.3.3) (2023-11-10)
 
 ### Features
