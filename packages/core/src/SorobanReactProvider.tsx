@@ -32,8 +32,16 @@ function networkToActiveChain(networkDetails: any, chains: any) {
     iconBackground: supported?.iconBackground,
     iconUrl: supported?.iconUrl,
     unsupported: !supported,
+    networkUrl: networkDetails.networkUrl,
+    sorobanRpcUrl: networkDetails.sorobanRpcUrl
   }
   return activeChain
+}
+
+function fromURLToServer(sorobanRpcUrl: string): SorobanClient.Server {
+    return new SorobanClient.Server(sorobanRpcUrl, {
+      allowHttp: sorobanRpcUrl.startsWith('http://'),
+    })
 }
 
 export function SorobanReactProvider({
@@ -47,6 +55,10 @@ export function SorobanReactProvider({
 }: SorobanReactProviderProps) {
   const activeConnector = connectors.length == 1 ? connectors[0] : undefined
   const isConnectedRef = useRef(false)
+  if (activeChain?.sorobanRpcUrl) {
+    server = fromURLToServer(activeChain.sorobanRpcUrl)
+
+  }
 
   const [mySorobanContext, setSorobanContext] =
     React.useState<SorobanContextType>({
@@ -106,6 +118,21 @@ export function SorobanReactProvider({
         // TODO: Maybe reset address to undefined
         // TODO: Handle other things here, such as perhaps resetting address to undefined.
       },
+
+      setActiveChain: (chain: WalletChain) => {
+        console.log("Chainging activeChain to : ", chain)
+        // When the user in frontend changes the activeChain to read the blockchain without wallet
+        activeChain = chain;
+        if (activeChain.sorobanRpcUrl) {
+          server = fromURLToServer(activeChain.sorobanRpcUrl)
+        }
+        setSorobanContext((c: any) => ({
+          ...c,
+          server,
+          activeChain,
+        }))
+      },
+
     })
 
   // Handle changes of address/network in "realtime"
