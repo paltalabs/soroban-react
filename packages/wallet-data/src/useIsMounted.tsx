@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 
 // export function useIsMounted() {
 //   const reducer = () => true
@@ -6,3 +6,4 @@
 //   React.useEffect(setMounted, [setMounted])
 //   return mounted
 // }
+

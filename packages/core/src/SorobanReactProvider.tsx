@@ -13,8 +13,10 @@ export interface SorobanReactProviderProps {
   appName?: string
   autoconnect?: boolean
   chains: WalletChain[]
+  activeChain?: WalletChain // To set on frontend to define the default chain for read-only. Example: standalone
   children: React.ReactNode
   connectors: Connector[]
+  server?: SorobanClient.Server // To set on frontend to define the default server url for read-only. Example 'new Server('http://localhost:8000/soroban/rpc',{allowHttp:true})'
 }
 
 function networkToActiveChain(networkDetails: any, chains: any) {
@@ -38,8 +40,10 @@ export function SorobanReactProvider({
   appName,
   autoconnect = false,
   chains,
+  activeChain = defaultSorobanContext.activeChain, // Non mandatory fields default to default Context fields value
   children,
   connectors,
+  server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
 }: SorobanReactProviderProps) {
   const activeConnector = connectors.length == 1 ? connectors[0] : undefined
   const isConnectedRef = useRef(false)
@@ -52,7 +56,8 @@ export function SorobanReactProvider({
       chains,
       connectors,
       activeConnector,
-      activeChain: chains.length == 1 ? chains[0] : undefined,
+      activeChain,
+      server,
       connect: async () => {
         let networkDetails =
           await mySorobanContext.activeConnector?.getNetworkDetails()
