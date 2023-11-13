@@ -7,6 +7,19 @@ export interface NetworkDetails {
   sorobanRpcUrl?: string
 }
 
+export interface WalletChain {
+  id: string
+  name?: string
+  networkPassphrase: string
+  iconBackground?: string
+  iconUrl?: string | null
+  unsupported?: boolean
+  network: string
+  networkUrl: string
+  sorobanRpcUrl?: string
+}
+
+
 export type Connector = {
   id: string
   name: string
@@ -33,15 +46,6 @@ export type Connector = {
   ) => Promise<string>
 }
 
-export interface WalletChain {
-  id: string
-  name?: string
-  networkPassphrase: string
-  iconBackground?: string
-  iconUrl?: string | null
-  // TODO: Use this to indicate which chains a dapp supports
-  unsupported?: boolean
-}
 
 // Sourced from https://github.com/tmm/wagmi/blob/main/packages/core/src/constants/chains.ts
 // This is just so we can clearly see which of wagmi's first-class chains we provide metadata for

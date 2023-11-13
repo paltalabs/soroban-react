@@ -23,6 +23,7 @@ export interface SorobanContextType {
   server?: SorobanClient.Server
   connect: () => Promise<void>
   disconnect: () => Promise<void>
+  setActiveChain?: (chain: WalletChain) => void
 }
 
 export const SorobanContext = createContext<SorobanContextType | undefined>(

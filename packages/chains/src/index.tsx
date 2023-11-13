@@ -6,13 +6,20 @@ import * as SorobanClient from 'soroban-client'
  * A `WalletChain` object representing the public blockchain network.
  * @property {string} id - The unique identifier for the blockchain network.
  * @property {string} name - The name of the blockchain network.
+ * @property {string} network - The name of the blockchain network.
  * @property {string} networkPassphrase - The network passphrase for the blockchain network.
+ * @property {string} networkUrl - The Horizon URL "https://horizon-testnet.stellar.org";
+ * @property {string} sorobanRpcUrl  - The Soroban RPC URL sorobanRpcUr;
  */
 
 export const public_chain: WalletChain = {
   id: 'public',
+  network: 'public',
   name: 'Public',
   networkPassphrase: SorobanClient.Networks.PUBLIC,
+  networkUrl: "https://horizon.stellar.org",
+  sorobanRpcUrl: "https://horizon.stellar.org",
+
 }
 
 /**
@@ -20,9 +27,12 @@ export const public_chain: WalletChain = {
  */
 
 export const futurenet: WalletChain = {
-  id: 'public',
+  id: 'futurenet',
+  network: 'futurenet',
   name: 'Futurenet',
   networkPassphrase: 'Test SDF Future Network ; October 2022',
+  networkUrl: "https://horizon-futurenet.stellar.org",
+  sorobanRpcUrl: "https://rpc-futurenet.stellar.org/",
 }
 
 /**
@@ -30,9 +40,12 @@ export const futurenet: WalletChain = {
  */
 
 export const testnet: WalletChain = {
-  id: 'public',
+  id: 'testnet',
+  network: 'testnet',
   name: 'Testnet',
   networkPassphrase: SorobanClient.Networks.TESTNET,
+  networkUrl: "https://horizon-testnet.stellar.org",
+  sorobanRpcUrl: "https://rpc-testnet.stellar.org/",
 }
 
 /**
@@ -40,9 +53,13 @@ export const testnet: WalletChain = {
  */
 
 export const sandbox: WalletChain = {
-  id: 'public',
+  id: 'sandbox',
+  network: 'sandbox',
   name: 'Sandbox',
   networkPassphrase: 'Local Sandbox Stellar Network ; September 2022',
+  networkUrl: "http://localhost:8000",
+  sorobanRpcUrl: "http://localhost:8000/soroban/rpc",
+
 }
 
 /**
@@ -50,7 +67,10 @@ export const sandbox: WalletChain = {
  */
 
 export const standalone: WalletChain = {
-  id: 'public',
+  id: 'standalone',
+  network: 'standalone',
   name: 'Standalone',
   networkPassphrase: 'Standalone Network ; February 2017',
+  networkUrl: "http://localhost:8000",
+  sorobanRpcUrl: "http://localhost:8000/soroban/rpc",
 }
