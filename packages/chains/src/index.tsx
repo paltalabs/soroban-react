@@ -45,7 +45,7 @@ export const testnet: WalletChain = {
   name: 'Testnet',
   networkPassphrase: SorobanClient.Networks.TESTNET,
   networkUrl: "https://horizon-testnet.stellar.org",
-  sorobanRpcUrl: "https://rpc-testnet.stellar.org/",
+  sorobanRpcUrl: "https://soroban-testnet.stellar.org/",
 }
 
 /**
