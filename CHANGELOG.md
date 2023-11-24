@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.7](https://github.com/paltalabs/soroban-react/compare/v7.3.6...v7.3.7) (2023-11-24)
+
+**Note:** Version bump only for package soroban-react
+
 ## [7.3.6](https://github.com/paltalabs/soroban-react/compare/v7.3.5...v7.3.6) (2023-11-13)
 
 **Note:** Version bump only for package soroban-react
