@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@soroban-react/core": "^7.3.6",
+    "@stellar/stellar-sdk": "^11.1.0",
     "soroban-client": "1.0.0-beta.4"
   },
   "devDependencies": {
