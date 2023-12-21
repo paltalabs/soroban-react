@@ -1,6 +1,7 @@
 import { Connector, WalletChain } from '@soroban-react/types'
 import React, { useRef } from 'react'
 
+import * as StellarSdk from '@stellar/stellar-sdk'
 import * as SorobanClient from 'soroban-client'
 
 import { SorobanContext, SorobanContextType, defaultSorobanContext } from './'
@@ -17,6 +18,7 @@ export interface SorobanReactProviderProps {
   children: React.ReactNode
   connectors: Connector[]
   server?: SorobanClient.Server // To set on frontend to define the default server url for read-only. Example 'new Server('http://localhost:8000/soroban/rpc',{allowHttp:true})'
+  serverHorizon?: StellarSdk.Horizon.Server
 }
 
 function networkToActiveChain(networkDetails: any, chains: any) {
@@ -44,6 +46,12 @@ function fromURLToServer(sorobanRpcUrl: string): SorobanClient.Server {
     })
 }
 
+function fromURLToHorizonServer(networkUrl: string): StellarSdk.Horizon.Server {
+  return new StellarSdk.Horizon.Server(networkUrl, {
+    allowHttp: networkUrl.startsWith('http://'),
+  })
+}
+
 export function SorobanReactProvider({
   appName,
   autoconnect = false,
@@ -52,12 +60,17 @@ export function SorobanReactProvider({
   children,
   connectors,
   server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
+  serverHorizon = defaultSorobanContext.serverHorizon,
 }: SorobanReactProviderProps) {
   const activeConnector = connectors.length == 1 ? connectors[0] : undefined
   const isConnectedRef = useRef(false)
+  
   if (activeChain?.sorobanRpcUrl) {
     server = fromURLToServer(activeChain.sorobanRpcUrl)
+  }
 
+  if (activeChain?.networkUrl) {
+    serverHorizon = fromURLToHorizonServer(activeChain.networkUrl)
   }
 
   const [mySorobanContext, setSorobanContext] =
@@ -70,6 +83,7 @@ export function SorobanReactProvider({
       activeConnector,
       activeChain,
       server,
+      serverHorizon,
       connect: async () => {
         let networkDetails =
           await mySorobanContext.activeConnector?.getNetworkDetails()
@@ -102,6 +116,12 @@ export function SorobanReactProvider({
           new SorobanClient.Server(networkDetails.sorobanRpcUrl, {
             allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
           })
+        
+        let serverHorizon =
+          networkDetails &&
+          new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
+            allowHttp: networkDetails.networkUrl.startsWith('http://'),
+          })
 
         // Now we can track that the wallet is finally connected
         isConnectedRef.current = true
@@ -111,6 +131,7 @@ export function SorobanReactProvider({
           activeChain,
           address,
           server,
+          serverHorizon,
         }))
       },
       disconnect: async () => {
@@ -126,9 +147,14 @@ export function SorobanReactProvider({
         if (activeChain.sorobanRpcUrl) {
           server = fromURLToServer(activeChain.sorobanRpcUrl)
         }
+
+        if (activeChain.networkUrl) {
+          serverHorizon = fromURLToHorizonServer(activeChain.networkUrl)
+        }
         setSorobanContext((c: any) => ({
           ...c,
           server,
+          serverHorizon,
           activeChain,
         }))
       },
