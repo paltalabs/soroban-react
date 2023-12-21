@@ -12,16 +12,13 @@ export async function setTrustline({
   sorobanContext: SorobanContextType
   }) {
   
-  const {activeChain, address} = sorobanContext
-  const server = new StellarSdk.Horizon.Server(activeChain.networkUrl, {
-    allowHttp: activeChain.networkUrl.startsWith('http://'),
-  })
+  const {activeChain, address, serverHorizon} = sorobanContext
   const networkPassphrase = sorobanContext.activeChain?.networkPassphrase ?? ''
   
   if (!activeChain) {
     throw new Error('No active Chain')
   }
-  if (!server) {
+  if (!serverHorizon) {
     throw new Error('No connected to a Server')
   }
   // if (signAndSend && !secretKey && !sorobanContext.activeConnector) {
@@ -32,7 +29,7 @@ export async function setTrustline({
   if (!networkPassphrase) throw new Error('No networkPassphrase')
 
 
-  let source = await server.loadAccount(address)
+  let source = await serverHorizon.loadAccount(address)
 
   const operation = StellarSdk.Operation.changeTrust({
     source: source.accountId(),
@@ -58,7 +55,7 @@ export async function setTrustline({
   )
 
   try {
-    let response = await server.submitTransaction(transactionToSubmit);
+    let response = await serverHorizon.submitTransaction(transactionToSubmit);
     return response
   } catch (error) {
     console.log(error)
