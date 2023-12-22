@@ -17,9 +17,8 @@ export const public_chain: WalletChain = {
   network: 'public',
   name: 'Public',
   networkPassphrase: SorobanClient.Networks.PUBLIC,
-  networkUrl: "https://horizon.stellar.org",
-  sorobanRpcUrl: "https://horizon.stellar.org",
-
+  networkUrl: 'https://horizon.stellar.org',
+  sorobanRpcUrl: 'https://horizon.stellar.org',
 }
 
 /**
@@ -31,8 +30,8 @@ export const futurenet: WalletChain = {
   network: 'futurenet',
   name: 'Futurenet',
   networkPassphrase: 'Test SDF Future Network ; October 2022',
-  networkUrl: "https://horizon-futurenet.stellar.org",
-  sorobanRpcUrl: "https://rpc-futurenet.stellar.org/",
+  networkUrl: 'https://horizon-futurenet.stellar.org',
+  sorobanRpcUrl: 'https://rpc-futurenet.stellar.org/',
 }
 
 /**
@@ -44,8 +43,8 @@ export const testnet: WalletChain = {
   network: 'testnet',
   name: 'Testnet',
   networkPassphrase: SorobanClient.Networks.TESTNET,
-  networkUrl: "https://horizon-testnet.stellar.org",
-  sorobanRpcUrl: "https://soroban-testnet.stellar.org/",
+  networkUrl: 'https://horizon-testnet.stellar.org',
+  sorobanRpcUrl: 'https://soroban-testnet.stellar.org/',
 }
 
 /**
@@ -57,9 +56,8 @@ export const sandbox: WalletChain = {
   network: 'sandbox',
   name: 'Sandbox',
   networkPassphrase: 'Local Sandbox Stellar Network ; September 2022',
-  networkUrl: "http://localhost:8000",
-  sorobanRpcUrl: "http://localhost:8000/soroban/rpc",
-
+  networkUrl: 'http://localhost:8000',
+  sorobanRpcUrl: 'http://localhost:8000/soroban/rpc',
 }
 
 /**
@@ -71,6 +69,6 @@ export const standalone: WalletChain = {
   network: 'standalone',
   name: 'Standalone',
   networkPassphrase: 'Standalone Network ; February 2017',
-  networkUrl: "http://localhost:8000",
-  sorobanRpcUrl: "http://localhost:8000/soroban/rpc",
+  networkUrl: 'http://localhost:8000',
+  sorobanRpcUrl: 'http://localhost:8000/soroban/rpc',
 }

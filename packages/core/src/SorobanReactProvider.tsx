@@ -35,15 +35,15 @@ function networkToActiveChain(networkDetails: any, chains: any) {
     iconUrl: supported?.iconUrl,
     unsupported: !supported,
     networkUrl: networkDetails.networkUrl,
-    sorobanRpcUrl: networkDetails.sorobanRpcUrl
+    sorobanRpcUrl: networkDetails.sorobanRpcUrl,
   }
   return activeChain
 }
 
 function fromURLToServer(sorobanRpcUrl: string): SorobanClient.Server {
-    return new SorobanClient.Server(sorobanRpcUrl, {
-      allowHttp: sorobanRpcUrl.startsWith('http://'),
-    })
+  return new SorobanClient.Server(sorobanRpcUrl, {
+    allowHttp: sorobanRpcUrl.startsWith('http://'),
+  })
 }
 
 function fromURLToHorizonServer(networkUrl: string): StellarSdk.Horizon.Server {
@@ -64,7 +64,7 @@ export function SorobanReactProvider({
 }: SorobanReactProviderProps) {
   const activeConnector = connectors.length == 1 ? connectors[0] : undefined
   const isConnectedRef = useRef(false)
-  
+
   if (activeChain?.sorobanRpcUrl) {
     server = fromURLToServer(activeChain.sorobanRpcUrl)
   }
@@ -116,7 +116,7 @@ export function SorobanReactProvider({
           new SorobanClient.Server(networkDetails.sorobanRpcUrl, {
             allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
           })
-        
+
         let serverHorizon =
           networkDetails &&
           new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
@@ -141,9 +141,9 @@ export function SorobanReactProvider({
       },
 
       setActiveChain: (chain: WalletChain) => {
-        console.log("Chainging activeChain to : ", chain)
+        console.log('Chainging activeChain to : ', chain)
         // When the user in frontend changes the activeChain to read the blockchain without wallet
-        activeChain = chain;
+        activeChain = chain
         if (activeChain.sorobanRpcUrl) {
           server = fromURLToServer(activeChain.sorobanRpcUrl)
         }
@@ -158,7 +158,6 @@ export function SorobanReactProvider({
           activeChain,
         }))
       },
-
     })
 
   // Handle changes of address/network in "realtime"
