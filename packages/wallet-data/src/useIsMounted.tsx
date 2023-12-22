@@ -6,4 +6,3 @@ export function useIsMounted() {
   React.useEffect(setMounted, [setMounted])
   return mounted
 }
-
