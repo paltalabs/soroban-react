@@ -1,46 +1,64 @@
 import { SorobanContextType } from '@soroban-react/core'
-
+import * as StellarSdk from '@stellar/stellar-sdk'
 import * as SorobanClient from 'soroban-client'
 
 export async function setTrustline({
   tokenSymbol,
   tokenAdmin,
-  account,
   sorobanContext,
-  sendTransaction,
 }: {
   tokenSymbol: string
   tokenAdmin: string
-  account: string
   sorobanContext: SorobanContextType
-  sendTransaction: any
-}) {
-  const server = sorobanContext.server
+  }) {
+  
+  const {activeChain, address, serverHorizon} = sorobanContext
   const networkPassphrase = sorobanContext.activeChain?.networkPassphrase ?? ''
-  if (!server) throw new Error('Not connected to server')
+  
+  if (!activeChain) {
+    throw new Error('No active Chain')
+  }
+  if (!serverHorizon) {
+    throw new Error('No connected to a Server')
+  }
+  // if (signAndSend && !secretKey && !sorobanContext.activeConnector) {
+  //   throw new Error(
+  //     'contractInvoke: You are trying to sign a txn without providing a source, secretKey or active connector'
+  //   )
+  // }
   if (!networkPassphrase) throw new Error('No networkPassphrase')
-  let walletSource = await server.getAccount(account)
 
-  const trustlineResult = await sendTransaction(
-    new SorobanClient.TransactionBuilder(walletSource, {
-      networkPassphrase,
-      fee: '1000', // arbitrary
-    })
-      .setTimeout(60)
-      .addOperation(
-        SorobanClient.Operation.changeTrust({
-          asset: new SorobanClient.Asset(tokenSymbol, tokenAdmin),
-        })
-      )
-      .build(),
-    {
-      timeout: 60 * 1000, // should be enough time to approve the tx
-      skipAddingFootprint: true, // classic = no footprint
-      // omit `secretKey` to have Freighter prompt for signing
-      // hence, we need to explicit the sorobanContext
-      sorobanContext,
-    }
+
+  let source = await serverHorizon.loadAccount(address)
+
+  const operation = StellarSdk.Operation.changeTrust({
+    source: source.accountId(),
+    asset: new StellarSdk.Asset(tokenSymbol, tokenAdmin),
+  });
+
+  const txn = new StellarSdk.TransactionBuilder(source, {
+    fee: '100',
+    timebounds: { minTime: 0, maxTime: 0 },
+    networkPassphrase
+  })
+    .addOperation(operation)
+    .setTimeout(SorobanClient.TimeoutInfinite)
+    .build()
+
+  const signed = await sorobanContext.activeConnector?.signTransaction(txn.toXDR(), {
+    networkPassphrase
+  })
+
+  const transactionToSubmit =  StellarSdk.TransactionBuilder.fromXDR(
+    signed!,
+    networkPassphrase
   )
-  console.debug(trustlineResult)
-  return trustlineResult
+
+  try {
+    let response = await serverHorizon.submitTransaction(transactionToSubmit);
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+
 }
