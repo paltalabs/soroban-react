@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/paltalabs/soroban-react/compare/v7.3.7...v7.4.0) (2023-12-22)
+
+### Bug Fixes
+
+- prettier format ([f515db4](https://github.com/paltalabs/soroban-react/commit/f515db4b21e4400dda9b77a443aaffc002c3a853))
+- setTrustline now using serverHorizon ([eb38bcd](https://github.com/paltalabs/soroban-react/commit/eb38bcd42458c0d62e73997053eb49e187dc5568))
+
+### Features
+
+- Added setTrustline and stellar sdk ([f232fa5](https://github.com/paltalabs/soroban-react/commit/f232fa598917ea357ae31fb8350104b0fbd0deb7))
+- Added StellarSdk and serverHorizon to sorobanContext ([eef7eec](https://github.com/paltalabs/soroban-react/commit/eef7eec9148b35c85fcd1ac1684ba1a3f112cbf3))
+- **contracts:** added setTrustline and StellarSdk serverHorizon ([87f5bc4](https://github.com/paltalabs/soroban-react/commit/87f5bc4b9ce06741fe705df57f598159e9d3c306))
+
 ## [7.3.7](https://github.com/paltalabs/soroban-react/compare/v7.3.6...v7.3.7) (2023-11-24)
 
 **Note:** Version bump only for package soroban-react

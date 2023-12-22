@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/esteblock/soroban-react/compare/v7.3.7...v7.4.0) (2023-12-22)
+
+### Bug Fixes
+
+- prettier format ([f515db4](https://github.com/esteblock/soroban-react/commit/f515db4b21e4400dda9b77a443aaffc002c3a853))
+
 ## [7.3.7](https://github.com/esteblock/soroban-react/compare/v7.3.6...v7.3.7) (2023-11-24)
 
 **Note:** Version bump only for package @soroban-react/chains
