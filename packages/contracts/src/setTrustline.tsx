@@ -28,7 +28,7 @@ export async function setTrustline({
   // }
   if (!networkPassphrase) throw new Error('No networkPassphrase')
 
-  let source = await serverHorizon.loadAccount(address)
+  let source = await serverHorizon.loadAccount(address!)
 
   const operation = StellarSdk.Operation.changeTrust({
     source: source.accountId(),
