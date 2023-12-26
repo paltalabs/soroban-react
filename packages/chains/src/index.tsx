@@ -1,6 +1,6 @@
 import type { WalletChain } from '@soroban-react/types'
 
-import * as SorobanClient from 'soroban-client'
+import Networks from 'stellar-sdk'
 
 /**
  * A `WalletChain` object representing the public blockchain network.
@@ -16,7 +16,7 @@ export const public_chain: WalletChain = {
   id: 'public',
   network: 'public',
   name: 'Public',
-  networkPassphrase: SorobanClient.Networks.PUBLIC,
+  networkPassphrase: Networks.PUBLIC,
   networkUrl: 'https://horizon.stellar.org',
   sorobanRpcUrl: 'https://horizon.stellar.org',
 }
@@ -42,7 +42,7 @@ export const testnet: WalletChain = {
   id: 'testnet',
   network: 'testnet',
   name: 'Testnet',
-  networkPassphrase: SorobanClient.Networks.TESTNET,
+  networkPassphrase: Networks.TESTNET,
   networkUrl: 'https://horizon-testnet.stellar.org',
   sorobanRpcUrl: 'https://soroban-testnet.stellar.org/',
 }
