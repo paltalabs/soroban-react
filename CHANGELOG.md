@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/paltalabs/soroban-react/compare/v8.0.0...v8.0.1) (2023-12-26)
+
+### Bug Fixes
+
+- **chains:** Import {Networks} from stellar-sdk ([7f98d11](https://github.com/paltalabs/soroban-react/commit/7f98d117168587cfe9f4d2d22e7f69444954dd7d))
+
 # [8.0.0](https://github.com/paltalabs/soroban-react/compare/v7.4.0...v8.0.0) (2023-12-26)
 
 ### Features
