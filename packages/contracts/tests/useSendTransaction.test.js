@@ -2,17 +2,17 @@ const {
   contractTransaction,
   useSendTransaction,
 } = require('../dist/useSendTransaction')
-const SorobanClient = require('soroban-client')
+const StellarSdk = require('soroban-client')
 
 // A mock implementation of the soroban server
 const server = {
   async prepareTransaction() {
-    // return SorobanClient.TransactionBuilder.emptyTransaction()
+    // return StellarSdk.TransactionBuilder.emptyTransaction()
   },
   async getTransaction(hash) {
     return Promise.resolve({
       status: 'SUCCESS',
-      resultXdr: SorobanClient.xdr.TransactionResult.toXDR(),
+      resultXdr: StellarSdk.xdr.TransactionResult.toXDR(),
     })
   },
   async sendTransaction(transactionToSubmit) {
@@ -32,12 +32,12 @@ beforeEach(() => {
 
 describe('contractTransaction', () => {
   test('returns a valid transaction', () => {
-    const sourceAccount = new SorobanClient.Account(
+    const sourceAccount = new StellarSdk.Account(
       'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
       '231'
     )
     const txn = contractTransaction({
-      networkPassphrase: SorobanClient.Networks.TESTNET,
+      networkPassphrase: StellarSdk.Networks.TESTNET,
       source: sourceAccount,
       contractId:
         'cd4dae2c409c433b1e1d83994a20214d3e5f60bdd3a817978d8aa7c797864313',
@@ -45,7 +45,7 @@ describe('contractTransaction', () => {
       params: [],
     })
 
-    expect(txn instanceof SorobanClient.Transaction).toBe(true)
+    expect(txn instanceof StellarSdk.Transaction).toBe(true)
     expect(txn.operations.length).toBe(1)
     // expect(txn.source.publicKey()).toBe(sourceAccount.publicKey())
   })
@@ -81,7 +81,7 @@ describe('useSendTransaction', () => {
 
   test('throws an error when no transaction or wallet or chain', () => {
     const sorobanContext = {
-      activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+      activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
       activeConnector: {},
     }
 
@@ -120,23 +120,23 @@ describe('useSendTransaction', () => {
 
   test('throws an error when not connected to server', () => {
     const sorobanContext = {
-      activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+      activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
       activeConnector: {
         signTransaction: () => Promise.resolve(''),
       },
       undefined,
     }
-    const txn = new SorobanClient.TransactionBuilder(
-      new SorobanClient.Account(
+    const txn = new StellarSdk.TransactionBuilder(
+      new StellarSdk.Account(
         'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         '231'
       ),
-      { fee: '100', networkPassphrase: SorobanClient.Networks.TESTNET }
+      { fee: '100', networkPassphrase: StellarSdk.Networks.TESTNET }
     )
       .addOperation(
-        SorobanClient.Operation.payment({
+        StellarSdk.Operation.payment({
           amount: '100',
-          asset: new SorobanClient.Asset(
+          asset: new StellarSdk.Asset(
             'xlm',
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
           ),
@@ -144,7 +144,7 @@ describe('useSendTransaction', () => {
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         })
       )
-      .setTimeout(SorobanClient.TimeoutInfinite)
+      .setTimeout(StellarSdk.TimeoutInfinite)
       .build()
 
     const secretKey = 'SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM'
@@ -183,23 +183,23 @@ describe('useSendTransaction', () => {
 
   test('throws an error when no transaction after adding footprint', () => {
     const sorobanContext = {
-      activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+      activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
       activeConnector: {
         signTransaction: () => Promise.resolve(''),
       },
       server,
     }
-    const txn = new SorobanClient.TransactionBuilder(
-      new SorobanClient.Account(
+    const txn = new StellarSdk.TransactionBuilder(
+      new StellarSdk.Account(
         'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         '231'
       ),
-      { fee: '100', networkPassphrase: SorobanClient.Networks.TESTNET }
+      { fee: '100', networkPassphrase: StellarSdk.Networks.TESTNET }
     )
       .addOperation(
-        SorobanClient.Operation.payment({
+        StellarSdk.Operation.payment({
           amount: '100',
-          asset: new SorobanClient.Asset(
+          asset: new StellarSdk.Asset(
             'xlm',
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
           ),
@@ -207,7 +207,7 @@ describe('useSendTransaction', () => {
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         })
       )
-      .setTimeout(SorobanClient.TimeoutInfinite)
+      .setTimeout(StellarSdk.TimeoutInfinite)
       .build()
 
     const secretKey = 'SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM'
@@ -249,12 +249,12 @@ describe('useSendTransaction', () => {
   test('throws a custom error when with status as FAILED', async () => {
     const server1 = {
       async prepareTransaction() {
-        // return SorobanClient.TransactionBuilder.emptyTransaction()
+        // return StellarSdk.TransactionBuilder.emptyTransaction()
       },
       async getTransaction(hash) {
         return Promise.resolve({
           status: 'SUCCESS',
-          resultXdr: SorobanClient.xdr.TransactionResult.toXDR(),
+          resultXdr: StellarSdk.xdr.TransactionResult.toXDR(),
         })
       },
       async sendTransaction(transactionToSubmit) {
@@ -268,23 +268,23 @@ describe('useSendTransaction', () => {
     }
 
     const sorobanContext = {
-      activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+      activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
       activeConnector: {
         signTransaction: () => Promise.resolve(''),
       },
       server: server1,
     }
-    const txn = new SorobanClient.TransactionBuilder(
-      new SorobanClient.Account(
+    const txn = new StellarSdk.TransactionBuilder(
+      new StellarSdk.Account(
         'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         '231'
       ),
-      { fee: '100', networkPassphrase: SorobanClient.Networks.TESTNET }
+      { fee: '100', networkPassphrase: StellarSdk.Networks.TESTNET }
     )
       .addOperation(
-        SorobanClient.Operation.payment({
+        StellarSdk.Operation.payment({
           amount: '100',
-          asset: new SorobanClient.Asset(
+          asset: new StellarSdk.Asset(
             'xlm',
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
           ),
@@ -292,7 +292,7 @@ describe('useSendTransaction', () => {
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         })
       )
-      .setTimeout(SorobanClient.TimeoutInfinite)
+      .setTimeout(StellarSdk.TimeoutInfinite)
       .build()
 
     const secretKey = 'SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM'
@@ -332,7 +332,7 @@ describe('useSendTransaction', () => {
   test('sendTransaction success', () => {
     const server1 = {
       async prepareTransaction() {
-        // return SorobanClient.TransactionBuilder.emptyTransaction()
+        // return StellarSdk.TransactionBuilder.emptyTransaction()
       },
       async getTransaction(hash) {
         return Promise.resolve({
@@ -351,23 +351,23 @@ describe('useSendTransaction', () => {
     }
 
     const sorobanContext = {
-      activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+      activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
       activeConnector: {
         signTransaction: () => Promise.resolve(''),
       },
       server: server1,
     }
-    const txn = new SorobanClient.TransactionBuilder(
-      new SorobanClient.Account(
+    const txn = new StellarSdk.TransactionBuilder(
+      new StellarSdk.Account(
         'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         '231'
       ),
-      { fee: '100', networkPassphrase: SorobanClient.Networks.TESTNET }
+      { fee: '100', networkPassphrase: StellarSdk.Networks.TESTNET }
     )
       .addOperation(
-        SorobanClient.Operation.payment({
+        StellarSdk.Operation.payment({
           amount: '100',
-          asset: new SorobanClient.Asset(
+          asset: new StellarSdk.Asset(
             'xlm',
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
           ),
@@ -375,7 +375,7 @@ describe('useSendTransaction', () => {
             'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
         })
       )
-      .setTimeout(SorobanClient.TimeoutInfinite)
+      .setTimeout(StellarSdk.TimeoutInfinite)
       .build()
 
     const secretKey = 'SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM'
@@ -410,7 +410,7 @@ describe('useSendTransaction', () => {
   // test('throws a custom error when sendTransaction', () => {
   //   const server1 = {
   //     async prepareTransaction() {
-  //       // return SorobanClient.TransactionBuilder.emptyTransaction()
+  //       // return StellarSdk.TransactionBuilder.emptyTransaction()
   //     },
   //     async getTransaction(hash) {
   //       return Promise.resolve({
@@ -429,23 +429,23 @@ describe('useSendTransaction', () => {
   //   }
 
   //   const sorobanContext = {
-  //     activeChain: { networkPassphrase: SorobanClient.Networks.TESTNET },
+  //     activeChain: { networkPassphrase: StellarSdk.Networks.TESTNET },
   //     activeConnector: {
   //       signTransaction: () => Promise.resolve(''),
   //     },
   //     server: server1,
   //   }
-  //   const txn = new SorobanClient.TransactionBuilder(
-  //     new SorobanClient.Account(
+  //   const txn = new StellarSdk.TransactionBuilder(
+  //     new StellarSdk.Account(
   //       'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
   //       '231'
   //     ),
-  //     { fee: '100', networkPassphrase: SorobanClient.Networks.TESTNET }
+  //     { fee: '100', networkPassphrase: StellarSdk.Networks.TESTNET }
   //   )
   //     .addOperation(
-  //       SorobanClient.Operation.payment({
+  //       StellarSdk.Operation.payment({
   //         amount: '100',
-  //         asset: new SorobanClient.Asset(
+  //         asset: new StellarSdk.Asset(
   //           'xlm',
   //           'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
   //         ),
@@ -453,7 +453,7 @@ describe('useSendTransaction', () => {
   //           'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
   //       })
   //     )
-  //     .setTimeout(SorobanClient.TimeoutInfinite)
+  //     .setTimeout(StellarSdk.TimeoutInfinite)
   //     .build()
 
   //   const secretKey = 'SBK2VIYYSVG76E7VC3QHYARNFLY2EAQXDHRC7BMXBBGIFG74ARPRMNQM'
@@ -483,6 +483,6 @@ describe('useSendTransaction', () => {
   //     })
   //   })
 
-  //   // expect(result).toEqual([SorobanClient.xdr.ScVal.scvI32(-1)])
+  //   // expect(result).toEqual([StellarSdk.xdr.ScVal.scvI32(-1)])
   // })
 })

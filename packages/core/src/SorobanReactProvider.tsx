@@ -1,8 +1,7 @@
 import { Connector, WalletChain } from '@soroban-react/types'
 import React, { useRef } from 'react'
 
-import * as StellarSdk from '@stellar/stellar-sdk'
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
 
 import { SorobanContext, SorobanContextType, defaultSorobanContext } from './'
 
@@ -17,7 +16,7 @@ export interface SorobanReactProviderProps {
   activeChain?: WalletChain // To set on frontend to define the default chain for read-only. Example: standalone
   children: React.ReactNode
   connectors: Connector[]
-  server?: SorobanClient.Server // To set on frontend to define the default server url for read-only. Example 'new Server('http://localhost:8000/soroban/rpc',{allowHttp:true})'
+  server?: StellarSdk.SorobanRpc.Server // To set on frontend to define the default server url for read-only. Example 'new Server('http://localhost:8000/soroban/rpc',{allowHttp:true})'
   serverHorizon?: StellarSdk.Horizon.Server
 }
 
@@ -40,8 +39,8 @@ function networkToActiveChain(networkDetails: any, chains: any) {
   return activeChain
 }
 
-function fromURLToServer(sorobanRpcUrl: string): SorobanClient.Server {
-  return new SorobanClient.Server(sorobanRpcUrl, {
+function fromURLToServer(sorobanRpcUrl: string): StellarSdk.SorobanRpc.Server {
+  return new StellarSdk.SorobanRpc.Server(sorobanRpcUrl, {
     allowHttp: sorobanRpcUrl.startsWith('http://'),
   })
 }
@@ -113,7 +112,7 @@ export function SorobanReactProvider({
 
         let server =
           networkDetails &&
-          new SorobanClient.Server(networkDetails.sorobanRpcUrl, {
+          new StellarSdk.SorobanRpc.Server(networkDetails.sorobanRpcUrl, {
             allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
           })
 

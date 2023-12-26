@@ -1,5 +1,5 @@
 const { setTrustline } = require('../dist/setTrustline')
-const SorobanClient = require('soroban-client')
+const StellarSdk = require('soroban-client')
 describe('setTrustline', () => {
   const tokenSymbol = 'XLM'
   const tokenAdmin = 'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB'
@@ -55,7 +55,7 @@ describe('setTrustline', () => {
     }
     sorobanContext.server = {
       async getAccount() {
-        return new SorobanClient.Account(
+        return new StellarSdk.Account(
           'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
           '231'
         )
@@ -82,7 +82,7 @@ describe('setTrustline', () => {
     }
     sorobanContext.server = {
       async getAccount() {
-        return new SorobanClient.Account(
+        return new StellarSdk.Account(
           'GAV6GQGSOSGCRX262R4MTGKNT6UDWJTNUQLLWBZK5CHHRB5GMNNC7XAB',
           '231'
         )

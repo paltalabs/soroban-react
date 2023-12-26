@@ -1,6 +1,6 @@
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
 
-let xdr = SorobanClient.xdr
+let xdr = StellarSdk.xdr
 
 // export function accountIdentifier(account: string): SorobanClient.xdr.ScVal {
 //     return xdr.ScVal.scvObject(

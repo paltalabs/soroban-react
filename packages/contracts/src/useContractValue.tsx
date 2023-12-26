@@ -1,25 +1,26 @@
 import { SorobanContextType } from '@soroban-react/core'
 import React from 'react'
 
-import { SorobanRpc } from 'soroban-client'
-import * as SorobanClient from 'soroban-client'
+import { SorobanRpc } from 'stellar-sdk'
+import * as StellarSdk from 'stellar-sdk'
+
 
 import { contractTransaction } from './contractTransaction'
 import { defaultAddress } from './defaultAddress'
 
-let xdr = SorobanClient.xdr
+let xdr = StellarSdk.xdr
 
 export type ContractValueType = {
   loading?: true
-  result?: SorobanClient.xdr.ScVal
+  result?: StellarSdk.xdr.ScVal
   error?: string | unknown
 }
 
 export interface useContractValueProps {
   contractAddress: string
   method: string
-  args?: SorobanClient.xdr.ScVal[] | undefined
-  source?: SorobanClient.Account
+  args?: StellarSdk.xdr.ScVal[] | undefined
+  source?: StellarSdk.Account
   sorobanContext: SorobanContextType
 }
 
@@ -42,7 +43,7 @@ export function useContractValue({
   )
 
   React.useEffect(() => {
-    source = source ?? new SorobanClient.Account(address ?? defaultAddress, '0')
+    source = source ?? new StellarSdk.Account(address ?? defaultAddress, '0')
     if (!activeChain) {
       setValue({ error: 'No active chain' })
       return
@@ -84,12 +85,12 @@ export function useContractValue({
 }
 
 export interface fetchContractValueProps {
-  server: SorobanClient.Server
+  server: SorobanRpc.Server
   networkPassphrase: string
   contractAddress: string
   method: string
-  args?: SorobanClient.xdr.ScVal[] | undefined
-  source: SorobanClient.Account
+  args?: StellarSdk.xdr.ScVal[] | undefined
+  source: StellarSdk.Account
 }
 
 async function fetchContractValue({
@@ -99,7 +100,7 @@ async function fetchContractValue({
   method,
   args,
   source,
-}: fetchContractValueProps): Promise<SorobanClient.xdr.ScVal> {
+}: fetchContractValueProps): Promise<StellarSdk.xdr.ScVal> {
   //Builds the transaction.
   let txn = contractTransaction({
     source,
@@ -111,9 +112,9 @@ async function fetchContractValue({
 
   let a = Math.random()
 
-  const simulated: SorobanRpc.SimulateTransactionResponse =
+  const simulated: SorobanRpc.Api.SimulateTransactionResponse =
     await server?.simulateTransaction(txn)
-  if (SorobanRpc.isSimulationError(simulated)) {
+  if (SorobanRpc.Api.isSimulationError(simulated)) {
     throw new Error(simulated.error)
   } else if (!simulated.result) {
     throw new Error(`invalid simulation: no result in ${simulated}`)

@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
 
-let xdr = SorobanClient.xdr
+let xdr = StellarSdk.xdr
 
 // export function scvalToBigNumber(scval: SorobanClient.xdr.ScVal | undefined): BigNumber {
 //   switch (scval?.switch()) {
@@ -123,7 +123,7 @@ function bigintToBuf(bn: bigint): Buffer {
   return Buffer.from(u8)
 }
 
-export function xdrUint64ToNumber(value: SorobanClient.xdr.Uint64): number {
+export function xdrUint64ToNumber(value: StellarSdk.xdr.Uint64): number {
   let b = 0
   b |= value.high
   b <<= 8
@@ -132,7 +132,7 @@ export function xdrUint64ToNumber(value: SorobanClient.xdr.Uint64): number {
 }
 
 export function scvalToString(
-  value: SorobanClient.xdr.ScVal
+  value: StellarSdk.xdr.ScVal
 ): string | undefined {
   return value.bytes().toString()
 }
