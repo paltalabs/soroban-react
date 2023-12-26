@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/paltalabs/soroban-react/compare/v7.4.0...v8.0.0) (2023-12-26)
+
+### Features
+
+- **chains:** upgrade from soroban-client to stellar-sdk ([63a9d4e](https://github.com/paltalabs/soroban-react/commit/63a9d4e86f5ef9eef3378daf1ec40443c82a494e))
+- **contracts:** upgrade from soroban-client to stellar-sdk ([a0b90e0](https://github.com/paltalabs/soroban-react/commit/a0b90e0e8ace441cbb5198e8c24892125bd71913))
+- **core:** upgrade from soroban-client to stellar-sdk ([e80be84](https://github.com/paltalabs/soroban-react/commit/e80be84712df37b94e717c01caf99c882f97ed0f))
+- **core:** upgrade from soroban-client to stellar-sdk ([dabcfd6](https://github.com/paltalabs/soroban-react/commit/dabcfd6672fa165abff443cdf7e6e9bb1d7c8742))
+- **utils:** upgrade from soroban-client to stellar-sdk ([1c7e4d9](https://github.com/paltalabs/soroban-react/commit/1c7e4d91ac29d6c62684cea7d55f798da89c1c62))
+- **wallet-data:** upgrade from soroban-client to stellar-sdk ([076785f](https://github.com/paltalabs/soroban-react/commit/076785f7a2b19c386877da3b32d9049d34518901))
+
 # [7.4.0](https://github.com/paltalabs/soroban-react/compare/v7.3.7...v7.4.0) (2023-12-22)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/esteblock/soroban-react/compare/v7.4.0...v8.0.0) (2023-12-26)
+
+### Features
+
+- **chains:** upgrade from soroban-client to stellar-sdk ([63a9d4e](https://github.com/esteblock/soroban-react/commit/63a9d4e86f5ef9eef3378daf1ec40443c82a494e))
+
 # [7.4.0](https://github.com/esteblock/soroban-react/compare/v7.3.7...v7.4.0) (2023-12-22)
 
 ### Bug Fixes
