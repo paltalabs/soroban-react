@@ -2,6 +2,7 @@ import { SorobanContextType } from '@soroban-react/core'
 
 import { Sign } from 'crypto'
 import * as StellarSdk from 'stellar-sdk'
+
 import { SorobanRpc } from 'stellar-sdk'
 
 import type { Tx, Transaction, TxResponse } from './types'
@@ -60,7 +61,9 @@ export async function signAndSendTransaction({
     signed = txn.toXDR()
   } else if (sorobanContext.activeConnector) {
     // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
-    signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR())
+    signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR(), {
+      networkPassphrase,
+    })
   } else {
     throw new Error(
       'signAndSendTransaction: no secretKey, neither active Connector'
@@ -114,8 +117,7 @@ export async function sendTx({
   }
 
   if (
-    getTransactionResponse.status ===
-    SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
+    getTransactionResponse.status === SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
     console.error(
       `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +
