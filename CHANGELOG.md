@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/paltalabs/soroban-react/compare/v8.0.1...v8.0.2) (2023-12-26)
+
+### Bug Fixes
+
+- **contracts:** add network passphrase when signing tx ([23d87f4](https://github.com/paltalabs/soroban-react/commit/23d87f4491552d5c81321f906d823c4965f378a7))
+
 ## [8.0.1](https://github.com/paltalabs/soroban-react/compare/v8.0.0...v8.0.1) (2023-12-26)
 
 ### Bug Fixes
