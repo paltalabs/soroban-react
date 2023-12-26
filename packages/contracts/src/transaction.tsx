@@ -2,7 +2,6 @@ import { SorobanContextType } from '@soroban-react/core'
 
 import { Sign } from 'crypto'
 import * as StellarSdk from 'stellar-sdk'
-
 import { SorobanRpc } from 'stellar-sdk'
 
 import type { Tx, Transaction, TxResponse } from './types'
@@ -115,7 +114,8 @@ export async function sendTx({
   }
 
   if (
-    getTransactionResponse.status === SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
+    getTransactionResponse.status ===
+    SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
     console.error(
       `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +

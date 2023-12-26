@@ -2,7 +2,7 @@ import { Connector, WalletChain } from '@soroban-react/types'
 import { createContext } from 'react'
 
 import * as StellarSdk from 'stellar-sdk'
-import { SorobanRpc } from 'stellar-sdk';
+import { SorobanRpc } from 'stellar-sdk'
 
 export const defaultSorobanContext: SorobanContextType = {
   appName: undefined,

@@ -131,8 +131,6 @@ export function xdrUint64ToNumber(value: StellarSdk.xdr.Uint64): number {
   return b
 }
 
-export function scvalToString(
-  value: StellarSdk.xdr.ScVal
-): string | undefined {
+export function scvalToString(value: StellarSdk.xdr.ScVal): string | undefined {
   return value.bytes().toString()
 }

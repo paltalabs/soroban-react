@@ -2,7 +2,6 @@ import { SorobanContextType } from '@soroban-react/core'
 
 import * as StellarSdk from 'stellar-sdk'
 
-
 export async function setTrustline({
   tokenSymbol,
   tokenAdmin,

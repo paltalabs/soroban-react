@@ -4,7 +4,6 @@ import React from 'react'
 import { SorobanRpc } from 'stellar-sdk'
 import * as StellarSdk from 'stellar-sdk'
 
-
 import { contractTransaction } from './contractTransaction'
 import { defaultAddress } from './defaultAddress'
 

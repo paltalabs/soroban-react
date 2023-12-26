@@ -3,7 +3,6 @@ import React from 'react'
 
 import * as StellarSdk from 'stellar-sdk'
 
-
 import { signAndSendTransaction } from './transaction'
 import type { Transaction, Tx, TxResponse, Simulation } from './types'
 

@@ -1,6 +1,5 @@
 import * as StellarSdk from 'stellar-sdk'
 
-
 export interface contractTransactionProps {
   networkPassphrase: string
   source: StellarSdk.Account
