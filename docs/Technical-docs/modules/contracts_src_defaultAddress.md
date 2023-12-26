@@ -19,4 +19,4 @@ title: contracts/src/defaultAddress
 
 #### Defined in
 
-[contracts/src/defaultAddress.tsx:2](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/defaultAddress.tsx#L2)
+[contracts/src/defaultAddress.tsx:2](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/defaultAddress.tsx#L2)

@@ -19,7 +19,7 @@ title: contracts/src/contractTransaction
 
 ### contractTransaction
 
-▸ **contractTransaction**(`«destructured»`): `SorobanClient.Transaction`
+▸ **contractTransaction**(`«destructured»`): `StellarSdk.Transaction`
 
 #### Parameters
 
@@ -29,8 +29,8 @@ title: contracts/src/contractTransaction
 
 #### Returns
 
-`SorobanClient.Transaction`
+`StellarSdk.Transaction`
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:11](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/contractTransaction.tsx#L11)
+[contracts/src/contractTransaction.tsx:11](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L11)

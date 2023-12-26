@@ -15,23 +15,21 @@ title: contracts/src/setTrustline
 
 ### setTrustline
 
-▸ **setTrustline**(`«destructured»`): `Promise`<`any`\>
+▸ **setTrustline**(`«destructured»`): `Promise`\<`undefined` \| `SubmitTransactionResponse`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `«destructured»` | `Object` |
-| › `account` | `string` |
-| › `sendTransaction` | `any` |
 | › `sorobanContext` | `SorobanContextType` |
 | › `tokenAdmin` | `string` |
 | › `tokenSymbol` | `string` |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`undefined` \| `SubmitTransactionResponse`\>
 
 #### Defined in
 
-[contracts/src/setTrustline.tsx:5](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/setTrustline.tsx#L5)
+[contracts/src/setTrustline.tsx:5](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/setTrustline.tsx#L5)

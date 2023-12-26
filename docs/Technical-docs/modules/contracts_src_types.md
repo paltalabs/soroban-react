@@ -18,38 +18,38 @@ title: contracts/src/types
 
 ### Simulation
 
-Ƭ **Simulation**: `SorobanRpc.SimulateTransactionResponse`
+Ƭ **Simulation**: `SorobanRpc.Api.SimulateTransactionResponse`
 
 #### Defined in
 
-[contracts/src/types.tsx:17](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/types.tsx#L17)
+[contracts/src/types.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L15)
 
 ___
 
 ### Transaction
 
-Ƭ **Transaction**: `SorobanClient.Transaction` \| `SorobanClient.FeeBumpTransaction`
+Ƭ **Transaction**: `StellarSdk.Transaction` \| `StellarSdk.FeeBumpTransaction`
 
 #### Defined in
 
-[contracts/src/types.tsx:10](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/types.tsx#L10)
+[contracts/src/types.tsx:10](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L10)
 
 ___
 
 ### Tx
 
-Ƭ **Tx**: `SorobanClientTransaction`<`Memo`<`MemoType`\>, `Operation`[]\>
+Ƭ **Tx**: `StellarSdkTransaction`\<`Memo`\<`MemoType`\>, `Operation`[]\>
 
 #### Defined in
 
-[contracts/src/types.tsx:13](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/types.tsx#L13)
+[contracts/src/types.tsx:11](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L11)
 
 ___
 
 ### TxResponse
 
-Ƭ **TxResponse**: `SorobanRpc.GetTransactionResponse` & { `txHash`: `string`  }
+Ƭ **TxResponse**: `SorobanRpc.Api.GetTransactionResponse` & \{ `txHash`: `string`  }
 
 #### Defined in
 
-[contracts/src/types.tsx:14](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/types.tsx#L14)
+[contracts/src/types.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L12)

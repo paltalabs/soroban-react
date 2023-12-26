@@ -28,13 +28,13 @@ title: contracts/src/useSendTransaction
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L9)
+[contracts/src/useSendTransaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L9)
 
 ## Functions
 
 ### useSendTransaction
 
-▸ **useSendTransaction**<`E`\>(`defaultTxn?`, `defaultOptions?`): [`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)<`E`\>
+▸ **useSendTransaction**\<`E`\>(`defaultTxn?`, `defaultOptions?`): [`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)\<`E`\>
 
 #### Type parameters
 
@@ -51,8 +51,8 @@ title: contracts/src/useSendTransaction
 
 #### Returns
 
-[`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)<`E`\>
+[`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)\<`E`\>
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:36](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useSendTransaction.tsx#L36)
+[contracts/src/useSendTransaction.tsx:36](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L36)

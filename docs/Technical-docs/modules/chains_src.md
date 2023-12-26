@@ -25,7 +25,7 @@ A `WalletChain` object representing the Futurenet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:22](https://github.com/paltalabs/soroban-react/blob/7608217/packages/chains/src/index.tsx#L22)
+[chains/src/index.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L28)
 
 ___
 
@@ -37,7 +37,7 @@ A `WalletChain` object representing the public blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:12](https://github.com/paltalabs/soroban-react/blob/7608217/packages/chains/src/index.tsx#L12)
+[chains/src/index.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L15)
 
 ___
 
@@ -49,7 +49,7 @@ A `WalletChain` object representing the Sandbox blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:42](https://github.com/paltalabs/soroban-react/blob/7608217/packages/chains/src/index.tsx#L42)
+[chains/src/index.tsx:54](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L54)
 
 ___
 
@@ -61,7 +61,7 @@ A `WalletChain` object representing the Standalone blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:52](https://github.com/paltalabs/soroban-react/blob/7608217/packages/chains/src/index.tsx#L52)
+[chains/src/index.tsx:67](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L67)
 
 ___
 
@@ -73,4 +73,4 @@ A `WalletChain` object representing the Testnet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:32](https://github.com/paltalabs/soroban-react/blob/7608217/packages/chains/src/index.tsx#L32)
+[chains/src/index.tsx:41](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L41)

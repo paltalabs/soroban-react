@@ -21,6 +21,8 @@ title: SorobanContextType
 - [connectors](core_src_SorobanContext.SorobanContextType.md#connectors)
 - [disconnect](core_src_SorobanContext.SorobanContextType.md#disconnect)
 - [server](core_src_SorobanContext.SorobanContextType.md#server)
+- [serverHorizon](core_src_SorobanContext.SorobanContextType.md#serverhorizon)
+- [setActiveChain](core_src_SorobanContext.SorobanContextType.md#setactivechain)
 
 ## Properties
 
@@ -30,7 +32,7 @@ title: SorobanContextType
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:20](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L20)
+[core/src/SorobanContext.tsx:22](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L22)
 
 ___
 
@@ -40,7 +42,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:22](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L22)
+[core/src/SorobanContext.tsx:24](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L24)
 
 ___
 
@@ -50,7 +52,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:21](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L21)
+[core/src/SorobanContext.tsx:23](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L23)
 
 ___
 
@@ -60,7 +62,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:17](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L17)
+[core/src/SorobanContext.tsx:19](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L19)
 
 ___
 
@@ -70,7 +72,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:16](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L16)
+[core/src/SorobanContext.tsx:18](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L18)
 
 ___
 
@@ -80,25 +82,25 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:18](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L18)
+[core/src/SorobanContext.tsx:20](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L20)
 
 ___
 
 ### connect
 
-• **connect**: () => `Promise`<`void`\>
+• **connect**: () => `Promise`\<`void`\>
 
 #### Type declaration
 
-▸ (): `Promise`<`void`\>
+▸ (): `Promise`\<`void`\>
 
 ##### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:24](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L24)
+[core/src/SorobanContext.tsx:27](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L27)
 
 ___
 
@@ -108,25 +110,25 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:19](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L19)
+[core/src/SorobanContext.tsx:21](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L21)
 
 ___
 
 ### disconnect
 
-• **disconnect**: () => `Promise`<`void`\>
+• **disconnect**: () => `Promise`\<`void`\>
 
 #### Type declaration
 
-▸ (): `Promise`<`void`\>
+▸ (): `Promise`\<`void`\>
 
 ##### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:25](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L25)
+[core/src/SorobanContext.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L28)
 
 ___
 
@@ -136,4 +138,38 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:23](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L23)
+[core/src/SorobanContext.tsx:25](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L25)
+
+___
+
+### serverHorizon
+
+• `Optional` **serverHorizon**: `Server`
+
+#### Defined in
+
+[core/src/SorobanContext.tsx:26](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L26)
+
+___
+
+### setActiveChain
+
+• `Optional` **setActiveChain**: (`chain`: `WalletChain`) => `void`
+
+#### Type declaration
+
+▸ (`chain`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `chain` | `WalletChain` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[core/src/SorobanContext.tsx:29](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L29)

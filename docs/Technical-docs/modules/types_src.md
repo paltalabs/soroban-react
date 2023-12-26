@@ -27,7 +27,7 @@ title: types/src
 
 #### Defined in
 
-[types/src/index.tsx:55](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L55)
+[types/src/index.tsx:57](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L57)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:48](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L48)
+[types/src/index.tsx:50](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L50)
 
 ___
 
@@ -49,25 +49,25 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `downloadUrls?` | { `android?`: `string` ; `browserExtension?`: `string` ; `ios?`: `string` ; `qrCode?`: `string`  } |
+| `downloadUrls?` | \{ `android?`: `string` ; `browserExtension?`: `string` ; `ios?`: `string` ; `qrCode?`: `string`  } |
 | `downloadUrls.android?` | `string` |
 | `downloadUrls.browserExtension?` | `string` |
 | `downloadUrls.ios?` | `string` |
 | `downloadUrls.qrCode?` | `string` |
-| `getNetworkDetails` | () => `Promise`<[`NetworkDetails`](../interfaces/types_src.NetworkDetails.md)\> |
-| `getPublicKey` | () => `Promise`<`string`\> |
+| `getNetworkDetails` | () => `Promise`\<[`NetworkDetails`](../interfaces/types_src.NetworkDetails.md)\> |
+| `getPublicKey` | () => `Promise`\<`string`\> |
 | `iconBackground` | `string` |
-| `iconUrl` | `string` \| () => `Promise`<`string`\> |
+| `iconUrl` | `string` \| () => `Promise`\<`string`\> |
 | `id` | `string` |
 | `installed?` | `boolean` |
 | `isConnected` | () => `boolean` |
 | `name` | `string` |
 | `shortName?` | `string` |
-| `signTransaction` | (`xdr`: `string`, `opts?`: { `accountToSign?`: `string` ; `network?`: `string` ; `networkPassphrase?`: `string`  }) => `Promise`<`string`\> |
+| `signTransaction` | (`xdr`: `string`, `opts?`: \{ `accountToSign?`: `string` ; `network?`: `string` ; `networkPassphrase?`: `string`  }) => `Promise`\<`string`\> |
 
 #### Defined in
 
-[types/src/index.tsx:10](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L10)
+[types/src/index.tsx:22](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L22)
 
 ___
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:1](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L1)
+[types/src/index.tsx:1](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L1)

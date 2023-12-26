@@ -33,13 +33,13 @@ title: contracts/src/transaction
 
 #### Defined in
 
-[contracts/src/transaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/transaction.tsx#L9)
+[contracts/src/transaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/transaction.tsx#L9)
 
 ## Functions
 
 ### sendTx
 
-▸ **sendTx**(`«destructured»`): `Promise`<[`TxResponse`](contracts_src_types.md#txresponse)\>
+▸ **sendTx**(`«destructured»`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse)\>
 
 #### Parameters
 
@@ -52,17 +52,17 @@ title: contracts/src/transaction
 
 #### Returns
 
-`Promise`<[`TxResponse`](contracts_src_types.md#txresponse)\>
+`Promise`\<[`TxResponse`](contracts_src_types.md#txresponse)\>
 
 #### Defined in
 
-[contracts/src/transaction.tsx:85](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/transaction.tsx#L85)
+[contracts/src/transaction.tsx:83](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/transaction.tsx#L83)
 
 ___
 
 ### signAndSendTransaction
 
-▸ **signAndSendTransaction**(`«destructured»`): `Promise`<[`TxResponse`](contracts_src_types.md#txresponse)\>
+▸ **signAndSendTransaction**(`«destructured»`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse)\>
 
 #### Parameters
 
@@ -72,8 +72,8 @@ ___
 
 #### Returns
 
-`Promise`<[`TxResponse`](contracts_src_types.md#txresponse)\>
+`Promise`\<[`TxResponse`](contracts_src_types.md#txresponse)\>
 
 #### Defined in
 
-[contracts/src/transaction.tsx:16](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/transaction.tsx#L16)
+[contracts/src/transaction.tsx:16](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/transaction.tsx#L16)

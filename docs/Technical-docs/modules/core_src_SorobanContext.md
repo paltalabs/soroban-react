@@ -20,11 +20,11 @@ title: core/src/SorobanContext
 
 ### SorobanContext
 
-• `Const` **SorobanContext**: `Context`<`undefined` \| [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md)\>
+• `Const` **SorobanContext**: `Context`\<`undefined` \| [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md)\>
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:28](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L28)
+[core/src/SorobanContext.tsx:32](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L32)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:6](https://github.com/paltalabs/soroban-react/blob/7608217/packages/core/src/SorobanContext.tsx#L6)
+[core/src/SorobanContext.tsx:7](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L7)

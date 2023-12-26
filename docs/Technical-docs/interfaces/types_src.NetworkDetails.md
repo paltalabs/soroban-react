@@ -24,7 +24,7 @@ title: NetworkDetails
 
 #### Defined in
 
-[types/src/index.tsx:4](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L4)
+[types/src/index.tsx:4](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L4)
 
 ___
 
@@ -34,7 +34,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:6](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L6)
+[types/src/index.tsx:6](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L6)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:5](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L5)
+[types/src/index.tsx:5](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L5)
 
 ___
 
@@ -54,4 +54,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:7](https://github.com/paltalabs/soroban-react/blob/7608217/packages/types/src/index.tsx#L7)
+[types/src/index.tsx:7](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L7)

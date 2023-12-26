@@ -25,10 +25,11 @@ title: contracts/src/contractInvoke
 
 | Name | Type |
 | :------ | :------ |
-| `args?` | `SorobanClient.xdr.ScVal`[] |
+| `args?` | `StellarSdk.xdr.ScVal`[] |
 | `contractAddress` | `string` |
 | `fee?` | `number` |
 | `method` | `string` |
+| `reconnectAfterTx?` | `boolean` |
 | `secretKey?` | `string` |
 | `signAndSend?` | `boolean` |
 | `skipAddingFootprint?` | `boolean` |
@@ -36,13 +37,13 @@ title: contracts/src/contractInvoke
 
 #### Defined in
 
-[contracts/src/contractInvoke.tsx:12](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/contractInvoke.tsx#L12)
+[contracts/src/contractInvoke.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractInvoke.tsx#L12)
 
 ## Functions
 
 ### contractInvoke
 
-▸ **contractInvoke**(`«destructured»`): `Promise`<[`TxResponse`](contracts_src_types.md#txresponse) \| `SorobanClient.xdr.ScVal`\>
+▸ **contractInvoke**(`«destructured»`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
 
 #### Parameters
 
@@ -52,8 +53,8 @@ title: contracts/src/contractInvoke
 
 #### Returns
 
-`Promise`<[`TxResponse`](contracts_src_types.md#txresponse) \| `SorobanClient.xdr.ScVal`\>
+`Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
 
 #### Defined in
 
-[contracts/src/contractInvoke.tsx:27](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/contractInvoke.tsx#L27)
+[contracts/src/contractInvoke.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractInvoke.tsx#L28)

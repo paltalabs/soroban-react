@@ -32,11 +32,11 @@ title: contracts/src/useContractValue
 | :------ | :------ |
 | `error?` | `string` \| `unknown` |
 | `loading?` | ``true`` |
-| `result?` | `SorobanClient.xdr.ScVal` |
+| `result?` | `StellarSdk.xdr.ScVal` |
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:12](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L12)
+[contracts/src/useContractValue.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L12)
 
 ## Functions
 
@@ -56,4 +56,4 @@ title: contracts/src/useContractValue
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:30](https://github.com/paltalabs/soroban-react/blob/7608217/packages/contracts/src/useContractValue.tsx#L30)
+[contracts/src/useContractValue.tsx:30](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L30)
