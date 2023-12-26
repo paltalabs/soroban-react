@@ -1,11 +1,12 @@
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
+
 
 export interface contractTransactionProps {
   networkPassphrase: string
-  source: SorobanClient.Account
+  source: StellarSdk.Account
   contractAddress: string
   method: string
-  args?: SorobanClient.xdr.ScVal[]
+  args?: StellarSdk.xdr.ScVal[]
 }
 
 export function contractTransaction({
@@ -14,15 +15,15 @@ export function contractTransaction({
   contractAddress,
   method,
   args,
-}: contractTransactionProps): SorobanClient.Transaction {
-  let myParams: SorobanClient.xdr.ScVal[] = args || []
-  const contract = new SorobanClient.Contract(contractAddress)
-  return new SorobanClient.TransactionBuilder(source, {
+}: contractTransactionProps): StellarSdk.Transaction {
+  let myParams: StellarSdk.xdr.ScVal[] = args || []
+  const contract = new StellarSdk.Contract(contractAddress)
+  return new StellarSdk.TransactionBuilder(source, {
     // TODO: Figure out the fee
     fee: '100',
     networkPassphrase,
   })
     .addOperation(contract.call(method, ...myParams))
-    .setTimeout(SorobanClient.TimeoutInfinite)
+    .setTimeout(StellarSdk.TimeoutInfinite)
     .build()
 }

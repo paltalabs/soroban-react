@@ -1,17 +1,18 @@
-import * as SorobanClient from 'soroban-client'
-import { SorobanRpc } from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
+
+import { SorobanRpc } from 'stellar-sdk'
 import type {
   Memo,
   MemoType,
   Operation,
-  Transaction as SorobanClientTransaction,
-} from 'soroban-client'
+  Transaction as StellarSdkTransaction,
+} from 'stellar-sdk'
 
 export type Transaction =
-  | SorobanClient.Transaction
-  | SorobanClient.FeeBumpTransaction
-export type Tx = SorobanClientTransaction<Memo<MemoType>, Operation[]>
-export type TxResponse = SorobanRpc.GetTransactionResponse & {
+  | StellarSdk.Transaction
+  | StellarSdk.FeeBumpTransaction
+export type Tx = StellarSdkTransaction<Memo<MemoType>, Operation[]>
+export type TxResponse = SorobanRpc.Api.GetTransactionResponse & {
   txHash: string
 }
-export type Simulation = SorobanRpc.SimulateTransactionResponse
+export type Simulation = SorobanRpc.Api.SimulateTransactionResponse

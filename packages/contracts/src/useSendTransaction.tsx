@@ -1,7 +1,8 @@
 import { SorobanContextType } from '@soroban-react/core'
 import React from 'react'
 
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
+
 
 import { signAndSendTransaction } from './transaction'
 import type { Transaction, Tx, TxResponse, Simulation } from './types'
@@ -9,7 +10,7 @@ import type { Transaction, Tx, TxResponse, Simulation } from './types'
 export type TransactionStatus = 'idle' | 'error' | 'loading' | 'success'
 
 export interface SendTransactionResult<E = Error> {
-  data?: SorobanClient.xdr.ScVal
+  data?: StellarSdk.xdr.ScVal
   error?: E
   isError: boolean
   isIdle: boolean

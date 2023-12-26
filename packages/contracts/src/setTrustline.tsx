@@ -1,7 +1,7 @@
 import { SorobanContextType } from '@soroban-react/core'
 
-import * as StellarSdk from '@stellar/stellar-sdk'
-import * as SorobanClient from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
+
 
 export async function setTrustline({
   tokenSymbol,
@@ -41,7 +41,7 @@ export async function setTrustline({
     networkPassphrase,
   })
     .addOperation(operation)
-    .setTimeout(SorobanClient.TimeoutInfinite)
+    .setTimeout(StellarSdk.TimeoutInfinite)
     .build()
 
   const signed = await sorobanContext.activeConnector?.signTransaction(

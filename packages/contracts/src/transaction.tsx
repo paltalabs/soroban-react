@@ -1,8 +1,9 @@
 import { SorobanContextType } from '@soroban-react/core'
 
 import { Sign } from 'crypto'
-import * as SorobanClient from 'soroban-client'
-import { SorobanRpc } from 'soroban-client'
+import * as StellarSdk from 'stellar-sdk'
+
+import { SorobanRpc } from 'stellar-sdk'
 
 import type { Tx, Transaction, TxResponse } from './types'
 
@@ -29,7 +30,7 @@ export async function signAndSendTransaction({
 
   // preflight and add the footprint !
   if (!skipAddingFootprint) {
-    txn = await server.prepareTransaction(txn, networkPassphrase)
+    txn = await server.prepareTransaction(txn)
     if (!txn) {
       throw new Error('No transaction after adding footprint')
     }
@@ -42,8 +43,8 @@ export async function signAndSendTransaction({
   // if (auth_len > 1) {
   //   throw new NotImplementedError("Multiple auths not yet supported");
   // } else if (auth_len == 1) {
-  //   // TODO: figure out how to fix with new SorobanClient
-  //   // const auth = SorobanClient.xdr.SorobanAuthorizationEntry.fromXDR(auths![0]!, 'base64')
+  //   // TODO: figure out how to fix with new StellarSdk
+  //   // const auth = StellarSdk.xdr.SorobanAuthorizationEntry.fromXDR(auths![0]!, 'base64')
   //   // if (auth.addressWithNonce() !== undefined) {
   //   //   throw new NotImplementedError(
   //   //     `This transaction needs to be signed by ${auth.addressWithNonce()
@@ -55,21 +56,19 @@ export async function signAndSendTransaction({
   let signed = ''
   if (secretKey) {
     // User as set a secretKey, txn will be signed using the secretKey
-    const keypair = SorobanClient.Keypair.fromSecret(secretKey)
+    const keypair = StellarSdk.Keypair.fromSecret(secretKey)
     txn.sign(keypair)
     signed = txn.toXDR()
   } else if (sorobanContext.activeConnector) {
     // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
-    signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR(), {
-      networkPassphrase,
-    })
+    signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR())
   } else {
     throw new Error(
       'signAndSendTransaction: no secretKey, neither active Connector'
     )
   }
 
-  const transactionToSubmit = SorobanClient.TransactionBuilder.fromXDR(
+  const transactionToSubmit = StellarSdk.TransactionBuilder.fromXDR(
     signed,
     networkPassphrase
   )
@@ -89,7 +88,7 @@ export async function sendTx({
 }: {
   tx: Tx
   secondsToWait: number
-  server: SorobanClient.Server
+  server: StellarSdk.SorobanRpc.Server
 }): Promise<TxResponse> {
   const sendTransactionResponse = await server.sendTransaction(tx)
   let getTransactionResponse = await server.getTransaction(
@@ -116,7 +115,7 @@ export async function sendTx({
   }
 
   if (
-    getTransactionResponse.status === SorobanRpc.GetTransactionStatus.NOT_FOUND
+    getTransactionResponse.status === SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
     console.error(
       `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +
