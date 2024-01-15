@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/paltalabs/soroban-react/compare/v8.1.0...v8.1.1) (2024-01-15)
+
+### Bug Fixes
+
+- **contracts:** Added wrapStellarAsset() to exported index.ts ([c7c5450](https://github.com/paltalabs/soroban-react/commit/c7c54504daf313517c2e20fe57dce89b31aae0ea))
+
 # [8.1.0](https://github.com/paltalabs/soroban-react/compare/v8.0.2...v8.1.0) (2024-01-15)
 
 ### Features
