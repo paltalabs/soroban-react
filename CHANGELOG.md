@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/paltalabs/soroban-react/compare/v8.0.2...v8.1.0) (2024-01-15)
+
+### Features
+
+- **CONTRACTS:** Added wrapStellarAsset() ([0f1436d](https://github.com/paltalabs/soroban-react/commit/0f1436db39e46be205ed820e0463a8f99ba5e703))
+
 ## [8.0.2](https://github.com/paltalabs/soroban-react/compare/v8.0.1...v8.0.2) (2023-12-26)
 
 ### Bug Fixes
