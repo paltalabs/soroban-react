@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 
 import * as StellarSdk from 'stellar-sdk'
 
-import { SorobanContext, SorobanContextType, defaultSorobanContext } from './'
+import { SorobanContext, SorobanContextType, defaultSorobanContext } from '.'
 
 /**
  * @param children - A React subtree that needs access to the context.
