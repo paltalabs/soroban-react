@@ -9,7 +9,7 @@ export function xbull(): Connector {
 
   // TODO LOOK INTO THIS PROBLEMATIC SERVER SIDE RENDERING SO THAT WE SOLVE THIS PROBLEM
   if (typeof window !== 'undefined') {
-    const bridge = new xBullWalletConnect();
+    
 
     return {
       id: 'xbull',
@@ -31,7 +31,12 @@ export function xbull(): Connector {
         return freighterApi.getNetworkDetails() // TODO REMOVE FREIGHTER
       },
       getPublicKey(): Promise<string> {
-        return bridge.connect()
+        console.log("XBULL TRYING TO CONNECT")
+        const bridge = new xBullWalletConnect();
+        let publicKeyPromise = bridge.connect()
+        bridge.closeConnections()
+        return publicKeyPromise;
+
       },
       signTransaction(
         xdr: string,
@@ -41,7 +46,10 @@ export function xbull(): Connector {
           accountToSign?: string
         }
       ): Promise<string> {
-        return bridge.sign({xdr, publicKey: opts?.accountToSign, network: opts?.network})
+        const bridge = new xBullWalletConnect();
+        let signedTxPromise = bridge.sign({xdr, publicKey: opts?.accountToSign, network: opts?.network})
+        bridge.closeConnections()
+        return signedTxPromise
       },
     }
   }
@@ -66,7 +74,8 @@ export function xbull(): Connector {
         return freighterApi.getNetworkDetails() // TODO REMOVE FREIGHTER 
       },
       getPublicKey(): Promise<string> {
-        return freighterApi.getPublicKey() // TODO REMOVE FREIGHTER
+        console.log("XBULL: WE ARE IN WINDOW UNDEFINED")
+        return new Promise((resolve) => "") // TODO REMOVE FREIGHTER
       },
       signTransaction(
         xdr: string,
