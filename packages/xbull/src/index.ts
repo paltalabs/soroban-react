@@ -3,13 +3,10 @@ import { xBullWalletConnect } from '@creit-tech/xbull-wallet-connect'
 import { NetworkDetails, Connector } from '@soroban-react/types'
 
 import freighterApi from '@stellar/freighter-api'
+import { brotliDecompress } from 'zlib'
 
 
 export function xbull(): Connector {
-
-  // TODO LOOK INTO THIS PROBLEMATIC SERVER SIDE RENDERING SO THAT WE SOLVE THIS PROBLEM
-  if (typeof window !== 'undefined') {
-    
 
     return {
       id: 'xbull',
@@ -34,6 +31,7 @@ export function xbull(): Connector {
         console.log("XBULL TRYING TO CONNECT")
         const bridge = new xBullWalletConnect();
         let publicKeyPromise = bridge.connect()
+        console.log("Bridge is", bridge)
         bridge.closeConnections()
         return publicKeyPromise;
 
@@ -52,41 +50,5 @@ export function xbull(): Connector {
         return signedTxPromise
       },
     }
-  }
-
-  return {
-    id: 'xbull',
-      name: 'XBull',
-      iconUrl: async () => '',
-      // iconUrl: async () => (await import('./freighter.svg')).default,
-      iconBackground: '#fff',
-      // TODO: Check this
-      installed: true,
-      downloadUrls: {
-        browserExtension:
-          'https://chromewebstore.google.com/detail/xbull-wallet/omajpeaffjgmlpmhbfdjepdejoemifpe',
-      },
-      isConnected(): boolean {
-        // return !!freighterApi?.isConnected()
-        return true
-      },
-      getNetworkDetails(): Promise<NetworkDetails> {
-        return freighterApi.getNetworkDetails() // TODO REMOVE FREIGHTER 
-      },
-      getPublicKey(): Promise<string> {
-        console.log("XBULL: WE ARE IN WINDOW UNDEFINED")
-        return new Promise((resolve) => "") // TODO REMOVE FREIGHTER
-      },
-      signTransaction(
-        xdr: string,
-        opts?: {
-          network?: string
-          networkPassphrase?: string
-          accountToSign?: string
-        }
-      ): Promise<string> {
-        return freighterApi.signTransaction(xdr, opts)  // TODO REMOVE FREIGHTER
-      },
-  }
 
 }
