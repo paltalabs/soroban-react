@@ -46,10 +46,11 @@ export function xbull(): Connector {
       ): Promise<string> {
         const bridge = new xBullWalletConnect();
         let signedTxPromise
+        // We have to check if both parameters are there according to the doc of xbullwalletconnect
         if (opts?.network && opts?.accountToSign) {
+          // network value is the network passphrase for xBull
           signedTxPromise = bridge.sign({xdr, publicKey: opts?.accountToSign, network: opts.networkPassphrase})
-        // }
-      }
+        }
         else {
           signedTxPromise = bridge.sign({xdr})
         }
