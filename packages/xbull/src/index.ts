@@ -45,7 +45,14 @@ export function xbull(): Connector {
         }
       ): Promise<string> {
         const bridge = new xBullWalletConnect();
-        let signedTxPromise = bridge.sign({xdr, publicKey: opts?.accountToSign, network: opts?.network})
+        let signedTxPromise
+        if (opts?.network && opts?.accountToSign) {
+          signedTxPromise = bridge.sign({xdr, publicKey: opts?.accountToSign, network: opts.networkPassphrase})
+        // }
+      }
+        else {
+          signedTxPromise = bridge.sign({xdr})
+        }
         bridge.closeConnections()
         return signedTxPromise
       },

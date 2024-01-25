@@ -61,9 +61,15 @@ export async function signAndSendTransaction({
     signed = txn.toXDR()
   } else if (sorobanContext.activeConnector) {
     // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
+    console.log("TRANSACTION SIGN AND SEND OPTS",{networkPassphrase,
+      network: sorobanContext.activeChain?.id,
+      accountToSign: sorobanContext.address})
     signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR(), {
       networkPassphrase,
+      network: sorobanContext.activeChain?.id,
+      accountToSign: sorobanContext.address
     })
+    console.log("Wallet has signed: ", signed)
   } else {
     throw new Error(
       'signAndSendTransaction: no secretKey, neither active Connector'
@@ -96,26 +102,26 @@ export async function sendTx({
   let getTransactionResponse = await server.getTransaction(
     sendTransactionResponse.hash
   )
-
   const waitUntil = new Date(Date.now() + secondsToWait * 1000).valueOf()
-
+  
   let waitTime = 1000
   let exponentialFactor = 1.5
-
+  
   while (
     Date.now() < waitUntil &&
     getTransactionResponse.status === 'NOT_FOUND'
-  ) {
-    // Wait a beat
-    await new Promise(resolve => setTimeout(resolve, waitTime))
-    /// Exponential backoff
-    waitTime = waitTime * exponentialFactor
-    // See if the transaction is complete
-    getTransactionResponse = await server.getTransaction(
-      sendTransactionResponse.hash
-    )
-  }
-
+    ) {
+      // Wait a beat
+      await new Promise(resolve => setTimeout(resolve, waitTime))
+      /// Exponential backoff
+      waitTime = waitTime * exponentialFactor
+      // See if the transaction is complete
+      getTransactionResponse = await server.getTransaction(
+        sendTransactionResponse.hash
+        )
+      }
+      
+  console.log("Transaction result is ", getTransactionResponse)
   if (
     getTransactionResponse.status === SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
