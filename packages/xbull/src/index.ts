@@ -3,10 +3,30 @@ import { xBullWalletConnect } from '@creit-tech/xbull-wallet-connect'
 import { NetworkDetails, Connector } from '@soroban-react/types'
 
 import freighterApi from '@stellar/freighter-api'
-import { brotliDecompress } from 'zlib'
+import { Inter_Tight } from 'next/font/google'
 
+interface ISignParams {
+  xdr: string, network?: string, publicKey?: string
+}
 
 export function xbull(): Connector {
+
+    // We create a dummy bridge for the server side rendering
+    let bridge = {
+      sign: (params: ISignParams) => {
+        return Promise.resolve("")
+      },
+      connect: () => {
+        return Promise.resolve("")
+      },
+      closeConnections: () => {}
+    }
+  
+    // The actual bridge will be here and rendered only client side
+    if (typeof window !== 'undefined') {
+      bridge = new xBullWalletConnect()
+      console.log("########### Creating new wallet connect")
+    }
 
     return {
       id: 'xbull',
@@ -25,14 +45,19 @@ export function xbull(): Connector {
         return true
       },
       getNetworkDetails(): Promise<NetworkDetails> {
-        return freighterApi.getNetworkDetails() // TODO REMOVE FREIGHTER
+        let blankNetwork = {
+            network: "",
+            networkUrl: "",
+            networkPassphrase: "",
+          }
+        return Promise.resolve(blankNetwork) // TODO REMOVE FREIGHTER
       },
       getPublicKey(): Promise<string> {
-        console.log("XBULL TRYING TO CONNECT")
-        const bridge = new xBullWalletConnect();
+        console.log("XBULL TRYING TO CONNCT")
+        // const bridge = new xBullWalletConnect();
         let publicKeyPromise = bridge.connect()
         console.log("Bridge is", bridge)
-        bridge.closeConnections()
+        // bridge.closeConnections()
         return publicKeyPromise;
 
       },
@@ -44,7 +69,7 @@ export function xbull(): Connector {
           accountToSign?: string
         }
       ): Promise<string> {
-        const bridge = new xBullWalletConnect();
+        
         let signedTxPromise
         // We have to check if both parameters are there according to the doc of xbullwalletconnect
         if (opts?.network && opts?.accountToSign) {
@@ -54,7 +79,7 @@ export function xbull(): Connector {
         else {
           signedTxPromise = bridge.sign({xdr})
         }
-        bridge.closeConnections()
+        // bridge.closeConnections()
         return signedTxPromise
       },
     }

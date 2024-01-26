@@ -61,17 +61,18 @@ export function SorobanReactProvider({
   // server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
   // serverHorizon = defaultSorobanContext.serverHorizon,
 }: SorobanReactProviderProps) {
-  const activeConnector = connectors.length >= 1 ? connectors[0] : undefined
+  const activeConnector = connectors.length >= 1 ? connectors[1] : undefined
   // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log("SorobanReactProvider is RELOADED")
-  // if (activeChain?.sorobanRpcUrl) {
-  //   server = fromURLToServer(activeChain.sorobanRpcUrl)
-  // }
+  let server, serverHorizon
+  if (activeChain?.sorobanRpcUrl) {
+    server = fromURLToServer(activeChain.sorobanRpcUrl)
+  }
 
-  // if (activeChain?.networkUrl) {
-  //   serverHorizon = fromURLToHorizonServer(activeChain.networkUrl)
-  // }
+  if (activeChain?.networkUrl) {
+    serverHorizon = fromURLToHorizonServer(activeChain.networkUrl)
+  }
 
   const [mySorobanContext, setSorobanContext] =
     React.useState<SorobanContextType>({
@@ -82,49 +83,53 @@ export function SorobanReactProvider({
       connectors,
       activeConnector,
       activeChain,
-      // server,
-      // serverHorizon,
+      server,
+      serverHorizon,
       connect: async () => {
-        let networkDetails =
-          await mySorobanContext.activeConnector?.getNetworkDetails()
-
-        if (
-          !chains.find(
-            (c: any) =>
-              c.networkPassphrase === networkDetails?.networkPassphrase
-          )
-        ) {
-          const error = new Error(
-            'Your Wallet network is not supported in this app'
-          )
-          throw error
-        }
-
         // let activeChain = networkToActiveChain(networkDetails, chains)
         console.log(mySorobanContext)
         if (mySorobanContext.activeConnector) {
+          // let networkDetails =
+          //   await mySorobanContext.activeConnector.getNetworkDetails()
+
+          // if (networkDetails) {
+          //   if (
+          //     !chains.find(
+          //       (c: any) =>
+          //       c.networkPassphrase === networkDetails?.networkPassphrase
+          //       )
+          //   ) {
+          //     const error = new Error(
+          //       'Your Wallet network is not supported in this app'
+          //       )
+          //       throw error
+          //     }
+
+          //   if (!networkDetails?.sorobanRpcUrl) {
+          //     const error = new Error(
+          //       'Soroban RPC URL is not set, please check your freighter wallet network configuration'
+          //     )
+          //     throw error
+          //   }
+  
+          //   server =
+          //     networkDetails &&
+          //     new StellarSdk.SorobanRpc.Server(networkDetails.sorobanRpcUrl, {
+          //       allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
+          //     })
+  
+          //   serverHorizon =
+          //     networkDetails &&
+          //     new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
+          //       allowHttp: networkDetails.networkUrl.startsWith('http://'),
+          //     })
+          // }
+
+
           console.log("SorobanReactProvider: Connecting with ", mySorobanContext.activeConnector.name)
           let address = await mySorobanContext.activeConnector.getPublicKey()
        
 
-          if (!networkDetails?.sorobanRpcUrl) {
-            const error = new Error(
-              'Soroban RPC URL is not set, please check your freighter wallet network configuration'
-            )
-            throw error
-          }
-
-          let server =
-            networkDetails &&
-            new StellarSdk.SorobanRpc.Server(networkDetails.sorobanRpcUrl, {
-              allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
-            })
-
-          let serverHorizon =
-            networkDetails &&
-            new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
-              allowHttp: networkDetails.networkUrl.startsWith('http://'),
-            })
 
           // Now we can track that the wallet is finally connected
           isConnectedRef.current = true
@@ -186,7 +191,7 @@ export function SorobanReactProvider({
 
     console.log("SorobanReactProvider: Active connector is ", mySorobanContext.activeConnector.name)
 
-  // Handle changes of address/network in "realtime"
+  // Handle changes of address in "realtime"
   React.useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null
 
@@ -194,9 +199,9 @@ export function SorobanReactProvider({
     // then this could be increased. Humans perceive 100ms response times as instantaneous
     // (source: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/)
     // but you also have to consider the re-render time of components.
-    const freighterCheckIntervalMs = 200
+    const freighterCheckIntervalMs = 10000
 
-    async function checkForWalletChanges() {
+    async function checkForAddressChanges() {
       // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
       if (
         !mySorobanContext.activeConnector ||
@@ -208,10 +213,6 @@ export function SorobanReactProvider({
       let hasNoticedWalletUpdate = false
 
       try {
-        let chain = networkToActiveChain(
-          await mySorobanContext.activeConnector?.getNetworkDetails(),
-          chains
-        )
 
         // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
         // on this site, then a dialog will appear asking them to sign in again. We need a way to ask Freighter
@@ -239,23 +240,7 @@ export function SorobanReactProvider({
             // server,
             // serverHorizon,
           }))
-          // await mySorobanContext.connect()
         } 
-        // else if (
-        //   mySorobanContext.activeChain.networkPassphrase !=
-        //   chain.networkPassphrase
-        // ) {
-        //   console.log(
-        //     'SorobanReactProvider: networkPassphrase changed from: ',
-        //     mySorobanContext.activeChain.networkPassphrase,
-        //     ' to: ',
-        //     chain.networkPassphrase
-        //   )
-        //   hasNoticedWalletUpdate = true
-
-        //   console.log('SorobanReactProvider: reconnecting')
-        //   mySorobanContext.connect()
-        // }
       } catch (error) {
         // I would recommend keeping the try/catch so that any exceptions in this async function
         // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
@@ -263,20 +248,91 @@ export function SorobanReactProvider({
 
         console.error('SorobanReactProvider: error: ', error)
       } finally {
-        // if (!hasNoticedWalletUpdate)
-        //   timeoutId = setTimeout(
-        //     checkForWalletChanges,
-        //     freighterCheckIntervalMs
-        //   )
+        if (!hasNoticedWalletUpdate)
+          timeoutId = setTimeout(
+            checkForAddressChanges,
+            freighterCheckIntervalMs
+          )
       }
     }
 
-    checkForWalletChanges()
+    checkForAddressChanges()
 
     return () => {
       if (timeoutId != null) clearTimeout(timeoutId)
     }
-  }, [mySorobanContext.address])
+  }, [mySorobanContext])
+
+  // Handle changes of network in "realtime" if getNetworkDetails exists
+  React.useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null
+
+    // If it turns out that requesting an update from Freighter is too taxing,
+    // then this could be increased. Humans perceive 100ms response times as instantaneous
+    // (source: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/)
+    // but you also have to consider the re-render time of components.
+    const freighterCheckIntervalMs = 200
+
+    async function checkForNetworkChanges() {
+      // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
+      if (
+        !mySorobanContext.activeConnector ||
+        !mySorobanContext.activeConnector.isConnected() ||
+        !isConnectedRef.current ||
+        !mySorobanContext.activeChain
+      )
+        return
+      else {
+
+        let hasNoticedWalletUpdate = false
+  
+        try {
+  
+          // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
+          // on this site, then a dialog will appear asking them to sign in again. We need a way to ask Freighter
+          // if there is _any_ connected user, without actually asking them to sign in. Unfortunately, that is not
+          // supported at this time; but it would be easy to submit a PR to the extension to add support for it.
+          let networkDetails = await mySorobanContext.activeConnector.getNetworkDetails()
+          let newActiveChain = networkToActiveChain(networkDetails, chains)
+  
+          // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
+          // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
+  
+          if (networkDetails.network && newActiveChain.networkPassphrase !== mySorobanContext.activeChain.networkPassphrase) {
+            console.log(
+              'SorobanReactProvider: network changed from:',
+              mySorobanContext.activeChain.networkPassphrase,
+              ' to: ',
+              newActiveChain.networkPassphrase
+            )
+            hasNoticedWalletUpdate = true
+  
+
+            mySorobanContext.setActiveChain(newActiveChain)
+          } 
+        } catch (error) {
+          // I would recommend keeping the try/catch so that any exceptions in this async function
+          // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
+          // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
+  
+          console.error('SorobanReactProvider: error: ', error)
+        } finally {
+          if (!hasNoticedWalletUpdate)
+            timeoutId = setTimeout(
+              checkForNetworkChanges,
+              freighterCheckIntervalMs
+            )
+        }
+      }
+    }
+
+    checkForNetworkChanges()
+
+    return () => {
+      if (timeoutId != null) clearTimeout(timeoutId)
+    }
+  }, [mySorobanContext])
+  
 
   // React.useEffect(() => {
   //   if (mySorobanContext.address) return // If we already have access to the connector's address, we are OK
