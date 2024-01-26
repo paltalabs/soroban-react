@@ -61,7 +61,7 @@ export function SorobanReactProvider({
   // server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
   // serverHorizon = defaultSorobanContext.serverHorizon,
 }: SorobanReactProviderProps) {
-  const activeConnector = connectors.length >= 1 ? connectors[1] : undefined
+  const activeConnector = connectors.length >= 1 ? connectors[0] : undefined
   // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log("SorobanReactProvider is RELOADED")
@@ -86,62 +86,75 @@ export function SorobanReactProvider({
       server,
       serverHorizon,
       connect: async () => {
-        // let activeChain = networkToActiveChain(networkDetails, chains)
         console.log(mySorobanContext)
         if (mySorobanContext.activeConnector) {
-          // let networkDetails =
-          //   await mySorobanContext.activeConnector.getNetworkDetails()
-
-          // if (networkDetails) {
-          //   if (
-          //     !chains.find(
-          //       (c: any) =>
-          //       c.networkPassphrase === networkDetails?.networkPassphrase
-          //       )
-          //   ) {
-          //     const error = new Error(
-          //       'Your Wallet network is not supported in this app'
-          //       )
-          //       throw error
-          //     }
-
-          //   if (!networkDetails?.sorobanRpcUrl) {
-          //     const error = new Error(
-          //       'Soroban RPC URL is not set, please check your freighter wallet network configuration'
-          //     )
-          //     throw error
-          //   }
+          // Now we will check if the wallet is freighter so that we keep the old way of choosing the network from the wallet for backward compatibility
+          if (mySorobanContext.activeConnector.id === "freighter") {
+            let networkDetails =
+            await mySorobanContext.activeConnector.getNetworkDetails()
+            let activeChain = networkToActiveChain(networkDetails, chains)
   
-          //   server =
-          //     networkDetails &&
-          //     new StellarSdk.SorobanRpc.Server(networkDetails.sorobanRpcUrl, {
-          //       allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
-          //     })
+            
+            if (
+              !chains.find(
+                (c: any) =>
+                c.networkPassphrase === networkDetails?.networkPassphrase
+                )
+            ) {
+              const error = new Error(
+                'Your Wallet network is not supported in this app'
+                )
+                throw error
+              }
+
+            if (!networkDetails?.sorobanRpcUrl) {
+              const error = new Error(
+                'Soroban RPC URL is not set, please check your freighter wallet network configuration'
+              )
+              throw error
+            }
   
-          //   serverHorizon =
-          //     networkDetails &&
-          //     new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
-          //       allowHttp: networkDetails.networkUrl.startsWith('http://'),
-          //     })
-          // }
-
-
-          console.log("SorobanReactProvider: Connecting with ", mySorobanContext.activeConnector.name)
-          let address = await mySorobanContext.activeConnector.getPublicKey()
-       
-
-
-          // Now we can track that the wallet is finally connected
-          isConnectedRef.current = true
-
-          setSorobanContext((c: any) => ({
-            ...c,
-            // activeChain,
-            address,
-            // server,
-            // serverHorizon,
-          }))
-          console.log("SorobanReactProvider: Finish connecting on connect function")
+            server =
+              networkDetails &&
+              new StellarSdk.SorobanRpc.Server(networkDetails.sorobanRpcUrl, {
+                allowHttp: networkDetails.sorobanRpcUrl.startsWith('http://'),
+              })
+  
+            serverHorizon =
+              networkDetails &&
+              new StellarSdk.Horizon.Server(networkDetails.networkUrl, {
+                allowHttp: networkDetails.networkUrl.startsWith('http://'),
+              })
+          
+            console.log("SorobanReactProvider: Connecting with ", mySorobanContext.activeConnector.name)
+            let address = await mySorobanContext.activeConnector.getPublicKey()
+        
+  
+  
+            // Now we can track that the wallet is finally connected
+            isConnectedRef.current = true
+  
+            setSorobanContext((c: any) => ({
+              ...c,
+              activeChain,
+              address,
+              server,
+              serverHorizon,
+            }))
+          }
+          // If connector is any other wallet that does not have getNetworkDetails we will need to set the active chain and server from somewehere else in the front end
+          else { 
+              console.log("SorobanReactProvider: Connecting with ", mySorobanContext.activeConnector.name)
+              let address = await mySorobanContext.activeConnector.getPublicKey()
+    
+              // Now we can track that the wallet is finally connected
+              isConnectedRef.current = true
+    
+              setSorobanContext((c: any) => ({
+                ...c,
+                address,
+              }))
+          }
       }
       else {
         console.log("SorobanReactProvider: No active Connector")
@@ -327,7 +340,7 @@ export function SorobanReactProvider({
     }
   }, [mySorobanContext])
   
-
+  // TODO: ASSESS THE USE OF THIS
   // React.useEffect(() => {
   //   if (mySorobanContext.address) return // If we already have access to the connector's address, we are OK
   //   if (!mySorobanContext.activeConnector) return // If there is not even an activeConnector, we don't need to continue
