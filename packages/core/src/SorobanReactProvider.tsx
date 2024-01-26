@@ -210,54 +210,57 @@ export function SorobanReactProvider({
         !mySorobanContext.activeChain
       )
         return
-      let hasNoticedWalletUpdate = false
+      // For now we can only do this with freighter. xBull doesn't handle the repeated call well.
+      else if (mySorobanContext.activeConnector.id !== "freighter") {
+        return
+      }
+      else {
+        let hasNoticedWalletUpdate = false
 
-      try {
-
-        // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
+        try {
+          
+          // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
         // on this site, then a dialog will appear asking them to sign in again. We need a way to ask Freighter
         // if there is _any_ connected user, without actually asking them to sign in. Unfortunately, that is not
         // supported at this time; but it would be easy to submit a PR to the extension to add support for it.
         let address = await mySorobanContext.activeConnector?.getPublicKey()
-
+        
         // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
         // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
-
+        
         if (mySorobanContext.address !== address) {
           console.log(
             'SorobanReactProvider: address changed from:',
             mySorobanContext.address,
             ' to: ',
             address
-          )
-          hasNoticedWalletUpdate = true
-
-          console.log('SorobanReactProvider: reconnecting')
-          setSorobanContext((c: any) => ({
-            ...c,
-            // activeChain,
-            address,
-            // server,
-            // serverHorizon,
-          }))
-        } 
-      } catch (error) {
-        // I would recommend keeping the try/catch so that any exceptions in this async function
-        // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
-        // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
+            )
+            hasNoticedWalletUpdate = true
+            
+            console.log('SorobanReactProvider: reconnecting')
+            setSorobanContext((c: any) => ({
+              ...c,
+              address,
+            }))
+          } 
+        } catch (error) {
+          // I would recommend keeping the try/catch so that any exceptions in this async function
+          // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
+          // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
 
         console.error('SorobanReactProvider: error: ', error)
       } finally {
         if (!hasNoticedWalletUpdate)
-          timeoutId = setTimeout(
+        timeoutId = setTimeout(
             checkForAddressChanges,
             freighterCheckIntervalMs
           )
       }
     }
-
+    }
+    
     checkForAddressChanges()
-
+    
     return () => {
       if (timeoutId != null) clearTimeout(timeoutId)
     }
@@ -267,10 +270,6 @@ export function SorobanReactProvider({
   React.useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null
 
-    // If it turns out that requesting an update from Freighter is too taxing,
-    // then this could be increased. Humans perceive 100ms response times as instantaneous
-    // (source: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/)
-    // but you also have to consider the re-render time of components.
     const freighterCheckIntervalMs = 200
 
     async function checkForNetworkChanges() {
@@ -282,22 +281,20 @@ export function SorobanReactProvider({
         !mySorobanContext.activeChain
       )
         return
+      // For now we can only do this with freighter. xBull doesn't have the getNetworkDetails method exposed.
+      else if (mySorobanContext.activeConnector.id !== "freighter") {
+        return
+      }
       else {
 
         let hasNoticedWalletUpdate = false
   
         try {
-  
-          // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
-          // on this site, then a dialog will appear asking them to sign in again. We need a way to ask Freighter
-          // if there is _any_ connected user, without actually asking them to sign in. Unfortunately, that is not
-          // supported at this time; but it would be easy to submit a PR to the extension to add support for it.
+
           let networkDetails = await mySorobanContext.activeConnector.getNetworkDetails()
           let newActiveChain = networkToActiveChain(networkDetails, chains)
   
-          // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
-          // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
-  
+          // We check that we have a valid network details and not a blank one like the one xbull connector would return
           if (networkDetails.network && newActiveChain.networkPassphrase !== mySorobanContext.activeChain.networkPassphrase) {
             console.log(
               'SorobanReactProvider: network changed from:',
@@ -311,9 +308,6 @@ export function SorobanReactProvider({
             mySorobanContext.setActiveChain(newActiveChain)
           } 
         } catch (error) {
-          // I would recommend keeping the try/catch so that any exceptions in this async function
-          // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
-          // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
   
           console.error('SorobanReactProvider: error: ', error)
         } finally {
