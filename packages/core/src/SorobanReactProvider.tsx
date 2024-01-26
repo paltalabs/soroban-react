@@ -65,7 +65,7 @@ export function SorobanReactProvider({
   // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log("SorobanReactProvider is RELOADED")
-  let server, serverHorizon
+  let server: StellarSdk.SorobanRpc.Server | undefined = defaultSorobanContext.server, serverHorizon : StellarSdk.Horizon.Server | undefined= defaultSorobanContext.serverHorizon
   if (activeChain?.sorobanRpcUrl) {
     server = fromURLToServer(activeChain.sorobanRpcUrl)
   }
@@ -164,7 +164,7 @@ export function SorobanReactProvider({
         isConnectedRef.current = false
         // TODO: Maybe reset address to undefined
         // TODO: Handle other things here, such as perhaps resetting address to undefined.
-        let address = undefined
+        let address: string | undefined = undefined
         setSorobanContext((c: any) => ({
           ...c,
           address
@@ -174,7 +174,7 @@ export function SorobanReactProvider({
       setActiveChain: (chain: WalletChain) => {
         console.log('Chainging activeChain to : ', chain)
         // When the user in frontend changes the activeChain to read the blockchain without wallet
-        let server, serverHorizon
+        let server: StellarSdk.SorobanRpc.Server | undefined = undefined, serverHorizon : StellarSdk.Horizon.Server | undefined= undefined
         activeChain = chain
         if (activeChain.sorobanRpcUrl) {
           server = fromURLToServer(activeChain.sorobanRpcUrl)
@@ -202,7 +202,7 @@ export function SorobanReactProvider({
       }
     })
 
-    console.log("SorobanReactProvider: Active connector is ", mySorobanContext.activeConnector.name)
+    console.log("SorobanReactProvider: Active connector is ", mySorobanContext.activeConnector?.name)
 
   // Handle changes of address in "realtime"
   React.useEffect(() => {
@@ -318,7 +318,7 @@ export function SorobanReactProvider({
             hasNoticedWalletUpdate = true
   
 
-            mySorobanContext.setActiveChain(newActiveChain)
+            mySorobanContext.setActiveChain && mySorobanContext.setActiveChain(newActiveChain)
           } 
         } catch (error) {
   
