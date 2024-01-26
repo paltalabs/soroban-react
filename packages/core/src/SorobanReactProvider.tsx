@@ -199,7 +199,7 @@ export function SorobanReactProvider({
     // then this could be increased. Humans perceive 100ms response times as instantaneous
     // (source: https://www.pubnub.com/blog/how-fast-is-realtime-human-perception-and-technology/)
     // but you also have to consider the re-render time of components.
-    const freighterCheckIntervalMs = 10000
+    const freighterCheckIntervalMs = 200
 
     async function checkForAddressChanges() {
       // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
