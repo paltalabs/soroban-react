@@ -61,8 +61,7 @@ export function SorobanReactProvider({
   // server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
   // serverHorizon = defaultSorobanContext.serverHorizon,
 }: SorobanReactProviderProps) {
-  const activeConnector = connectors.length >= 1 ? connectors[0] : undefined
-  // const activeConnector = undefined
+  const activeConnector = connectors.length && connectors.length > 1 ? connectors[1] : connectors[0]  // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log("SorobanReactProvider is RELOADED")
   let server: StellarSdk.SorobanRpc.Server | undefined = defaultSorobanContext.server, serverHorizon : StellarSdk.Horizon.Server | undefined= defaultSorobanContext.serverHorizon
