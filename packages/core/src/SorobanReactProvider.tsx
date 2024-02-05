@@ -61,7 +61,8 @@ export function SorobanReactProvider({
   // server = defaultSorobanContext.server, // Non mandatory fields default to default Context fields value
   // serverHorizon = defaultSorobanContext.serverHorizon,
 }: SorobanReactProviderProps) {
-  const activeConnector = connectors.length && connectors.length > 1 ? connectors[1] : connectors[0]  // const activeConnector = undefined
+  const activeConnector = connectors.length && connectors.length > 1 ? connectors[1] : connectors[0]
+  // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log("SorobanReactProvider is RELOADED")
   let server: StellarSdk.SorobanRpc.Server | undefined = defaultSorobanContext.server, serverHorizon : StellarSdk.Horizon.Server | undefined= defaultSorobanContext.serverHorizon
@@ -85,7 +86,7 @@ export function SorobanReactProvider({
       server,
       serverHorizon,
       connect: async () => {
-        console.log(mySorobanContext)
+        console.log("ENTERING CONNECT with context: ",mySorobanContext)
         if (mySorobanContext.activeConnector) {
           // Now we will check if the wallet is freighter so that we keep the old way of choosing the network from the wallet for backward compatibility
           if (mySorobanContext.activeConnector.id === "freighter") {
@@ -125,7 +126,7 @@ export function SorobanReactProvider({
                 allowHttp: networkDetails.networkUrl.startsWith('http://'),
               })
           
-            console.log("SorobanReactProvider: Connecting with ", mySorobanContext.activeConnector.name)
+            console.log("SorobanReactProvider: Connecting with FREIGHTER : ", mySorobanContext.activeConnector.name)
             let address = await mySorobanContext.activeConnector.getPublicKey()
         
   
@@ -190,13 +191,17 @@ export function SorobanReactProvider({
         }))
       },
 
-      setActiveConnector: (connector: Connector) => {
+      setActiveConnectorAndConnect: async (connector: Connector) => {
         console.log("Changing connector to ", connector.name)
         let activeConnector = connector
         console.log("SorobanReactProvider: Changing connector")
+        // We better connect here otherwise in the frontend the context is not updated fast enough, and the user connects to the old connector first.
+        let address = await activeConnector.getPublicKey()
+        isConnectedRef.current = true
         setSorobanContext((c: any) => ({
           ...c,
-          activeConnector
+          activeConnector,
+          address
         }))
       }
     })
