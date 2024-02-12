@@ -1,0 +1,7 @@
+{
+  "include": ["./src"],
+  "compilerOptions": {
+    "jsx": "react",
+    "outDir": "./dist"
+  }
+}
