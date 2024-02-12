@@ -55,3 +55,33 @@ export type ChainName =
   | 'standalone'
 
 export type ChainMetadata = WalletChain
+
+
+// Type for top level contract registry
+export type ContractDeploymentInfo = {
+  contractId: string,
+  networkPassphrase: string,
+  contractAddress: string
+}
+
+import * as StellarSdk from 'stellar-sdk'
+
+export type WrappedContractInvokeArgs = {
+  // NO NEED contractAddress: string
+  method: string
+  args?: StellarSdk.xdr.ScVal[] | undefined
+  signAndSend?: boolean
+  fee?: number
+  skipAddingFootprint?: boolean
+  secretKey?: string
+  // NO NEED MAYBE sorobanContext: SorobanContextType
+  // If useSorobanReact called inside of wrapped function
+  reconnectAfterTx?: boolean
+}
+
+import {TxResponse} from '@soroban-react/contracts'
+
+export type WrappedContract = {
+  deploymentInfo: ContractDeploymentInfo,
+  invoke: (args: WrappedContractInvokeArgs) => Promise<TxResponse | StellarSdk.xdr.ScVal>
+}
