@@ -41,6 +41,7 @@
   "dependencies": {
     "@soroban-react/freighter": "^8.0.0",
     "@soroban-react/types": "^8.0.0",
+    "@soroban-react/xbull": "^1.0.1",
     "stellar-sdk": "11.1.0"
   },
   "devDependencies": {
