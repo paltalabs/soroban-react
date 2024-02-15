@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "9.0.0",
+  "version": "8.9.9",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
