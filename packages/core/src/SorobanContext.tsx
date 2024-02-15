@@ -8,8 +8,8 @@ export const defaultSorobanContext: SorobanContextType = {
   appName: undefined,
   chains: [],
   connectors: [],
-  server: new SorobanRpc.Server('https://soroban-rpc.stellar.org'),
-  serverHorizon: new StellarSdk.Horizon.Server('https://horizon.stellar.org'),
+  server: new SorobanRpc.Server('https://soroban-testnet.stellar.org/'),
+  serverHorizon: new StellarSdk.Horizon.Server('https://horizon-testnet.stellar.org'),
   async connect() {},
   async disconnect() {},
 }
@@ -27,6 +27,7 @@ export interface SorobanContextType {
   connect: () => Promise<void>
   disconnect: () => Promise<void>
   setActiveChain?: (chain: WalletChain) => void
+  setActiveConnectorAndConnect?: (connector: Connector) => void
 }
 
 export const SorobanContext = createContext<SorobanContextType | undefined>(
