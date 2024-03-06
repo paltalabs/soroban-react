@@ -1,5 +1,5 @@
-import { useSorobanReact } from '../../core/src'
-import {type ContractDeploymentInfo, type WrappedContract, type WrappedContractInvokeArgs} from '../../types/src'
+import { useSorobanReact } from '@soroban-react/core'
+import {type ContractDeploymentInfo, type WrappedContract, type WrappedContractInvokeArgs} from '@soroban-react/core'
 import { contractInvoke,type InvokeArgs } from './contractInvoke'
 import { useCallback, useEffect, useState } from 'react';
 
