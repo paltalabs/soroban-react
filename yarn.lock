@@ -1898,14 +1898,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@soroban-react/core@^8.0.0":
+"@soroban-react/types@8.0.0":
   version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@soroban-react/core/-/core-8.0.0.tgz#508308d5f5892afae0443b958a2cf8fb5d9297eb"
-  integrity sha512-xJ/1CaBEwQMS9r3heOKeQH0ch1EuG0De0wY8J1EAO3rKpigUAC1B3hhySp6bJzB+4YG22FhoM+3vesiYiTCPdA==
-  dependencies:
-    "@soroban-react/freighter" "^8.0.0"
-    "@soroban-react/types" "^8.0.0"
-    stellar-sdk "11.1.0"
+  resolved "https://registry.yarnpkg.com/@soroban-react/types/-/types-8.0.0.tgz#14cb25911d2d45e3448a0fc6c0b2a6ae16b4851e"
+  integrity sha512-t8eohOlmb4LAD1e3bfI01KKK7oCcm468QKsKrD0fL67fnZYcx9K61tSCqwWEbFCWGMGPkwaOwI3sE/bYKKDMIQ==
 
 "@soroban-react/xbull@^1.0.1":
   version "1.0.1"

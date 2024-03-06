@@ -12,13 +12,13 @@ import {Networks} from 'stellar-sdk'
  * @property {string} sorobanRpcUrl  - The Soroban RPC URL sorobanRpcUr;
  */
 
-export const public_chain: WalletChain = {
-  id: 'public',
-  network: 'public',
-  name: 'Public',
+export const mainnet: WalletChain = {
+  id: 'mainnet',
+  network: 'mainnet',
+  name: 'Mainnet',
   networkPassphrase: Networks.PUBLIC,
   networkUrl: 'https://horizon.stellar.org',
-  sorobanRpcUrl: 'https://horizon.stellar.org',
+  sorobanRpcUrl: 'https://mainnet.stellar.validationcloud.io/v1/XFb5Lma6smizBnnRPEgYMbuNm0K3FWzJ7854GNSQ2EY',
 }
 
 /**
