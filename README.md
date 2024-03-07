@@ -36,6 +36,7 @@ You can also contribute to the Gitbook by editing the docs folder in this repo
 
 ## Install:
 
+First open the node container, this will help all devs to build the project with the same environment: `bash run.sh`
 Install all sub-packages with just `yarn`
 
 ## Run tests
