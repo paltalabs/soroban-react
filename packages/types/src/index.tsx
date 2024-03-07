@@ -64,7 +64,7 @@ export type ContractDeploymentInfo = {
   contractAddress: string
 }
 
-import * as StellarSdk from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
 
 export type WrappedContractInvokeArgs = {
   // NO NEED contractAddress: string

@@ -1,10 +1,10 @@
 import { Connector, WalletChain } from '@soroban-react/types'
 import React, { useRef } from 'react'
 
-import * as StellarSdk from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
 
 import { SorobanContext, SorobanContextType, defaultSorobanContext } from '.'
-import { ContractDeploymentInfo } from '../../types/src'
+import { ContractDeploymentInfo } from '@soroban-react/types'
 
 /**
  * @param children - A React subtree that needs access to the context.

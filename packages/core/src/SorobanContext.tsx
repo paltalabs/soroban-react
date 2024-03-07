@@ -1,8 +1,8 @@
-import { Connector, WalletChain, ContractDeploymentInfo } from '../../types/src'
+import { Connector, WalletChain, ContractDeploymentInfo } from '@soroban-react/types'
 import { createContext } from 'react'
 
-import * as StellarSdk from 'stellar-sdk'
-import { SorobanRpc } from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
+import { SorobanRpc } from '@stellar/stellar-sdk'
 
 export const defaultSorobanContext: SorobanContextType = {
   appName: undefined,
