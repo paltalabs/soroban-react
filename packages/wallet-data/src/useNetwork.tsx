@@ -2,7 +2,7 @@ import { SorobanContextType } from '@soroban-react/core'
 import { WalletChain } from '@soroban-react/types'
 import React from 'react'
 
-import * as StellarSdk from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
 
 import { WalletChainByName } from './provideWalletChains'
 

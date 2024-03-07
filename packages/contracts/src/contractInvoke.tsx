@@ -1,7 +1,7 @@
 import { SorobanContextType } from '@soroban-react/core'
 
-import * as StellarSdk from 'stellar-sdk'
-import { SorobanRpc } from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
+import { SorobanRpc } from '@stellar/stellar-sdk'
 
 import { contractTransaction } from './contractTransaction'
 import { signAndSendTransaction } from './transaction'

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import * as StellarSdk from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
 
 let xdr = StellarSdk.xdr
 

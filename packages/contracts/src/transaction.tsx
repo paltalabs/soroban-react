@@ -1,9 +1,9 @@
 import { SorobanContextType } from '@soroban-react/core'
 
 import { Sign } from 'crypto'
-import * as StellarSdk from 'stellar-sdk'
+import * as StellarSdk from '@stellar/stellar-sdk'
 
-import { SorobanRpc } from 'stellar-sdk'
+import { SorobanRpc } from '@stellar/stellar-sdk'
 
 import type { Tx, Transaction, TxResponse } from './types'
 

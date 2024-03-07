@@ -1,6 +1,6 @@
 import type { WalletChain } from '@soroban-react/types'
 
-import {Networks} from 'stellar-sdk'
+import {Networks} from '@stellar/stellar-sdk'
 
 /**
  * A `WalletChain` object representing the public blockchain network.
