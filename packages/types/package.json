@@ -15,8 +15,7 @@
     "start": "tsc --watch"
   },
   "dependencies": {
-    "@stellar/stellar-sdk": "11.1.0",
-    "@soroban-react/contracts": "^9.0.2"
+    "@stellar/stellar-sdk": "11.1.0"
   },
   "main": "dist/index.js",
   "exports": "./dist/index.js",

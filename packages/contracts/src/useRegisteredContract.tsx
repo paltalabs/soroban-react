@@ -1,7 +1,9 @@
 import { useSorobanReact } from '@soroban-react/core'
-import {type ContractDeploymentInfo, type WrappedContract, type WrappedContractInvokeArgs} from '@soroban-react/types'
+import {type ContractDeploymentInfo} from '@soroban-react/types'
 import { contractInvoke,type InvokeArgs } from './contractInvoke'
+import {TxResponse} from '.'
 import { useCallback, useEffect, useState } from 'react';
+import * as StellarSdk from '@stellar/stellar-sdk'
 
 const getDeployment = (deployments: ContractDeploymentInfo[], contractId: string, networkPassphrase: string) => {
     let deployment = deployments.find((deployment) => {
@@ -16,6 +18,24 @@ const getDeployment = (deployments: ContractDeploymentInfo[], contractId: string
     else {
         return deployment
     }
+}
+
+export type WrappedContractInvokeArgs = {
+  // NO NEED contractAddress: string
+  method: string
+  args?: StellarSdk.xdr.ScVal[] | undefined
+  signAndSend?: boolean
+  fee?: number
+  skipAddingFootprint?: boolean
+  secretKey?: string
+  // NO NEED MAYBE sorobanContext: SorobanContextType
+  // If useSorobanReact called inside of wrapped function
+  reconnectAfterTx?: boolean
+}
+
+export type WrappedContract = {
+  deploymentInfo: ContractDeploymentInfo,
+  invoke: (args: WrappedContractInvokeArgs) => Promise<TxResponse | StellarSdk.xdr.ScVal>
 }
 
 export const useWrappedContract = (
