@@ -6,4 +6,5 @@ export * from './types'
 export * from './useContractValue'
 export * from './useSendTransaction'
 export * from './wrapStellarAsset'
+export * from './useRegisteredContract'
 
