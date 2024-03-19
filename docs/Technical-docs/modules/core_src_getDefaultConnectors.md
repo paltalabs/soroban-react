@@ -17,10 +17,15 @@ title: core/src/getDefaultConnectors
 
 ▸ **getDefaultConnectors**(): `Connector`[]
 
+Retrieves default wallet connectors.
+These connectors include for now 'freighter' and 'xbull'.
+
 #### Returns
 
 `Connector`[]
 
+An array of default connectors.
+
 #### Defined in
 
-[core/src/getDefaultConnectors.tsx:4](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/getDefaultConnectors.tsx#L4)
+[core/src/getDefaultConnectors.tsx:10](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/getDefaultConnectors.tsx#L10)

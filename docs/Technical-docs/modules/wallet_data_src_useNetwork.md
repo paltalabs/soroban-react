@@ -31,7 +31,7 @@ title: wallet-data/src/useNetwork
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:9](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/wallet-data/src/useNetwork.tsx#L9)
+[wallet-data/src/useNetwork.tsx:9](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/wallet-data/src/useNetwork.tsx#L9)
 
 ## Functions
 
@@ -51,4 +51,4 @@ title: wallet-data/src/useNetwork
 
 #### Defined in
 
-[wallet-data/src/useNetwork.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/wallet-data/src/useNetwork.tsx#L15)
+[wallet-data/src/useNetwork.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/wallet-data/src/useNetwork.tsx#L15)

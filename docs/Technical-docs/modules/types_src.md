@@ -17,6 +17,7 @@ title: types/src
 - [ChainMetadata](types_src.md#chainmetadata)
 - [ChainName](types_src.md#chainname)
 - [Connector](types_src.md#connector)
+- [ContractDeploymentInfo](types_src.md#contractdeploymentinfo)
 - [InstructionStepName](types_src.md#instructionstepname)
 
 ## Type Aliases
@@ -27,7 +28,7 @@ title: types/src
 
 #### Defined in
 
-[types/src/index.tsx:57](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L57)
+[types/src/index.tsx:57](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L57)
 
 ___
 
@@ -37,7 +38,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:50](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L50)
+[types/src/index.tsx:50](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L50)
 
 ___
 
@@ -67,7 +68,25 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:22](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L22)
+[types/src/index.tsx:22](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L22)
+
+___
+
+### ContractDeploymentInfo
+
+Ƭ **ContractDeploymentInfo**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `contractAddress` | `string` |
+| `contractId` | `string` |
+| `networkPassphrase` | `string` |
+
+#### Defined in
+
+[types/src/index.tsx:61](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L61)
 
 ___
 
@@ -77,4 +96,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:1](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L1)
+[types/src/index.tsx:1](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L1)

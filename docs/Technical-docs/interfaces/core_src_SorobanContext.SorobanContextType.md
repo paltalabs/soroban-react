@@ -7,6 +7,8 @@ title: SorobanContextType
 
 [core/src/SorobanContext](../modules/core_src_SorobanContext.md).SorobanContextType
 
+Interface for the Soroban context.
+
 ## Table of contents
 
 ### Properties
@@ -19,10 +21,12 @@ title: SorobanContextType
 - [chains](core_src_SorobanContext.SorobanContextType.md#chains)
 - [connect](core_src_SorobanContext.SorobanContextType.md#connect)
 - [connectors](core_src_SorobanContext.SorobanContextType.md#connectors)
+- [deployments](core_src_SorobanContext.SorobanContextType.md#deployments)
 - [disconnect](core_src_SorobanContext.SorobanContextType.md#disconnect)
 - [server](core_src_SorobanContext.SorobanContextType.md#server)
 - [serverHorizon](core_src_SorobanContext.SorobanContextType.md#serverhorizon)
 - [setActiveChain](core_src_SorobanContext.SorobanContextType.md#setactivechain)
+- [setActiveConnectorAndConnect](core_src_SorobanContext.SorobanContextType.md#setactiveconnectorandconnect)
 
 ## Properties
 
@@ -32,7 +36,7 @@ title: SorobanContextType
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:22](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L22)
+[core/src/SorobanContext.tsx:33](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L33)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:24](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L24)
+[core/src/SorobanContext.tsx:37](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L37)
 
 ___
 
@@ -52,7 +56,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:23](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L23)
+[core/src/SorobanContext.tsx:35](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L35)
 
 ___
 
@@ -62,7 +66,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:19](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L19)
+[core/src/SorobanContext.tsx:27](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L27)
 
 ___
 
@@ -72,7 +76,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:18](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L18)
+[core/src/SorobanContext.tsx:25](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L25)
 
 ___
 
@@ -82,7 +86,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:20](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L20)
+[core/src/SorobanContext.tsx:29](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L29)
 
 ___
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:27](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L27)
+[core/src/SorobanContext.tsx:43](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L43)
 
 ___
 
@@ -110,7 +114,17 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:21](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L21)
+[core/src/SorobanContext.tsx:31](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L31)
+
+___
+
+### deployments
+
+• `Optional` **deployments**: `ContractDeploymentInfo`[]
+
+#### Defined in
+
+[core/src/SorobanContext.tsx:51](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L51)
 
 ___
 
@@ -128,7 +142,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L28)
+[core/src/SorobanContext.tsx:45](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L45)
 
 ___
 
@@ -138,7 +152,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:25](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L25)
+[core/src/SorobanContext.tsx:39](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L39)
 
 ___
 
@@ -148,7 +162,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:26](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L26)
+[core/src/SorobanContext.tsx:41](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L41)
 
 ___
 
@@ -172,4 +186,28 @@ ___
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:29](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L29)
+[core/src/SorobanContext.tsx:47](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L47)
+
+___
+
+### setActiveConnectorAndConnect
+
+• `Optional` **setActiveConnectorAndConnect**: (`connector`: `Connector`) => `void`
+
+#### Type declaration
+
+▸ (`connector`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `connector` | `Connector` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[core/src/SorobanContext.tsx:49](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L49)

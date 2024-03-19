@@ -19,6 +19,8 @@ title: contracts/src
 - [TransactionStatus](contracts_src.md#transactionstatus)
 - [Tx](contracts_src.md#tx)
 - [TxResponse](contracts_src.md#txresponse)
+- [WrappedContract](contracts_src.md#wrappedcontract)
+- [WrappedContractInvokeArgs](contracts_src.md#wrappedcontractinvokeargs)
 - [contractInvoke](contracts_src.md#contractinvoke)
 - [contractTransaction](contracts_src.md#contracttransaction)
 - [contractTransactionProps](contracts_src.md#contracttransactionprops)
@@ -28,7 +30,10 @@ title: contracts/src
 - [signAndSendTransaction](contracts_src.md#signandsendtransaction)
 - [useContractValue](contracts_src.md#usecontractvalue)
 - [useContractValueProps](contracts_src.md#usecontractvalueprops)
+- [useRegisteredContract](contracts_src.md#useregisteredcontract)
 - [useSendTransaction](contracts_src.md#usesendtransaction)
+- [useWrappedContract](contracts_src.md#usewrappedcontract)
+- [wrapStellarAsset](contracts_src.md#wrapstellarasset)
 
 ## References
 
@@ -92,6 +97,18 @@ Re-exports [TxResponse](contracts_src_types.md#txresponse)
 
 ___
 
+### WrappedContract
+
+Re-exports [WrappedContract](contracts_src_useRegisteredContract.md#wrappedcontract)
+
+___
+
+### WrappedContractInvokeArgs
+
+Re-exports [WrappedContractInvokeArgs](contracts_src_useRegisteredContract.md#wrappedcontractinvokeargs)
+
+___
+
 ### contractInvoke
 
 Re-exports [contractInvoke](contracts_src_contractInvoke.md#contractinvoke)
@@ -146,6 +163,24 @@ Re-exports [useContractValueProps](../interfaces/contracts_src_useContractValue.
 
 ___
 
+### useRegisteredContract
+
+Re-exports [useRegisteredContract](contracts_src_useRegisteredContract.md#useregisteredcontract)
+
+___
+
 ### useSendTransaction
 
 Re-exports [useSendTransaction](contracts_src_useSendTransaction.md#usesendtransaction)
+
+___
+
+### useWrappedContract
+
+Re-exports [useWrappedContract](contracts_src_useRegisteredContract.md#usewrappedcontract)
+
+___
+
+### wrapStellarAsset
+
+Re-exports [wrapStellarAsset](contracts_src_wrapStellarAsset.md#wrapstellarasset)

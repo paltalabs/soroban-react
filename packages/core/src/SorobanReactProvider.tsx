@@ -7,9 +7,8 @@ import { SorobanContext, SorobanContextType, defaultSorobanContext } from '.'
 import { ContractDeploymentInfo } from '@soroban-react/types'
 
 /**
- * @param children - A React subtree that needs access to the context.
+ * Props for the SorobanReactProvider component.
  */
-
 export interface SorobanReactProviderProps {
   appName?: string
   autoconnect?: boolean
@@ -22,6 +21,12 @@ export interface SorobanReactProviderProps {
   deployments?: ContractDeploymentInfo[]
 }
 
+/**
+ * Converts network details to an active chain object.
+ * @param {any} networkDetails - Details of the network.
+ * @param {any[]} chains - Array of supported chains.
+ * @returns {WalletChain | undefined} - Active chain object or undefined if not found.
+ */
 function networkToActiveChain(networkDetails: any, chains: any) {
   const supported =
     networkDetails &&
@@ -41,18 +46,33 @@ function networkToActiveChain(networkDetails: any, chains: any) {
   return activeChain
 }
 
+/**
+ * Converts a Soroban RPC URL to a Soroban RPC server object.
+ * @param {string} sorobanRpcUrl - Soroban RPC URL.
+ * @returns {StellarSdk.SorobanRpc.Server} - Soroban RPC server object.
+ */
 function fromURLToServer(sorobanRpcUrl: string): StellarSdk.SorobanRpc.Server {
   return new StellarSdk.SorobanRpc.Server(sorobanRpcUrl, {
     allowHttp: sorobanRpcUrl.startsWith('http://'),
   })
 }
 
+/**
+ * Converts a horizon network URL to a Horizon server object.
+ * @param {string} networkUrl - Network URL.
+ * @returns {StellarSdk.Horizon.Server} - Horizon server object.
+ */
 function fromURLToHorizonServer(networkUrl: string): StellarSdk.Horizon.Server {
   return new StellarSdk.Horizon.Server(networkUrl, {
     allowHttp: networkUrl.startsWith('http://'),
   })
 }
 
+/**
+ * SorobanReactProvider component.
+ * Provides context for Soroban React application.
+ * @param {SorobanReactProviderProps} props - Props for the component.
+ */
 export function SorobanReactProvider({
   appName,
   autoconnect = false,

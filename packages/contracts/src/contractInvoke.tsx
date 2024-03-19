@@ -9,6 +9,9 @@ import { TxResponse } from './types'
 
 let xdr = StellarSdk.xdr
 
+/**
+ * Arguments for invoking a smart contract method call.
+ */
 export type InvokeArgs = {
   contractAddress: string
   method: string
@@ -25,6 +28,12 @@ export type InvokeArgs = {
 const defaultAddress =
   'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF'
 
+  /**
+ * Invokes a smart contract method.
+ * @param {InvokeArgs} args - Arguments for invoking the smart contract.
+ * @returns {Promise<TxResponse | StellarSdk.xdr.ScVal>} - A promise resolving to the transaction response or the result of the simulation.
+ * @throws {Error} - If there are errors during the contract invocation process.
+ */
 export async function contractInvoke({
   contractAddress,
   method,

@@ -10,7 +10,7 @@ title: chains/src
 ### Variables
 
 - [futurenet](chains_src.md#futurenet)
-- [public\_chain](chains_src.md#public_chain)
+- [mainnet](chains_src.md#mainnet)
 - [sandbox](chains_src.md#sandbox)
 - [standalone](chains_src.md#standalone)
 - [testnet](chains_src.md#testnet)
@@ -25,19 +25,19 @@ A `WalletChain` object representing the Futurenet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L28)
+[chains/src/index.tsx:28](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/chains/src/index.tsx#L28)
 
 ___
 
-### public\_chain
+### mainnet
 
-• `Const` **public\_chain**: `WalletChain`
+• `Const` **mainnet**: `WalletChain`
 
 A `WalletChain` object representing the public blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L15)
+[chains/src/index.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/chains/src/index.tsx#L15)
 
 ___
 
@@ -49,7 +49,7 @@ A `WalletChain` object representing the Sandbox blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:54](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L54)
+[chains/src/index.tsx:54](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/chains/src/index.tsx#L54)
 
 ___
 
@@ -61,7 +61,7 @@ A `WalletChain` object representing the Standalone blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:67](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L67)
+[chains/src/index.tsx:67](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/chains/src/index.tsx#L67)
 
 ___
 
@@ -73,4 +73,4 @@ A `WalletChain` object representing the Testnet blockchain network.
 
 #### Defined in
 
-[chains/src/index.tsx:41](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/chains/src/index.tsx#L41)
+[chains/src/index.tsx:41](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/chains/src/index.tsx#L41)

@@ -14,6 +14,16 @@ export type SignAndSendArgs = {
   sorobanContext: SorobanContextType
 }
 
+/**
+ * Signs and sends a transaction to the Stellar network.
+ * @param {Object} options - The options object.
+ * @param {Transaction} options.txn - The transaction to sign and send.
+ * @param {string} [options.secretKey] - The secret key for signing the transaction. Required if no active connector is provided in the Soroban context.
+ * @param {boolean} [options.skipAddingFootprint=false] - Flag indicating whether to skip adding footprint to the transaction. Defaults to false.
+ * @param {SorobanContextType} options.sorobanContext - The Soroban context containing server and active connector information.
+ * @returns {Promise<TxResponse>} A promise that resolves with the transaction response.
+ * @throws {Error} Throws an error if no secret key or active connector is provided, or if there is no server or network passphrase.
+ */
 export async function signAndSendTransaction({
   txn,
   secretKey,

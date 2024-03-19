@@ -22,7 +22,7 @@ title: contracts/src/types
 
 #### Defined in
 
-[contracts/src/types.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L15)
+[contracts/src/types.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/types.tsx#L15)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[contracts/src/types.tsx:10](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L10)
+[contracts/src/types.tsx:10](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/types.tsx#L10)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[contracts/src/types.tsx:11](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L11)
+[contracts/src/types.tsx:11](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/types.tsx#L11)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[contracts/src/types.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/types.tsx#L12)
+[contracts/src/types.tsx:12](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/types.tsx#L12)

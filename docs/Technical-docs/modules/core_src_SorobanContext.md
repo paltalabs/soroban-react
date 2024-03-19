@@ -24,7 +24,7 @@ title: core/src/SorobanContext
 
 #### Defined in
 
-[core/src/SorobanContext.tsx:32](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L32)
+[core/src/SorobanContext.tsx:55](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L55)
 
 ___
 
@@ -32,6 +32,8 @@ ___
 
 • `Const` **defaultSorobanContext**: [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md)
 
+Default Soroban context object.
+
 #### Defined in
 
-[core/src/SorobanContext.tsx:7](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanContext.tsx#L7)
+[core/src/SorobanContext.tsx:10](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanContext.tsx#L10)

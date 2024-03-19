@@ -21,4 +21,4 @@ title: WalletDataProps
 
 #### Defined in
 
-[wallet-data/src/index.tsx:8](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/wallet-data/src/index.tsx#L8)
+[wallet-data/src/index.tsx:8](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/wallet-data/src/index.tsx#L8)

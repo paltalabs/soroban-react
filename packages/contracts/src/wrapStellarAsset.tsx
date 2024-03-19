@@ -4,6 +4,14 @@ import * as StellarSdk from '@stellar/stellar-sdk'
 
 import { signAndSendTransaction } from './transaction'
 
+/**
+ * Creates a Stellar asset contract by wrapping a Stellar asset.
+ * @param code The code of the asset.
+ * @param issuer The issuer of the asset.
+ * @param sorobanContext The Soroban context containing information about the active chain, address, and server.
+ * @returns A promise that resolves to the result of the transaction.
+ * @throws An error if there is no active chain, not connected to a server, or no network passphrase.
+ */
 export async function wrapStellarAsset({
   code,
   issuer,

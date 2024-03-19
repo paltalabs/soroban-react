@@ -19,4 +19,4 @@ title: wallet-data/src/provideWalletChains
 
 #### Defined in
 
-[wallet-data/src/provideWalletChains.tsx:5](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/wallet-data/src/provideWalletChains.tsx#L5)
+[wallet-data/src/provideWalletChains.tsx:5](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/wallet-data/src/provideWalletChains.tsx#L5)

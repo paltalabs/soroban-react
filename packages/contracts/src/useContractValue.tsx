@@ -27,6 +27,11 @@ export interface useContractValueProps {
 // might be better named `useSimulateTransaction`, but not sure which is more clear...
 // TODO: Allow user to specify the wallet of the submitter, fees, etc... Maybe
 // a separate (lower-level) hook for `useSimulateTransaction` would be cleaner?
+/**
+ * A React hook that fetches the value of a contract method.
+ * @param {useContractValueProps} options - The options object.
+ * @returns {ContractValueType} An object containing the result, loading state, or error.
+ */
 export function useContractValue({
   contractAddress,
   method,
@@ -92,6 +97,12 @@ export interface fetchContractValueProps {
   source: StellarSdk.Account
 }
 
+/**
+ * Fetches the value of a contract method by simulating a transaction on the Soroban network.
+ * @param {fetchContractValueProps} options - The options object containing server, network passphrase, contract address, method, arguments, and source account.
+ * @returns {Promise<StellarSdk.xdr.ScVal>} A promise that resolves with the value of the contract method.
+ * @throws {Error} If the simulation encounters an error or if no result is returned.
+ */
 async function fetchContractValue({
   server,
   networkPassphrase,

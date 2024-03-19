@@ -28,13 +28,15 @@ title: contracts/src/useSendTransaction
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L9)
+[contracts/src/useSendTransaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L9)
 
 ## Functions
 
 ### useSendTransaction
 
 ▸ **useSendTransaction**\<`E`\>(`defaultTxn?`, `defaultOptions?`): [`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)\<`E`\>
+
+React hook for retrieving a function that can be used to send a transaction. Upon sending, it will poll server.getTransactionStatus, until the transaction succeeds/fails, and return the result.
 
 #### Type parameters
 
@@ -44,15 +46,17 @@ title: contracts/src/useSendTransaction
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `defaultTxn?` | [`Transaction`](contracts_src_types.md#transaction) |
-| `defaultOptions?` | [`SendTransactionOptions`](../interfaces/contracts_src_useSendTransaction.SendTransactionOptions.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `defaultTxn?` | [`Transaction`](contracts_src_types.md#transaction) | The default transaction to use. |
+| `defaultOptions?` | [`SendTransactionOptions`](../interfaces/contracts_src_useSendTransaction.SendTransactionOptions.md) | The default options for sending the transaction. |
 
 #### Returns
 
 [`SendTransactionResult`](../interfaces/contracts_src_useSendTransaction.SendTransactionResult.md)\<`E`\>
 
+A sendTransaction function
+
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:36](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L36)
+[contracts/src/useSendTransaction.tsx:45](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L45)

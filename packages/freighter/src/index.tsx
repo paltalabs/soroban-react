@@ -3,6 +3,10 @@ import { NetworkDetails, Connector } from '@soroban-react/types'
 
 import freighterApi from '@stellar/freighter-api'
 
+/**
+ * Returns a connector object for the Freighter wallet.
+ * @returns {Connector} - The connector object.
+ */
 export function freighter(): Connector {
   return {
     id: 'freighter',

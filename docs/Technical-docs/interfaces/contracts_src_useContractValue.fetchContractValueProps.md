@@ -26,7 +26,7 @@ title: fetchContractValueProps
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:91](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L91)
+[contracts/src/useContractValue.tsx:96](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L96)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:89](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L89)
+[contracts/src/useContractValue.tsx:94](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L94)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:90](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L90)
+[contracts/src/useContractValue.tsx:95](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L95)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:88](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L88)
+[contracts/src/useContractValue.tsx:93](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L93)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:87](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L87)
+[contracts/src/useContractValue.tsx:92](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L92)
 
 ___
 
@@ -76,4 +76,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:92](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L92)
+[contracts/src/useContractValue.tsx:97](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L97)

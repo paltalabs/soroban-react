@@ -1,12 +1,9 @@
 ---
-title: contracts/src/setTrustline
+title: contracts/src/wrapStellarAsset
 ---
-
 [soroban-react](../README.md) / contracts/src/wrapStellarAsset
 
 # Module: contracts/src/wrapStellarAsset
-
-Wraps a Stellar asset to be used on the Soroban network, enabling it to interact with Soroban smart contracts and functionalities.
 
 ## Table of contents
 
@@ -18,35 +15,29 @@ Wraps a Stellar asset to be used on the Soroban network, enabling it to interact
 
 ### wrapStellarAsset
 
-▸ **wrapStellarAsset**(`«destructured»`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
+▸ **wrapStellarAsset**(`«destructured»`): `Promise`\<`undefined` \| [`TxResponse`](contracts_src_types.md#txresponse)\>
 
-Wraps the specified Stellar asset by creating a corresponding asset on the Soroban network.
+Creates a Stellar asset contract by wrapping a Stellar asset.
 
 #### Parameters
 
-| Name               | Type                 |
-| :----------------- | :------------------- |
-| `«destructured»`   | `Object`             |
-| › `code`           | `string`             |
-| › `issuer`         | `string`             |
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
+| › `code` | `string` |
+| › `issuer` | `string` |
 | › `sorobanContext` | `SorobanContextType` |
 
 #### Returns
 
-`Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
+`Promise`\<`undefined` \| [`TxResponse`](contracts_src_types.md#txresponse)\>
+
+A promise that resolves to the result of the transaction.
+
+**`Throws`**
+
+An error if there is no active chain, not connected to a server, or no network passphrase.
 
 #### Defined in
 
-[contracts/src/setTrustline.tsx:5](https://github.com/paltalabs/soroban-react/packages/contracts/src/wrapStellarAsset.tsx)
-
-#### Example
-
-```ts
-const sorobanContext = useSorobanReact()
-const assetCode = 'USDC'
-const issuer = 'GDUKMGUGDQWSQ3SLQ2ZQVQ2U3RMLG5SZR5BHOYQTWQIWZ7STEE4JCAD4'
-
-wrapStellarAsset({ code: assetCode, issuer, sorobanContext })
-  .then(response => console.log(response))
-  .catch(error => console.error('Error wrapping asset:', error))
-```
+[contracts/src/wrapStellarAsset.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/wrapStellarAsset.tsx#L15)

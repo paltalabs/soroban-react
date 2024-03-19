@@ -7,9 +7,7 @@ title: SorobanReactProviderProps
 
 [core/src/SorobanReactProvider](../modules/core_src_SorobanReactProvider.md).SorobanReactProviderProps
 
-**`Param`**
-
-A React subtree that needs access to the context.
+Props for the SorobanReactProvider component.
 
 ## Table of contents
 
@@ -21,6 +19,7 @@ A React subtree that needs access to the context.
 - [chains](core_src_SorobanReactProvider.SorobanReactProviderProps.md#chains)
 - [children](core_src_SorobanReactProvider.SorobanReactProviderProps.md#children)
 - [connectors](core_src_SorobanReactProvider.SorobanReactProviderProps.md#connectors)
+- [deployments](core_src_SorobanReactProvider.SorobanReactProviderProps.md#deployments)
 - [server](core_src_SorobanReactProvider.SorobanReactProviderProps.md#server)
 - [serverHorizon](core_src_SorobanReactProvider.SorobanReactProviderProps.md#serverhorizon)
 
@@ -32,7 +31,7 @@ A React subtree that needs access to the context.
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:16](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L16)
+[core/src/SorobanReactProvider.tsx:16](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L16)
 
 ___
 
@@ -42,7 +41,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:13](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L13)
+[core/src/SorobanReactProvider.tsx:13](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L13)
 
 ___
 
@@ -52,7 +51,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:14](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L14)
+[core/src/SorobanReactProvider.tsx:14](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L14)
 
 ___
 
@@ -62,7 +61,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L15)
+[core/src/SorobanReactProvider.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L15)
 
 ___
 
@@ -72,7 +71,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:17](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L17)
+[core/src/SorobanReactProvider.tsx:17](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L17)
 
 ___
 
@@ -82,7 +81,17 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:18](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L18)
+[core/src/SorobanReactProvider.tsx:18](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L18)
+
+___
+
+### deployments
+
+• `Optional` **deployments**: `ContractDeploymentInfo`[]
+
+#### Defined in
+
+[core/src/SorobanReactProvider.tsx:21](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L21)
 
 ___
 
@@ -92,7 +101,7 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:19](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L19)
+[core/src/SorobanReactProvider.tsx:19](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L19)
 
 ___
 
@@ -102,4 +111,4 @@ ___
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:20](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L20)
+[core/src/SorobanReactProvider.tsx:20](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L20)
