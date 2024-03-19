@@ -19,13 +19,16 @@ title: core/src/SorobanReactProvider
 
 ### SorobanReactProvider
 
-▸ **SorobanReactProvider**(`«destructured»`): `Element`
+▸ **SorobanReactProvider**(`props`): `Element`
+
+SorobanReactProvider component.
+Provides context for Soroban React application.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`SorobanReactProviderProps`](../interfaces/core_src_SorobanReactProvider.SorobanReactProviderProps.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `props` | [`SorobanReactProviderProps`](../interfaces/core_src_SorobanReactProvider.SorobanReactProviderProps.md) | Props for the component. |
 
 #### Returns
 
@@ -33,4 +36,4 @@ title: core/src/SorobanReactProvider
 
 #### Defined in
 
-[core/src/SorobanReactProvider.tsx:54](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/SorobanReactProvider.tsx#L54)
+[core/src/SorobanReactProvider.tsx:76](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/SorobanReactProvider.tsx#L76)

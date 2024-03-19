@@ -15,6 +15,12 @@ export interface SendTransactionResult<E = Error> {
   isIdle: boolean
   isLoading: boolean
   isSuccess: boolean
+  /**
+   * Sends a transaction and returns the result.
+   * @param txn The transaction to send.
+   * @param opts Additional options for sending the transaction.
+   * @returns A promise that resolves to the transaction response or simulation result.
+   */
   sendTransaction: (
     txn?: Transaction,
     opts?: SendTransactionOptions
@@ -30,9 +36,12 @@ export interface SendTransactionOptions {
   sorobanContext?: SorobanContextType
 }
 
-// useSendTransaction is a hook that returns a function that can be used to
-// send a transaction. Upon sending, it will poll server.getTransactionStatus,
-// until the transaction succeeds/fails, and return the result.
+/**
+ * React hook for retrieving a function that can be used to send a transaction. Upon sending, it will poll server.getTransactionStatus, until the transaction succeeds/fails, and return the result.
+ * @param defaultTxn The default transaction to use.
+ * @param defaultOptions The default options for sending the transaction.
+ * @returns A sendTransaction function
+ */
 export function useSendTransaction<E = Error>(
   defaultTxn?: Transaction,
   defaultOptions?: SendTransactionOptions

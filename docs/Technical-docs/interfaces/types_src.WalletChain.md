@@ -29,7 +29,7 @@ title: WalletChain
 
 #### Defined in
 
-[types/src/index.tsx:14](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L14)
+[types/src/index.tsx:14](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L14)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L15)
+[types/src/index.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L15)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:11](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L11)
+[types/src/index.tsx:11](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L11)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L12)
+[types/src/index.tsx:12](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L12)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:17](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L17)
+[types/src/index.tsx:17](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L17)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:13](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L13)
+[types/src/index.tsx:13](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L13)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:18](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L18)
+[types/src/index.tsx:18](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L18)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:19](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L19)
+[types/src/index.tsx:19](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L19)
 
 ___
 
@@ -109,4 +109,4 @@ ___
 
 #### Defined in
 
-[types/src/index.tsx:16](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/types/src/index.tsx#L16)
+[types/src/index.tsx:16](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/types/src/index.tsx#L16)

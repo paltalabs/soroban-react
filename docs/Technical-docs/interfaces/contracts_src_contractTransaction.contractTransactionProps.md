@@ -7,6 +7,8 @@ title: contractTransactionProps
 
 [contracts/src/contractTransaction](../modules/contracts_src_contractTransaction.md).contractTransactionProps
 
+Properties for building a transaction to invoke a smart contract method call.
+
 ## Table of contents
 
 ### Properties
@@ -25,7 +27,7 @@ title: contractTransactionProps
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:8](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L8)
+[contracts/src/contractTransaction.tsx:11](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L11)
 
 ___
 
@@ -35,7 +37,7 @@ ___
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:6](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L6)
+[contracts/src/contractTransaction.tsx:9](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L9)
 
 ___
 
@@ -45,7 +47,7 @@ ___
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:7](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L7)
+[contracts/src/contractTransaction.tsx:10](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L10)
 
 ___
 
@@ -55,7 +57,7 @@ ___
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:4](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L4)
+[contracts/src/contractTransaction.tsx:7](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L7)
 
 ___
 
@@ -65,4 +67,4 @@ ___
 
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:5](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L5)
+[contracts/src/contractTransaction.tsx:8](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L8)

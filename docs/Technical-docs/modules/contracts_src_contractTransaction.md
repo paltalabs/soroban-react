@@ -19,18 +19,22 @@ title: contracts/src/contractTransaction
 
 ### contractTransaction
 
-▸ **contractTransaction**(`«destructured»`): `StellarSdk.Transaction`
+▸ **contractTransaction**(`props`): `StellarSdk.Transaction`
+
+Constructs a transaction to invoke a smart contract method call.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`contractTransactionProps`](../interfaces/contracts_src_contractTransaction.contractTransactionProps.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `props` | [`contractTransactionProps`](../interfaces/contracts_src_contractTransaction.contractTransactionProps.md) | Properties for building the transaction. |
 
 #### Returns
 
 `StellarSdk.Transaction`
 
+- The constructed transaction.
+
 #### Defined in
 
-[contracts/src/contractTransaction.tsx:11](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractTransaction.tsx#L11)
+[contracts/src/contractTransaction.tsx:19](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractTransaction.tsx#L19)

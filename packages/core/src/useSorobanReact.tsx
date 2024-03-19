@@ -3,6 +3,11 @@ import { useContext, Context } from 'react'
 import { SorobanContext } from './SorobanContext'
 import { SorobanContextType } from './SorobanContext'
 
+/**
+ * Custom hook to access the Soroban context.
+ * @returns {SorobanContextType} - The Soroban context.
+ * @throws {Error} - If the hook is not used within a Soroban context provider.
+ */
 export function useSorobanReact() {
   const context = useContext(
     SorobanContext as Context<SorobanContextType | undefined>

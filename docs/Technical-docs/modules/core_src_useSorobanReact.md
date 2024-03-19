@@ -17,10 +17,18 @@ title: core/src/useSorobanReact
 
 ▸ **useSorobanReact**(): [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md)
 
+Custom hook to access the Soroban context.
+
 #### Returns
 
 [`SorobanContextType`](../interfaces/core_src_SorobanContext.SorobanContextType.md)
 
+- The Soroban context.
+
+**`Throws`**
+
+- If the hook is not used within a Soroban context provider.
+
 #### Defined in
 
-[core/src/useSorobanReact.tsx:6](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/core/src/useSorobanReact.tsx#L6)
+[core/src/useSorobanReact.tsx:11](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/core/src/useSorobanReact.tsx#L11)

@@ -36,24 +36,28 @@ title: contracts/src/useContractValue
 
 #### Defined in
 
-[contracts/src/useContractValue.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L12)
+[contracts/src/useContractValue.tsx:12](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L12)
 
 ## Functions
 
 ### useContractValue
 
-▸ **useContractValue**(`«destructured»`): [`ContractValueType`](contracts_src_useContractValue.md#contractvaluetype)
+▸ **useContractValue**(`options`): [`ContractValueType`](contracts_src_useContractValue.md#contractvaluetype)
+
+A React hook that fetches the value of a contract method.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`useContractValueProps`](../interfaces/contracts_src_useContractValue.useContractValueProps.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | [`useContractValueProps`](../interfaces/contracts_src_useContractValue.useContractValueProps.md) | The options object. |
 
 #### Returns
 
 [`ContractValueType`](contracts_src_useContractValue.md#contractvaluetype)
 
+An object containing the result, loading state, or error.
+
 #### Defined in
 
-[contracts/src/useContractValue.tsx:30](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useContractValue.tsx#L30)
+[contracts/src/useContractValue.tsx:35](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useContractValue.tsx#L35)

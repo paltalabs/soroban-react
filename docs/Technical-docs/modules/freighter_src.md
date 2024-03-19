@@ -17,10 +17,14 @@ title: freighter/src
 
 ▸ **freighter**(): `Connector`
 
+Returns a connector object for the Freighter wallet.
+
 #### Returns
 
 `Connector`
 
+- The connector object.
+
 #### Defined in
 
-[freighter/src/index.tsx:6](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/freighter/src/index.tsx#L6)
+[freighter/src/index.tsx:10](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/freighter/src/index.tsx#L10)

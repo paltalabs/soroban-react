@@ -35,7 +35,7 @@ title: SendTransactionResult<E>
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L12)
+[contracts/src/useSendTransaction.tsx:12](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L12)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:13](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L13)
+[contracts/src/useSendTransaction.tsx:13](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L13)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:14](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L14)
+[contracts/src/useSendTransaction.tsx:14](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L14)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:15](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L15)
+[contracts/src/useSendTransaction.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L15)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:16](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L16)
+[contracts/src/useSendTransaction.tsx:16](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L16)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:17](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L17)
+[contracts/src/useSendTransaction.tsx:17](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L17)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:22](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L22)
+[contracts/src/useSendTransaction.tsx:28](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L28)
 
 ___
 
@@ -115,20 +115,24 @@ ___
 
 ▸ (`txn?`, `opts?`): `Promise`\<`SimulateTransactionResponse` \| `Object`\>
 
+Sends a transaction and returns the result.
+
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `txn?` | [`Transaction`](../modules/contracts_src_types.md#transaction) |
-| `opts?` | [`SendTransactionOptions`](contracts_src_useSendTransaction.SendTransactionOptions.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `txn?` | [`Transaction`](../modules/contracts_src_types.md#transaction) | The transaction to send. |
+| `opts?` | [`SendTransactionOptions`](contracts_src_useSendTransaction.SendTransactionOptions.md) | Additional options for sending the transaction. |
 
 ##### Returns
 
 `Promise`\<`SimulateTransactionResponse` \| `Object`\>
 
+A promise that resolves to the transaction response or simulation result.
+
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:18](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L18)
+[contracts/src/useSendTransaction.tsx:24](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L24)
 
 ___
 
@@ -138,4 +142,4 @@ ___
 
 #### Defined in
 
-[contracts/src/useSendTransaction.tsx:23](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/useSendTransaction.tsx#L23)
+[contracts/src/useSendTransaction.tsx:29](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/useSendTransaction.tsx#L29)

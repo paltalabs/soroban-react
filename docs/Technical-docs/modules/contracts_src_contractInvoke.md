@@ -21,6 +21,8 @@ title: contracts/src/contractInvoke
 
 Ƭ **InvokeArgs**: `Object`
 
+Arguments for invoking a smart contract method call.
+
 #### Type declaration
 
 | Name | Type |
@@ -37,24 +39,32 @@ title: contracts/src/contractInvoke
 
 #### Defined in
 
-[contracts/src/contractInvoke.tsx:12](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractInvoke.tsx#L12)
+[contracts/src/contractInvoke.tsx:15](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractInvoke.tsx#L15)
 
 ## Functions
 
 ### contractInvoke
 
-▸ **contractInvoke**(`«destructured»`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
+▸ **contractInvoke**(`args`): `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
+
+Invokes a smart contract method.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | [`InvokeArgs`](contracts_src_contractInvoke.md#invokeargs) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `args` | [`InvokeArgs`](contracts_src_contractInvoke.md#invokeargs) | Arguments for invoking the smart contract. |
 
 #### Returns
 
 `Promise`\<[`TxResponse`](contracts_src_types.md#txresponse) \| `StellarSdk.xdr.ScVal`\>
 
+- A promise resolving to the transaction response or the result of the simulation.
+
+**`Throws`**
+
+- If there are errors during the contract invocation process.
+
 #### Defined in
 
-[contracts/src/contractInvoke.tsx:28](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/contracts/src/contractInvoke.tsx#L28)
+[contracts/src/contractInvoke.tsx:37](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/contracts/src/contractInvoke.tsx#L37)

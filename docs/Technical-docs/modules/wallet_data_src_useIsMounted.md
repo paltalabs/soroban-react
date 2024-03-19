@@ -23,4 +23,4 @@ title: wallet-data/src/useIsMounted
 
 #### Defined in
 
-[wallet-data/src/useIsMounted.tsx:3](https://github.com/paltalabs/soroban-react/blob/50e8963/packages/wallet-data/src/useIsMounted.tsx#L3)
+[wallet-data/src/useIsMounted.tsx:3](https://github.com/paltalabs/soroban-react/blob/cce29de/packages/wallet-data/src/useIsMounted.tsx#L3)

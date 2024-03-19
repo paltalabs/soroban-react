@@ -5,6 +5,15 @@ import {TxResponse} from '.'
 import { useCallback, useEffect, useState } from 'react';
 import * as StellarSdk from '@stellar/stellar-sdk'
 
+
+/**
+ * Returns the deployment information for the given contract ID and network passphrase.
+ * @param deployments - The array of contract deployment information.
+ * @param contractId - The ID of the contract.
+ * @param networkPassphrase - The network passphrase.
+ * @returns The deployment information for the contract.
+ * @throws If the deployment is not found.
+ */
 const getDeployment = (deployments: ContractDeploymentInfo[], contractId: string, networkPassphrase: string) => {
     let deployment = deployments.find((deployment) => {
       return (
@@ -20,24 +29,34 @@ const getDeployment = (deployments: ContractDeploymentInfo[], contractId: string
     }
 }
 
+/**
+ * Represents the arguments for invoking methods on a wrapped contract. It needs less argument than invoking a contract that is not wrapped.
+ */
 export type WrappedContractInvokeArgs = {
-  // NO NEED contractAddress: string
   method: string
   args?: StellarSdk.xdr.ScVal[] | undefined
   signAndSend?: boolean
   fee?: number
   skipAddingFootprint?: boolean
   secretKey?: string
-  // NO NEED MAYBE sorobanContext: SorobanContextType
-  // If useSorobanReact called inside of wrapped function
   reconnectAfterTx?: boolean
 }
 
+
+/**
+ * Represents a wrapped contract object with deployment information and an custom invoke function.
+ */
 export type WrappedContract = {
   deploymentInfo: ContractDeploymentInfo,
   invoke: (args: WrappedContractInvokeArgs) => Promise<TxResponse | StellarSdk.xdr.ScVal>
 }
 
+/**
+ * React hook that returns a `WrappedContract` object configured with
+ * the provided deployment information.
+ * @param deploymentInfo - The deployment information for the contract.
+ * @returns The `WrappedContract` object.
+ */
 export const useWrappedContract = (
     deploymentInfo: ContractDeploymentInfo
   ) => {
@@ -69,9 +88,10 @@ export const useWrappedContract = (
   }
 
 /**
- * React Hook that returns a `WrappedContract` object configured with
- * the active context with the given deployment contract id which
- * is looked up from the deployments registry.
+ * React hook that returns a `WrappedContract` object for the given contract ID,
+ * looked up from the deployments registry for the active chain.
+ * @param contractId - The ID of the contract.
+ * @returns The `WrappedContract` object.
  */
 export const useRegisteredContract = (contractId: string) => {
   const { deployments, activeChain } = useSorobanReact()

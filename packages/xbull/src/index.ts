@@ -2,10 +2,17 @@
 import { xBullWalletConnect } from '@creit-tech/xbull-wallet-connect'
 import { NetworkDetails, Connector } from '@soroban-react/types'
 
+/**
+ * Interface representing parameters for signing with xBullWalletConnect.
+ */
 interface ISignParams {
   xdr: string, network?: string, publicKey?: string
 }
 
+/**
+ * Returns a connector object for the XBull wallet.
+ * @returns {Connector} - The connector object.
+ */
 export function xbull(): Connector {
 
     // We create a dummy bridge for the server side rendering
