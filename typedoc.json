@@ -1,5 +1,6 @@
 {
-    "entryPoints": ["./packages/**/src/**/*.tsx"],
+    "entryPoints": ["./packages/*"],
+    "entryPointStrategy": "packages",
     "out": "docs/Technical-docs",
     "exclude": [
         "**/node_modules/**",
@@ -8,8 +9,7 @@
       ],
     "excludeExternals": true,
     "excludePrivate": true,
-    "readme": "none",
-    "plugin": ["typedoc-plugin-markdown"],
-    "theme": "markdown"
+    "readme": "./README.md",
+    "plugin": ["typedoc-plugin-remove-references","typedoc-material-theme"]
   }
   
