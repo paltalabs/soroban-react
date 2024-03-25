@@ -3,6 +3,7 @@
 @soroban-react is a simple, powerful framework for building modern Soroban dApps using React.
 
 Check the technical docs in https://soroban-react.paltalabs.io/
+
 Made by ❤️ by the PaltaLabs 🥑 team.
 
 ## Packages
