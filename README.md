@@ -1,8 +1,9 @@
 # @soroban-react
 
-@soroban-react is a simple, powerful framework for building modern Soroban dApps using React!!!!!!!!!
+@soroban-react is a simple, powerful framework for building modern Soroban dApps using React.
 
-Library created based on [the code](https://github.com/stellar/soroban-example-dapp/tree/cb63b93b0eb79a797cd497942816379f7a3792ef/wallet) written by https://github.com/paulbellamy.
+Check the technical docs in https://soroban-react.paltalabs.io/
+Made by ❤️ by the PaltaLabs 🥑 team.
 
 ## Packages
 
@@ -165,3 +166,7 @@ yarn exec lerna version --force-publish
 yarn exec lerna publish from-package
 
 ```
+
+# Thanks
+Library created based on [the code](https://github.com/stellar/soroban-example-dapp/tree/cb63b93b0eb79a797cd497942816379f7a3792ef/wallet) written by https://github.com/paulbellamy.
+
