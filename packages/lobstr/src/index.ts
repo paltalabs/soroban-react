@@ -2,7 +2,7 @@ import { getPublicKey, isConnected, signTransaction } from '@lobstrco/signer-ext
 import { Connector, NetworkDetails } from '@soroban-react/types';
 
 /**
- * Returns a connector object for the XBull wallet.
+ * Returns a connector object for the Lobstr wallet.
  * @returns {Connector} - The connector object.
  */
 export function lobstr(): Connector {
