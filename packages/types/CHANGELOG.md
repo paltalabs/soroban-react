@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/esteblock/soroban-react/compare/v9.0.4...v9.1.0) (2024-04-29)
+
+**Note:** Version bump only for package @soroban-react/types
+
 ## [9.0.4](https://github.com/esteblock/soroban-react/compare/v9.0.3...v9.0.4) (2024-03-14)
 
 **Note:** Version bump only for package @soroban-react/types

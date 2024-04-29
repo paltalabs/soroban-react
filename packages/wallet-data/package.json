@@ -6,7 +6,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "9.0.4",
+  "version": "9.1.0",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -21,9 +21,9 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/connect-button": "^9.0.4",
-    "@soroban-react/core": "^9.0.4",
-    "@soroban-react/types": "^9.0.4",
+    "@soroban-react/connect-button": "^9.1.0",
+    "@soroban-react/core": "^9.1.0",
+    "@soroban-react/types": "^9.1.0",
     "@stellar/stellar-sdk": "11.1.0"
   },
   "peerDependencies": {
