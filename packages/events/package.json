@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -39,8 +39,8 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/core": "^9.1.0",
-    "@soroban-react/types": "^9.1.0",
+    "@soroban-react/core": "^9.1.1",
+    "@soroban-react/types": "^9.1.1",
     "soroban-client": "1.0.0-beta.4"
   },
   "devDependencies": {

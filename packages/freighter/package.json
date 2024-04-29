@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "9.1.0",
+  "version": "9.1.1",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -24,7 +24,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@soroban-react/types": "^9.1.0",
+    "@soroban-react/types": "^9.1.1",
     "@stellar/freighter-api": "1.7.1"
   },
   "gitHead": "84871bd4040ae59d1d8ef18007894fdd0917a8e4"
