@@ -15,7 +15,7 @@
     "start": "tsc --watch"
   },
   "dependencies": {
-    "@stellar/stellar-sdk": "11.1.0"
+    "@stellar/stellar-sdk": "11.3.0"
   },
   "main": "dist/index.js",
   "exports": "./dist/index.js",

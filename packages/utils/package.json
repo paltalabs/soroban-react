@@ -21,7 +21,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@stellar/stellar-sdk": "11.1.0",
+    "@stellar/stellar-sdk": "11.3.0",
     "bignumber.js": "^9.1.1"
   },
   "gitHead": "d91929201aef5960ccfaeedd3dbfeb83bd1d3918"
