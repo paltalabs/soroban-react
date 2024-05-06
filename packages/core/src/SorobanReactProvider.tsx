@@ -93,6 +93,7 @@ export function SorobanReactProvider({
   // const activeConnector = undefined
   const isConnectedRef = useRef(false)
   console.log('SorobanReactProvider is RELOADED')
+
   if (activeChain?.sorobanRpcUrl) {
     server = fromURLToServer(activeChain.sorobanRpcUrl)
   }
@@ -344,8 +345,10 @@ export function SorobanReactProvider({
           // We check that we have a valid network details and not a blank one like the one xbull connector would return
           if (
             networkDetails.network &&
-            newActiveChain.networkPassphrase !==
-              mySorobanContext.activeChain.networkPassphrase
+            (newActiveChain.networkPassphrase !==
+              mySorobanContext.activeChain.networkPassphrase ||
+              newActiveChain?.sorobanRpcUrl !==
+                mySorobanContext?.activeChain?.sorobanRpcUrl)
           ) {
             console.log(
               'SorobanReactProvider: network changed from:',
