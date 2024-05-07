@@ -20,6 +20,36 @@ Made by ❤️ by the PaltaLabs 🥑 team.
 | [`@soroban-react/wallet-data`](packages/wallet-data)       | [![npm version](https://img.shields.io/npm/v/@soroban-react/wallet-data/latest.svg)](https://www.npmjs.com/package/@soroban-react/wallet-data/v/latest)       |
 | [`@soroban-react/events`](packages/events)                 | [![npm version](https://img.shields.io/npm/v/@soroban-react/events/latest.svg)](https://www.npmjs.com/package/@soroban-react/events/v/latest)                 |
 
+you can set the default rpc with:
+
+```ts
+  <SorobanReactProvider
+    chains={chains}
+    appName={'Soroswap'}
+    connectors={connectors}
+    activeChain={{
+      ...activeChain,
+      sorobanRpcUrl:
+        'https://testnet.stellar.validationcloud.io/v1/Mewk7YPYiUy3wAlDNlQsIhwxbdumICRYrz2tXS2vOck',
+    }}
+  >
+    {children}
+  </SorobanReactProvider>
+```
+
+or if you are not sending an default activeChain:
+
+```ts
+   <SorobanReactProvider
+      chains={chains}
+      appName={'Soroswap'}
+      connectors={connectors}
+      server={fromURLToServer('https://testnet.stellar.validationcloud.io/v1/Mewk7YPYiUy3wAlDNlQsIhwxbdumICRYrz2tXS2vOck')}
+    >
+      {children}
+    </SorobanReactProvider>
+```
+
 
 # Introduction
 
