@@ -3,6 +3,9 @@
   "license": "Apache-2.0",
   "repository": "github:paltalabs/soroban-react",
   "version": "9.1.5",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
