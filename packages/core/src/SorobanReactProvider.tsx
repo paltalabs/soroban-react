@@ -1,5 +1,4 @@
-import { Connector, WalletChain } from '@soroban-react/types'
-import { ContractDeploymentInfo } from '@soroban-react/types'
+import { Connector, ContractDeploymentInfo, WalletChain } from '@soroban-react/types'
 import React, { useRef } from 'react'
 
 import * as StellarSdk from '@stellar/stellar-sdk'
@@ -121,6 +120,12 @@ export function SorobanReactProvider({
           if (mySorobanContext.activeConnector.id === 'freighter') {
             let networkDetails =
               await mySorobanContext.activeConnector.getNetworkDetails()
+            
+            //TODO: TEMP FIX while waiting for freighter to fix soroban public rpc https://github.com/stellar/freighter/issues/1335
+            if (networkDetails.sorobanRpcUrl === "http://soroban-rpc-pubnet-prd.soroban-rpc-pubnet-prd.svc.cluster.local:8000") {
+              networkDetails.sorobanRpcUrl = "https://mainnet.stellar.validationcloud.io/v1/XFb5Lma6smizBnnRPEgYMbuNm0K3FWzJ7854GNSQ2EY"
+            }
+            
             let activeChain = networkToActiveChain(networkDetails, chains)
 
             if (
@@ -340,6 +345,11 @@ export function SorobanReactProvider({
         try {
           let networkDetails =
             await mySorobanContext.activeConnector.getNetworkDetails()
+          
+          //TODO: TEMP FIX while waiting for freighter to fix soroban public rpc https://github.com/stellar/freighter/issues/1335
+          if (networkDetails.sorobanRpcUrl === "http://soroban-rpc-pubnet-prd.soroban-rpc-pubnet-prd.svc.cluster.local:8000") {
+            networkDetails.sorobanRpcUrl = "https://mainnet.stellar.validationcloud.io/v1/XFb5Lma6smizBnnRPEgYMbuNm0K3FWzJ7854GNSQ2EY"
+          }
           let newActiveChain = networkToActiveChain(networkDetails, chains)
 
           // We check that we have a valid network details and not a blank one like the one xbull connector would return
