@@ -27,8 +27,8 @@ declare const window: Window & {
 export function hana(): Connector {
   return {
     id: 'hana',
-    name: 'Hana Wallet',
-    iconUrl: async () => '',
+    name: 'Hana',
+    iconUrl: 'https://stellar.creit.tech/wallet-icons/hana.svg',
     iconBackground: '#fff',
     // TODO: Check this
     installed: true,

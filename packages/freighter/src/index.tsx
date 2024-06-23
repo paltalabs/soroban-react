@@ -11,7 +11,7 @@ export function freighter(): Connector {
   return {
     id: 'freighter',
     name: 'Freighter',
-    iconUrl: async () => '',
+    iconUrl: 'https://stellar.creit.tech/wallet-icons/freighter.svg',
     // iconUrl: async () => (await import('./freighter.svg')).default,
     iconBackground: '#fff',
     // TODO: Check this
