@@ -2,7 +2,7 @@
   "name": "@soroban-react/lobstr",
   "license": "Apache-2.0",
   "repository": "github:paltalabs/soroban-react",
-  "version": "9.1.7",
+  "version": "9.1.8",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@lobstrco/signer-extension-api": "^1.0.0-beta.0",
-    "@soroban-react/types": "^9.1.3",
+    "@soroban-react/types": "^9.1.8",
     "@stellar/stellar-sdk": "11.3.0"
   },
   "devDependencies": {
