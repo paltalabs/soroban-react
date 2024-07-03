@@ -32,7 +32,7 @@ export type Connector = {
     browserExtension?: string
     qrCode?: string
   }
-  isConnected: () => boolean
+  isConnected: () => Promise<boolean>
   getNetworkDetails: () => Promise<NetworkDetails>
   getPublicKey: () => Promise<string>
   signTransaction: (
@@ -56,10 +56,9 @@ export type ChainName =
 
 export type ChainMetadata = WalletChain
 
-
 // Type for top level contract registry
 export type ContractDeploymentInfo = {
-  contractId: string,
-  networkPassphrase: string,
+  contractId: string
+  networkPassphrase: string
   contractAddress: string
 }

@@ -20,8 +20,8 @@ export function freighter(): Connector {
       browserExtension:
         'https://chrome.google.com/webstore/detail/freighter/bcacfldlkkdogcmkkibnjlakofdplcbk?hl=en',
     },
-    isConnected(): boolean {
-      return !!freighterApi?.isConnected()
+    isConnected() {
+      return freighterApi?.isConnected()
     },
     getNetworkDetails(): Promise<NetworkDetails> {
       return freighterApi.getNetworkDetails()

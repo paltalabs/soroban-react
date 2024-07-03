@@ -46,9 +46,8 @@ export function xbull(): Connector {
       browserExtension:
         'https://chromewebstore.google.com/detail/xbull-wallet/omajpeaffjgmlpmhbfdjepdejoemifpe',
     },
-    isConnected(): boolean {
-      // return !!freighterApi?.isConnected()
-      return true
+    isConnected() {
+      return Promise.resolve((window as any)?.xBullSDK ? true : false)
     },
     getNetworkDetails(): Promise<NetworkDetails> {
       let blankNetwork = {

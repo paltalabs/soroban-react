@@ -1,5 +1,6 @@
 import { Connector, NetworkDetails } from '@soroban-react/types'
 
+import { isConnected as isConnectedLobstr } from '@lobstrco/signer-extension-api'
 import {
   getPublicKey,
   isConnected,
@@ -32,9 +33,8 @@ export function lobstr(): Connector {
     downloadUrls: {
       browserExtension: 'https://lobstr.co/',
     },
-    isConnected(): boolean {
-      // should be Promise<boolean> to use isConnected() from lobstr api
-      return true
+    isConnected() {
+      return isConnectedLobstr()
     },
     getNetworkDetails(): Promise<NetworkDetails> {
       let blankNetwork = {

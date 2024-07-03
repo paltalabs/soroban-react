@@ -36,8 +36,8 @@ export function hana(): Connector {
       browserExtension:
         'https://chromewebstore.google.com/detail/hana-wallet/jfdlamikmbghhapbgfoogdffldioobgl',
     },
-    isConnected(): boolean {
-      return !!window.hanaWallet?.stellar
+    isConnected() {
+      return Promise.resolve(!!window.hanaWallet?.stellar)
     },
     getNetworkDetails(): Promise<NetworkDetails> {
       if (!window.hanaWallet?.stellar) {
