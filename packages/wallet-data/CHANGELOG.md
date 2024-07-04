@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.10](https://github.com/esteblock/soroban-react/compare/v9.1.9...v9.1.10) (2024-07-04)
+
+**Note:** Version bump only for package @soroban-react/wallet-data
+
 ## [9.1.9](https://github.com/esteblock/soroban-react/compare/v9.1.8...v9.1.9) (2024-06-23)
 
 **Note:** Version bump only for package @soroban-react/wallet-data
