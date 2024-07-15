@@ -42,7 +42,7 @@
     "@soroban-react/freighter": "^9.1.10",
     "@soroban-react/lobstr": "^9.1.10",
     "@soroban-react/types": "^9.1.10",
-    "@soroban-react/xbull": "^1.0.1",
+    "@soroban-react/xbull": "^9.1.10",
     "@stellar/stellar-sdk": "11.3.0"
   },
   "devDependencies": {
