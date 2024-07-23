@@ -1,9 +1,8 @@
 import { SorobanContextType } from '@soroban-react/core'
 
-import { Sign } from 'crypto'
 import * as StellarSdk from '@stellar/stellar-sdk'
-
 import { SorobanRpc } from '@stellar/stellar-sdk'
+import { Sign } from 'crypto'
 
 import type { Tx, Transaction, TxResponse } from './types'
 
@@ -12,6 +11,7 @@ export type SignAndSendArgs = {
   secretKey?: string
   skipAddingFootprint?: boolean
   sorobanContext: SorobanContextType
+  timeoutSeconds?: number
 }
 
 /**
@@ -29,6 +29,7 @@ export async function signAndSendTransaction({
   secretKey,
   skipAddingFootprint = false,
   sorobanContext,
+  timeoutSeconds = 20,
 }: SignAndSendArgs): Promise<TxResponse> {
   let networkPassphrase = sorobanContext.activeChain?.networkPassphrase
   let server = sorobanContext.server
@@ -71,15 +72,17 @@ export async function signAndSendTransaction({
     signed = txn.toXDR()
   } else if (sorobanContext.activeConnector) {
     // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
-    console.log("TRANSACTION SIGN AND SEND OPTS",{networkPassphrase,
+    console.log('TRANSACTION SIGN AND SEND OPTS', {
+      networkPassphrase,
       network: sorobanContext.activeChain?.id,
-      accountToSign: sorobanContext.address})
+      accountToSign: sorobanContext.address,
+    })
     signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR(), {
       networkPassphrase,
       network: sorobanContext.activeChain?.id,
-      accountToSign: sorobanContext.address
+      accountToSign: sorobanContext.address,
     })
-    console.log("Wallet has signed: ", signed)
+    console.log('Wallet has signed: ', signed)
   } else {
     throw new Error(
       'signAndSendTransaction: no secretKey, neither active Connector'
@@ -92,7 +95,7 @@ export async function signAndSendTransaction({
   )
 
   let tx = transactionToSubmit as Tx
-  let secondsToWait = 20
+  let secondsToWait = timeoutSeconds
 
   const raw = await sendTx({ tx, secondsToWait, server })
 
@@ -113,27 +116,33 @@ export async function sendTx({
     sendTransactionResponse.hash
   )
   const waitUntil = new Date(Date.now() + secondsToWait * 1000).valueOf()
-  
+
   let waitTime = 1000
   let exponentialFactor = 1.5
-  
+
   while (
     Date.now() < waitUntil &&
     getTransactionResponse.status === 'NOT_FOUND'
-    ) {
-      // Wait a beat
-      await new Promise(resolve => setTimeout(resolve, waitTime))
-      /// Exponential backoff
-      waitTime = waitTime * exponentialFactor
-      // See if the transaction is complete
+  ) {
+    // Wait a beat
+    await new Promise(resolve => setTimeout(resolve, waitTime))
+    /// Exponential backoff
+    waitTime = waitTime * exponentialFactor
+    // See if the transaction is complete
+    try {
       getTransactionResponse = await server.getTransaction(
         sendTransactionResponse.hash
-        )
-      }
-      
-  console.log("Transaction result is ", getTransactionResponse)
+      )
+    } catch (error) {
+      console.log('Failed to get transaction, trying again until timeout...')
+      console.error(error)
+    }
+  }
+
+  console.log('Transaction result is ', getTransactionResponse)
   if (
-    getTransactionResponse.status === SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
+    getTransactionResponse.status ===
+    SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
     console.error(
       `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +

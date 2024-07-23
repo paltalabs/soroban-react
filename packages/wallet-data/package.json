@@ -24,7 +24,7 @@
     "@soroban-react/connect-button": "^9.1.12",
     "@soroban-react/core": "^9.1.12",
     "@soroban-react/types": "^9.1.12",
-    "@stellar/stellar-sdk": "11.3.0"
+    "@stellar/stellar-sdk": "12.2.0"
   },
   "peerDependencies": {
     "react": ">=16.8"

@@ -21,6 +21,7 @@
     "typedoc": "^0.24.8",
     "typedoc-plugin-markdown": "^3.15.3"
   },
+  "packageManager": "yarn@1.22.22",
   "dependencies": {
     "-": "^0.0.1",
     "@types/node": "^20.3.1",

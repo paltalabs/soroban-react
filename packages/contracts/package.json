@@ -22,6 +22,7 @@
   "files": [
     "/dist"
   ],
+  "packageManager": "yarn@1.22.22",
   "jest": {
     "setupFilesAfterEnv": [
       "./jest.setup.js"
@@ -30,7 +31,7 @@
   },
   "dependencies": {
     "@soroban-react/core": "^9.1.12",
-    "@stellar/stellar-sdk": "11.3.0"
+    "@stellar/stellar-sdk": "12.2.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
