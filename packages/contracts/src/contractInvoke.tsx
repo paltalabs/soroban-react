@@ -22,13 +22,14 @@ export type InvokeArgs = {
   secretKey?: string
   sorobanContext: SorobanContextType
   reconnectAfterTx?: boolean
+  timeoutSeconds?: number
 }
 
 // Dummy source account for simulation. The public key for this is all 0-bytes.
 const defaultAddress =
   'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF'
 
-  /**
+/**
  * Invokes a smart contract method.
  * @param {InvokeArgs} args - Arguments for invoking the smart contract.
  * @returns {Promise<TxResponse | StellarSdk.xdr.ScVal>} - A promise resolving to the transaction response or the result of the simulation.
@@ -44,6 +45,7 @@ export async function contractInvoke({
   secretKey,
   sorobanContext,
   reconnectAfterTx = true,
+  timeoutSeconds = 20,
 }: InvokeArgs): Promise<TxResponse | StellarSdk.xdr.ScVal> {
   const { server, address, activeChain } = sorobanContext
 
@@ -103,6 +105,7 @@ export async function contractInvoke({
       skipAddingFootprint,
       secretKey,
       sorobanContext,
+      timeoutSeconds,
     })
 
     if (reconnectAfterTx) {
