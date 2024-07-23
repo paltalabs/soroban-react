@@ -16,7 +16,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "9.1.12",
+  "version": "9.1.13",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -39,10 +39,10 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/freighter": "^9.1.12",
-    "@soroban-react/lobstr": "^9.1.12",
-    "@soroban-react/types": "^9.1.12",
-    "@soroban-react/xbull": "^9.1.12",
+    "@soroban-react/freighter": "^9.1.13",
+    "@soroban-react/lobstr": "^9.1.13",
+    "@soroban-react/types": "^9.1.13",
+    "@soroban-react/xbull": "^9.1.13",
     "@stellar/stellar-sdk": "12.2.0"
   },
   "devDependencies": {
