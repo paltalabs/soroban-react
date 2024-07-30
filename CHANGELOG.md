@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.2](https://github.com/paltalabs/soroban-react/compare/v9.2.1...v9.2.2) (2024-07-30)
+
+### Bug Fixes
+
+- **contracts:** set wrappedContract undefined if not found ([4b6cdaf](https://github.com/paltalabs/soroban-react/commit/4b6cdaf90b485a7b599dcca992fbcf32a546cc04))
+
 ## [9.2.1](https://github.com/paltalabs/soroban-react/compare/v9.2.0...v9.2.1) (2024-07-30)
 
 ### Bug Fixes
