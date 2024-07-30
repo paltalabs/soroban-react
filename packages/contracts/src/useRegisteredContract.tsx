@@ -1,10 +1,11 @@
 import { useSorobanReact } from '@soroban-react/core'
-import {type ContractDeploymentInfo} from '@soroban-react/types'
-import { contractInvoke,type InvokeArgs } from './contractInvoke'
-import {TxResponse} from '.'
-import { useCallback, useEffect, useState } from 'react';
+import { type ContractDeploymentInfo } from '@soroban-react/types'
+import { useCallback, useEffect, useState } from 'react'
+
 import * as StellarSdk from '@stellar/stellar-sdk'
 
+import { TxResponse } from '.'
+import { contractInvoke, type InvokeArgs } from './contractInvoke'
 
 /**
  * Returns the deployment information for the given contract ID and network passphrase.
@@ -14,19 +15,20 @@ import * as StellarSdk from '@stellar/stellar-sdk'
  * @returns The deployment information for the contract.
  * @throws If the deployment is not found.
  */
-const getDeployment = (deployments: ContractDeploymentInfo[], contractId: string, networkPassphrase: string) => {
-    let deployment = deployments.find((deployment) => {
-      return (
-        deployment.contractId.toLowerCase() === contractId.toLowerCase() &&
-        deployment.networkPassphrase.toLowerCase() === (networkPassphrase || '').toLowerCase()
-      )
-    })
-    if (!deployment) {
-        throw new Error("Deployment not found")
-    }
-    else {
-        return deployment
-    }
+const getDeployment = (
+  deployments: ContractDeploymentInfo[],
+  contractId: string,
+  networkPassphrase: string
+) => {
+  let deployment = deployments.find(deployment => {
+    return (
+      deployment.contractId.toLowerCase() === contractId.toLowerCase() &&
+      deployment.networkPassphrase.toLowerCase() ===
+        (networkPassphrase || '').toLowerCase()
+    )
+  })
+
+  return deployment
 }
 
 /**
@@ -42,13 +44,14 @@ export type WrappedContractInvokeArgs = {
   reconnectAfterTx?: boolean
 }
 
-
 /**
  * Represents a wrapped contract object with deployment information and an custom invoke function.
  */
 export type WrappedContract = {
-  deploymentInfo: ContractDeploymentInfo,
-  invoke: (args: WrappedContractInvokeArgs) => Promise<TxResponse | StellarSdk.xdr.ScVal>
+  deploymentInfo: ContractDeploymentInfo
+  invoke: (
+    args: WrappedContractInvokeArgs
+  ) => Promise<TxResponse | StellarSdk.xdr.ScVal>
 }
 
 /**
@@ -57,35 +60,37 @@ export type WrappedContract = {
  * @param deploymentInfo - The deployment information for the contract.
  * @returns The `WrappedContract` object.
  */
-export const useWrappedContract = (
-    deploymentInfo: ContractDeploymentInfo
-  ) => {
-    const sorobanContext = useSorobanReact()
-    const [wrappedContract, setwWrappedContract] = useState<WrappedContract | undefined>()
-  
-    const wrappedInvokeFunction = useCallback(async (args: WrappedContractInvokeArgs) => {
-        const contractInvokeArgs: InvokeArgs ={
-            ...args,
-            sorobanContext,
-            contractAddress: deploymentInfo.contractAddress
-        }
-        return contractInvoke(contractInvokeArgs)
-    }, [sorobanContext, deploymentInfo])
+export const useWrappedContract = (deploymentInfo: ContractDeploymentInfo) => {
+  const sorobanContext = useSorobanReact()
+  const [wrappedContract, setwWrappedContract] = useState<
+    WrappedContract | undefined
+  >()
 
-
-    const createWrappedContract = () => {
-      const newWrappedContract: WrappedContract = {
-        deploymentInfo,
-        invoke: wrappedInvokeFunction
+  const wrappedInvokeFunction = useCallback(
+    async (args: WrappedContractInvokeArgs) => {
+      const contractInvokeArgs: InvokeArgs = {
+        ...args,
+        sorobanContext,
+        contractAddress: deploymentInfo.contractAddress,
       }
-      setwWrappedContract(newWrappedContract)
+      return contractInvoke(contractInvokeArgs)
+    },
+    [sorobanContext, deploymentInfo]
+  )
+
+  const createWrappedContract = () => {
+    const newWrappedContract: WrappedContract = {
+      deploymentInfo,
+      invoke: wrappedInvokeFunction,
     }
-    useEffect(() => {
-        createWrappedContract()
-    }, [deploymentInfo, wrappedInvokeFunction])
-  
-    return wrappedContract
+    setwWrappedContract(newWrappedContract)
   }
+  useEffect(() => {
+    createWrappedContract()
+  }, [deploymentInfo, wrappedInvokeFunction])
+
+  return wrappedContract
+}
 
 /**
  * React hook that returns a `WrappedContract` object for the given contract ID,
@@ -98,7 +103,13 @@ export const useRegisteredContract = (contractId: string) => {
 
   let networkPassphrase = activeChain?.networkPassphrase || ''
 
-  const deploymentInfo = getDeployment(deployments || [], contractId, networkPassphrase)
+  const deploymentInfo = getDeployment(
+    deployments || [],
+    contractId,
+    networkPassphrase
+  )
+
+  if (!deploymentInfo) return undefined
 
   return useWrappedContract(deploymentInfo)
 }
