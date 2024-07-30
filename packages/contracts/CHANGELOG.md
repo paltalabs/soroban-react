@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/esteblock/soroban-react/compare/v9.1.13...v9.2.0) (2024-07-30)
+
+### Features
+
+- **contracts:** return undefined instead of throw error on useRegisteredContract [#103](https://github.com/esteblock/soroban-react/issues/103) ([06888f3](https://github.com/esteblock/soroban-react/commit/06888f3fefdcea37098d4ca36d8ab6ff1f648b01))
+
 ## [9.1.12](https://github.com/esteblock/soroban-react/compare/v9.1.11...v9.1.12) (2024-07-15)
 
 **Note:** Version bump only for package @soroban-react/contracts
