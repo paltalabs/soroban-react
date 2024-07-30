@@ -81,7 +81,10 @@ export const useWrappedContract = (
   )
 
   useEffect(() => {
-    if (!deploymentInfo) return
+    if (!deploymentInfo) {
+      setwWrappedContract(undefined)
+      return
+    }
 
     const newWrappedContract: WrappedContract = {
       deploymentInfo,
