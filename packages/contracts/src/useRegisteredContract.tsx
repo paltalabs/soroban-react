@@ -60,33 +60,34 @@ export type WrappedContract = {
  * @param deploymentInfo - The deployment information for the contract.
  * @returns The `WrappedContract` object.
  */
-export const useWrappedContract = (deploymentInfo: ContractDeploymentInfo) => {
+export const useWrappedContract = (
+  deploymentInfo: ContractDeploymentInfo | undefined
+) => {
   const sorobanContext = useSorobanReact()
   const [wrappedContract, setwWrappedContract] = useState<
     WrappedContract | undefined
-  >()
+  >(undefined)
 
   const wrappedInvokeFunction = useCallback(
     async (args: WrappedContractInvokeArgs) => {
       const contractInvokeArgs: InvokeArgs = {
         ...args,
         sorobanContext,
-        contractAddress: deploymentInfo.contractAddress,
+        contractAddress: deploymentInfo?.contractAddress!,
       }
       return contractInvoke(contractInvokeArgs)
     },
     [sorobanContext, deploymentInfo]
   )
 
-  const createWrappedContract = () => {
+  useEffect(() => {
+    if (!deploymentInfo) return
+
     const newWrappedContract: WrappedContract = {
       deploymentInfo,
       invoke: wrappedInvokeFunction,
     }
     setwWrappedContract(newWrappedContract)
-  }
-  useEffect(() => {
-    createWrappedContract()
   }, [deploymentInfo, wrappedInvokeFunction])
 
   return wrappedContract
@@ -108,8 +109,6 @@ export const useRegisteredContract = (contractId: string) => {
     contractId,
     networkPassphrase
   )
-
-  if (!deploymentInfo) return undefined
 
   return useWrappedContract(deploymentInfo)
 }
