@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.1](https://github.com/esteblock/soroban-react/compare/v9.2.0...v9.2.1) (2024-07-30)
+
+### Bug Fixes
+
+- **contracts:** fix useWrappedContract returns ([f05418a](https://github.com/esteblock/soroban-react/commit/f05418a581c72622aaa20ed4f7c7614192924370))
+
 # [9.2.0](https://github.com/esteblock/soroban-react/compare/v9.1.13...v9.2.0) (2024-07-30)
 
 ### Features
