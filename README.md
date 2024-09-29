@@ -126,7 +126,7 @@ npm login
 Then, commit your changes with [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with
 
 ```
-commit -m "feat(SUB_PACKAGE_NAME): change"
+git commit -m "feat(SUB_PACKAGE_NAME): change"
 ```
 
 And finally

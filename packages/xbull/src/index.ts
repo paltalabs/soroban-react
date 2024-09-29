@@ -1,7 +1,6 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 import { NetworkDetails, Connector } from '@soroban-react/types'
-
-import { xBullWalletConnect } from '@creit-tech/xbull-wallet-connect'
+import { xBullWalletConnect } from '@creit.tech/xbull-wallet-connect';
 
 /**
  * Interface representing parameters for signing with xBullWalletConnect.
