@@ -2,7 +2,7 @@
   "name": "@soroban-react/xbull",
   "license": "Apache-2.0",
   "repository": "github:paltalabs/soroban-react",
-  "version": "9.1.13",
+  "version": "9.3.0",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",

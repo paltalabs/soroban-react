@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/paltalabs/soroban-react/compare/v9.2.2...v9.3.0) (2024-09-29)
+
+### Features
+
+- **xbull:** upgrade xbull-wallet-connect to 0.3.0 ([9eec6d3](https://github.com/paltalabs/soroban-react/commit/9eec6d3a2d5b94983a518931a9f9b8cdd5dcdff4))
+- **xbull:** upgrade xbull-wallet-connect to 0.3.0 ([0fb936e](https://github.com/paltalabs/soroban-react/commit/0fb936e831ec883d375e60cb8e6507e6f60045b1))
+
 ## [9.2.2](https://github.com/paltalabs/soroban-react/compare/v9.2.1...v9.2.2) (2024-07-30)
 
 ### Bug Fixes

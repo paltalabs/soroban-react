@@ -6,7 +6,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:esteblock/soroban-react",
-  "version": "9.2.2",
+  "version": "9.3.0",
   "scripts": {
     "prebuild-windows": "del /s /q dist",
     "prebuild": "rm -rf dist",
@@ -30,7 +30,7 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "@soroban-react/core": "^9.1.13",
+    "@soroban-react/core": "^9.3.0",
     "@stellar/stellar-sdk": "12.2.0"
   },
   "devDependencies": {
