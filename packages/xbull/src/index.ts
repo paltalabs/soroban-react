@@ -44,7 +44,7 @@ export function xbull(): Connector {
     installed: true,
     downloadUrls: {
       browserExtension:
-        'https://chromewebstore.google.com/detail/xbull-wallet/omajpeaffjgmlpmhbfdjepdejoemifpe',
+        'https://xbull.app/download/',
     },
     isConnected() {
       return Promise.resolve((window as any)?.xBullSDK ? true : false)
