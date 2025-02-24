@@ -1,7 +1,9 @@
-import { useContext, Context } from 'react'
+import { useContext, Context, createContext} from 'react'
+import { SorobanContextType } from './types'
 
-import { SorobanContext } from './SorobanContext'
-import { SorobanContextType } from './SorobanContext'
+export const SorobanContext = createContext<SorobanContextType | undefined>(
+  undefined
+)
 
 /**
  * Custom hook to access the Soroban context.
@@ -10,7 +12,7 @@ import { SorobanContextType } from './SorobanContext'
  */
 export function useSorobanReact() {
   const context = useContext(
-    SorobanContext as Context<SorobanContextType | undefined>
+    SorobanContext as Context<SorobanContextType>
   )
   if (!context)
     throw Error(
