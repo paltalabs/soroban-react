@@ -1,5 +1,5 @@
 import * as StellarSdk from '@stellar/stellar-sdk'
-import { SorobanRpc } from '@stellar/stellar-sdk'
+import { rpc } from '@stellar/stellar-sdk'
 import type {
   Memo,
   MemoType,
@@ -9,7 +9,7 @@ import type {
 
 export type Transaction = StellarSdk.Transaction | StellarSdk.FeeBumpTransaction
 export type Tx = StellarSdkTransaction<Memo<MemoType>, Operation[]>
-export type TxResponse = SorobanRpc.Api.GetTransactionResponse & {
+export type TxResponse = rpc.Api.GetTransactionResponse & {
   txHash: string
 }
-export type Simulation = SorobanRpc.Api.SimulateTransactionResponse
+export type Simulation = rpc.Api.SimulateTransactionResponse

@@ -8,9 +8,9 @@ import { signAndSendTransaction } from './transaction'
  * Creates a Stellar asset contract by wrapping a Stellar asset.
  * @param code The code of the asset.
  * @param issuer The issuer of the asset.
- * @param sorobanContext The Soroban context containing information about the active chain, address, and server.
+ * @param sorobanContext The Soroban context containing information about the active chain, address, and sorobanServer.
  * @returns A promise that resolves to the result of the transaction.
- * @throws An error if there is no active chain, not connected to a server, or no network passphrase.
+ * @throws An error if there is no active chain, not connected to a sorobanServer, or no network passphrase.
  */
 export async function wrapStellarAsset({
   code,
@@ -21,19 +21,19 @@ export async function wrapStellarAsset({
   issuer: string
   sorobanContext: SorobanContextType
 }) {
-  const { activeChain, address, server } = sorobanContext
-  const networkPassphrase = sorobanContext.activeChain?.networkPassphrase ?? ''
+  const { activeNetwork, address, sorobanServer } = sorobanContext
+  const networkPassphrase = sorobanContext.activeNetwork ?? ''
 
-  if (!activeChain) {
+  if (!activeNetwork) {
     throw new Error('No active Chain')
   }
-  if (!server) {
+  if (!sorobanServer) {
     throw new Error('No connected to a Server')
   }
 
   if (!networkPassphrase) throw new Error('No networkPassphrase')
 
-  let source = await server.getAccount(address!)
+  let source = await sorobanServer.getAccount(address!)
 
   const operation = StellarSdk.Operation.createStellarAssetContract({
     asset: new StellarSdk.Asset(code, issuer),

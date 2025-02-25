@@ -1,7 +1,7 @@
 import { SorobanContextType } from '@soroban-react/core'
 
 import * as StellarSdk from '@stellar/stellar-sdk'
-import { SorobanRpc } from '@stellar/stellar-sdk'
+import { rpc } from '@stellar/stellar-sdk'
 import { Sign } from 'crypto'
 
 import type { Tx, Transaction, TxResponse } from './types'
@@ -20,9 +20,9 @@ export type SignAndSendArgs = {
  * @param {Transaction} options.txn - The transaction to sign and send.
  * @param {string} [options.secretKey] - The secret key for signing the transaction. Required if no active connector is provided in the Soroban context.
  * @param {boolean} [options.skipAddingFootprint=false] - Flag indicating whether to skip adding footprint to the transaction. Defaults to false.
- * @param {SorobanContextType} options.sorobanContext - The Soroban context containing server and active connector information.
+ * @param {SorobanContextType} options.sorobanContext - The Soroban context containing sorobanServer and active connector information.
  * @returns {Promise<TxResponse>} A promise that resolves with the transaction response.
- * @throws {Error} Throws an error if no secret key or active connector is provided, or if there is no server or network passphrase.
+ * @throws {Error} Throws an error if no secret key or active connector is provided, or if there is no sorobanServer or network passphrase.
  */
 export async function signAndSendTransaction({
   txn,
@@ -31,17 +31,17 @@ export async function signAndSendTransaction({
   sorobanContext,
   timeoutSeconds = 20,
 }: SignAndSendArgs): Promise<TxResponse> {
-  let networkPassphrase = sorobanContext.activeChain?.networkPassphrase
-  let server = sorobanContext.server
+  let networkPassphrase = sorobanContext.activeNetwork
+  let sorobanServer = sorobanContext.sorobanServer
 
-  if (!secretKey && !sorobanContext.activeConnector)
-    throw Error('signAndSend: no secretKey neither activeConnector')
-  if (!server) throw Error('signAndSend: no server')
+  if (!secretKey && !sorobanContext.kit)
+    throw Error('signAndSend: no secretKey neither address')
+  if (!sorobanServer) throw Error('signAndSend: no sorobanServer')
   if (!networkPassphrase) throw Error('signAndSend: no networkPassphrase')
 
   // preflight and add the footprint !
   if (!skipAddingFootprint) {
-    txn = await server.prepareTransaction(txn)
+    txn = await sorobanServer.prepareTransaction(txn)
     if (!txn) {
       throw new Error('No transaction after adding footprint')
     }
@@ -64,40 +64,44 @@ export async function signAndSendTransaction({
   //   // }
   // }
 
-  let signed = ''
+  let signedTxXdr = ''
   if (secretKey) {
     // User as set a secretKey, txn will be signed using the secretKey
     const keypair = StellarSdk.Keypair.fromSecret(secretKey)
     txn.sign(keypair)
-    signed = txn.toXDR()
-  } else if (sorobanContext.activeConnector) {
+    signedTxXdr = txn.toXDR()
+  } else if (sorobanContext.address) {
     // User has not set a secretKey, txn will be signed using the Connector (wallet) provided in the sorobanContext
     console.log('TRANSACTION SIGN AND SEND OPTS', {
       networkPassphrase,
-      network: sorobanContext.activeChain?.id,
       accountToSign: sorobanContext.address,
     })
-    signed = await sorobanContext.activeConnector.signTransaction(txn.toXDR(), {
+    const signResult = await sorobanContext.kit?.signTransaction(txn.toXDR(), {
       networkPassphrase,
-      network: sorobanContext.activeChain?.id,
-      accountToSign: sorobanContext.address,
+      address: sorobanContext.address,
     })
-    console.log('Wallet has signed: ', signed)
+    if (!signResult || !signResult.signedTxXdr) {
+      throw new Error('Failed to sign transaction')
+    }
+  
+    const { signedTxXdr } = signResult
+
+    console.log('Wallet has signed: ', signedTxXdr)
   } else {
     throw new Error(
-      'signAndSendTransaction: no secretKey, neither active Connector'
+      'signAndSendTransaction: no secretKey, neither active kit'
     )
   }
 
   const transactionToSubmit = StellarSdk.TransactionBuilder.fromXDR(
-    signed,
+    signedTxXdr,
     networkPassphrase
   )
 
   let tx = transactionToSubmit as Tx
   let secondsToWait = timeoutSeconds
 
-  const raw = await sendTx({ tx, secondsToWait, server })
+  const raw = await sendTx({ tx, secondsToWait, sorobanServer })
 
   return raw
 }
@@ -105,14 +109,14 @@ export async function signAndSendTransaction({
 export async function sendTx({
   tx,
   secondsToWait,
-  server,
+  sorobanServer,
 }: {
   tx: Tx
   secondsToWait: number
-  server: StellarSdk.SorobanRpc.Server
+  sorobanServer: StellarSdk.rpc.Server
 }): Promise<TxResponse> {
-  const sendTransactionResponse = await server.sendTransaction(tx)
-  let getTransactionResponse = await server.getTransaction(
+  const sendTransactionResponse = await sorobanServer.sendTransaction(tx)
+  let getTransactionResponse = await sorobanServer.getTransaction(
     sendTransactionResponse.hash
   )
   const waitUntil = new Date(Date.now() + secondsToWait * 1000).valueOf()
@@ -130,7 +134,7 @@ export async function sendTx({
     waitTime = waitTime * exponentialFactor
     // See if the transaction is complete
     try {
-      getTransactionResponse = await server.getTransaction(
+      getTransactionResponse = await sorobanServer.getTransaction(
         sendTransactionResponse.hash
       )
     } catch (error) {
@@ -142,7 +146,7 @@ export async function sendTx({
   console.log('Transaction result is ', getTransactionResponse)
   if (
     getTransactionResponse.status ===
-    SorobanRpc.Api.GetTransactionStatus.NOT_FOUND
+    rpc.Api.GetTransactionStatus.NOT_FOUND
   ) {
     console.error(
       `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +

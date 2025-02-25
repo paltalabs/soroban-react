@@ -103,9 +103,9 @@ export const useWrappedContract = (
  * @returns The `WrappedContract` object.
  */
 export const useRegisteredContract = (contractId: string) => {
-  const { deployments, activeChain } = useSorobanReact()
+  const { deployments, activeNetwork } = useSorobanReact()
 
-  let networkPassphrase = activeChain?.networkPassphrase || ''
+  let networkPassphrase = activeNetwork || ''
 
   const deploymentInfo = getDeployment(
     deployments || [],

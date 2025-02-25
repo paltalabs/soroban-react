@@ -10,7 +10,7 @@ import * as StellarSdk from '@stellar/stellar-sdk'
  * @param {string} options.tokenAdmin - The public key of the token's administrator.
  * @param {SorobanContextType} options.sorobanContext - The Soroban context.
  * @returns {Promise<StellarSdk.TransactionResponse>} A promise that resolves with the transaction response.
- * @throws {Error} Throws an error if there is no active chain, no server connected, or if network passphrase is missing.
+ * @throws {Error} Throws an error if there is no active chain, no sorobanServer connected, or if network passphrase is missing.
  */
 export async function setTrustline({
   tokenSymbol,
@@ -21,13 +21,13 @@ export async function setTrustline({
   tokenAdmin: string
   sorobanContext: SorobanContextType
 }) {
-  const { activeChain, address, serverHorizon } = sorobanContext
-  const networkPassphrase = sorobanContext.activeChain?.networkPassphrase ?? ''
+  const { activeNetwork, address, horizonServer } = sorobanContext
+  const networkPassphrase = sorobanContext.activeNetwork ?? ''
 
-  if (!activeChain) {
+  if (!activeNetwork) {
     throw new Error('No active Chain')
   }
-  if (!serverHorizon) {
+  if (!horizonServer) {
     throw new Error('No connected to a Server')
   }
   // if (signAndSend && !secretKey && !sorobanContext.activeConnector) {
@@ -37,7 +37,7 @@ export async function setTrustline({
   // }
   if (!networkPassphrase) throw new Error('No networkPassphrase')
 
-  let source = await serverHorizon.loadAccount(address!)
+  let source = await horizonServer.loadAccount(address!)
 
   const operation = StellarSdk.Operation.changeTrust({
     source: source.accountId(),
@@ -53,20 +53,26 @@ export async function setTrustline({
     .setTimeout(StellarSdk.TimeoutInfinite)
     .build()
 
-  const signed = await sorobanContext.activeConnector?.signTransaction(
+    const signResult = await sorobanContext.kit?.signTransaction(
     txn.toXDR(),
     {
       networkPassphrase,
     }
   )
 
+  if (!signResult || !signResult.signedTxXdr) {
+    throw new Error('Failed to sign transaction')
+  }
+
+  const { signedTxXdr } = signResult
+
   const transactionToSubmit = StellarSdk.TransactionBuilder.fromXDR(
-    signed!,
+    signedTxXdr!,
     networkPassphrase
   )
 
   try {
-    let response = await serverHorizon.submitTransaction(transactionToSubmit)
+    let response = await horizonServer.submitTransaction(transactionToSubmit)
     return response
   } catch (error) {
     console.log(error)

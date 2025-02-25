@@ -37,7 +37,7 @@ export interface SendTransactionOptions {
 }
 
 /**
- * React hook for retrieving a function that can be used to send a transaction. Upon sending, it will poll server.getTransactionStatus, until the transaction succeeds/fails, and return the result.
+ * React hook for retrieving a function that can be used to send a transaction. Upon sending, it will poll sorobanServer.getTransactionStatus, until the transaction succeeds/fails, and return the result.
  * @param defaultTxn The default transaction to use.
  * @param defaultOptions The default options for sending the transaction.
  * @returns A sendTransaction function
@@ -64,7 +64,7 @@ export function useSendTransaction<E = Error>(
       }
       let txn = passedTxn ?? defaultTxn
 
-      if (!(passedOptions?.secretKey || sorobanContext?.activeConnector)) {
+      if (!(passedOptions?.secretKey || sorobanContext?.kit)) {
         throw new Error(
           'No secret key or active wallet. Provide at least one of those'
         )
@@ -72,17 +72,17 @@ export function useSendTransaction<E = Error>(
 
       if (
         !txn ||
-        !sorobanContext?.activeConnector ||
-        !sorobanContext?.activeChain
+        !sorobanContext?.kit ||
+        !sorobanContext?.activeNetwork
       ) {
         throw new Error('No transaction or wallet or chain')
       }
 
-      if (!sorobanContext.server) throw new Error('Not connected to server')
+      if (!sorobanContext.sorobanServer) throw new Error('Not connected to sorobanServer')
 
-      let activeChain = sorobanContext?.activeChain
-      let activeConnector = sorobanContext?.activeConnector
-      let server = sorobanContext?.server
+      let activeNetwork = sorobanContext?.activeNetwork
+      let activeConnector = sorobanContext?.kit
+      let sorobanServer = sorobanContext?.sorobanServer
 
       const { timeout, skipAddingFootprint } = {
         timeout: 60000,
@@ -90,8 +90,7 @@ export function useSendTransaction<E = Error>(
         ...defaultOptions,
         ...passedOptions,
       }
-      const networkPassphrase = activeChain.networkPassphrase
-
+      
       setState('loading')
 
       return await signAndSendTransaction({

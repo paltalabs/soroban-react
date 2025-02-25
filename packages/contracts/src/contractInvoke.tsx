@@ -1,7 +1,7 @@
 import { SorobanContextType } from '@soroban-react/core'
 
 import * as StellarSdk from '@stellar/stellar-sdk'
-import { SorobanRpc } from '@stellar/stellar-sdk'
+import { rpc } from '@stellar/stellar-sdk'
 
 import { contractTransaction } from './contractTransaction'
 import { signAndSendTransaction } from './transaction'
@@ -47,32 +47,27 @@ export async function contractInvoke({
   reconnectAfterTx = true,
   timeoutSeconds = 20,
 }: InvokeArgs): Promise<TxResponse | StellarSdk.xdr.ScVal> {
-  const { server, address, activeChain } = sorobanContext
+  const { sorobanServer, address, activeNetwork } = sorobanContext
 
-  if (!activeChain) {
+  if (!activeNetwork) {
     throw new Error('No active Chain')
   }
-  if (!server) {
+  if (!sorobanServer) {
     throw new Error('No connected to a Server')
   }
-  if (signAndSend && !secretKey && !sorobanContext.activeConnector) {
-    throw new Error(
-      'contractInvoke: You are trying to sign a txn without providing a source, secretKey or active connector'
-    )
-  }
 
-  const networkPassphrase = activeChain?.networkPassphrase
+  const networkPassphrase = activeNetwork;
   let source = null
 
   if (secretKey) {
-    source = await server.getAccount(
+    source = await sorobanServer.getAccount(
       StellarSdk.Keypair.fromSecret(secretKey).publicKey()
     )
   } else {
     try {
       if (!address) throw new Error('No address')
 
-      source = await server.getAccount(address)
+      source = await sorobanServer.getAccount(address)
     } catch (error) {
       source = new StellarSdk.Account(defaultAddress, '0')
     }
@@ -87,10 +82,10 @@ export async function contractInvoke({
     args,
   })
 
-  const simulated: SorobanRpc.Api.SimulateTransactionResponse =
-    await server?.simulateTransaction(txn)
+  const simulated: rpc.Api.SimulateTransactionResponse =
+    await sorobanServer?.simulateTransaction(txn)
 
-  if (SorobanRpc.Api.isSimulationError(simulated)) {
+  if (rpc.Api.isSimulationError(simulated)) {
     throw new Error(simulated.error)
   } else if (!simulated.result) {
     throw new Error(`invalid simulation: no result in ${simulated}`)

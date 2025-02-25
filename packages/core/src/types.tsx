@@ -1,5 +1,5 @@
 import { WalletNetwork, ModuleInterface, StellarWalletsKit } from "@creit.tech/stellar-wallets-kit"
-import { SorobanRpc, Horizon } from '@stellar/stellar-sdk'
+import { rpc, Horizon } from '@stellar/stellar-sdk'
 
 export  { WalletNetwork } from "@creit.tech/stellar-wallets-kit"
 
@@ -55,12 +55,14 @@ export interface SorobanContextType {
   appName?: string
   // List of chains
   allowedNetworkDetails: NetworkDetails[]
-  // List of connectors
-  connectors?: ModuleInterface[]
+  // List of modules
+  modules?: ModuleInterface[]
+  // Selected module
+  selectedModuleId?: string
   // Active chain
   activeNetwork?: WalletNetwork
   // Soroban RPC server
-  sorobanServer?: SorobanRpc.Server
+  sorobanServer?: rpc.Server
   // Stellar Horizon server
   horizonServer?: Horizon.Server
   // Function to connect to a wallet
@@ -75,3 +77,4 @@ export interface SorobanContextType {
   deployments?: ContractDeploymentInfo[]
   kit?: StellarWalletsKit
 }
+

@@ -7,16 +7,16 @@ import * as StellarSdk from '@stellar/stellar-sdk'
 import { WalletChainByName } from './provideWalletChains'
 
 export type NetworkConfig = {
-  activeChain?: WalletChain
-  server?: StellarSdk.SorobanRpc.Server
+  activeNetwork?: WalletChain
+  sorobanServer?: StellarSdk.SorobanRpc.Server
   chains: Array<WalletChain>
 }
 
 export function useNetwork(sorobanContext: SorobanContextType): NetworkConfig {
-  const { activeChain, server } = sorobanContext
+  const { activeNetwork, sorobanServer } = sorobanContext
   return {
-    activeChain,
-    server,
+    activeNetwork,
+    sorobanServer,
     chains: Object.values(WalletChainByName),
   }
 }

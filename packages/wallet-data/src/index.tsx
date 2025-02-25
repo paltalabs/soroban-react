@@ -27,7 +27,7 @@ export function WalletData({ sorobanContext }: WalletDataProps) {
 
   const { data: account } = useAccount()
 
-  const { activeChain: chain, chains } = useNetwork(sorobanContext)
+  const { activeNetwork: chain, chains } = useNetwork(sorobanContext)
 
   const unsupportedChain = chain?.unsupported
 

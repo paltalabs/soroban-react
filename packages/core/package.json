@@ -40,11 +40,8 @@
   },
   "dependencies": {
     "@creit.tech/stellar-wallets-kit": "^1.6.0",
-    "@soroban-react/freighter": "^9.1.13",
-    "@soroban-react/lobstr": "^9.1.13",
-    "@soroban-react/types": "^9.1.13",
-    "@soroban-react/xbull": "^9.3.0",
-    "@stellar/stellar-sdk": "12.2.0"
+    "@stellar/freighter-api": "^3.1.0",
+    "@stellar/stellar-sdk": "13.1.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",

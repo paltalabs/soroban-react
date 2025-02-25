@@ -12,11 +12,13 @@ import { SorobanContext } from '.'
 import {
   StellarWalletsKit,
   allowAllModules,
-  XBULL_ID,
+  FREIGHTER_ID,
   ModuleInterface,
   ISupportedWallet
 
 } from '@creit.tech/stellar-wallets-kit';
+import { isAllowed } from "@stellar/freighter-api";
+
 
 
 /**
@@ -27,19 +29,19 @@ export interface SorobanReactProviderProps {
   allowedNetworkDetails: NetworkDetails[]
   activeNetwork:  WalletNetwork
   children: React.ReactNode
-  connectors?: ModuleInterface[]
+  modules?: ModuleInterface[]
   deployments?: ContractDeploymentInfo[]
 }
 
 /**
  * Converts a Soroban RPC URL to a Soroban RPC sorobanServer object.
  * @param {string} sorobanRpcUrl - Soroban RPC URL.
- * @returns {StellarSdk.SorobanRpc.Server} - Soroban RPC sorobanServer object.
+ * @returns {StellarSdk.rpc.Server} - Soroban RPC sorobanServer object.
  */
 export function fromURLToServer(
   sorobanRpcUrl: string
-): StellarSdk.SorobanRpc.Server {
-  return new StellarSdk.SorobanRpc.Server(sorobanRpcUrl, {
+): StellarSdk.rpc.Server {
+  return new StellarSdk.rpc.Server(sorobanRpcUrl, {
     allowHttp: sorobanRpcUrl.startsWith('http://'),
   })
 }
@@ -66,19 +68,18 @@ export function SorobanReactProvider({
   appName,
   allowedNetworkDetails,
   activeNetwork = WalletNetwork.TESTNET, // Non mandatory fields default to default Context fields value
-  connectors,
+  modules,
   deployments = [],
   children,
 }: SorobanReactProviderProps) {
 
   const kit: StellarWalletsKit = new StellarWalletsKit({
     network: activeNetwork,
-    selectedWalletId: XBULL_ID,
-    modules: connectors ? connectors : allowAllModules(),
+    selectedWalletId: FREIGHTER_ID,
+    modules: modules ? modules : allowAllModules(),
   });
 
   const isConnectedRef = useRef(false)
-  console.log('SorobanReactProvider is RELOADED')
 
   const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === activeNetwork);
   if (!activeNetworkDetails) {
@@ -94,38 +95,36 @@ export function SorobanReactProvider({
       allowedNetworkDetails,
       activeNetwork,
       deployments,
-      connectors,
+      modules,
       connect: async () => {
-        console.log('ENTERING CONNECT with context: ', mySorobanContext)
         try {
           await kit.openModal({
             onWalletSelected: async (option: ISupportedWallet) => {
-              kit.setWallet(option.id);
-              const { address } = await kit.getAddress();
-              const { networkPassphrase } = await kit.getNetwork();
-              console.log("🚀 ~ onWalletSelected: ~ address:", address)
-              console.log("🚀 ~ onWalletSelected: ~ networkPassphrase:", networkPassphrase)
               
-              const networkDetails = await kit.getNetwork();
-              const activeNetwork = networkPassphrase as WalletNetwork;
+              const selectedModuleId = option.id;
+              kit.setWallet(selectedModuleId);
 
-              // maybe the wallet is connected to a network not supported for the app
-              if (
-                !allowedNetworkDetails.find(
-                  (c: any) =>
-                    c.network === activeNetwork
-                )
-              ) {
-                const error = new Error(
-                  'Your Wallet network is not supported in this app'
-                )
-                throw error
-              }
+              const { address } = await kit.getAddress();
+
+              if (selectedModuleId === FREIGHTER_ID) {
+                const { networkPassphrase } = await kit.getNetwork();
+                if (!allowedNetworkDetails.find((c: any) => c.network === networkPassphrase)) {
+                    console.error(
+                      'Your Wallet network is not supported in this app.\n' +
+                      'Please change to one of the supported networks: ',
+                      allowedNetworkDetails
+                    )
+                }
+                else {
+                  activeNetwork = networkPassphrase as WalletNetwork;
+                }
+              } 
 
               isConnectedRef.current = true
 
               setSorobanContext((c: any) => ({
                 ...c,
+                selectedModuleId,
                 activeNetwork,
                 address,
                 sorobanServer,
@@ -143,15 +142,20 @@ export function SorobanReactProvider({
       disconnect: async () => {
         isConnectedRef.current = false
         let address: string | undefined = undefined
+        let selectedModuleId: string | undefined = undefined
         setSorobanContext((c: any) => ({
           ...c,
+          selectedModuleId,
           address,
         }))
       },
 
+      // todo: set RPC urls
       setActiveNetwork: (network: WalletNetwork) => {
         const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === network);
+        
         if (!activeNetworkDetails) {
+          console.error(`Please change to one of the supported networks:`, allowedNetworkDetails)
           throw new Error(`Active network details not found for chain: ${activeNetwork}`);
         }
 
@@ -169,7 +173,7 @@ export function SorobanReactProvider({
       setActiveWalletAndConnect: async (wallet: string) => {
         console.log('Changing wallet to ', wallet)
         kit.setWallet(wallet)
-        let address = await kit.getAddress();
+        let { address } = await kit.getAddress();
         isConnectedRef.current = true
         setSorobanContext((c: any) => ({
           ...c,
@@ -177,6 +181,26 @@ export function SorobanReactProvider({
         }))
       },
     })
+
+  async function checkFreighterDisconnected(): Promise<boolean> {
+    // only for freighter
+    if (mySorobanContext.selectedModuleId !== FREIGHTER_ID) return false;
+  
+    const { isAllowed: appIsAllowed, error } = await isAllowed();
+  
+    if (error) {
+      console.error('Error checking if app is allowed:', error);
+      return false;
+    }
+  
+    if (!appIsAllowed) {
+      console.warn('App is not allowed anymore by Freighter.');
+      await mySorobanContext.disconnect();
+      return true;
+    }
+  
+    return false;
+  }
 
   // Handle changes of address in "realtime"
   React.useEffect(() => {
@@ -189,52 +213,47 @@ export function SorobanReactProvider({
     const freighterCheckIntervalMs = 200
 
     async function checkForAddressChanges() {
-      if (!mySorobanContext.kit) return
+      
+      if (!mySorobanContext.kit || !isConnectedRef.current || !mySorobanContext.selectedModuleId) return
+      if (await checkFreighterDisconnected()) return 
 
-      // For now we can only do this with freighter. xBull doesn't handle the repeated call well.
-      // else if (mySorobanContext.activeConnector.id !== 'freighter') {
-      //   return
-      // } else {
-        let hasNoticedWalletUpdate = false
+      let hasNoticedWalletUpdate = false
 
-        try {
-          // NOTICE: If the user logs out from or uninstalls the Freighter extension while they are connected
-          // on this site, then a dialog will appear asking them to sign in again. We need a way to ask Freighter
-          // if there is _any_ connected user, without actually asking them to sign in. Unfortunately, that is not
-          // supported at this time; but it would be easy to submit a PR to the extension to add support for it.
-          let { address } = await mySorobanContext.kit.getAddress()
+      try {
+        
+        // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
+        // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
+        const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
+        let { address } = await mySorobanContext.kit.getAddress()
+      
+        if (mySorobanContext.address !== address) {
+          console.log(
+            'SorobanReactProvider: address changed from:',
+            mySorobanContext.address,
+            ' to: ',
+            address
+          )
+          hasNoticedWalletUpdate = true
 
-          // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
-          // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
-
-          if (mySorobanContext.address !== address) {
-            console.log(
-              'SorobanReactProvider: address changed from:',
-              mySorobanContext.address,
-              ' to: ',
-              address
-            )
-            hasNoticedWalletUpdate = true
-
-            console.log('SorobanReactProvider: reconnecting')
-            setSorobanContext((c: any) => ({
-              ...c,
-              address,
-            }))
-          }
-        } catch (error) {
-          // I would recommend keeping the try/catch so that any exceptions in this async function
-          // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
-          // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
-
-          console.error('SorobanReactProvider: error while getting address changes: ', error)
-        } finally {
-          if (!hasNoticedWalletUpdate)
-            timeoutId = setTimeout(
-              checkForAddressChanges,
-              freighterCheckIntervalMs
-            )
+          console.log('SorobanReactProvider: reconnecting')
+          setSorobanContext((c: any) => ({
+            ...c,
+            address,
+          }))
         }
+      } catch (error) {
+        // I would recommend keeping the try/catch so that any exceptions in this async function
+        // will get handled. Otherwise React could complain. I believe that eventually it may cause huge
+        // problems, but that might be a NodeJS specific approach to exceptions not handled in promises.
+
+        console.error('SorobanReactProvider: error while getting address changes: ', error)
+      } finally {
+        if (!hasNoticedWalletUpdate)
+          timeoutId = setTimeout(
+            checkForAddressChanges,
+            freighterCheckIntervalMs
+          )
+      }
     }
 
     checkForAddressChanges()
@@ -245,51 +264,50 @@ export function SorobanReactProvider({
   }, [mySorobanContext])
 
   // Handle changes of network in "realtime" if getNetworkDetails exists
+  // this works for Freighter. We can also use this function to check
+  // for other changes in the wallet, like if the user has disconnected.
   React.useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null
     const freighterCheckIntervalMs = 200
 
     async function checkForNetworkChanges() {
-      if (!mySorobanContext.kit) return
-      // // Returns if not installed / not active / not connected (TODO: currently always isConnected=true)
-      // if (
-      //   !mySorobanContext.activeConnector ||
-      //   !mySorobanContext.activeConnector.isConnected() ||
-      //   !isConnectedRef.current ||
-      //   !mySorobanContext.activeNetwork
-      // )
-      //   return
-      // // For now we can only do this with freighter. xBull doesn't have the getNetworkDetails method exposed.
-      // else if (mySorobanContext.activeConnector.id !== 'freighter') {
-      //   return
-      // } else {
-        let hasNoticedWalletUpdate = false
+      if (
+        !mySorobanContext.kit   || 
+        !isConnectedRef.current || 
+        !mySorobanContext.selectedModuleId ||
+        // network changes are only supported by freighter
+        mySorobanContext.selectedModuleId !== FREIGHTER_ID
+      ) return
+      if (await checkFreighterDisconnected()) return 
+      
+      await checkFreighterDisconnected()
+      let hasNoticedWalletUpdate = false
 
-        try {
-          const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
-          const activeNetwork = networkPassphrase as WalletNetwork;
-          // We check that we have a valid network details and not a blank one like the one xbull connector would return
-          if (activeNetwork !== mySorobanContext.activeNetwork) {
-            console.log(
-              'SorobanReactProvider: network changed from:',
-              mySorobanContext.activeNetwork,
-              ' to: ',
-              networkPassphrase
-            )
-            hasNoticedWalletUpdate = true
-            
-            mySorobanContext.setActiveNetwork(activeNetwork)
+      try {
+        const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
+        const activeNetwork = networkPassphrase as WalletNetwork;
+        // We check that we have a valid network details and not a blank one like the one xbull connector would return
+        if (activeNetwork !== mySorobanContext.activeNetwork) {
+          console.log(
+            'SorobanReactProvider: network changed from:',
+            mySorobanContext.activeNetwork,
+            ' to: ',
+            networkPassphrase
+          )
+          hasNoticedWalletUpdate = true
+          
+          mySorobanContext.setActiveNetwork(activeNetwork)
 
-          }
-        } catch (error) {
-          console.error('SorobanReactProvider: error while getting network changes: ', error)
-        } finally {
-          if (!hasNoticedWalletUpdate)
-            timeoutId = setTimeout(
-              checkForNetworkChanges,
-              freighterCheckIntervalMs
-            )
         }
+      } catch (error) {
+        console.error('SorobanReactProvider: error while getting network changes: ', error)
+      } finally {
+        if (!hasNoticedWalletUpdate)
+          timeoutId = setTimeout(
+            checkForNetworkChanges,
+            freighterCheckIntervalMs
+          )
+      }
     }
 
     checkForNetworkChanges()

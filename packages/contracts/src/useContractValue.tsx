@@ -1,7 +1,7 @@
 import { SorobanContextType } from '@soroban-react/core'
 import React from 'react'
 
-import { SorobanRpc } from '@stellar/stellar-sdk'
+import { rpc } from '@stellar/stellar-sdk'
 import * as StellarSdk from '@stellar/stellar-sdk'
 
 import { contractTransaction } from './contractTransaction'
@@ -39,7 +39,7 @@ export function useContractValue({
   source,
   sorobanContext,
 }: useContractValueProps): ContractValueType {
-  const { activeChain, address, server } = sorobanContext
+  const { activeNetwork, address, sorobanServer } = sorobanContext
 
   const [value, setValue] = React.useState<ContractValueType>({ loading: true })
   const [xdrParams, setXdrParams] = React.useState<any>(
@@ -48,12 +48,12 @@ export function useContractValue({
 
   React.useEffect(() => {
     source = source ?? new StellarSdk.Account(address ?? defaultAddress, '0')
-    if (!activeChain) {
+    if (!activeNetwork) {
       setValue({ error: 'No active chain' })
       return
     }
-    if (!server) {
-      setValue({ error: 'Not connected to server' })
+    if (!sorobanServer) {
+      setValue({ error: 'Not connected to sorobanServer' })
       return
     }
 
@@ -61,8 +61,8 @@ export function useContractValue({
       setValue({ loading: true })
       try {
         let result = await fetchContractValue({
-          server: server,
-          networkPassphrase: activeChain.networkPassphrase,
+          sorobanServer: sorobanServer,
+          networkPassphrase: activeNetwork,
           contractAddress: contractAddress,
           method: method,
           args: args,
@@ -84,12 +84,12 @@ export function useContractValue({
     // Have this re-fetch if the contractId/method/args change. Total hack with
     // xdr-base64 to enforce real equality instead of object equality
     // shenanigans.
-  }, [contractAddress, method, xdrParams, activeChain, server, args])
+  }, [contractAddress, method, xdrParams, activeNetwork, sorobanServer, args])
   return value
 }
 
 export interface fetchContractValueProps {
-  server: SorobanRpc.Server
+  sorobanServer: rpc.Server
   networkPassphrase: string
   contractAddress: string
   method: string
@@ -99,12 +99,12 @@ export interface fetchContractValueProps {
 
 /**
  * Fetches the value of a contract method by simulating a transaction on the Soroban network.
- * @param {fetchContractValueProps} options - The options object containing server, network passphrase, contract address, method, arguments, and source account.
+ * @param {fetchContractValueProps} options - The options object containing sorobanServer, network passphrase, contract address, method, arguments, and source account.
  * @returns {Promise<StellarSdk.xdr.ScVal>} A promise that resolves with the value of the contract method.
  * @throws {Error} If the simulation encounters an error or if no result is returned.
  */
 async function fetchContractValue({
-  server,
+  sorobanServer,
   networkPassphrase,
   contractAddress,
   method,
@@ -122,9 +122,9 @@ async function fetchContractValue({
 
   let a = Math.random()
 
-  const simulated: SorobanRpc.Api.SimulateTransactionResponse =
-    await server?.simulateTransaction(txn)
-  if (SorobanRpc.Api.isSimulationError(simulated)) {
+  const simulated: rpc.Api.SimulateTransactionResponse =
+    await sorobanServer?.simulateTransaction(txn)
+  if (rpc.Api.isSimulationError(simulated)) {
     throw new Error(simulated.error)
   } else if (!simulated.result) {
     throw new Error(`invalid simulation: no result in ${simulated}`)
