@@ -1,5 +1,4 @@
-node_modules/
-packages/*/dist/
-packages/*/coverage
+/node_modules
+/dist
 .env.local
 **/yarn-error.log
