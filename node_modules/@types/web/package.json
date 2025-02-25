@@ -1,0 +1,22 @@
+{
+  "name": "@types/web",
+  "version": "0.0.174",
+  "description": "Types for the DOM, and other web technologies in browsers",
+  "license": "Apache-2.0",
+  "contributors": [],
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/TypeScript-DOM-Lib-Generator.git"
+  },
+  "typesVersions": {
+    "<=5.5": {
+      "*": [
+        "ts5.5/*"
+      ]
+    }
+  },
+  "scripts": {},
+  "dependencies": {}
+}

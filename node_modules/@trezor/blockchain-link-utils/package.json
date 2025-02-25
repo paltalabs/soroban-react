@@ -1,0 +1,36 @@
+{
+  "name": "@trezor/blockchain-link-utils",
+  "version": "1.2.6",
+  "license": "See LICENSE.md in repo root",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "publishConfig": {
+    "main": "lib/index.js"
+  },
+  "files": [
+    "lib/",
+    "!**/*.map"
+  ],
+  "scripts": {
+    "test:unit": "yarn g:jest -c ../../jest.config.base.js",
+    "depcheck": "yarn g:depcheck",
+    "type-check": "yarn g:tsc --build",
+    "build:lib": "yarn g:rimraf ./lib && yarn g:tsc --build tsconfig.lib.json && ../../scripts/replace-imports.sh ./lib",
+    "prepublishOnly": "yarn tsx ../../scripts/prepublishNPM.js",
+    "prepublish": "yarn tsx ../../scripts/prepublish.js"
+  },
+  "dependencies": {
+    "@mobily/ts-belt": "^3.13.1",
+    "@trezor/env-utils": "1.2.1",
+    "@trezor/utils": "9.2.6"
+  },
+  "devDependencies": {
+    "@trezor/blockchain-link-types": "1.2.5",
+    "@trezor/eslint": "1.0.0",
+    "@trezor/type-utils": "1.1.4",
+    "tsx": "^4.16.3"
+  },
+  "peerDependencies": {
+    "tslib": "^2.6.2"
+  }
+}

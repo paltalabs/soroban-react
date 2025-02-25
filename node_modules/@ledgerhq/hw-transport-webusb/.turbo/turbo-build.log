@@ -1,0 +1,4 @@
+
+> @ledgerhq/hw-transport-webusb@6.29.4 build /home/runner/work/ledger-live/ledger-live/libs/ledgerjs/packages/hw-transport-webusb
+> tsc && tsc -m ES6 --outDir lib-es
+

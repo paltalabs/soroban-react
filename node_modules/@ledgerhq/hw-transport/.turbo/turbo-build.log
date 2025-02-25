@@ -1,0 +1,4 @@
+
+> @ledgerhq/hw-transport@6.31.4 build /home/runner/work/ledger-live/ledger-live/libs/ledgerjs/packages/hw-transport
+> tsc && tsc -m ES6 --outDir lib-es
+

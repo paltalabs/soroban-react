@@ -1,0 +1,4 @@
+
+> @ledgerhq/logs@6.12.0 build /home/runner/work/ledger-live/ledger-live/libs/ledgerjs/packages/logs
+> tsc && tsc -m ES6 --outDir lib-es
+

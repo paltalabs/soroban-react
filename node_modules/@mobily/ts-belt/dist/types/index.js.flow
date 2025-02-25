@@ -1,0 +1,15 @@
+// @flow
+
+declare export { pipe } from "./pipe";
+declare export { flow } from "./flow";
+declare export { Option } from "./Option";
+declare export { Result, Ok, Error } from "./Result";
+declare export * as F from "./Function";
+declare export * as A from "./Array";
+declare export * as R from "./Result";
+declare export * as G from "./Guards";
+declare export * as O from "./Option";
+declare export * as S from "./String";
+declare export * as D from "./Dict";
+declare export * as B from "./Bool";
+declare export * as N from "./Number";

@@ -1,0 +1,4 @@
+
+> @ledgerhq/devices@8.4.4 build /home/runner/work/ledger-live/ledger-live/libs/ledgerjs/packages/devices
+> tsc && tsc -m ES6 --outDir lib-es
+

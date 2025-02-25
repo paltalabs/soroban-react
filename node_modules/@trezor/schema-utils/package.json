@@ -1,0 +1,36 @@
+{
+  "name": "@trezor/schema-utils",
+  "version": "1.2.3",
+  "license": "See LICENSE.md in repo root",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "publishConfig": {
+    "main": "lib/index.js"
+  },
+  "npmPublishAccess": "public",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test:unit": "yarn g:jest",
+    "depcheck": "yarn g:depcheck",
+    "type-check": "yarn g:tsc --build",
+    "build:lib": "yarn g:rimraf ./lib && yarn g:tsc --build tsconfig.lib.json && ../../scripts/replace-imports.sh ./lib",
+    "codegen": "ts-node --skip-project ./src/codegen.ts",
+    "prepublishOnly": "yarn tsx ../../scripts/prepublishNPM.js",
+    "prepublish": "yarn tsx ../../scripts/prepublish.js"
+  },
+  "devDependencies": {
+    "@sinclair/typebox-codegen": "^0.10.4",
+    "@trezor/eslint": "1.0.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.16.3"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.33.7",
+    "ts-mixer": "^6.0.3"
+  },
+  "peerDependencies": {
+    "tslib": "^2.6.2"
+  }
+}

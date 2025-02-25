@@ -1,0 +1,25 @@
+{
+  "name": "bip32-path",
+  "version": "0.4.2",
+  "description": "Bitcoin BIP32 ('HD Wallet') path helpers.",
+  "main": "index.js",
+  "author": "Alex Beregszaszi <alex@rtfs.hu>",
+  "license": "MIT",
+  "keywords": [
+    "bitcoin",
+    "bip32",
+    "hdwallet",
+    "trezor"
+  ],
+  "repository": "https://github.com/axic/bip32-path",
+  "bugs": {
+    "url": "https://github.com/axic/bip32-path/issues"
+  },
+  "homepage": "https://github.com/axic/bip32-path",
+  "scripts": {
+    "test": "mocha ./test/"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
+}

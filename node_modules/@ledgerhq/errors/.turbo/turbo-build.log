@@ -1,0 +1,4 @@
+
+> @ledgerhq/errors@6.19.1 build /home/runner/work/ledger-live/ledger-live/libs/ledgerjs/packages/errors
+> tsc && tsc -m ES6 --outDir lib-es
+

@@ -1,0 +1,41 @@
+{
+  "name": "@hot-wallet/sdk",
+  "version": "1.0.11",
+  "type": "commonjs",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    "./adapter/stellar": "./build/adapter/stellar.js",
+    "./adapter/ton": "./build/adapter/ton.js",
+    "./adapter/solana": "./build/adapter/solana.js",
+    "./adapter/near": "./build/adapter/near.js",
+    "./adapter/evm": "./build/adapter/evm.js",
+    "./nep0314": "./build/helpers/nep0314.js",
+    "./logo": "./build/logo.js",
+    "./hot": "./build/hot.js",
+    ".": "./build/index.js"
+  },
+  "directories": {
+    "build": "build"
+  },
+  "scripts": {
+    "build": "tsc",
+    "example": "cd example && yarn start"
+  },
+  "dependencies": {
+    "@near-js/crypto": "^1.4.0",
+    "@near-js/utils": "^1.0.0",
+    "@near-wallet-selector/core": "^8.9.13",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/web3.js": "^1.95.0",
+    "borsh": "^2.0.0",
+    "js-sha256": "^0.11.0",
+    "sha1": "^1.1.1",
+    "uuid4": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/sha1": "^1.1.5",
+    "@types/uuid4": "^2.0.3",
+    "typescript": "^5.2.2"
+  }
+}

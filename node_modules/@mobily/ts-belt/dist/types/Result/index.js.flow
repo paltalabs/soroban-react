@@ -1,0 +1,229 @@
+// @flow
+
+import type { Option } from "../Option";
+import type { ExtractValue } from "../types";
+export type OkType<T> = {
+  ...{
+    +TAG: 0,
+    +_0: $NonMaybeType<T>,
+    ...
+  },
+  ...{
+    __: "Ok",
+    ...
+  },
+};
+export type ErrorType<T> = {
+  ...{
+    +TAG: 1,
+    +_0: $NonMaybeType<T>,
+    ...
+  },
+  ...{
+    __: "Error",
+    ...
+  },
+};
+export type Result<A, B> = OkType<A> | ErrorType<B>;
+declare export var Ok: <T>(value: $NonMaybeType<T>) => OkType<T>;
+declare export var Error: <T>(value: $NonMaybeType<T>) => ErrorType<T>;
+/**
+ * Returns `Ok(value)` if `value` is non-nullable, otherwise, returns `Error(errorValue)`.
+ */
+declare export function fromNullable<A, B>(
+  value: A,
+  errorValue: $NonMaybeType<B>
+): Result<ExtractValue<A>, B>;
+declare export function fromNullable<A, B>(
+  errorValue: $NonMaybeType<B>
+): (value: A) => Result<ExtractValue<A>, B>;
+
+/**
+ * Returns `Ok(value)` if `value` is not falsy, otherwise, returns `Error(errorValue)`.
+ */
+declare export function fromFalsy<A, B>(
+  value: A,
+  errorValue: $NonMaybeType<B>
+): Result<ExtractValue<A>, B>;
+declare export function fromFalsy<A, B>(
+  errorValue: $NonMaybeType<B>
+): (value: A) => Result<ExtractValue<A>, B>;
+
+/**
+ * Returns `Ok(value)` if the predicate function returns `true`, otherwise, returns `Error(errorValue)`.
+ */
+declare export function fromPredicate<A, B>(
+  value: A,
+  predicateFn: (value: $NonMaybeType<A>) => boolean,
+  errorValue: $NonMaybeType<B>
+): Result<ExtractValue<A>, B>;
+declare export function fromPredicate<A, B>(
+  predicateFn: (value: $NonMaybeType<A>) => boolean,
+  errorValue: $NonMaybeType<B>
+): (value: A) => Result<ExtractValue<A>, B>;
+
+/**
+ * Returns `Ok(value)` (`value` is the result of `fn`) if `fn` didn't throw an error, otherwise, returns `Error(err)`.
+ */
+declare export function fromExecution<A>(
+  fn: () => A
+): Result<ExtractValue<A>, globalThis.Error>;
+
+/**
+ * Returns `Ok(value)` if `promise` is resolved successfully, otherwise, returns `Error(err)`.
+ */
+declare export function fromPromise<A>(
+  promise: Promise<A>
+): Promise<Result<ExtractValue<A>, globalThis.Error>>;
+
+/**
+ * Returns the result of `mapFn` if `result` is `Ok(value)`, otherwise, returns `Error(errorValue)` and `mapFn` is not called.
+ */
+declare export function map<A, B, R>(
+  result: Result<A, B>,
+  mapFn: (value: A) => $NonMaybeType<R>
+): Result<R, B>;
+declare export function map<A, B, R>(
+  mapFn: (value: A) => $NonMaybeType<R>
+): (result: Result<A, B>) => Result<R, B>;
+
+/**
+ * Returns the result of `mapFn` if `result` is `Ok(value)`, otherwise returns a default value.
+ */
+declare export function mapWithDefault<A, B, R>(
+  result: Result<A, B>,
+  defaultValue: $NonMaybeType<R>,
+  mapFn: (value: A) => $NonMaybeType<R>
+): R;
+declare export function mapWithDefault<A, B, R>(
+  defaultValue: $NonMaybeType<R>,
+  mapFn: (value: A) => $NonMaybeType<R>
+): (result: Result<A, B>) => R;
+
+/**
+ * Returns the result of `mapFn` (it must have a return type of `Result`) if `result` is `Ok(value)`, otherwise, returns `result` unchanged.
+ */
+declare export function flatMap<A, B, C>(
+  result: Result<A, B>,
+  mapFn: (value: A) => Result<C, B>
+): Result<C, B>;
+declare export function flatMap<A, B, C>(
+  mapFn: (value: A) => Result<C, B>
+): (result: Result<A, B>) => Result<C, B>;
+
+/**
+ * Returns `value` if `result` is `Ok(value)`, otherwise, throws an exception.
+ */
+declare export function getExn<A, B>(result: Result<A, B>): A | empty;
+
+/**
+ * Returns `value` if `result` is `Ok(value)`, otherwise, returns a default value.
+ */
+declare export function getWithDefault<A, B>(
+  result: Result<A, B>,
+  defaultValue: $NonMaybeType<A>
+): A;
+declare export function getWithDefault<A, B>(
+  defaultValue: $NonMaybeType<A>
+): (result: Result<A, B>) => A;
+
+/**
+ * Returns `value` if `result` is `Ok(value)`, otherwise, returns `undefined`.
+ */
+declare export function toUndefined<A, B>(result: Result<A, B>): A | void;
+
+/**
+ * Returns `value` if `result` is `Ok(value)`, otherwise, returns `null`.
+ */
+declare export function toNullable<A, B>(result: Result<A, B>): A | null;
+
+/**
+ * Returns `Some(value)` if `result` is `Ok(value)`, otherwise, returns `None`, both `Some` and `None` come from the `Option` type.
+ */
+declare export function toOption<A, B>(result: Result<A, B>): Option<A>;
+
+/**
+ * Returns the result of `okFn` if `result` is `Ok(value)`, otherwise, returns the result of `errorFn`.
+ */
+declare export function match<A, B, R>(
+  result: Result<A, B>,
+  okFn: (value: A) => R,
+  errorFn: (value: B) => R
+): R;
+declare export function match<A, B, R>(
+  okFn: (value: A) => R,
+  errorFn: (value: B) => R
+): (result: Result<A, B>) => R;
+declare export function isError<A, B>(result: Result<A, B>): boolean;
+declare export function isOk<A, B>(result: Result<A, B>): boolean;
+
+/**
+ * Applies a side-effect function to the value in `Ok`, and returns the original `result`.
+ */
+declare export function tap<A, B>(
+  result: Result<A, B>,
+  okFn: (value: A) => void
+): Result<A, B>;
+declare export function tap<A, B>(
+  okFn: (value: A) => void
+): (result: Result<A, B>) => Result<A, B>;
+
+/**
+ * Applies a side-effect function to the value in `Error`, and returns the original `result`.
+ */
+declare export function tapError<A, B>(
+  result: Result<A, B>,
+  errorFn: (err: B) => void
+): Result<A, B>;
+declare export function tapError<A, B>(
+  errorFn: (err: B) => void
+): (result: Result<A, B>) => Result<A, B>;
+
+/**
+ * Converts errors into successful values, and returns a Result where the error channel is voided, to indicate that the error has been handled.
+ */
+declare export function handleError<A, B>(
+  result: Result<A, B>,
+  mapFn: (err: B) => $NonMaybeType<A>
+): Result<A, void>;
+declare export function handleError<A, B>(
+  mapFn: (err: B) => $NonMaybeType<A>
+): (result: Result<A, B>) => Result<A, void>;
+
+/**
+ * Returns `result` unchanged if `result` is of the form `Ok`, otherwise, returns `Error(mapFn(err))`.
+ */
+declare export function mapError<A, B, C>(
+  result: Result<A, B>,
+  mapFn: (err: B) => $NonMaybeType<C>
+): Result<A, C>;
+declare export function mapError<A, B, C>(
+  mapFn: (err: B) => $NonMaybeType<C>
+): (result: Result<A, B>) => Result<A, C>;
+
+/**
+ * Returns `mapFn(err)` when `result` is of the form `Error(err)`, otherwise, returns `result` unchanged.
+ */
+declare export function catchError<A, B, C>(
+  result: Result<A, B>,
+  mapFn: (err: B) => Result<A, C>
+): Result<A, C>;
+declare export function catchError<A, B, C>(
+  mapFn: (err: B) => Result<A, C>
+): (result: Result<A, B>) => Result<A, C>;
+
+/**
+ * Ensures that the returned result is `Ok` by returning the provided result if it's already [Ok], or by falling back to the default value, which will be wrapped in the `Ok` constructor, if the provided result is an `Error`.
+ */
+declare export function recover<A, B>(
+  result: Result<A, B>,
+  defaultValue: $NonMaybeType<A>
+): Result<A, B>;
+declare export function recover<A, B>(
+  defaultValue: $NonMaybeType<A>
+): (result: Result<A, B>) => Result<A, B>;
+
+/**
+ * Swaps the values between the `Ok` and `Error`.
+ */
+declare export function flip<A, B>(result: Result<A, B>): Result<B, A>;

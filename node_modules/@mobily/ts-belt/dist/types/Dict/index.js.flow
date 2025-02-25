@@ -1,0 +1,231 @@
+// @flow
+
+import type { Option } from "../Option";
+import type { ExtractValue } from "../types";
+import type { Array } from "../types";
+
+/**
+ * Creates an empty object. Alternative for `const obj = {} as SomeObjectType`.
+ */
+declare export function makeEmpty<T>(): T;
+
+/**
+ * Returns the value if the given key exists, otherwise returns `undefined`.
+ */
+declare export function getUnsafe<T, K: $Keys<T>>(
+  dict: T,
+  key: K
+): $ElementType<T, K>;
+declare export function getUnsafe<T, K: $Keys<T>>(
+  key: K
+): (dict: T) => $ElementType<T, K>;
+
+/**
+ * Returns `Some(value)` if the given key exists, otherwise returns `None`.
+ */
+declare export function get<T, K: $Keys<T>>(
+  dict: T,
+  key: K
+): Option<ExtractValue<$ElementType<T, K>>>;
+declare export function get<T, K: $Keys<T>>(
+  key: K
+): (dict: T) => Option<ExtractValue<$ElementType<T, K>>>;
+
+/**
+ * @deprecated Use either `D.get` or `D.getUnsafe` instead.
+ */
+declare export function prop<T, K: $Keys<T>>(
+  dict: T,
+  key: K
+): $ElementType<T, K>;
+declare export function prop<T, K: $Keys<T>>(
+  key: K
+): (dict: T) => $ElementType<T, K>;
+
+/**
+ * Converts an object into an array of `[key, value]` tuples.
+ */
+declare export function toPairs<T, K: string | number>(dict: {
+  [key: K]: T,
+  ...
+}): Array<[string, T]>;
+
+/**
+ * Returns a new array that contains all values of the provided object.
+ */
+declare export function values<T: string | number, R>(dict: {
+  [key: T]: R,
+  ...
+}): Array<R>;
+
+/**
+ * Returns a new array that contains all keys of the provided object.
+ */
+declare export function keys<T: { [key: string]: mixed, ... }>(
+  dict: T
+): Array<$Keys<T>>;
+
+/**
+ * Creates a new object from an array of tuples (`[key, value]`).
+ */
+declare export function fromPairs<T, K: string | number>(
+  xs: Array<[K, T]>
+): { [key: string]: T, ... };
+
+/**
+ * Merges two provided objects.
+ */
+declare export function merge<A, B>(fst: A, snd: B): { ...A, ...B };
+declare export function merge<A, B>(snd: B): (fst: A) => { ...A, ...B };
+
+/**
+ * Adds a property. Equivalent to merging with `{key: value}`
+ */
+declare export function set<T, K: string | number, V>(
+  dict: T,
+  key: K,
+  value: V
+): { ...T, ...{ [key: K]: V, ... } };
+declare export function set<T, K: string | number, V>(
+  key: K,
+  value: V
+): (dict: T) => { ...T, ...{ [key: K]: V, ... } };
+
+/**
+ * Updates a property by applying the provided function to the corresponding optional value.
+ */
+declare export function update<T, K: $Keys<T>, R>(
+  dict: T,
+  key: K,
+  fn: (value: Option<$ElementType<T, K>>) => R
+): { ...T, ...{ [key: K]: R, ... } };
+declare export function update<T, K: $Keys<T>, R>(
+  key: K,
+  fn: (value: Option<$ElementType<T, K>>) => R
+): (dict: T) => { ...T, ...{ [key: K]: R, ... } };
+
+/**
+ * Updates a property by applying the provided function to the corresponding value.
+ */
+declare export function updateUnsafe<T, K: $Keys<T>, R>(
+  dict: T,
+  key: K,
+  fn: (value: $ElementType<T, K>) => R
+): { ...T, ...{ [key: K]: R, ... } };
+declare export function updateUnsafe<T, K: $Keys<T>, R>(
+  key: K,
+  fn: (value: $ElementType<T, K>) => R
+): (dict: T) => { ...T, ...{ [key: K]: R, ... } };
+
+/**
+ * Returns a new object with the provided key deleted.
+ */
+declare export function deleteKey<T, K: $Keys<T>>(
+  dict: T,
+  key: K
+): $Diff<T, { [key: K]: any }>;
+declare export function deleteKey<T, K: $Keys<T>>(
+  key: K
+): (dict: T) => $Diff<T, { [key: K]: any }>;
+
+/**
+ * Returns a new object with the provided keys deleted.
+ */
+declare export function deleteKeys<T, K: $Keys<T>>(
+  dict: T,
+  keys: $ReadOnlyArray<K>
+): $Diff<T, { [key: K]: any }>;
+declare export function deleteKeys<T, K: $Keys<T>>(
+  keys: $ReadOnlyArray<K>
+): (dict: T) => $Diff<T, { [key: K]: any }>;
+
+/**
+ * Transforms each value in the object to a new value using the provided function.
+ */
+declare export function map<T: { [key: string]: any, ... }, R>(
+  dict: T,
+  mapFn: (value: $ElementType<T, $Keys<T>>) => R
+): { [key: $Keys<T>]: R, ... };
+declare export function map<T: { [key: string]: any, ... }, R>(
+  mapFn: (value: $ElementType<T, $Keys<T>>) => R
+): (dict: T) => { [key: $Keys<T>]: R, ... };
+
+/**
+ * Transforms each value in the object to a new value using the provided function (which takes two arguments: a property value and key).
+ */
+declare export function mapWithKey<T: { [key: string]: any, ... }, R>(
+  dict: T,
+  mapFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => R
+): { [key: $Keys<T>]: R, ... };
+declare export function mapWithKey<T: { [key: string]: any, ... }, R>(
+  mapFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => R
+): (dict: T) => { [key: $Keys<T>]: R, ... };
+
+/**
+ * Removes each property that doesn't satisfy the given predicate function.
+ */
+declare export function filter<T: { [key: string]: any, ... }>(
+  dict: T,
+  predicateFn: (value: $ElementType<T, $Keys<T>>) => boolean
+): $Rest<T, { ... }>;
+declare export function filter<T: { [key: string]: any, ... }>(
+  predicateFn: (value: $ElementType<T, $Keys<T>>) => boolean
+): (dict: T) => $Rest<T, { ... }>;
+
+/**
+ * Removes each property that doesn't satisfy the given predicate function (which takes two arguments: a property value and key).
+ */
+declare export function filterWithKey<T: { [key: string]: any, ... }>(
+  dict: T,
+  predicateFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => boolean
+): $Rest<T, { ... }>;
+declare export function filterWithKey<T: { [key: string]: any, ... }>(
+  predicateFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => boolean
+): (dict: T) => $Rest<T, { ... }>;
+
+/**
+ * Removes each property that satisfies the given predicate function.
+ */
+declare export function reject<T: { [key: string]: any, ... }>(
+  dict: T,
+  predicateFn: (value: $ElementType<T, $Keys<T>>) => boolean
+): $Rest<T, { ... }>;
+declare export function reject<T: { [key: string]: any, ... }>(
+  predicateFn: (value: $ElementType<T, $Keys<T>>) => boolean
+): (dict: T) => $Rest<T, { ... }>;
+
+/**
+ * Removes each property that satisfies the given predicate function (which takes two arguments: a property value and key).
+ */
+declare export function rejectWithKey<T: { [key: string]: any, ... }>(
+  dict: T,
+  predicateFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => boolean
+): $Rest<T, { ... }>;
+declare export function rejectWithKey<T: { [key: string]: any, ... }>(
+  predicateFn: (key: $Keys<T>, value: $ElementType<T, $Keys<T>>) => boolean
+): (dict: T) => $Rest<T, { ... }>;
+
+/**
+ * Returns a new object with the provided keys selected.
+ */
+declare export function selectKeys<T, K: $Keys<T>>(
+  dict: T,
+  keys: $ReadOnlyArray<K>
+): Pick<T, K>;
+declare export function selectKeys<T, K: $Keys<T>>(
+  keys: $ReadOnlyArray<K>
+): (dict: T) => Pick<T, K>;
+
+/**
+ * Determines whether the given object is empty.
+ */
+declare export function isEmpty<T: { [key: string]: any, ... }>(
+  dict: T
+): boolean;
+
+/**
+ * Determines whether the given object is not empty.
+ */
+declare export function isNotEmpty<T: { [key: string]: any, ... }>(
+  dict: T
+): boolean;

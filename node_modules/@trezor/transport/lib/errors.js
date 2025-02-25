@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LIBUSB_ERROR_ACCESS = exports.ABORTED_BY_TIMEOUT = exports.ABORTED_BY_SIGNAL = exports.UNEXPECTED_ERROR = exports.HTTP_ERROR = exports.OTHER_CALL_IN_PROGRESS = exports.DEVICE_DISCONNECTED_DURING_ACTION = exports.WRONG_ENVIRONMENT = exports.WRONG_RESULT_TYPE = exports.NATIVE_INTERFACE_NOT_AVAILABLE = exports.ALREADY_LISTENING = exports.SESSION_BACKGROUND_TIMEOUT = exports.DESCRIPTOR_NOT_FOUND = exports.SESSION_NOT_FOUND = exports.SESSION_WRONG_PREVIOUS = exports.DEVICE_UNREADABLE = exports.DEVICE_NOT_FOUND = exports.INTERFACE_DATA_TRANSFER = exports.INTERFACE_UNABLE_TO_CLOSE_DEVICE = exports.INTERFACE_UNABLE_TO_OPEN_DEVICE = void 0;
+exports.INTERFACE_UNABLE_TO_OPEN_DEVICE = 'Unable to open device';
+exports.INTERFACE_UNABLE_TO_CLOSE_DEVICE = 'Unable to close device';
+exports.INTERFACE_DATA_TRANSFER = 'A transfer error has occurred.';
+exports.DEVICE_NOT_FOUND = 'device not found';
+exports.DEVICE_UNREADABLE = 'Device unreadable';
+exports.SESSION_WRONG_PREVIOUS = 'wrong previous session';
+exports.SESSION_NOT_FOUND = 'session not found';
+exports.DESCRIPTOR_NOT_FOUND = 'descriptor not found';
+exports.SESSION_BACKGROUND_TIMEOUT = 'sessions background did not respond';
+exports.ALREADY_LISTENING = 'already listening';
+exports.NATIVE_INTERFACE_NOT_AVAILABLE = 'interface not available';
+exports.WRONG_RESULT_TYPE = 'Wrong result type.';
+exports.WRONG_ENVIRONMENT = 'This transport can not be used in this environment';
+exports.DEVICE_DISCONNECTED_DURING_ACTION = 'device disconnected during action';
+exports.OTHER_CALL_IN_PROGRESS = 'other call in progress';
+exports.HTTP_ERROR = 'Network request failed';
+exports.UNEXPECTED_ERROR = 'unexpected error';
+exports.ABORTED_BY_SIGNAL = 'Aborted by signal';
+exports.ABORTED_BY_TIMEOUT = 'Aborted by timeout';
+exports.LIBUSB_ERROR_ACCESS = 'LIBUSB_ERROR_ACCESS';
+//# sourceMappingURL=errors.js.map

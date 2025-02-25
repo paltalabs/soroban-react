@@ -1,15 +1,3 @@
 {
-    "entryPoints": ["./packages/*"],
-    "entryPointStrategy": "packages",
-    "out": "docs/Technical-docs",
-    "exclude": [
-        "**/node_modules/**",
-        "**/*.spec.ts",
-        "**/dist/**"
-      ],
-    "excludeExternals": true,
-    "excludePrivate": true,
-    "readme": "./README.md",
-    "plugin": ["typedoc-plugin-remove-references","typedoc-material-theme"]
-  }
-  
+    "entryPoints": ["src/index.tsx"]
+}

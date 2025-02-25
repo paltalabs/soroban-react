@@ -1,0 +1,27 @@
+{
+  "name": "@trezor/analytics",
+  "version": "1.2.5",
+  "license": "See LICENSE.md in repo root",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "publishConfig": {
+    "main": "lib/index.js"
+  },
+  "files": [
+    "lib/",
+    "!**/*.map"
+  ],
+  "scripts": {
+    "test:unit": "yarn g:jest -c ../../jest.config.base.js",
+    "depcheck": "yarn g:depcheck",
+    "type-check": "yarn g:tsc --build",
+    "build:lib": "yarn g:rimraf lib && yarn g:tsc --build tsconfig.lib.json && ../../scripts/replace-imports.sh ./lib"
+  },
+  "dependencies": {
+    "@trezor/env-utils": "1.2.1",
+    "@trezor/utils": "9.2.5"
+  },
+  "peerDependencies": {
+    "tslib": "^2.6.2"
+  }
+}

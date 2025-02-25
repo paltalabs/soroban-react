@@ -1,0 +1,829 @@
+// @flow
+
+// see https://gist.github.com/thecotne/6e5969f4aaf8f253985ed36b30ac9fe0
+type $FlowGen$If<X: boolean, Then, Else = empty> = $Call<
+  ((true, Then, Else) => Then) & ((false, Then, Else) => Else),
+  X,
+  Then,
+  Else
+>;
+
+type $FlowGen$Assignable<A, B> = $Call<
+  ((...r: [B]) => true) & ((...r: [A]) => false),
+  A
+>;
+
+import type { Option } from "../Option";
+import type { ExtractNested } from "../types";
+import type { Array } from "../types";
+
+/**
+ * Creates an empty array. Alternative for `const xs = [] as ReadonlyArray<A>`.
+ */
+declare export function makeEmpty<A>(): Array<A>;
+
+/**
+ * Returns a new array of size `n` populated by `mapFn(index)`, or an empty array if `n` is negative.
+ */
+declare export function makeWithIndex<A>(
+  n: number,
+  mapFn: (_1: number) => A
+): Array<A>;
+declare export function makeWithIndex<A>(
+  mapFn: (_1: number) => A
+): (n: number) => Array<A>;
+
+/**
+ * Returns a new array of size `n` populated by `element`, or an empty array if `n` is negative.
+ */
+declare export function make<A>(n: number, element: A): Array<A>;
+declare export function make<A>(element: A): (n: number) => Array<A>;
+
+/**
+ * Alias for `make`.
+ */
+declare export function repeat<A>(n: number, element: A): Array<A>;
+declare export function repeat<A>(element: A): (n: number) => Array<A>;
+
+/**
+ * Returns the size of the provided array.
+ */
+declare export function length<A>(xs: Array<A>): number;
+
+/**
+ * Determines whether the given array is empty.
+ */
+declare export function isEmpty<A>(xs: Array<A>): boolean;
+
+/**
+ * Determines whether the given array is not empty.
+ */
+declare export function isNotEmpty<A>(xs: Array<A>): boolean;
+
+/**
+ * Returns a new array with the elements of the provided array in reverse order.
+ */
+declare export function reverse<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Adds a single element to the end of an array.
+ */
+declare export function append<A>(xs: Array<A>, element: A): Array<A>;
+declare export function append<A>(element: A): (xs: Array<A>) => Array<A>;
+
+/**
+ * Prepends a single element to the start of the given array.
+ */
+declare export function prepend<A>(xs: Array<A>, element: A): Array<A>;
+declare export function prepend<A>(element: A): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array which contains the given delimiter inserted before every element in the provided array.
+ */
+declare export function prependToAll<A>(xs: Array<A>, delimiter: A): Array<A>;
+declare export function prependToAll<A>(
+  delimiter: A
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array with the separator interposed between elements.
+ */
+declare export function intersperse<A>(xs: Array<A>, delimiter: A): Array<A>;
+declare export function intersperse<A>(
+  delimiter: A
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns `Some(value)` at the given index, or `None` if the given index is out of range.
+ */
+declare export function get<A>(xs: Array<A>, index: number): Option<A>;
+declare export function get<A>(index: number): (xs: Array<A>) => Option<A>;
+
+/**
+ * Alias for `get`.
+ */
+declare export function at<A>(xs: Array<A>, index: number): Option<A>;
+declare export function at<A>(index: number): (xs: Array<A>) => Option<A>;
+
+/**
+ * Returns `value` at the given index (use only if you're entirely sure that a value exists at the given index).
+ */
+declare export function getUnsafe<A>(xs: Array<A>, index: number): A;
+declare export function getUnsafe<A>(index: number): (xs: Array<A>) => A;
+
+/**
+ * Returns `value` at the given index, or `undefined` if the given index is out of range.
+ */
+declare export function getUndefined<A>(xs: Array<A>, index: number): A | void;
+declare export function getUndefined<A>(
+  index: number
+): (xs: Array<A>) => A | void;
+
+/**
+ * Returns `Some(value)` for the first element in the array that satisifies the given predicate function, or `None` if no element satisifies the predicate.
+ */
+declare export function getBy<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Option<A>;
+declare export function getBy<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Option<A>;
+
+/**
+ * Alias for `getBy`.
+ */
+declare export function find<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Option<A>;
+declare export function find<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Option<A>;
+
+/**
+ * Returns `Some(value)` where `value` is the first element of the array, or `None` if the given array is empty.
+ */
+declare export function head<A>(xs: Array<A>): Option<A>;
+
+/**
+ * Returns the last element (`Some(value)`) in the array, or `None` if the given array is empty.
+ */
+declare export function last<A>(xs: Array<A>): Option<A>;
+
+/**
+ * Returns a new array containing all but the the first element of the provided array, or `None` if the given array is empty (has no tail).
+ */
+declare export function tail<A>(xs: Array<A>): Option<Array<A>>;
+
+/**
+ * Returns a new array containing all but the first element of the provided array, or an empty array if the given array is empty (has no tail).
+ */
+declare export function tailOrEmpty<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Returns a new array (`Some(xs)`) with all elements except the last of the provided array.
+ */
+declare export function init<A>(xs: Array<A>): Option<Array<A>>;
+
+/**
+ * Returns a new array with all elements except the last of the provided array, or an empty array if the given array is empty.
+ */
+declare export function initOrEmpty<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Returns a new array including the first `n` elements of the provided array, or an empty array if `n` is either negative or greater than the length of the provided array.
+ */
+declare export function take<A>(xs: Array<A>, n: number): Array<A>;
+declare export function take<A>(n: number): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array (`Some(xs)`) with the first `n` elements of the provided array, or `None` if `n` is either negative or greater than the length of the provided array.
+ */
+declare export function takeExactly<A>(
+  xs: Array<A>,
+  n: number
+): Option<Array<A>>;
+declare export function takeExactly<A>(
+  n: number
+): (xs: Array<A>) => Option<Array<A>>;
+
+/**
+ * Returns a new array, filled with elements from the provided array until an element doesn't pass the provided predicate.
+ */
+declare export function takeWhile<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Array<A>;
+declare export function takeWhile<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array that does not contain the first `n` elements of the provided array, or an empty array if `n` is either less than `0` or greater than the length of the provided array.
+ */
+declare export function drop<A>(xs: Array<A>, n: number): Array<A>;
+declare export function drop<A>(n: number): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array (`Some(xs)`) that does not contain the first `n` elements of the provided array, or `None` if `n` is either less than `0` or greater than the length of the provided array.
+ */
+declare export function dropExactly<A>(
+  xs: Array<A>,
+  n: number
+): Option<Array<A>>;
+declare export function dropExactly<A>(
+  n: number
+): (xs: Array<A>) => Option<Array<A>>;
+
+/**
+ * Drops elements from the beginning of the array until an element is reached which does not satisfy the given predicate.
+ */
+declare export function dropWhile<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Array<A>;
+declare export function dropWhile<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Splits the provided array into head and tail parts (as a tuple), but only if the array is not empty.
+ */
+declare export function uncons<A>(xs: Array<A>): Option<[A, Array<A>]>;
+
+/**
+ * Returns a new array by calling `mapFn` for each element of the provided array.
+ */
+declare export function map<A, B>(xs: Array<A>, mapFn: (_1: A) => B): Array<B>;
+declare export function map<A, B>(
+  mapFn: (_1: A) => B
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Returns a new array by calling `mapFn` (which takes two arguments: the element from array and its index) for each element of the provided array.
+ */
+declare export function mapWithIndex<A, B>(
+  xs: Array<A>,
+  mapFn: (_1: number, _2: A) => B
+): Array<B>;
+declare export function mapWithIndex<A, B>(
+  mapFn: (_1: number, _2: A) => B
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Returns a new array that keep all elements satisfy the given predicate.
+ */
+declare export function filter<A, B: A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): Array<B>;
+declare export function filter<A, B: A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Returns a new array that keep all elements satisfy the given predicate.
+ */
+declare export function filter<A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): Array<A>;
+declare export function filter<A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Alias for `filter`.
+ */
+declare export function keep<A, B: A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): Array<B>;
+declare export function keep<A, B: A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Alias for `filter`.
+ */
+declare export function keep<A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): Array<A>;
+declare export function keep<A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array that keep all elements satisfy the given predicate (which take two arguments: the element for the array and its index).
+ */
+declare export function filterWithIndex<A, B: A>(
+  xs: Array<A>,
+  predicateFn: (index: number, value: A) => boolean
+): Array<B>;
+declare export function filterWithIndex<A, B: A>(
+  predicateFn: (index: number, value: A) => boolean
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Returns a new array that keep all elements satisfy the given predicate (which take two arguments: the element for the array and its index).
+ */
+declare export function filterWithIndex<A>(
+  xs: Array<A>,
+  predicateFn: (index: number, value: A) => boolean
+): Array<A>;
+declare export function filterWithIndex<A>(
+  predicateFn: (index: number, value: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Alias for `filterWithIndex`.
+ */
+declare export function keepWithIndex<A, B: A>(
+  xs: Array<A>,
+  predicateFn: (index: number, value: A) => boolean
+): Array<B>;
+declare export function keepWithIndex<A, B: A>(
+  predicateFn: (index: number, value: A) => boolean
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Alias for `filterWithIndex`.
+ */
+declare export function keepWithIndex<A>(
+  xs: Array<A>,
+  predicateFn: (index: number, value: A) => boolean
+): Array<A>;
+declare export function keepWithIndex<A>(
+  predicateFn: (index: number, value: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array of elements from the provided array which do not satisfy the given predicate.
+ */
+declare export function reject<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Array<A>;
+declare export function reject<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array of elements from the provided array which do not satisfy the given predicate (which take two arguments: the element for the array and its index).
+ */
+declare export function rejectWithIndex<A>(
+  xs: Array<A>,
+  predicateFn: (_1: number, _2: A) => boolean
+): Array<A>;
+declare export function rejectWithIndex<A>(
+  predicateFn: (_1: number, _2: A) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Applies `reduceFn` (which has two parameters: an `accumulator` which starts with a value of `initialValue` and the next value from the array) to each element of the provided array, and eventually it returns the final value of the accumulator.
+ */
+declare export function reduce<A, B>(
+  xs: Array<A>,
+  initialValue: B,
+  reduceFn: (_1: B, _2: A) => B
+): B;
+declare export function reduce<A, B>(
+  initialValue: B,
+  reduceFn: (_1: B, _2: A) => B
+): (xs: Array<A>) => B;
+
+/**
+ * Works like A.reduce, except that the function `reduceFn` is applied to each item of `xs` from the last back to the first.
+ */
+declare export function reduceReverse<A, B>(
+  xs: Array<A>,
+  initialValue: B,
+  reduceFn: (_1: B, _2: A) => B
+): B;
+declare export function reduceReverse<A, B>(
+  initialValue: B,
+  reduceFn: (_1: B, _2: A) => B
+): (xs: Array<A>) => B;
+
+/**
+ * Applies `reduceFn` (which has three parameters: an `accumulator` which starts with a value of `initialValue`, the next value from the array and its index) to each element of the provided array, and eventually it returns the final value of the accumulator.
+ */
+declare export function reduceWithIndex<A, B>(
+  xs: Array<A>,
+  initialValue: B,
+  reduceFn: (_1: B, _2: A, _3: number) => B
+): B;
+declare export function reduceWithIndex<A, B>(
+  initialValue: B,
+  reduceFn: (_1: B, _2: A, _3: number) => B
+): (xs: Array<A>) => B;
+
+/**
+ * Returns two arrays (`Some([xs, ys])`), with the original array divided at the given index, or `None` if the index is out of range.
+ */
+declare export function splitAt<A>(
+  xs: Array<A>,
+  offset: number
+): Option<[Array<A>, Array<A>]>;
+declare export function splitAt<A>(
+  offset: number
+): (xs: Array<A>) => Option<[Array<A>, Array<A>]>;
+
+/**
+ * Returns an array of arrays, where each of the inner arrays has length equal to the provided `size` parameter.
+ */
+declare export function splitEvery<A>(
+  xs: Array<A>,
+  size: number
+): Array<Array<A>>;
+declare export function splitEvery<A>(
+  size: number
+): (xs: Array<A>) => Array<Array<A>>;
+
+/**
+ * Returns a new array with elements in the original array randomly shuffled.
+ */
+declare export function shuffle<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Splits the provided array into two separate arrays - one containing elements which satisfy the predicate, and the other array containing the elements which do not satisfy the predicate.
+ */
+declare export function partition<A, B: A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): [Array<B>, Array<Exclude<A, B>>];
+declare export function partition<A, B: A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => [Array<B>, Array<Exclude<A, B>>];
+
+/**
+ * Splits the provided array into two separate arrays - one containing elements which satisfy the predicate, and the other array containing the elements which do not satisfy the predicate.
+ */
+declare export function partition<A>(
+  xs: Array<A>,
+  predicateFn: (value: A) => boolean
+): [Array<A>, Array<A>];
+declare export function partition<A>(
+  predicateFn: (value: A) => boolean
+): (xs: Array<A>) => [Array<A>, Array<A>];
+
+/**
+ * Returns a new array containing the concatenation of two provided arrays.
+ */
+declare export function concat<A>(xs1: Array<A>): (xs0: Array<A>) => Array<A>;
+declare export function concat<A>(xs0: Array<A>, xs1: Array<A>): Array<A>;
+
+/**
+ * Returns a new array as the concatenation of the provided array of arrays.
+ */
+declare export function concatMany<A>(xs: Array<Array<A>>): Array<A>;
+
+/**
+ * Returns `true`` if all elements satisfy the given predicate.
+ */
+declare export function every<A>(xs: Array<A>, fn: (_1: A) => boolean): boolean;
+declare export function every<A>(
+  fn: (_1: A) => boolean
+): (xs: Array<A>) => boolean;
+
+/**
+ * Returns `true` if at least one of the elements in the given array satifies the predicate.
+ */
+declare export function some<A>(xs: Array<A>, fn: (_1: A) => boolean): boolean;
+declare export function some<A>(
+  fn: (_1: A) => boolean
+): (xs: Array<A>) => boolean;
+
+/**
+ * Returns a new array with the `len` elements of the given array starting at `offset` (offset can be negative).
+ */
+declare export function slice<A>(
+  xs: Array<A>,
+  offset: number,
+  len: number
+): Array<A>;
+declare export function slice<A>(
+  offset: number,
+  len: number
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array with the elements of the given array starting at `offset` (offset can be negative).
+ */
+declare export function sliceToEnd<A>(xs: Array<A>, offset: number): Array<A>;
+declare export function sliceToEnd<A>(
+  offset: number
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns `false` if length of both arrays is not the same, otherwise compares elements one by one using the comparator.
+ */
+declare export function eq<A>(
+  xs0: Array<A>,
+  xs1: Array<A>,
+  comparatorFn: (_1: A, _2: A) => boolean
+): boolean;
+declare export function eq<A>(
+  xs1: Array<A>,
+  comparatorFn: (_1: A, _2: A) => boolean
+): (xs0: Array<A>) => boolean;
+
+/**
+ * Returns a new array of numbers from `start` (inclusive) to `finish` (exclusive).
+ */
+declare export function range(finish: number): (start: number) => Array<number>;
+declare export function range(start: number, finish: number): Array<number>;
+
+/**
+ * Returns a new array of numbers from `start` (inclusive) to `finish` (exclusive).
+ */
+declare export function rangeBy(
+  finish: number,
+  step: number
+): (start: number) => Array<number>;
+declare export function rangeBy(
+  start: number,
+  finish: number,
+  step: number
+): Array<number>;
+
+/**
+ * Returns a copy of the provided array.
+ */
+declare export function copy<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Creates a new array of pairs from corresponding elements of two provided arrays.
+ */
+declare export function zip<A, B>(
+  xs1: Array<B>
+): (xs0: Array<A>) => Array<[A, B]>;
+declare export function zip<A, B>(xs0: Array<A>, xs1: Array<B>): Array<[A, B]>;
+
+/**
+ * Creates a new array by applying `zipFn` to corresponding elements of two provided arrays.
+ */
+declare export function zipWith<A, B, C>(
+  xs0: Array<A>,
+  xs1: Array<B>,
+  zipFn: (_1: A, _2: B) => C
+): Array<C>;
+declare export function zipWith<A, B, C>(
+  xs1: Array<B>,
+  zipFn: (_1: A, _2: B) => C
+): (xs0: Array<A>) => Array<C>;
+
+/**
+ * Takes an array of pairs and creates a pair of arrays. The first array contains all the first elements of the pairs and the other one contains all the second elements.
+ */
+declare export function unzip<A, B>(xs: Array<[A, B]>): [Array<A>, Array<B>];
+
+/**
+ * Creates a new array by replacing the value at the given index with the given value (no replacement is made if the index is out of range).
+ */
+declare export function replaceAt<A>(
+  xs: Array<A>,
+  targetIndex: number,
+  element: A
+): Array<A>;
+declare export function replaceAt<A>(
+  targetIndex: number,
+  element: A
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array that inserts the given value at the given index (no insertion is made if the index is out of range).
+ */
+declare export function insertAt<A>(
+  xs: Array<A>,
+  targetIndex: number,
+  element: A
+): Array<A>;
+declare export function insertAt<A>(
+  targetIndex: number,
+  element: A
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array that replaces the value at the given index with the value returned by the provided function (the original array if the index is out of range).
+ */
+declare export function updateAt<A>(
+  xs: Array<A>,
+  targetIndex: number,
+  fn: (_1: A) => A
+): Array<A>;
+declare export function updateAt<A>(
+  targetIndex: number,
+  fn: (_1: A) => A
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array with the elements at the two given indexes swapped (the original array if the index is out of range).
+ */
+declare export function swapAt<A>(
+  xs: Array<A>,
+  targetIndex: number,
+  swapIndex: number
+): Array<A>;
+declare export function swapAt<A>(
+  targetIndex: number,
+  swapIndex: number
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array without the element at the given index (the original array if the index is out of range).
+ */
+declare export function removeAt<A>(
+  xs: Array<A>,
+  targetIndex: number
+): Array<A>;
+declare export function removeAt<A>(
+  targetIndex: number
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array containing only one copy of each element in the provided array, based upon the value returned by applying the function to each element.
+ */
+declare export function uniqBy<A, B>(
+  xs: Array<A>,
+  uniqFn: (_1: A) => B
+): Array<A>;
+declare export function uniqBy<A, B>(
+  uniqFn: (_1: A) => B
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array containing only one copy of each element in the provided array.
+ */
+declare export function uniq<A>(xs: Array<A>): Array<A>;
+
+/**
+ * Calls `fn` on each element of the provided array.
+ */
+declare export function forEach<A>(xs: Array<A>, fn: (_1: A) => void): void;
+declare export function forEach<A>(fn: (_1: A) => void): (xs: Array<A>) => void;
+
+/**
+ * Calls `fn` (which takes two arguments: the element from array and its index) on each element of the provided array.
+ */
+declare export function forEachWithIndex<A>(
+  xs: Array<A>,
+  fn: (_1: number, _2: A) => void
+): void;
+declare export function forEachWithIndex<A>(
+  fn: (_1: number, _2: A) => void
+): (xs: Array<A>) => void;
+
+/**
+ * Returns `Some(index)` for the first value in the provided array that satisifies the predicate function.
+ */
+declare export function getIndexBy<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): Option<number>;
+declare export function getIndexBy<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => Option<number>;
+
+/**
+ * Returns `true` if the provided value is equal to at least one element of the given array.
+ */
+declare export function includes<A>(xs: Array<A>, value: A): boolean;
+declare export function includes<A>(value: A): (xs: Array<A>) => boolean;
+
+/**
+ * Converts each element of the array to a string and concatenates them, separated by the given string.
+ */
+declare export function join<A>(xs: Array<A>, delimiter: string): string;
+declare export function join<A>(delimiter: string): (xs: Array<A>) => string;
+
+/**
+ * Returns a new array, sorted according to the comparator function.
+ */
+declare export function sort<A>(
+  xs: Array<A>,
+  sortFn: (_1: A, _2: A) => number
+): Array<A>;
+declare export function sort<A>(
+  sortFn: (_1: A, _2: A) => number
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new array, sorted according to the provided function.
+ */
+declare export function sortBy<A, B>(
+  xs: Array<A>,
+  sortFn: (_1: A) => B
+): Array<A>;
+declare export function sortBy<A, B>(
+  sortFn: (_1: A) => B
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Splits the given array into sub-arrays in an object, grouped by the result of running each value through the provided function.
+ */
+declare export function groupBy<A, B: PropertyKey>(
+  xs: Array<A>,
+  groupFn: (item: A) => B
+): $Rest<{ [key: B]: [A] & A[], ... }, { ... }>;
+declare export function groupBy<A, B: PropertyKey>(
+  groupFn: (item: A) => B
+): (xs: Array<A>) => $Rest<{ [key: B]: [A] & A[], ... }, { ... }>;
+
+/**
+ * Creates a new array with all sub-array elements concatenated into it (the single level depth).
+ */
+declare export function flat<A>(
+  xs: Array<A>
+): Array<$FlowGen$If<$FlowGen$Assignable<A, Array<B>>, B, A>>;
+
+/**
+ * Creates a new array with all sub-array elements concatenated into it recursively up to the `Infinite` depth.
+ */
+declare export function deepFlat<A>(xs: Array<A>): Array<ExtractNested<A>>;
+
+/**
+ * Converts the given array to the TypeScript's tuple.
+ */
+declare export function toTuple<T: Array<any>>(xs: [] & T): [] & T;
+
+/**
+ * Applies a side-effect function on each element of the provided array.
+ */
+declare export function tap<A>(xs: Array<A>, fn: (_1: A) => void): Array<A>;
+declare export function tap<A>(fn: (_1: A) => void): (xs: Array<A>) => Array<A>;
+
+/**
+ * Returns a new tuple with the reverse order of the elements.
+ */
+declare export function flip<A, B>(xs: [A, B]): [B, A];
+
+/**
+ * Returns a new array that keep all elements that return `Some(value)` applied within `predicateFn`.
+ */
+declare export function filterMap<A, B>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => Option<B>
+): Array<B>;
+declare export function filterMap<A, B>(
+  predicateFn: (_1: A) => Option<B>
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Alias for `filterMap`.
+ */
+declare export function keepMap<A, B>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => Option<B>
+): Array<B>;
+declare export function keepMap<A, B>(
+  predicateFn: (_1: A) => Option<B>
+): (xs: Array<A>) => Array<B>;
+
+/**
+ * Removes the first occurrence of the given value from the array, using the given equality function.
+ */
+declare export function removeFirstBy<A, B>(
+  xs: Array<A>,
+  value: B,
+  predicateFn: (_1: A, _2: B) => boolean
+): Array<A>;
+declare export function removeFirstBy<A, B>(
+  value: B,
+  predicateFn: (_1: A, _2: B) => boolean
+): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a copy of the given array with the first occurrence of the given element removed
+ */
+declare export function removeFirst<A>(xs: Array<A>, value: A): Array<A>;
+declare export function removeFirst<A>(value: A): (xs: Array<A>) => Array<A>;
+
+/**
+ * Creates a new array of each value paired with its index in a tuple.
+ */
+declare export function zipWithIndex<A>(xs: Array<A>): Array<[A, number]>;
+
+/**
+ * Returns `true` if all elements of the array match the predicate function, otherwise, returns `false`.
+ */
+declare export function all<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): boolean;
+declare export function all<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => boolean;
+
+/**
+ * Returns `true` if at least one of the elements of the array match the predicate function, otherwise, returns `false`.
+ */
+declare export function any<A>(
+  xs: Array<A>,
+  predicateFn: (_1: A) => boolean
+): boolean;
+declare export function any<A>(
+  predicateFn: (_1: A) => boolean
+): (xs: Array<A>) => boolean;
+
+/**
+ * Returns elements from the first array, not existing in the second array.
+ */
+declare export function difference<A>(ys: Array<A>): (xs: Array<A>) => Array<A>;
+declare export function difference<A>(xs: Array<A>, ys: Array<A>): Array<A>;
+
+/**
+ * Returns union of two arrays.
+ */
+declare export function union<A>(ys: Array<A>): (xs: Array<A>) => Array<A>;
+declare export function union<A>(xs: Array<A>, ys: Array<A>): Array<A>;
+
+/**
+ * Returns intersection of two arrays.
+ */
+declare export function intersection<A>(
+  ys: Array<A>
+): (xs: Array<A>) => Array<A>;
+declare export function intersection<A>(xs: Array<A>, ys: Array<A>): Array<A>;

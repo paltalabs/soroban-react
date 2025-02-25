@@ -1,0 +1,25 @@
+{
+  "name": "@trezor/connect-analytics",
+  "version": "1.2.4",
+  "license": "See LICENSE.md in repo root",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "publishConfig": {
+    "main": "lib/index.js"
+  },
+  "files": [
+    "lib/",
+    "!**/*.map"
+  ],
+  "scripts": {
+    "depcheck": "yarn g:depcheck",
+    "type-check": "yarn g:tsc --build",
+    "build:lib": "yarn g:rimraf lib && yarn g:tsc --build tsconfig.lib.json && ../../scripts/replace-imports.sh ./lib"
+  },
+  "dependencies": {
+    "@trezor/analytics": "1.2.5"
+  },
+  "peerDependencies": {
+    "tslib": "^2.6.2"
+  }
+}
