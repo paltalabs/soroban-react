@@ -17,7 +17,7 @@
   ],
   "license": "Apache-2.0",
   "repository": "github:paltalabs/soroban-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -33,9 +33,9 @@
     "@creit.tech/stellar-wallets-kit": "^1.6.0",
     "@stellar/freighter-api": "^3.1.0",
     "@stellar/stellar-sdk": "13.1.0",
+    "@types/react": "^19.0.10",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "@types/react": "^19.0.10"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.22.5",
