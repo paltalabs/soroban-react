@@ -62,9 +62,9 @@ export interface SorobanContextType {
   // Active chain
   activeNetwork?: WalletNetwork
   // Soroban RPC server
-  sorobanServer?: rpc.Server
+  sorobanServer: rpc.Server
   // Stellar Horizon server
-  horizonServer?: Horizon.Server
+  horizonServer: Horizon.Server
   // Function to connect to a wallet
   connect: () => Promise<void>
   // Function to disconnect from a wallet

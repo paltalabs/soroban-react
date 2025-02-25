@@ -34,17 +34,40 @@ export interface SorobanReactProviderProps {
 }
 
 /**
- * Converts a Soroban RPC URL to a Soroban RPC sorobanServer object.
+ * Converts a Soroban RPC URL to a Soroban RPC Server object.
  * @param {string} sorobanRpcUrl - Soroban RPC URL.
- * @returns {StellarSdk.rpc.Server} - Soroban RPC sorobanServer object.
+ * @returns {StellarSdk.rpc.Server} - Soroban RPC Server object.
  */
-export function fromURLToServer(
-  sorobanRpcUrl: string
-): StellarSdk.rpc.Server {
-  return new StellarSdk.rpc.Server(sorobanRpcUrl, {
-    allowHttp: sorobanRpcUrl.startsWith('http://'),
-  })
+export function fromURLToServer(sorobanRpcUrl: string): StellarSdk.rpc.Server {
+  let opts = undefined;
+
+  // Allow HTTP only if the URL starts with "http://"
+  if (sorobanRpcUrl.startsWith("http://")) {
+    opts = { allowHttp: true };
+  }
+  opts = {
+    allowHttp: false,  // Use HTTPS (Ankr does not support HTTP)
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ /* request payload */ }),
+  };
+  
+
+  // Validate and sanitize the RPC URL
+  let sanitizedRpcUrl = sorobanRpcUrl;
+  try {
+    const url = new URL(sorobanRpcUrl);
+    sanitizedRpcUrl = url.toString();
+  } catch (error) {
+    console.error("Invalid Soroban RPC URL:", error);
+    throw new Error("Invalid Soroban RPC URL provided.");
+  }
+
+  // Initialize Soroban RPC Server
+  return new StellarSdk.rpc.Server(sanitizedRpcUrl, opts);
 }
+
 
 /**
  * Converts a horizon network URL to a Horizon sorobanServer object.
@@ -86,8 +109,8 @@ export function SorobanReactProvider({
     throw new Error(`Active network details not found for chain: ${activeNetwork}`);
   }
 
-  const sorobanServer = fromURLToServer(activeNetworkDetails.sorobanRpcUrl);
-  const horizonServer = fromURLToHorizonServer(activeNetworkDetails.horizonRpcUrl);
+  let sorobanServer = fromURLToServer(activeNetworkDetails.sorobanRpcUrl);
+  let horizonServer = fromURLToHorizonServer(activeNetworkDetails.horizonRpcUrl);
 
   const [mySorobanContext, setSorobanContext] =
     React.useState<SorobanContextType>({
@@ -96,6 +119,8 @@ export function SorobanReactProvider({
       activeNetwork,
       deployments,
       modules,
+      sorobanServer,
+      horizonServer,
       connect: async () => {
         try {
           await kit.openModal({
@@ -108,19 +133,22 @@ export function SorobanReactProvider({
 
               if (selectedModuleId === FREIGHTER_ID) {
                 const { networkPassphrase } = await kit.getNetwork();
-                if (!allowedNetworkDetails.find((c: any) => c.network === networkPassphrase)) {
-                    console.error(
-                      'Your Wallet network is not supported in this app.\n' +
-                      'Please change to one of the supported networks: ',
-                      allowedNetworkDetails
-                    )
+                const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === networkPassphrase);
+
+                if (!activeNetworkDetails) {
+                    throw new Error(`Your Wallet network is not supported in this app. Please change to one of the supported networks: ${allowedNetworkDetails}`)
                 }
                 else {
                   activeNetwork = networkPassphrase as WalletNetwork;
+                  sorobanServer = fromURLToServer(activeNetworkDetails.sorobanRpcUrl);
+                  horizonServer = fromURLToHorizonServer(activeNetworkDetails.horizonRpcUrl);
+                  
                 }
               } 
-
+              
               isConnectedRef.current = true
+              
+              
 
               setSorobanContext((c: any) => ({
                 ...c,
@@ -136,7 +164,7 @@ export function SorobanReactProvider({
                   });
         }
         catch(e){
-          console.log("Failled to connect wallet kit with error: ", e)
+          console.log("Failed to connect wallet kit with error: ", e)
         }
       },
       disconnect: async () => {
@@ -223,6 +251,7 @@ export function SorobanReactProvider({
         
         // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
         // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
+        // use https://docs.freighter.app/docs/guide/usingFreighterWebApp#watchwalletchanges
         const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
         let { address } = await mySorobanContext.kit.getAddress()
       
@@ -235,7 +264,6 @@ export function SorobanReactProvider({
           )
           hasNoticedWalletUpdate = true
 
-          console.log('SorobanReactProvider: reconnecting')
           setSorobanContext((c: any) => ({
             ...c,
             address,
@@ -295,9 +323,24 @@ export function SorobanReactProvider({
             networkPassphrase
           )
           hasNoticedWalletUpdate = true
-          
-          mySorobanContext.setActiveNetwork(activeNetwork)
 
+          const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === networkPassphrase);
+                  
+          if (!activeNetworkDetails) {
+            console.error(`Please change to one of the supported networks:`, allowedNetworkDetails)
+            throw new Error(`Active network details not found for chain: ${activeNetwork}`);
+          }
+  
+          const sorobanServer = fromURLToServer(activeNetworkDetails.sorobanRpcUrl);
+          const horizonServer = fromURLToHorizonServer(activeNetworkDetails.horizonRpcUrl);
+  
+          setSorobanContext((c: any) => ({
+            ...c,
+            sorobanServer,
+            horizonServer,
+            activeNetwork,
+          }))
+          
         }
       } catch (error) {
         console.error('SorobanReactProvider: error while getting network changes: ', error)
