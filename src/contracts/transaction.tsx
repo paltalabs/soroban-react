@@ -2,7 +2,8 @@ import { SorobanContextType } from '..'
 
 import * as StellarSdk from '@stellar/stellar-sdk'
 import { rpc } from '@stellar/stellar-sdk'
-import { Sign } from 'crypto'
+import { retryWithBackoff } from './utils'
+
 
 import type { Tx, Transaction, TxResponse } from './types'
 
@@ -113,15 +114,15 @@ export async function sendTx({
 }: {
   tx: Tx
   secondsToWait: number
-  sorobanServer: StellarSdk.rpc.Server
+  sorobanServer: rpc.Server
 }): Promise<TxResponse> {
-  let sendTransactionResponse = await sorobanServer.sendTransaction(tx);
+  let sendTransactionResponse = await retryWithBackoff(() => sorobanServer.sendTransaction(tx));
   let startTime = Date.now();
 
   // Poll for transaction status, retrying for up to `secondsToWait`
   while (sendTransactionResponse.status !== 'PENDING' && Date.now() - startTime < secondsToWait * 1000) {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    sendTransactionResponse = await sorobanServer.sendTransaction(tx);
+    sendTransactionResponse = await await retryWithBackoff(() => sorobanServer.sendTransaction(tx));
   }
 
   if (sendTransactionResponse.status !== 'PENDING') {
@@ -129,12 +130,12 @@ export async function sendTx({
     throw Error (`Failed to send transaction: ${sendTransactionResponse.hash}`);
   }
 
-  let getTransactionResponse = await sorobanServer.getTransaction(sendTransactionResponse.hash);
+  let getTransactionResponse = await retryWithBackoff(() => sorobanServer.getTransaction(sendTransactionResponse.hash));
 
   // Poll for transaction confirmation
   while (getTransactionResponse.status === 'NOT_FOUND') {
     await new Promise(resolve => setTimeout(resolve, 1000));
-    getTransactionResponse = await sorobanServer.getTransaction(sendTransactionResponse.hash);
+    getTransactionResponse = await retryWithBackoff(() => sorobanServer.getTransaction(sendTransactionResponse.hash));
   }
 
   if (getTransactionResponse.status === 'SUCCESS') {
