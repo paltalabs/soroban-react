@@ -1,3 +1,4 @@
+# We wont support this library any more, please check https://github.com/paltalabs/soroban-react-stellar-wallets-kit
 # @soroban-react
 
 @soroban-react is a simple, powerful framework for building modern Soroban dApps using React.
