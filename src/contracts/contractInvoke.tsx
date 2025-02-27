@@ -9,6 +9,37 @@ import { TxResponse } from './types'
 
 let xdr = StellarSdk.xdr
 
+async function simulateTransactionWithRetry(
+  sorobanServer: StellarSdk.rpc.Server,
+  txn: StellarSdk.Transaction,
+  maxRetries = 3,
+  delay = 1000 // 1 second
+): Promise<rpc.Api.SimulateTransactionResponse> {
+  let attempts = 0;
+  
+  while (attempts < maxRetries) {
+    try {
+      const simulated: rpc.Api.SimulateTransactionResponse =
+        await sorobanServer.simulateTransaction(txn);
+      return simulated; // Success, return the result
+    } catch (error) {
+      attempts++;
+      console.error(`Attempt ${attempts} failed:`, error);
+
+      if (attempts >= maxRetries) {
+        throw new Error(`Failed after ${maxRetries} attempts: ${error}`);
+      }
+
+      // Wait before retrying
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
+  throw new Error("Unexpected error: reached unreachable code.");
+}
+
+
+
 /**
  * Arguments for invoking a smart contract method call.
  */
@@ -47,13 +78,7 @@ export async function contractInvoke({
   reconnectAfterTx = true,
   timeoutSeconds = 20,
 }: InvokeArgs): Promise<TxResponse | StellarSdk.xdr.ScVal> {
-  console.log("🚀 ~ contractInvoke() contractAddress:", contractAddress)
-  const { sorobanServer, address, activeNetwork } = sorobanContext
-  console.log("🚀 ~ contractInvoke() sorobanServer:", sorobanServer)
-  console.log("🚀 ~ contractInvoke() activeNetwork:", activeNetwork)
-  console.log("🚀 ~ contractInvoke() address:", address)
-  
-  
+  const { sorobanServer, address, activeNetwork } = sorobanContext  
 
   if (!activeNetwork) {
 
@@ -74,14 +99,12 @@ export async function contractInvoke({
         )
       } else {
           if (!address) throw new Error('No address')
-            console.log("🚀 ~ contractInvoke() !address:", !address)
             try {
                 source = await sorobanServer.getAccount(address)
             } catch (e) {
               console.log('Error getting account', e)
               throw new Error('Error getting account')
             }
-            console.log("🚀 ~ contractInvoke() !address:", !address)
 
       }
     } else {
@@ -98,9 +121,10 @@ export async function contractInvoke({
     method,
     args,
   })
+  
 
-  const simulated: rpc.Api.SimulateTransactionResponse =
-    await sorobanServer?.simulateTransaction(txn)
+  const simulated: rpc.Api.SimulateTransactionResponse = 
+    await simulateTransactionWithRetry(sorobanServer, txn)
 
   if (rpc.Api.isSimulationError(simulated)) {
     throw new Error(simulated.error)
