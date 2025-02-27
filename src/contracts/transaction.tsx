@@ -24,7 +24,7 @@ export type SignAndSendArgs = {
  * @returns {Promise<TxResponse>} A promise that resolves with the transaction response.
  * @throws {Error} Throws an error if no secret key or active connector is provided, or if there is no sorobanServer or network passphrase.
  */
-export async function signAndSendTransaction({
+export async function signAndSendTransaction({ 
   txn,
   secretKey,
   skipAddingFootprint = false,
@@ -115,45 +115,34 @@ export async function sendTx({
   secondsToWait: number
   sorobanServer: StellarSdk.rpc.Server
 }): Promise<TxResponse> {
-  const sendTransactionResponse = await sorobanServer.sendTransaction(tx)
-  let getTransactionResponse = await sorobanServer.getTransaction(
-    sendTransactionResponse.hash
-  )
-  const waitUntil = new Date(Date.now() + secondsToWait * 1000).valueOf()
+  let sendTransactionResponse = await sorobanServer.sendTransaction(tx);
+  let startTime = Date.now();
 
-  let waitTime = 1000
-  let exponentialFactor = 1.5
-
-  while (
-    Date.now() < waitUntil &&
-    getTransactionResponse.status === 'NOT_FOUND'
-  ) {
-    // Wait a beat
-    await new Promise(resolve => setTimeout(resolve, waitTime))
-    /// Exponential backoff
-    waitTime = waitTime * exponentialFactor
-    // See if the transaction is complete
-    try {
-      getTransactionResponse = await sorobanServer.getTransaction(
-        sendTransactionResponse.hash
-      )
-    } catch (error) {
-      console.log('Failed to get transaction, trying again until timeout...')
-      console.error(error)
-    }
+  // Poll for transaction status, retrying for up to `secondsToWait`
+  while (sendTransactionResponse.status !== 'PENDING' && Date.now() - startTime < secondsToWait * 1000) {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    sendTransactionResponse = await sorobanServer.sendTransaction(tx);
   }
 
-  console.log('Transaction result is ', getTransactionResponse)
-  if (
-    getTransactionResponse.status ===
-    rpc.Api.GetTransactionStatus.NOT_FOUND
-  ) {
-    console.error(
-      `Waited ${secondsToWait} seconds for transaction to complete, but it did not. ` +
-        `Returning anyway. Check the transaction status manually. ` +
-        `Info: ${JSON.stringify(sendTransactionResponse, null, 2)}`
-    )
+  if (sendTransactionResponse.status !== 'PENDING') {
+    console.error('Failed to send transaction: ', sendTransactionResponse.hash);
+    throw Error (`Failed to send transaction: ${sendTransactionResponse.hash}`);
   }
 
-  return { ...getTransactionResponse, txHash: sendTransactionResponse.hash }
+  let getTransactionResponse = await sorobanServer.getTransaction(sendTransactionResponse.hash);
+
+  // Poll for transaction confirmation
+  while (getTransactionResponse.status === 'NOT_FOUND') {
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    getTransactionResponse = await sorobanServer.getTransaction(sendTransactionResponse.hash);
+  }
+
+  if (getTransactionResponse.status === 'SUCCESS') {
+    console.log('✅ Successfully submitted transaction:', sendTransactionResponse.hash);
+    await new Promise(resolve => setTimeout(resolve, 500)); // Ensure data propagation
+  } else {
+    console.error(`❌ Transaction failed: `, sendTransactionResponse.hash);
+  }
+
+  return { ...getTransactionResponse, txHash: sendTransactionResponse.hash };
 }
