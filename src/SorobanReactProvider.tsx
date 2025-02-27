@@ -305,6 +305,10 @@ export function SorobanReactProvider({
 
       try {
         const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
+        if (!networkPassphrase) {
+          console.error('SorobanReactProvider: networkPassphrase is empty')
+          return
+        }
         const activeNetwork = networkPassphrase as WalletNetwork;
         // We check that we have a valid network details and not a blank one like the one xbull connector would return
         if (activeNetwork !== mySorobanContext.activeNetwork) {
