@@ -1,12 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   ContractDeploymentInfo, 
   NetworkDetails, 
   WalletNetwork, 
-  SorobanContextType } from './types'
+  SorobanContextType 
+} from './types'
 
 import * as StellarSdk from '@stellar/stellar-sdk'
-
 import { SorobanContext } from '.'
 
 import {
@@ -14,73 +14,48 @@ import {
   allowAllModules,
   FREIGHTER_ID,
   ModuleInterface,
-  ISupportedWallet
-
+  ISupportedWallet,
+  XBULL_ID
 } from '@creit.tech/stellar-wallets-kit';
 import { isAllowed } from "@stellar/freighter-api";
 
-
-
-/**
- * Props for the SorobanReactProvider component.
- */
 export interface SorobanReactProviderProps {
   appName?: string
   allowedNetworkDetails: NetworkDetails[]
-  activeNetwork:  WalletNetwork
+  activeNetwork: WalletNetwork
   children: React.ReactNode
   modules?: ModuleInterface[]
   deployments?: ContractDeploymentInfo[]
 }
-
 /**
  * Converts a Soroban RPC URL to a Soroban RPC Server object.
  * @param {string} sorobanRpcUrl - Soroban RPC URL.
  * @returns {StellarSdk.rpc.Server} - Soroban RPC Server object.
  */
 export function fromURLToServer(sorobanRpcUrl: string): StellarSdk.rpc.Server {
-  let opts = undefined;
-
-  // Allow HTTP only if the URL starts with "http://"
-  if (sorobanRpcUrl.startsWith("http://")) {
-    opts = { allowHttp: true };
-  }
-  opts = {
-    allowHttp: false,  // Use HTTPS (Ankr does not support HTTP)
+  let opts = {
+    allowHttp: sorobanRpcUrl.startsWith("http://"),
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ /* request payload */ }),
+    body: JSON.stringify({}),
   };
-  
 
-  // Validate and sanitize the RPC URL
-  let sanitizedRpcUrl = sorobanRpcUrl;
   try {
     const url = new URL(sorobanRpcUrl);
-    sanitizedRpcUrl = url.toString();
+    return new StellarSdk.rpc.Server(url.toString(), opts);
   } catch (error) {
     console.error("Invalid Soroban RPC URL:", error);
     throw new Error("Invalid Soroban RPC URL provided.");
   }
-
-  // Initialize Soroban RPC Server
-  return new StellarSdk.rpc.Server(sanitizedRpcUrl, opts);
 }
 
-
-/**
- * Converts a horizon network URL to a Horizon sorobanServer object.
- * @param {string} networkUrl - Network URL.
- * @returns {StellarSdk.Horizon.Server} - Horizon sorobanServer object.
- */
-export function fromURLToHorizonServer(
-  networkUrl: string
-): StellarSdk.Horizon.Server {
+export function fromURLToHorizonServer(networkUrl: string): StellarSdk.Horizon.Server {
   return new StellarSdk.Horizon.Server(networkUrl, {
     allowHttp: networkUrl.startsWith('http://'),
-  })
+  });
 }
+
 
 /**
  * SorobanReactProvider component.
@@ -96,15 +71,13 @@ export function SorobanReactProvider({
   children,
 }: SorobanReactProviderProps) {
 
-  const kit: StellarWalletsKit = new StellarWalletsKit({
-    network: activeNetwork,
-    selectedWalletId: FREIGHTER_ID,
-    modules: modules ? modules : allowAllModules(),
-  });
-
+  const kitRef = useRef<StellarWalletsKit | null>(null);
   const isConnectedRef = useRef(false)
 
-  const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === activeNetwork);
+  const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find(
+    (details) => details.network === activeNetwork
+  );
+
   if (!activeNetworkDetails) {
     throw new Error(`Active network details not found for chain: ${activeNetwork}`);
   }
@@ -112,8 +85,7 @@ export function SorobanReactProvider({
   let sorobanServer = fromURLToServer(activeNetworkDetails.sorobanRpcUrl);
   let horizonServer = fromURLToHorizonServer(activeNetworkDetails.horizonRpcUrl);
 
-  const [mySorobanContext, setSorobanContext] =
-    React.useState<SorobanContextType>({
+  const [mySorobanContext, setSorobanContext] = useState<SorobanContextType>({
       appName,
       allowedNetworkDetails,
       activeNetwork,
@@ -121,18 +93,25 @@ export function SorobanReactProvider({
       modules,
       sorobanServer,
       horizonServer,
+      selectedModuleId: undefined,
       connect: async () => {
         try {
-          await kit.openModal({
+          kitRef.current = new StellarWalletsKit({
+            network: activeNetwork,
+            selectedWalletId: XBULL_ID,
+            modules: modules ? modules : allowAllModules(),
+          });
+
+          await kitRef.current.openModal({
             onWalletSelected: async (option: ISupportedWallet) => {
               
               const selectedModuleId = option.id;
-              kit.setWallet(selectedModuleId);
+              kitRef.current.setWallet(selectedModuleId);
 
-              const { address } = await kit.getAddress();
+              const { address } = await kitRef.current.getAddress();
 
               if (selectedModuleId === FREIGHTER_ID) {
-                const { networkPassphrase } = await kit.getNetwork();
+                const { networkPassphrase } = await kitRef.current.getNetwork();
                 const activeNetworkDetails: NetworkDetails | undefined = allowedNetworkDetails.find((allowedNetworkDetails) => allowedNetworkDetails.network === networkPassphrase);
 
                 if (!activeNetworkDetails) {
@@ -157,7 +136,7 @@ export function SorobanReactProvider({
                 address,
                 sorobanServer,
                 horizonServer,
-                kit
+                kit: kitRef.current
               }))
               
             },
@@ -169,13 +148,15 @@ export function SorobanReactProvider({
       },
       disconnect: async () => {
         isConnectedRef.current = false
-        let address: string | undefined = undefined
-        let selectedModuleId: string | undefined = undefined
+        kitRef.current = null; // Reset the kit reference
+
         setSorobanContext((c: any) => ({
           ...c,
-          selectedModuleId,
-          address,
-        }))
+          selectedModuleId: undefined,
+          address: undefined,
+          kit: null, // Also remove kit from context if necessary
+        }));
+
       },
 
       // todo: set RPC urls
@@ -199,9 +180,16 @@ export function SorobanReactProvider({
       },
 
       setActiveWalletAndConnect: async (wallet: string) => {
+        if (!kitRef.current) {
+          kitRef.current = new StellarWalletsKit({
+            network: activeNetwork,
+            selectedWalletId: XBULL_ID,
+            modules: modules ? modules : allowAllModules(),
+          });
+        }
         console.log('Changing wallet to ', wallet)
-        kit.setWallet(wallet)
-        let { address } = await kit.getAddress();
+        kitRef.current.setWallet(wallet)
+        let { address } = await kitRef.current.getAddress();
         isConnectedRef.current = true
         setSorobanContext((c: any) => ({
           ...c,
@@ -242,7 +230,12 @@ export function SorobanReactProvider({
 
     async function checkForAddressChanges() {
       
+      
       if (!mySorobanContext.kit || !isConnectedRef.current || !mySorobanContext.selectedModuleId) return
+
+      // TODO Something is going on that when .getAddress() is called and xbull is open, it closes the modal!
+      if (mySorobanContext.selectedModuleId !== FREIGHTER_ID) return
+
       if (await checkFreighterDisconnected()) return 
 
       let hasNoticedWalletUpdate = false
@@ -252,7 +245,6 @@ export function SorobanReactProvider({
         // TODO: If you want to know when the user has disconnected, then you can set a timeout for getPublicKey.
         // If it doesn't return in X milliseconds, you can be pretty confident that they aren't connected anymore.
         // use https://docs.freighter.app/docs/guide/usingFreighterWebApp#watchwalletchanges
-        const {networkPassphrase } = await mySorobanContext.kit.getNetwork()
         let { address } = await mySorobanContext.kit.getAddress()
       
         if (mySorobanContext.address !== address) {
