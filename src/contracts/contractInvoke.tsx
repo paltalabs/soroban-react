@@ -47,7 +47,11 @@ export async function contractInvoke({
   reconnectAfterTx = true,
   timeoutSeconds = 20,
 }: InvokeArgs): Promise<TxResponse | StellarSdk.xdr.ScVal> {
+  console.log("🚀 ~ contractInvoke() contractAddress:", contractAddress)
   const { sorobanServer, address, activeNetwork } = sorobanContext
+  console.log("🚀 ~ contractInvoke() sorobanServer:", sorobanServer)
+  console.log("🚀 ~ contractInvoke() activeNetwork:", activeNetwork)
+  console.log("🚀 ~ contractInvoke() address:", address)
   
   
 
@@ -63,24 +67,28 @@ export async function contractInvoke({
   const networkPassphrase = activeNetwork;
   let source = null
 
-  if (secretKey) {
-    source = await sorobanServer.getAccount(
-      StellarSdk.Keypair.fromSecret(secretKey).publicKey()
-    )
-  } else {
+  if (signAndSend) {
+    if (secretKey) {
+        source = await sorobanServer.getAccount(
+          StellarSdk.Keypair.fromSecret(secretKey).publicKey()
+        )
+      } else {
+          if (!address) throw new Error('No address')
+            console.log("🚀 ~ contractInvoke() !address:", !address)
+            try {
+                source = await sorobanServer.getAccount(address)
+            } catch (e) {
+              console.log('Error getting account', e)
+              throw new Error('Error getting account')
+            }
+            console.log("🚀 ~ contractInvoke() !address:", !address)
 
-    try {
-  
-      if (!address) throw new Error('No address')
-  
-
-  
-      source = await sorobanServer.getAccount(address)
-  
-    } catch (error) {
-      source = new StellarSdk.Account(defaultAddress, '0')
-    }
+      }
+    } else {
+    source = new StellarSdk.Account(defaultAddress, '0')
   }
+
+  
 
   //Builds the transaction
   let txn = contractTransaction({
