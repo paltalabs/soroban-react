@@ -58,7 +58,7 @@ export interface SorobanContextType {
   // List of modules
   modules?: ModuleInterface[]
   // Selected module
-  selectedModuleId?: string
+  selectedModuleId: string | undefined
   // Active chain
   activeNetwork?: WalletNetwork
   // Soroban RPC server
